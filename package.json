@@ -1,0 +1,10 @@
+{
+  "name": "thesis_algorithms",
+  "private": true,
+  "scripts": {},
+  "workspaces": [
+    "typescript-algorithms",
+    "assemblyscript-algorithms",
+    "c-algorithms"
+  ]
+}

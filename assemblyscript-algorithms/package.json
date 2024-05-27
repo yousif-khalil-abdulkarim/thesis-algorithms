@@ -1,0 +1,8 @@
+{
+  "name": "assemblyscript-algorithms",
+  "private": true,
+  "scripts": {},
+  "devDependencies": {
+    "assemblyscript": "^0.27.27"
+  }
+}
