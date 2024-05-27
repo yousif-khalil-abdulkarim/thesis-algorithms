@@ -1,6 +1,6 @@
 #ifndef AVERAGE
 #define AVERAGE
-#include "src/data-types.h"
+#include "shared.h"
 u64 average_uint64_c(u64* array, int arrayLength);
 i64 average_int64_c(i64* array, int arrayLength);
 f64 average_float64_c(f64* array, int arrayLength);

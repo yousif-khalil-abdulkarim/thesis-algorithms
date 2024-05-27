@@ -1,4 +1,4 @@
-#include "src/basic/max/max.h";
+#include "basic/max/max.h";
 
 u64 max_uint64_c(u64* array, int arrayLength) {
     u64 max = array[0];

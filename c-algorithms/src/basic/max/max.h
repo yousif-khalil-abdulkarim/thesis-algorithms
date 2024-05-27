@@ -1,6 +1,6 @@
 #ifndef MAX
 #define MAX
-#include "src/data-types.h"
+#include "shared.h"
 u64 max_uint64_c(u64* array, int arrayLength);
 i64 max_int64_c(i64* array, int arrayLength);
 f64 max_float64_c(f64* array, int arrayLength);

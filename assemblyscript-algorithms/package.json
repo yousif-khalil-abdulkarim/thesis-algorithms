@@ -1,7 +1,10 @@
 {
   "name": "assemblyscript-algorithms",
+  "type": "module",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "build": "npx asc src/algorithms/index.ts --shrinkLevel 3 --optimizeLevel 3 --target release"
+  },
   "devDependencies": {
     "assemblyscript": "^0.27.27"
   }

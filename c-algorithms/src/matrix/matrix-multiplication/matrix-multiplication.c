@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "src/matrix/matrix-multiplication/matrix-multiplication.h";
+#include "matrix/matrix-multiplication/matrix-multiplication.h";
 
 u64** matrixMultiplication_uint64_c(u64** matrixA, u64** matrixB, int matrixAWidth, int matrixAHeight, int matrixBWidth) {
    int m = matrixAWidth;
@@ -17,7 +17,7 @@ u64** matrixMultiplication_uint64_c(u64** matrixA, u64** matrixB, int matrixAWid
             for (int k = 0 ; k < m; k++) {
                 u64 Aik = matrixA[i][k];
                 u64 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }
@@ -40,7 +40,7 @@ i64** matrixMultiplication_int64_c(i64** matrixA, u64** matrixB, int matrixAWidt
             for (int k = 0 ; k < m; k++) {
                 i64 Aik = matrixA[i][k];
                 i64 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }
@@ -63,7 +63,7 @@ f64** matrixMultiplication_float64_c(f64** matrixA, u64** matrixB, int matrixAWi
             for (int k = 0 ; k < m; k++) {
                 f64 Aik = matrixA[i][k];
                 f64 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }
@@ -86,7 +86,7 @@ f32** matrixMultiplication_float32_c(f32** matrixA, u64** matrixB, int matrixAWi
             for (int k = 0 ; k < m; k++) {
                 f32 Aik = matrixA[i][k];
                 f32 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }
@@ -109,7 +109,7 @@ u32** matrixMultiplication_uint32_c(u32** matrixA, u64** matrixB, int matrixAWid
             for (int k = 0 ; k < m; k++) {
                 u32 Aik = matrixA[i][k];
                 u32 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }
@@ -132,7 +132,7 @@ i32** matrixMultiplication_int32_c(i32** matrixA, u64** matrixB, int matrixAWidt
             for (int k = 0 ; k < m; k++) {
                 i32 Aik = matrixA[i][k];
                 i32 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }
@@ -155,7 +155,7 @@ u16** matrixMultiplication_uint16_c(u16** matrixA, u64** matrixB, int matrixAWid
             for (int k = 0 ; k < m; k++) {
                 u16 Aik = matrixA[i][k];
                 u16 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }
@@ -178,7 +178,7 @@ i16** matrixMultiplication_int16_c(i16** matrixA, u64** matrixB, int matrixAWidt
             for (int k = 0 ; k < m; k++) {
                 i16 Aik = matrixA[i][k];
                 i16 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }
@@ -201,7 +201,7 @@ u8** matrixMultiplication_uint8_c(u8** matrixA, u64** matrixB, int matrixAWidth,
             for (int k = 0 ; k < m; k++) {
                 u8 Aik = matrixA[i][k];
                 u8 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }
@@ -224,7 +224,7 @@ i8** matrixMultiplication_int8_c(i8** matrixA, u64** matrixB, int matrixAWidth, 
             for (int k = 0 ; k < m; k++) {
                 i8 Aik = matrixA[i][k];
                 i8 Bkj = matrixB[k][j];
-                sum = Aik + Bkj;
+                sum += Aik * Bkj;
             }
             c[i][j] = sum;
         }

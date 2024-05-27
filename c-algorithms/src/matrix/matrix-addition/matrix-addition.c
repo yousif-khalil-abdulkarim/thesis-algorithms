@@ -1,7 +1,7 @@
 #include <stdlib.h>
-#include "src/matrix/matrix-addition/matrix-addition.h";
+#include "matrix/matrix-addition/matrix-addition.h";
 
-u64** matrixAddition_uint64_c(u64** matrixA, u64** matrixB, int height, int width) {
+u64** matrixAddition_uint64_c(u64** matrixA, u64** matrixB, int width, int height) {
     u64** newMatrix = (u64**)malloc(height * sizeof(u64*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (u64*)malloc(width * sizeof(u64));
@@ -11,7 +11,7 @@ u64** matrixAddition_uint64_c(u64** matrixA, u64** matrixB, int height, int widt
     }
     return newMatrix;
 }
-i64** matrixAddition_int64_c(i64** matrixA, i64** matrixB, int height, int width) {
+i64** matrixAddition_int64_c(i64** matrixA, i64** matrixB, int width, int height) {
     i64** newMatrix = (i64**)malloc(height * sizeof(i64*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (i64*)malloc(width * sizeof(i64));
@@ -21,7 +21,7 @@ i64** matrixAddition_int64_c(i64** matrixA, i64** matrixB, int height, int width
     }
     return newMatrix;
 }
-f64** matrixAddition_float64_c(f64** matrixA, f64** matrixB, int height, int width) {
+f64** matrixAddition_float64_c(f64** matrixA, f64** matrixB, int width, int height) {
     f64** newMatrix = (f64**)malloc(height * sizeof(f64*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (f64*)malloc(width * sizeof(f64));
@@ -31,7 +31,7 @@ f64** matrixAddition_float64_c(f64** matrixA, f64** matrixB, int height, int wid
     }
     return newMatrix;
 }
-f32** matrixAddition_float32_c(f32** matrixA, f32** matrixB, int height, int width) {
+f32** matrixAddition_float32_c(f32** matrixA, f32** matrixB, int width, int height) {
     f32** newMatrix = (f32**)malloc(height * sizeof(f32*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (f32*)malloc(width * sizeof(f32));
@@ -41,7 +41,7 @@ f32** matrixAddition_float32_c(f32** matrixA, f32** matrixB, int height, int wid
     }
     return newMatrix;
 }
-u32** matrixAddition_uint32_c(u32** matrixA, u32** matrixB, int height, int width) {
+u32** matrixAddition_uint32_c(u32** matrixA, u32** matrixB, int width, int height) {
     u32** newMatrix = (u32**)malloc(height * sizeof(u32*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (u32*)malloc(width * sizeof(u32));
@@ -51,7 +51,7 @@ u32** matrixAddition_uint32_c(u32** matrixA, u32** matrixB, int height, int widt
     }
     return newMatrix;
 }
-i32** matrixAddition_int32_c(i32** matrixA, i32** matrixB, int height, int width) {
+i32** matrixAddition_int32_c(i32** matrixA, i32** matrixB, int width, int height) {
     i32** newMatrix = (i32**)malloc(height * sizeof(i32*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (i32*)malloc(width * sizeof(i32));
@@ -61,7 +61,7 @@ i32** matrixAddition_int32_c(i32** matrixA, i32** matrixB, int height, int width
     }
     return newMatrix;
 }
-u16** matrixAddition_uint16_c(u16** matrixA, u16** matrixB, int height, int width) {
+u16** matrixAddition_uint16_c(u16** matrixA, u16** matrixB, int width, int height) {
     u16** newMatrix = (u16**)malloc(height * sizeof(u16*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (u16*)malloc(width * sizeof(u16));
@@ -71,7 +71,7 @@ u16** matrixAddition_uint16_c(u16** matrixA, u16** matrixB, int height, int widt
     }
     return newMatrix;
 }
-i16** matrixAddition_int16_c(i16** matrixA, i16** matrixB, int height, int width) {
+i16** matrixAddition_int16_c(i16** matrixA, i16** matrixB, int width, int height) {
     i16** newMatrix = (i16**)malloc(height * sizeof(i16*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (i16*)malloc(width * sizeof(i16));
@@ -81,7 +81,7 @@ i16** matrixAddition_int16_c(i16** matrixA, i16** matrixB, int height, int width
     }
     return newMatrix;
 }
-u8** matrixAddition_uint8_c(u8** matrixA, u8** matrixB, int height, int width) {
+u8** matrixAddition_uint8_c(u8** matrixA, u8** matrixB, int width, int height) {
     u8** newMatrix = (u8**)malloc(height * sizeof(u8*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (u8*)malloc(width * sizeof(u8));
@@ -91,7 +91,7 @@ u8** matrixAddition_uint8_c(u8** matrixA, u8** matrixB, int height, int width) {
     }
     return newMatrix;
 }
-i8** matrixAddition_int8_c(i8** matrixA, i8** matrixB, int height, int width) {
+i8** matrixAddition_int8_c(i8** matrixA, i8** matrixB, int width, int height) {
     i8** newMatrix = (i8**)malloc(height * sizeof(i8*));
     for (int i = 0; i < height; i++) {
         newMatrix[i] = (i8*)malloc(width * sizeof(i8));

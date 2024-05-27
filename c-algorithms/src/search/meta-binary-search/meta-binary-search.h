@@ -1,6 +1,6 @@
 #ifndef META_BINARY_SEARCH
 #define META_BINARY_SEARCH
-#include "src/data-types.h"
+#include "shared.h"
 int metaBinarySearch_uint64_c(u64* array, int arrayLength, u64 target);
 int metaBinarySearch_int64_c(i64* array, int arrayLength, i64 target);
 int metaBinarySearch_float64_c(f64* array, int arrayLength, f64 target);

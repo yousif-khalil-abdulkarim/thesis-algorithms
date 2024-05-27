@@ -1,4 +1,4 @@
-#include "src/basic/sum/sum.h";
+#include "basic/sum/sum.h";
 
 u64 sum_uint64_c(u64* array, int arrayLength) {
     u64 sum = array[0];

@@ -1,123 +1,543 @@
 #include <stdlib.h>
-#include "src/sort/merge-sort/merge-sort.h";
+#include <math.h>
+#include "sort/merge-sort/merge-sort.h";
 
-u64* mergeSort_uint64_c(u64* array1, int array1Length, u64* array2, int array2Length) {
-    u64* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (u64**)malloc((mergedArrayLength) * sizeof(u64));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
+void merge_uint64_c(u64* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    u64* L = (u64*)malloc(n1 * sizeof(u64));
+    u64* R = (u64*)malloc(n2 * sizeof(u64));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
     }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
     }
-    return mergedArray;
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
 }
-i64* mergeSort_int64_c(i64* array1, int array1Length, i64* array2, int array2Length) {
-    i64* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (i64**)malloc((mergedArrayLength) * sizeof(i64));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
-    }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
-    }
-    return mergedArray;
+void _mergeSort_uint64_c(u64* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_uint64_c(arr, l, m);
+  _mergeSort_uint64_c(arr, m + 1, r);
+  merge_uint64_c(arr, l, m, r);
 }
-f64* mergeSort_float64_c(f64* array1, int array1Length, f64* array2, int array2Length) {
-    f64* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (f64**)malloc((mergedArrayLength) * sizeof(f64));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
-    }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
-    }
-    return mergedArray;
+u64* mergeSort_uint64_c(u64* arr, int arrayLength) {
+  _mergeSort_uint64_c(arr, 0, arrayLength - 1);
+  return arr;
 }
-f32* mergeSort_float32_c(f32* array1, int array1Length, f32* array2, int array2Length) {
-    f32* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (f32**)malloc((mergedArrayLength) * sizeof(f32));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
+
+void merge_int64_c(i64* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    i64* L = (i64*)malloc(n1 * sizeof(i64));
+    i64* R = (i64*)malloc(n2 * sizeof(i64));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
     }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
     }
-    return mergedArray;
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
 }
-u32* mergeSort_uint32_c(u32* array1, int array1Length, u32* array2, int array2Length) {
-    u32* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (u32**)malloc((mergedArrayLength) * sizeof(u32));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
-    }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
-    }
-    return mergedArray;
+void _mergeSort_int64_c(i64* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_int64_c(arr, l, m);
+  _mergeSort_int64_c(arr, m + 1, r);
+  merge_int64_c(arr, l, m, r);
 }
-i32* mergeSort_int32_c(i32* array1, int array1Length, i32* array2, int array2Length) {
-    i32* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (i32**)malloc((mergedArrayLength) * sizeof(i32));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
-    }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
-    }
-    return mergedArray;
+i64* mergeSort_int64_c(i64* arr, int arrayLength) {
+  _mergeSort_int64_c(arr, 0, arrayLength - 1);
+  return arr;
 }
-u16* mergeSort_uint16_c(u16* array1, int array1Length, u16* array2, int array2Length) {
-    u16* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (u16**)malloc((mergedArrayLength) * sizeof(u16));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
+
+void merge_float64_c(f64* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    f64* L = (f64*)malloc(n1 * sizeof(f64));
+    f64* R = (f64*)malloc(n2 * sizeof(f64));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
     }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
     }
-    return mergedArray;
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
 }
-i16* mergeSort_int16_c(i16* array1, int array1Length, i16* array2, int array2Length) {
-    i16* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (i16**)malloc((mergedArrayLength) * sizeof(i16));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
-    }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
-    }
-    return mergedArray;
+void _mergeSort_float64_c(f64* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_float64_c(arr, l, m);
+  _mergeSort_float64_c(arr, m + 1, r);
+  merge_float64_c(arr, l, m, r);
 }
-u8* mergeSort_uint8_c(u8* array1, int array1Length, u8* array2, int array2Length) {
-    u8* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (u8**)malloc((mergedArrayLength) * sizeof(u8));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
-    }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
-    }
-    return mergedArray;
+f64* mergeSort_float64_c(f64* arr, int arrayLength) {
+  _mergeSort_float64_c(arr, 0, arrayLength - 1);
+  return arr;
 }
-i8* mergeSort_int8_c(i8* array1, int array1Length, i8* array2, int array2Length) {
-    i8* mergedArray;
-    int mergedArrayLength = array1Length + array2Length;
-    mergedArray = (i8**)malloc((mergedArrayLength) * sizeof(i8));
-    for (int i = 0; i < array1Length; i++) {
-        mergedArray[i] = array1[i];
+
+void merge_float32_c(f32* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    f32* L = (f32*)malloc(n1 * sizeof(f32));
+    f32* R = (f32*)malloc(n2 * sizeof(f32));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
     }
-    for (int i = array1Length; i < mergedArrayLength; i++) {
-        mergedArray[i] = array2[i - array1Length];
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
     }
-    return mergedArray;
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
+}
+void _mergeSort_float32_c(f32* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_float32_c(arr, l, m);
+  _mergeSort_float32_c(arr, m + 1, r);
+  merge_float32_c(arr, l, m, r);
+}
+f32* mergeSort_float32_c(f32* arr, int arrayLength) {
+  _mergeSort_float32_c(arr, 0, arrayLength - 1);
+  return arr;
+}
+
+void merge_uint32_c(u32* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    u32* L = (u32*)malloc(n1 * sizeof(u32));
+    u32* R = (u32*)malloc(n2 * sizeof(u32));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
+}
+void _mergeSort_uint32_c(u32* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_uint32_c(arr, l, m);
+  _mergeSort_uint32_c(arr, m + 1, r);
+  merge_uint32_c(arr, l, m, r);
+}
+u32* mergeSort_uint32_c(u32* arr, int arrayLength) {
+  _mergeSort_uint32_c(arr, 0, arrayLength - 1);
+  return arr;
+}
+
+void merge_int32_c(i32* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    i32* L = (i32*)malloc(n1 * sizeof(i32));
+    i32* R = (i32*)malloc(n2 * sizeof(i32));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
+}
+void _mergeSort_int32_c(i32* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_int32_c(arr, l, m);
+  _mergeSort_int32_c(arr, m + 1, r);
+  merge_int32_c(arr, l, m, r);
+}
+i32* mergeSort_int32_c(i32* arr, int arrayLength) {
+  _mergeSort_int32_c(arr, 0, arrayLength - 1);
+  return arr;
+}
+
+void merge_uint16_c(u16* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    u16* L = (u16*)malloc(n1 * sizeof(u16));
+    u16* R = (u16*)malloc(n2 * sizeof(u16));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
+}
+void _mergeSort_uint16_c(u16* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_uint16_c(arr, l, m);
+  _mergeSort_uint16_c(arr, m + 1, r);
+  merge_uint16_c(arr, l, m, r);
+}
+u16* mergeSort_uint16_c(u16* arr, int arrayLength) {
+  _mergeSort_uint16_c(arr, 0, arrayLength - 1);
+  return arr;
+}
+
+void merge_int16_c(i16* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    i16* L = (i16*)malloc(n1 * sizeof(i16));
+    i16* R = (i16*)malloc(n2 * sizeof(i16));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
+}
+void _mergeSort_int16_c(i16* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_int16_c(arr, l, m);
+  _mergeSort_int16_c(arr, m + 1, r);
+  merge_int16_c(arr, l, m, r);
+}
+i16* mergeSort_int16_c(i16* arr, int arrayLength) {
+  _mergeSort_int16_c(arr, 0, arrayLength - 1);
+  return arr;
+}
+
+void merge_uint8_c(u8* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    u8* L = (u8*)malloc(n1 * sizeof(u8));
+    u8* R = (u8*)malloc(n2 * sizeof(u8));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
+}
+void _mergeSort_uint8_c(u8* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_uint8_c(arr, l, m);
+  _mergeSort_uint8_c(arr, m + 1, r);
+  merge_uint8_c(arr, l, m, r);
+}
+u8* mergeSort_uint8_c(u8* arr, int arrayLength) {
+  _mergeSort_uint8_c(arr, 0, arrayLength - 1);
+  return arr;
+}
+
+void merge_int8_c(i8* arr, int l, int m, int r) {
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    i8* L = (i8*)malloc(n1 * sizeof(i8));
+    i8* R = (i8*)malloc(n2 * sizeof(i8));
+
+    for (int i = 0; i < n1; i++) L[i] = arr[l + i];
+    for (int j = 0; j < n2; j++) R[j] = arr[m + 1 + j];
+
+    int i = 0;
+    int j = 0;
+    int k = l;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+    
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+   
+    free(L);
+    free(R);
+}
+void _mergeSort_int8_c(i8* arr, int l, int r) {
+  if (l >= r) {
+    return;
+  }
+  int m = l + floor((r - l) / 2);
+  _mergeSort_int8_c(arr, l, m);
+  _mergeSort_int8_c(arr, m + 1, r);
+  merge_int8_c(arr, l, m, r);
+}
+i8* mergeSort_int8_c(i8* arr, int arrayLength) {
+  _mergeSort_int8_c(arr, 0, arrayLength - 1);
+  return arr;
 }

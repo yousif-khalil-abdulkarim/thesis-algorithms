@@ -1,6 +1,6 @@
 #ifndef BINARY_SEARCH
 #define BINARY_SEARCH
-#include "src/data-types.h"
+#include "shared.h"
 int binarySearch_uint64_c(u64* array, int arrayLength, u64 target);
 int binarySearch_int64_c(i64* array, int arrayLength, i64 target);
 int binarySearch_float64_c(f64* array, int arrayLength, f64 target);

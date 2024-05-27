@@ -1,6 +1,6 @@
 #ifndef MIN
 #define MIN
-#include "src/data-types.h"
+#include "shared.h"
 u64 min_uint64_c(u64* array, int arrayLength);
 i64 min_int64_c(i64* array, int arrayLength);
 f64 min_float64_c(f64* array, int arrayLength);

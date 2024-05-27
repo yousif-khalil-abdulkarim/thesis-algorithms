@@ -1,4 +1,4 @@
-#include "src/search/binary-search/binary-search.h";
+#include "search/binary-search/binary-search.h";
 
 int binarySearch_uint64_c(u64* array, int arrayLength, u64 target) {
     int l = 0;

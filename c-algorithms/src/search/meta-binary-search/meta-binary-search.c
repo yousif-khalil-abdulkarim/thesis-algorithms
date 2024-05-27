@@ -1,5 +1,5 @@
-#include <cmath>
-#include "src/search/meta-binary-search/meta-binary-search.h";
+#include <math.h> 
+#include "search/meta-binary-search/meta-binary-search.h";
 
 int metaBinarySearch_uint64_c(u64* array, int arrayLength, u64 target) {
     int n = arrayLength;

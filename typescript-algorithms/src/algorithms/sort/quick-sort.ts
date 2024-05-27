@@ -1,6 +1,6 @@
 import { swapTwo } from "../shared";
 
-function getPivotIndex_float64_js<
+function getPivotIndex<
   T extends
     | BigUint64Array
     | BigInt64Array
@@ -13,7 +13,7 @@ function getPivotIndex_float64_js<
     | Uint8Array
     | Int8Array
 >(array: T, start: number = 0, end: number = array.length - 1): number {
-  let swapIdx: number = start;
+  let swapIdx = start;
   let pivotValue = array[start];
   for (let i = start + 1; i <= end; i++) {
     if (array[i] < pivotValue) {
@@ -38,9 +38,9 @@ function _quickSort<
     | Int8Array
 >(array: T, left: number, right: number): T {
   if (left < right) {
-    let pivotIndex = getPivotIndex_float64_js(array, left, right);
-    getPivotIndex_float64_js(array, left, pivotIndex - 1);
-    getPivotIndex_float64_js(array, pivotIndex + 1, right);
+    let pivotIndex = getPivotIndex(array, left, right);
+    _quickSort(array, left, pivotIndex - 1);
+    _quickSort(array, pivotIndex + 1, right);
   }
   return array;
 }

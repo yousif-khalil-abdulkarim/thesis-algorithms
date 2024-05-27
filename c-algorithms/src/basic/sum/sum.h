@@ -1,6 +1,6 @@
 #ifndef SUM
 #define SUM
-#include "src/data-types.h"
+#include "shared.h"
 u64 sum_uint64_c(u64* array, int arrayLength);
 i64 sum_int64_c(i64* array, int arrayLength);
 f64 sum_float64_c(f64* array, int arrayLength);

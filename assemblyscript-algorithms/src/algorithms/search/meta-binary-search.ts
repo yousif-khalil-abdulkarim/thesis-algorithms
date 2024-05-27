@@ -3,7 +3,7 @@ export function metaBinarySearch_uint64_asm(
   target: u64
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {
@@ -21,7 +21,7 @@ export function metaBinarySearch_int64_asm(
   target: i64
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {
@@ -39,7 +39,7 @@ export function metaBinarySearch_float64_asm(
   target: f64
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {
@@ -57,7 +57,7 @@ export function metaBinarySearch_float32_asm(
   target: f32
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {
@@ -75,7 +75,7 @@ export function metaBinarySearch_uint32_asm(
   target: u32
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {
@@ -93,7 +93,7 @@ export function metaBinarySearch_int32_asm(
   target: i32
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {
@@ -111,7 +111,7 @@ export function metaBinarySearch_uint16_asm(
   target: u16
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {
@@ -129,7 +129,7 @@ export function metaBinarySearch_int16_asm(
   target: i16
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {
@@ -147,7 +147,7 @@ export function metaBinarySearch_uint8_asm(
   target: u8
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {
@@ -165,7 +165,7 @@ export function metaBinarySearch_int8_asm(
   target: i8
 ): i32 {
   let n = array.length;
-  let lg = Math.log(n - 1) / Math.log(2) + 1;
+  let lg = <i32>(NativeMath.log(n - 1) / NativeMath.log(2) + 1);
 
   let pos = 0;
   for (let i = lg; i >= 0; i--) {

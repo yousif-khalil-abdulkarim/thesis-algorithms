@@ -46,7 +46,7 @@ export function binarySearch_float64_asm(
   let r = array.length - 1;
   let mid = -1;
   while (r >= l) {
-    mid = l + Math.floor((r - l) / 2);
+    mid = l + floor((r - l) / 2);
     if (array[mid] == target) {
       return mid;
     }
@@ -66,7 +66,7 @@ export function binarySearch_float32_asm(
   let r = array.length - 1;
   let mid = -1;
   while (r >= l) {
-    mid = l + Math.floor((r - l) / 2);
+    mid = l + floor((r - l) / 2);
     if (array[mid] == target) {
       return mid;
     }

@@ -1,4 +1,4 @@
-#include "src/basic/min/min.h";
+#include "basic/min/min.h";
 
 u64 min_uint64_c(u64* array, int arrayLength) {
     u64 min = array[0];

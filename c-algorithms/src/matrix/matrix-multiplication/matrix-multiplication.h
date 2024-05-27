@@ -1,6 +1,6 @@
 #ifndef MATRIX_MULTIPLICATION
 #define MATRIX_MULTIPLICATION
-#include "src/data-types.h"
+#include "shared.h"
 u64** matrixMultiplication_uint64_c(u64* matrixA, u64** matrixB, int matrixAWidth, int matrixAHeight, int matrixBWidth);
 i64** matrixMultiplication_int64_c(i64* matrixA, u64** matrixB, int matrixAWidth, int matrixAHeight, int matrixBWidth);
 f64** matrixMultiplication_float64_c(f64* matrixA, u64** matrixB, int matrixAWidth, int matrixAHeight, int matrixBWidth);
