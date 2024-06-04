@@ -1,13 +1,11 @@
 {
-    "files.associations": {
-        "sum.h": "c",
-        "data-types.h": "c",
-        "max.h": "c",
-        "meta-binary-search.h": "c",
-        "cmath": "c",
-        "interpolation-search.h": "c",
-        "bubble-sort.h": "c",
-        "shared.h": "c",
-        "stdlib.h": "c"
-    }
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.embeddedhtml": "html",
+    "functional": "cpp",
+    "random": "cpp"
+  },
 }

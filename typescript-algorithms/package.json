@@ -2,7 +2,7 @@
   "name": "typescript-algorithms",
   "private": true,
   "scripts": {
-    "check": "npx tsc"
+    "build": "npx tsc"
   },
   "devDependencies": {
     "ts-node": "^10.9.2",

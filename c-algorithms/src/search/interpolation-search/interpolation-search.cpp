@@ -1,6 +1,6 @@
 #include "search/interpolation-search/interpolation-search.h";
 
-int _interpolationSearch_uint64_c(u64* array, int startOffset, int endOffset, u64 target) {
+int _interpolationSearch_u64_c(u64* array, int startOffset, int endOffset, u64 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -19,20 +19,20 @@ int _interpolationSearch_uint64_c(u64* array, int startOffset, int endOffset, u6
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_uint64_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_u64_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_uint64_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_u64_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_uint64_c(u64* array, int arrayLenth, u64 target) {
-    return _interpolationSearch_uint64_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_u64_c(struct Array1d_u64* array, u64 target) {
+    return _interpolationSearch_u64_c(array->items, 0, array->length - 1, target);
 }
-int _interpolationSearch_int64_c(i64* array, int startOffset, int endOffset, i64 target) {
+int _interpolationSearch_i64_c(i64* array, int startOffset, int endOffset, i64 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -51,20 +51,20 @@ int _interpolationSearch_int64_c(i64* array, int startOffset, int endOffset, i64
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_int64_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_i64_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_int64_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_i64_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_int64_c(i64* array, int arrayLenth, i64 target) {
-    return _interpolationSearch_int64_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_i64_c(struct Array1d_i64* array, i64 target) {
+    return _interpolationSearch_i64_c(array->items, 0, array->length - 1, target);
 }
-int _interpolationSearch_float64_c(f64* array, int startOffset, int endOffset, f64 target) {
+int _interpolationSearch_f64_c(f64* array, int startOffset, int endOffset, f64 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -83,20 +83,20 @@ int _interpolationSearch_float64_c(f64* array, int startOffset, int endOffset, f
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_float64_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_f64_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_float64_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_f64_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_float64_c(f64* array, int arrayLenth, f64 target) {
-    return _interpolationSearch_float64_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_f64_c(struct Array1d_f64* array, f64 target) {
+    return _interpolationSearch_f64_c(array->items, 0, array->length - 1, target);
 }
-int _interpolationSearch_float32_c(f32* array, int startOffset, int endOffset, f32 target) {
+int _interpolationSearch_f32_c(f32* array, int startOffset, int endOffset, f32 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -115,20 +115,20 @@ int _interpolationSearch_float32_c(f32* array, int startOffset, int endOffset, f
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_float32_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_f32_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_float32_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_f32_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_float32_c(f32* array, int arrayLenth, f32 target) {
-    return _interpolationSearch_float32_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_f32_c(struct Array1d_f32* array, f32 target) {
+    return _interpolationSearch_f32_c(array->items, 0, array->length - 1, target);
 }
-int _interpolationSearch_uint32_c(u32* array, int startOffset, int endOffset, u32 target) {
+int _interpolationSearch_u32_c(u32* array, int startOffset, int endOffset, u32 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -147,20 +147,20 @@ int _interpolationSearch_uint32_c(u32* array, int startOffset, int endOffset, u3
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_uint32_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_u32_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_uint32_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_u32_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_uint32_c(u32* array, int arrayLenth, u32 target) {
-    return _interpolationSearch_uint32_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_u32_c(struct Array1d_u32* array, u32 target) {
+    return _interpolationSearch_u32_c(array->items, 0, array->length - 1, target);
 }
-int _interpolationSearch_int32_c(i32* array, int startOffset, int endOffset, i32 target) {
+int _interpolationSearch_i32_c(i32* array, int startOffset, int endOffset, i32 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -179,20 +179,20 @@ int _interpolationSearch_int32_c(i32* array, int startOffset, int endOffset, i32
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_int32_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_i32_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_int32_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_i32_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_int32_c(i32* array, int arrayLenth, i32 target) {
-    return _interpolationSearch_int32_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_i32_c(struct Array1d_i32* array, i32 target) {
+    return _interpolationSearch_i32_c(array->items, 0, array->length - 1, target);
 }
-int _interpolationSearch_uint16_c(u16* array, int startOffset, int endOffset, u16 target) {
+int _interpolationSearch_u16_c(u16* array, int startOffset, int endOffset, u16 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -211,20 +211,20 @@ int _interpolationSearch_uint16_c(u16* array, int startOffset, int endOffset, u1
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_uint16_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_u16_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_uint16_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_u16_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_uint16_c(u16* array, int arrayLenth, u16 target) {
-    return _interpolationSearch_uint16_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_u16_c(struct Array1d_u16* array, u16 target) {
+    return _interpolationSearch_u16_c(array->items, 0, array->length - 1, target);
 }
-int _interpolationSearch_int16_c(i16* array, int startOffset, int endOffset, i16 target) {
+int _interpolationSearch_i16_c(i16* array, int startOffset, int endOffset, i16 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -243,20 +243,20 @@ int _interpolationSearch_int16_c(i16* array, int startOffset, int endOffset, i16
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_int16_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_i16_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_int16_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_i16_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_int16_c(i16* array, int arrayLenth, i16 target) {
-    return _interpolationSearch_int16_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_i16_c(struct Array1d_i16* array, i16 target) {
+    return _interpolationSearch_i16_c(array->items, 0, array->length - 1, target);
 }
-int _interpolationSearch_uint8_c(u8* array, int startOffset, int endOffset, u8 target) {
+int _interpolationSearch_u8_c(u8* array, int startOffset, int endOffset, u8 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -275,20 +275,20 @@ int _interpolationSearch_uint8_c(u8* array, int startOffset, int endOffset, u8 t
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_uint8_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_u8_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_uint8_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_u8_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_uint8_c(u8* array, int arrayLenth, u8 target) {
-    return _interpolationSearch_uint8_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_u8_c(struct Array1d_u8* array, u8 target) {
+    return _interpolationSearch_u8_c(array->items, 0, array->length - 1, target);
 }
-int _interpolationSearch_int8_c(i8* array, int startOffset, int endOffset, i8 target) {
+int _interpolationSearch_i8_c(i8* array, int startOffset, int endOffset, i8 target) {
     int pos = -1;
     if (
         startOffset <= endOffset &&
@@ -307,16 +307,16 @@ int _interpolationSearch_int8_c(i8* array, int startOffset, int endOffset, i8 ta
         }
 
         if (array[pos] < target) {
-            return _interpolationSearch_int8_c(array, pos + 1, endOffset, target);
+            return _interpolationSearch_i8_c(array, pos + 1, endOffset, target);
         }
 
         if (array[pos] > target) {
-            return _interpolationSearch_int8_c(array, startOffset, pos - 1, target);
+            return _interpolationSearch_i8_c(array, startOffset, pos - 1, target);
         }
     }
 
     return -1;
 }
-int interpolationSearch_int8_c(i8* array, int arrayLenth, i8 target) {
-    return _interpolationSearch_int8_c(array, 0, arrayLenth - 1, target);
+int interpolationSearch_i8_c(struct Array1d_i8* array, i8 target) {
+    return _interpolationSearch_i8_c(array->items, 0, array->length - 1, target);
 }

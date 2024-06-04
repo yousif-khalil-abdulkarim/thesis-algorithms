@@ -1,6 +1,6 @@
 import { swapTwo } from "../shared";
 
-export function selectionSort_uint64_asm(array: StaticArray<u64>): StaticArray<u64> {
+export function selectionSort_u64_asm(array: StaticArray<u64>): StaticArray<u64> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -15,7 +15,7 @@ export function selectionSort_uint64_asm(array: StaticArray<u64>): StaticArray<u
   }
   return array;
 }
-export function selectionSort_int64_asm(array: StaticArray<i64>): StaticArray<i64> {
+export function selectionSort_i64_asm(array: StaticArray<i64>): StaticArray<i64> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -30,7 +30,7 @@ export function selectionSort_int64_asm(array: StaticArray<i64>): StaticArray<i6
   }
   return array;
 }
-export function selectionSort_float64_asm(array: StaticArray<f64>): StaticArray<f64> {
+export function selectionSort_f64_asm(array: StaticArray<f64>): StaticArray<f64> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -45,7 +45,7 @@ export function selectionSort_float64_asm(array: StaticArray<f64>): StaticArray<
   }
   return array;
 }
-export function selectionSort_float32_asm(array: StaticArray<f32>): StaticArray<f32> {
+export function selectionSort_f32_asm(array: StaticArray<f32>): StaticArray<f32> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -60,7 +60,7 @@ export function selectionSort_float32_asm(array: StaticArray<f32>): StaticArray<
   }
   return array;
 }
-export function selectionSort_uint32_asm(array: StaticArray<u32>): StaticArray<u32> {
+export function selectionSort_u32_asm(array: StaticArray<u32>): StaticArray<u32> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -75,7 +75,7 @@ export function selectionSort_uint32_asm(array: StaticArray<u32>): StaticArray<u
   }
   return array;
 }
-export function selectionSort_int32_asm(array: StaticArray<i32>): StaticArray<i32> {
+export function selectionSort_i32_asm(array: StaticArray<i32>): StaticArray<i32> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -90,7 +90,7 @@ export function selectionSort_int32_asm(array: StaticArray<i32>): StaticArray<i3
   }
   return array;
 }
-export function selectionSort_uint16_asm(array: StaticArray<u16>): StaticArray<u16> {
+export function selectionSort_u16_asm(array: StaticArray<u16>): StaticArray<u16> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -105,7 +105,7 @@ export function selectionSort_uint16_asm(array: StaticArray<u16>): StaticArray<u
   }
   return array;
 }
-export function selectionSort_int16_asm(array: StaticArray<i16>): StaticArray<i16> {
+export function selectionSort_i16_asm(array: StaticArray<i16>): StaticArray<i16> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -120,7 +120,7 @@ export function selectionSort_int16_asm(array: StaticArray<i16>): StaticArray<i1
   }
   return array;
 }
-export function selectionSort_uint8_asm(array: StaticArray<u8>): StaticArray<u8> {
+export function selectionSort_u8_asm(array: StaticArray<u8>): StaticArray<u8> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -135,7 +135,7 @@ export function selectionSort_uint8_asm(array: StaticArray<u8>): StaticArray<u8>
   }
   return array;
 }
-export function selectionSort_int8_asm(array: StaticArray<i8>): StaticArray<i8> {
+export function selectionSort_i8_asm(array: StaticArray<i8>): StaticArray<i8> {
   let min: i32;
   for (let i = 0; i < array.length; i++) {
     min = i;

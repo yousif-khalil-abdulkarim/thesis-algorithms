@@ -1,4 +1,4 @@
-export function binarySearch_uint64_js(
+export function binarySearch_u64_js(
   array: BigUint64Array,
   target: bigint
 ): number {
@@ -18,7 +18,7 @@ export function binarySearch_uint64_js(
   }
   return -1;
 }
-export function binarySearch_int64_js(
+export function binarySearch_i64_js(
   array: BigInt64Array,
   target: bigint
 ): number {
@@ -38,7 +38,7 @@ export function binarySearch_int64_js(
   }
   return -1;
 }
-export function binarySearch_float64_js(
+export function binarySearch_f64_js(
   array: Float64Array,
   target: number
 ): number {
@@ -58,7 +58,7 @@ export function binarySearch_float64_js(
   }
   return -1;
 }
-export function binarySearch_float32_js(
+export function binarySearch_f32_js(
   array: Float32Array,
   target: number
 ): number {
@@ -78,7 +78,7 @@ export function binarySearch_float32_js(
   }
   return -1;
 }
-export function binarySearch_uint32_js(
+export function binarySearch_u32_js(
   array: Uint32Array,
   target: number
 ): number {
@@ -98,7 +98,7 @@ export function binarySearch_uint32_js(
   }
   return -1;
 }
-export function binarySearch_int32_js(
+export function binarySearch_i32_js(
   array: Int32Array,
   target: number
 ): number {
@@ -118,7 +118,7 @@ export function binarySearch_int32_js(
   }
   return -1;
 }
-export function binarySearch_uint16_js(
+export function binarySearch_u16_js(
   array: Uint16Array,
   target: number
 ): number {
@@ -138,7 +138,7 @@ export function binarySearch_uint16_js(
   }
   return -1;
 }
-export function binarySearch_int16_js(
+export function binarySearch_i16_js(
   array: Int16Array,
   target: number
 ): number {
@@ -158,7 +158,7 @@ export function binarySearch_int16_js(
   }
   return -1;
 }
-export function binarySearch_uint8_js(
+export function binarySearch_u8_js(
   array: Uint8Array,
   target: number
 ): number {
@@ -178,7 +178,7 @@ export function binarySearch_uint8_js(
   }
   return -1;
 }
-export function binarySearch_int8_js(array: Int8Array, target: number): number {
+export function binarySearch_i8_js(array: Int8Array, target: number): number {
   let l = 0;
   let r = array.length - 1;
   let mid = -1;

@@ -1,14 +1,14 @@
 #ifndef META_BINARY_SEARCH
 #define META_BINARY_SEARCH
-#include "shared.h"
-int metaBinarySearch_uint64_c(u64* array, int arrayLength, u64 target);
-int metaBinarySearch_int64_c(i64* array, int arrayLength, i64 target);
-int metaBinarySearch_float64_c(f64* array, int arrayLength, f64 target);
-int metaBinarySearch_float32_c(f32* array, int arrayLength, f32 target);
-int metaBinarySearch_uint32_c(u32* array, int arrayLength, u32 target);
-int metaBinarySearch_int32_c(i32* array, int arrayLength, i32 target);
-int metaBinarySearch_uint16_c(u16* array, int arrayLength, u16 target);
-int metaBinarySearch_int16_c(i16* array, int arrayLength, i16 target);
-int metaBinarySearch_uint8_c(u8* array, int arrayLength, u8 target);
-int metaBinarySearch_int8_c(i8* array, int arrayLength, i8 target);
+#include "shared/shared.h"
+int metaBinarySearch_u64_c(struct Array1d_u64* array, u64 target);
+int metaBinarySearch_i64_c(struct Array1d_i64* array, i64 target);
+int metaBinarySearch_f64_c(struct Array1d_f64* array, f64 target);
+int metaBinarySearch_f32_c(struct Array1d_f32* array, f32 target);
+int metaBinarySearch_u32_c(struct Array1d_u32* array, u32 target);
+int metaBinarySearch_i32_c(struct Array1d_i32* array, i32 target);
+int metaBinarySearch_u16_c(struct Array1d_u16* array, u16 target);
+int metaBinarySearch_i16_c(struct Array1d_i16* array, i16 target);
+int metaBinarySearch_u8_c(struct Array1d_u8* array, u8 target);
+int metaBinarySearch_i8_c(struct Array1d_i8* array, i8 target);
 #endif

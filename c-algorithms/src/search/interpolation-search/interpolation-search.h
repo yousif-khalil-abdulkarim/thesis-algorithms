@@ -1,25 +1,25 @@
 #ifndef INTERPOLATION_SEARCH
 #define INTERPOLATION_SEARCH
-#include "shared.h"
+#include "shared/shared.h"
 
-int interpolationSearch_uint64_uint64_c(u64* array, int arrayLength, u64 target);
-int _interpolationSearch_uint64_uint64_c(u64* array, int arrayLength, u64 target);
-int interpolationSearch_uint64_int64_c(i64* array, int arrayLength, i64 target);
-int _interpolationSearch_uint64_int64_c(i64* array, int arrayLength, i64 target);
-int interpolationSearch_uint64_float64_c(f64* array, int arrayLength, f64 target);
-int _interpolationSearch_uint64_float64_c(f64* array, int arrayLength, f64 target);
-int interpolationSearch_uint64_float32_c(f32* array, int arrayLength, f32 target);
-int _interpolationSearch_uint64_float32_c(f32* array, int arrayLength, f32 target);
-int interpolationSearch_uint64_uint32_c(u32* array, int arrayLength, u32 target);
-int _interpolationSearch_uint64_uint32_c(u32* array, int arrayLength, u32 target);
-int interpolationSearch_uint64_int32_c(i32* array, int arrayLength, i32 target);
-int _interpolationSearch_uint64_int32_c(i32* array, int arrayLength, i32 target);
-int interpolationSearch_uint64_uint16_c(u16* array, int arrayLength, u16 target);
-int _interpolationSearch_uint64_uint16_c(u16* array, int arrayLength, u16 target);
-int interpolationSearch_uint64_int16_c(i16* array, int arrayLength, i16 target);
-int _interpolationSearch_uint64_int16_c(i16* array, int arrayLength, i16 target);
-int interpolationSearch_uint64_uint8_c(u8* array, int arrayLength, u8 target);
-int _interpolationSearch_uint64_uint8_c(u8* array, int arrayLength, u8 target);
-int interpolationSearch_uint64_int8_c(i8* array, int arrayLength, i8 target);
-int _interpolationSearch_uint64_int8_c(i8* array, int arrayLength, i8 target);
+int interpolationSearch_u64_u64_c(struct Array1d_u64* array, u64 target);
+int _interpolationSearch_u64_u64_c(u64* array, int startOffset, int endOffset, u64 target);
+int interpolationSearch_u64_i64_c(struct Array1d_i64* array, i64 target);
+int _interpolationSearch_u64_i64_c(i64* array, int startOffset, int endOffset, i64 target);
+int interpolationSearch_u64_f64_c(struct Array1d_f64* array, f64 target);
+int _interpolationSearch_u64_f64_c(f64* array, int startOffset, int endOffset, f64 target);
+int interpolationSearch_u64_f32_c(struct Array1d_f32* array, f32 target);
+int _interpolationSearch_u64_f32_c(f32* array, int startOffset, int endOffset, f32 target);
+int interpolationSearch_u64_u32_c(struct Array1d_u32* array, u32 target);
+int _interpolationSearch_u64_u32_c(u32* array, int startOffset, int endOffset, u32 target);
+int interpolationSearch_u64_i32_c(struct Array1d_i32* array, i32 target);
+int _interpolationSearch_u64_i32_c(i32* array, int startOffset, int endOffset, i32 target);
+int interpolationSearch_u64_u16_c(struct Array1d_u16* array, u16 target);
+int _interpolationSearch_u64_u16_c(u16* array, int startOffset, int endOffset, u16 target);
+int interpolationSearch_u64_i16_c(struct Array1d_i16* array, i16 target);
+int _interpolationSearch_u64_i16_c(i16* array, int startOffset, int endOffset, i16 target);
+int interpolationSearch_u64_u8_c(struct Array1d_u8* array, u8 target);
+int _interpolationSearch_u64_u8_c(u8* array, int startOffset, int endOffset, u8 target);
+int interpolationSearch_u64_i8_c(struct Array1d_i8* array, i8 target);
+int _interpolationSearch_u64_i8_c(i8* array, int startOffset, int endOffset, i8 target);
 #endif

@@ -1,4 +1,4 @@
-export function matrixSubtraction_uint64_js(
+export function matrixSubtraction_u64_js(
   matrixA: BigUint64Array[],
   matrixB: BigUint64Array[]
 ): BigUint64Array[] {
@@ -13,7 +13,7 @@ export function matrixSubtraction_uint64_js(
   }
   return newMatrix;
 }
-export function matrixSubtraction_int64_js(
+export function matrixSubtraction_i64_js(
   matrixA: BigInt64Array[],
   matrixB: BigInt64Array[]
 ): BigInt64Array[] {
@@ -28,7 +28,7 @@ export function matrixSubtraction_int64_js(
   }
   return newMatrix;
 }
-export function matrixSubtraction_float64_js(
+export function matrixSubtraction_f64_js(
   matrixA: Float64Array[],
   matrixB: Float64Array[]
 ): Float64Array[] {
@@ -43,7 +43,7 @@ export function matrixSubtraction_float64_js(
   }
   return newMatrix;
 }
-export function matrixSubtraction_float32_js(
+export function matrixSubtraction_f32_js(
   matrixA: Float32Array[],
   matrixB: Float32Array[]
 ): Float32Array[] {
@@ -58,7 +58,7 @@ export function matrixSubtraction_float32_js(
   }
   return newMatrix;
 }
-export function matrixSubtraction_uint32_js(
+export function matrixSubtraction_u32_js(
   matrixA: Uint32Array[],
   matrixB: Uint32Array[]
 ): Uint32Array[] {
@@ -73,7 +73,7 @@ export function matrixSubtraction_uint32_js(
   }
   return newMatrix;
 }
-export function matrixSubtraction_int32_js(
+export function matrixSubtraction_i32_js(
   matrixA: Int32Array[],
   matrixB: Int32Array[]
 ): Int32Array[] {
@@ -88,7 +88,7 @@ export function matrixSubtraction_int32_js(
   }
   return newMatrix;
 }
-export function matrixSubtraction_uint16_js(
+export function matrixSubtraction_u16_js(
   matrixA: Uint16Array[],
   matrixB: Uint16Array[]
 ): Uint16Array[] {
@@ -103,7 +103,7 @@ export function matrixSubtraction_uint16_js(
   }
   return newMatrix;
 }
-export function matrixSubtraction_int16_js(
+export function matrixSubtraction_i16_js(
   matrixA: Int16Array[],
   matrixB: Int16Array[]
 ): Int16Array[] {
@@ -118,7 +118,7 @@ export function matrixSubtraction_int16_js(
   }
   return newMatrix;
 }
-export function matrixSubtraction_uint8_js(
+export function matrixSubtraction_u8_js(
   matrixA: Uint8Array[],
   matrixB: Uint8Array[]
 ): Uint8Array[] {
@@ -133,7 +133,7 @@ export function matrixSubtraction_uint8_js(
   }
   return newMatrix;
 }
-export function matrixSubtraction_int8_js(
+export function matrixSubtraction_i8_js(
   matrixA: Int8Array[],
   matrixB: Int8Array[]
 ): Int8Array[] {

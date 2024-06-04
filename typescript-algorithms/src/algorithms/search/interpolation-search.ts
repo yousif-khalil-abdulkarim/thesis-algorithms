@@ -74,61 +74,61 @@ function interpolationSearch_large(
   return -1;
 }
 
-export function interpolationSearch_uint64_js(
+export function interpolationSearch_u64_js(
   array: BigUint64Array,
   target: bigint
 ): number {
   return interpolationSearch_large(array, 0, array.length - 1, target);
 }
-export function interpolationSearch_int64_js(
+export function interpolationSearch_i64_js(
   array: BigInt64Array,
   target: bigint
 ): number {
   return interpolationSearch_large(array, 0, array.length - 1, target);
 }
-export function interpolationSearch_float64_js(
+export function interpolationSearch_f64_js(
   array: Float64Array,
   target: number
 ): number {
   return interpolationSearch_small(array, 0, array.length - 1, target);
 }
-export function interpolationSearch_float32_js(
+export function interpolationSearch_f32_js(
   array: Float32Array,
   target: number
 ): number {
   return interpolationSearch_small(array, 0, array.length - 1, target);
 }
-export function interpolationSearch_uint32_js(
+export function interpolationSearch_u32_js(
   array: Uint32Array,
   target: number
 ): number {
   return interpolationSearch_small(array, 0, array.length - 1, target);
 }
-export function interpolationSearch_int32_js(
+export function interpolationSearch_i32_js(
   array: Int32Array,
   target: number
 ): number {
   return interpolationSearch_small(array, 0, array.length - 1, target);
 }
-export function interpolationSearch_uint16_js(
+export function interpolationSearch_u16_js(
   array: Uint16Array,
   target: number
 ): number {
   return interpolationSearch_small(array, 0, array.length - 1, target);
 }
-export function interpolationSearch_int16_js(
+export function interpolationSearch_i16_js(
   array: Int16Array,
   target: number
 ): number {
   return interpolationSearch_small(array, 0, array.length - 1, target);
 }
-export function interpolationSearch_uint8_js(
+export function interpolationSearch_u8_js(
   array: Uint8Array,
   target: number
 ): number {
   return interpolationSearch_small(array, 0, array.length - 1, target);
 }
-export function interpolationSearch_int8_js(
+export function interpolationSearch_i8_js(
   array: Int8Array,
   target: number
 ): number {

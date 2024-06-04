@@ -1,4 +1,4 @@
-export function matrixSubtraction_uint64_asm(
+export function matrixSubtraction_u64_asm(
     matrixA: StaticArray<StaticArray<u64>>,
     matrixB: StaticArray<StaticArray<u64>>
   ): StaticArray<StaticArray<u64>> {
@@ -15,7 +15,7 @@ export function matrixSubtraction_uint64_asm(
     }
     return newMatrix;
   }
-  export function matrixSubtraction_int64_asm(
+  export function matrixSubtraction_i64_asm(
     matrixA: StaticArray<StaticArray<i64>>,
     matrixB: StaticArray<StaticArray<i64>>
   ): StaticArray<StaticArray<i64>> {
@@ -32,7 +32,7 @@ export function matrixSubtraction_uint64_asm(
     }
     return newMatrix;
   }
-  export function matrixSubtraction_float64_asm(
+  export function matrixSubtraction_f64_asm(
     matrixA: StaticArray<StaticArray<f64>>,
     matrixB: StaticArray<StaticArray<f64>>
   ): StaticArray<StaticArray<f64>> {
@@ -49,7 +49,7 @@ export function matrixSubtraction_uint64_asm(
     }
     return newMatrix;
   }
-  export function matrixSubtraction_float32_asm(
+  export function matrixSubtraction_f32_asm(
     matrixA: StaticArray<StaticArray<f32>>,
     matrixB: StaticArray<StaticArray<f32>>
   ): StaticArray<StaticArray<f32>> {
@@ -66,7 +66,7 @@ export function matrixSubtraction_uint64_asm(
     }
     return newMatrix;
   }
-  export function matrixSubtraction_uint32_asm(
+  export function matrixSubtraction_u32_asm(
     matrixA: StaticArray<StaticArray<u32>>,
     matrixB: StaticArray<StaticArray<u32>>
   ): StaticArray<StaticArray<u32>> {
@@ -83,7 +83,7 @@ export function matrixSubtraction_uint64_asm(
     }
     return newMatrix;
   }
-  export function matrixSubtraction_int32_asm(
+  export function matrixSubtraction_i32_asm(
     matrixA: StaticArray<StaticArray<i32>>,
     matrixB: StaticArray<StaticArray<i32>>
   ): StaticArray<StaticArray<i32>> {
@@ -100,7 +100,7 @@ export function matrixSubtraction_uint64_asm(
     }
     return newMatrix;
   }
-  export function matrixSubtraction_uint16_asm(
+  export function matrixSubtraction_u16_asm(
     matrixA: StaticArray<StaticArray<u16>>,
     matrixB: StaticArray<StaticArray<u16>>
   ): StaticArray<StaticArray<u16>> {
@@ -117,7 +117,7 @@ export function matrixSubtraction_uint64_asm(
     }
     return newMatrix;
   }
-  export function matrixSubtraction_int16_asm(
+  export function matrixSubtraction_i16_asm(
     matrixA: StaticArray<StaticArray<i16>>,
     matrixB: StaticArray<StaticArray<i16>>
   ): StaticArray<StaticArray<i16>> {
@@ -134,7 +134,7 @@ export function matrixSubtraction_uint64_asm(
     }
     return newMatrix;
   }
-  export function matrixSubtraction_uint8_asm(
+  export function matrixSubtraction_u8_asm(
     matrixA: StaticArray<StaticArray<u8>>,
     matrixB: StaticArray<StaticArray<u8>>
   ): StaticArray<StaticArray<u8>> {
@@ -151,7 +151,7 @@ export function matrixSubtraction_uint64_asm(
     }
     return newMatrix;
   }
-  export function matrixSubtraction_int8_asm(
+  export function matrixSubtraction_i8_asm(
     matrixA: StaticArray<StaticArray<i8>>,
     matrixB: StaticArray<StaticArray<i8>>
   ): StaticArray<StaticArray<i8>> {

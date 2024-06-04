@@ -1,4 +1,4 @@
-export function binarySearch_uint64_asm(
+export function binarySearch_u64_asm(
   array: StaticArray<u64>,
   target: u64
 ): i32 {
@@ -18,7 +18,7 @@ export function binarySearch_uint64_asm(
   }
   return -1;
 }
-export function binarySearch_int64_asm(
+export function binarySearch_i64_asm(
   array: StaticArray<i64>,
   target: i64
 ): i32 {
@@ -38,7 +38,7 @@ export function binarySearch_int64_asm(
   }
   return -1;
 }
-export function binarySearch_float64_asm(
+export function binarySearch_f64_asm(
   array: StaticArray<f64>,
   target: f64
 ): i32 {
@@ -58,7 +58,7 @@ export function binarySearch_float64_asm(
   }
   return -1;
 }
-export function binarySearch_float32_asm(
+export function binarySearch_f32_asm(
   array: StaticArray<f32>,
   target: f32
 ): i32 {
@@ -78,7 +78,7 @@ export function binarySearch_float32_asm(
   }
   return -1;
 }
-export function binarySearch_uint32_asm(
+export function binarySearch_u32_asm(
   array: StaticArray<u32>,
   target: u32
 ): i32 {
@@ -98,7 +98,7 @@ export function binarySearch_uint32_asm(
   }
   return -1;
 }
-export function binarySearch_int32_asm(
+export function binarySearch_i32_asm(
   array: StaticArray<i32>,
   target: i32
 ): i32 {
@@ -118,7 +118,7 @@ export function binarySearch_int32_asm(
   }
   return -1;
 }
-export function binarySearch_uint16_asm(
+export function binarySearch_u16_asm(
   array: StaticArray<u16>,
   target: u16
 ): i32 {
@@ -138,7 +138,7 @@ export function binarySearch_uint16_asm(
   }
   return -1;
 }
-export function binarySearch_int16_asm(
+export function binarySearch_i16_asm(
   array: StaticArray<i16>,
   target: i16
 ): i32 {
@@ -158,7 +158,7 @@ export function binarySearch_int16_asm(
   }
   return -1;
 }
-export function binarySearch_uint8_asm(
+export function binarySearch_u8_asm(
   array: StaticArray<i8>,
   target: i8
 ): i32 {
@@ -178,7 +178,7 @@ export function binarySearch_uint8_asm(
   }
   return -1;
 }
-export function binarySearch_int8_asm(array: StaticArray<u8>, target: u8): i32 {
+export function binarySearch_i8_asm(array: StaticArray<u8>, target: u8): i32 {
   let l = 0;
   let r = array.length - 1;
   let mid = -1;

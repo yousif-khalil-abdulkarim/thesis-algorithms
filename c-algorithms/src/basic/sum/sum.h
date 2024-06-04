@@ -1,14 +1,14 @@
 #ifndef SUM
 #define SUM
-#include "shared.h"
-u64 sum_uint64_c(u64* array, int arrayLength);
-i64 sum_int64_c(i64* array, int arrayLength);
-f64 sum_float64_c(f64* array, int arrayLength);
-f32 sum_float32_c(f32* array, int arrayLength);
-u32 sum_uint32_c(u32* array, int arrayLength);
-i32 sum_int32_c(i32* array, int arrayLength);
-u16 sum_uint16_c(u16* array, int arrayLength);
-i16 sum_int16_c(i16* array, int arrayLength);
-u8 sum_uint8_c(u8* array, int arrayLength);
-i8 sum_int8_c(i8* array, int arrayLength);
+#include "shared/shared.h"
+u64 sum_u64_c(struct Array1d_u64* array);
+i64 sum_i64_c(struct Array1d_i64* array);
+f64 sum_f64_c(struct Array1d_f64* array);
+f32 sum_f32_c(struct Array1d_f32* array);
+u32 sum_u32_c(struct Array1d_u32* array);
+i32 sum_i32_c(struct Array1d_i32* array);
+u16 sum_u16_c(struct Array1d_u16* array);
+i16 sum_i16_c(struct Array1d_i16* array);
+u8 sum_u8_c(struct Array1d_u8* array);
+i8 sum_i8_c(struct Array1d_i8* array);
 #endif
