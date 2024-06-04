@@ -1,235 +1,235 @@
 #include <stdlib.h>
 #include "sort/quick-sort/quick-sort.h";
 
-int getPivotIndex_uint64_c(u64* array, int start, int end) {
+int getPivotIndex_u64_c(u64* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_uint64_c(array, i, swapIndex);
+            swapTwo_u64_c(array, i, swapIndex);
         }
     }
-    swapTwo_uint64_c(array, start, swapIndex);
+    swapTwo_u64_c(array, start, swapIndex);
     return swapIndex;
 }
-int getPivotIndex_int64_c(i64* array, int start, int end) {
+int getPivotIndex_i64_c(i64* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_int64_c(array, i, swapIndex);
+            swapTwo_i64_c(array, i, swapIndex);
         }
     }
-    swapTwo_int64_c(array, start, swapIndex);
+    swapTwo_i64_c(array, start, swapIndex);
     return swapIndex;
 }
-int getPivotIndex_float64_c(f64* array, int start, int end) {
+int getPivotIndex_f64_c(f64* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_float64_c(array, i, swapIndex);
+            swapTwo_f64_c(array, i, swapIndex);
         }
     }
-    swapTwo_float64_c(array, start, swapIndex);
+    swapTwo_f64_c(array, start, swapIndex);
     return swapIndex;
 }
-int getPivotIndex_float32_c(f32* array, int start, int end) {
+int getPivotIndex_f32_c(f32* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_float32_c(array, i, swapIndex);
+            swapTwo_f32_c(array, i, swapIndex);
         }
     }
-    swapTwo_float32_c(array, start, swapIndex);
+    swapTwo_f32_c(array, start, swapIndex);
     return swapIndex;
 }
-int getPivotIndex_uint32_c(u32* array, int start, int end) {
+int getPivotIndex_u32_c(u32* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_uint32_c(array, i, swapIndex);
+            swapTwo_u32_c(array, i, swapIndex);
         }
     }
-    swapTwo_uint32_c(array, start, swapIndex);
+    swapTwo_u32_c(array, start, swapIndex);
     return swapIndex;
 }
-int getPivotIndex_int32_c(i32* array, int start, int end) {
+int getPivotIndex_i32_c(i32* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_int32_c(array, i, swapIndex);
+            swapTwo_i32_c(array, i, swapIndex);
         }
     }
-    swapTwo_int32_c(array, start, swapIndex);
+    swapTwo_i32_c(array, start, swapIndex);
     return swapIndex;
 }
-int getPivotIndex_uint16_c(u16* array, int start, int end) {
+int getPivotIndex_u16_c(u16* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_uint16_c(array, i, swapIndex);
+            swapTwo_u16_c(array, i, swapIndex);
         }
     }
-    swapTwo_uint16_c(array, start, swapIndex);
+    swapTwo_u16_c(array, start, swapIndex);
     return swapIndex;
 }
-int getPivotIndex_int16_c(i16* array, int start, int end) {
+int getPivotIndex_i16_c(i16* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_int16_c(array, i, swapIndex);
+            swapTwo_i16_c(array, i, swapIndex);
         }
     }
-    swapTwo_int16_c(array, start, swapIndex);
+    swapTwo_i16_c(array, start, swapIndex);
     return swapIndex;
 }
-int getPivotIndex_uint8_c(u8* array, int start, int end) {
+int getPivotIndex_u8_c(u8* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_uint8_c(array, i, swapIndex);
+            swapTwo_u8_c(array, i, swapIndex);
         }
     }
-    swapTwo_uint8_c(array, start, swapIndex);
+    swapTwo_u8_c(array, start, swapIndex);
     return swapIndex;
 }
-int getPivotIndex_int8_c(i8* array, int start, int end) {
+int getPivotIndex_i8_c(i8* array, int start, int end) {
     int swapIndex = start;
     int pivotValue = array[start];
     for (int i = start + 1; i <= end; i++) {
         if (array[i] < pivotValue) {
             swapIndex++;
-            swapTwo_int8_c(array, i, swapIndex);
+            swapTwo_i8_c(array, i, swapIndex);
         }
     }
-    swapTwo_int8_c(array, start, swapIndex);
+    swapTwo_i8_c(array, start, swapIndex);
     return swapIndex;
 }
 
-u64* _quickSort_uint64_c(u64* array, int left, int right) {
+u64* _quickSort_u64_c(u64* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_uint64_c(array, left, right);
-        _quickSort_uint64_c(array, left, pivotIndex - 1);
-        _quickSort_uint64_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_u64_c(array, left, right);
+        _quickSort_u64_c(array, left, pivotIndex - 1);
+        _quickSort_u64_c(array, pivotIndex + 1, right);
     }
     return array;
 }
-i64* _quickSort_int64_c(i64* array, int left, int right) {
+i64* _quickSort_i64_c(i64* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_int64_c(array, left, right);
-        getPivotIndex_int64_c(array, left, pivotIndex - 1);
-        getPivotIndex_int64_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_i64_c(array, left, right);
+        getPivotIndex_i64_c(array, left, pivotIndex - 1);
+        getPivotIndex_i64_c(array, pivotIndex + 1, right);
     }
     return array;
 }
-f64* _quickSort_float64_c(f64* array, int left, int right) {
+f64* _quickSort_f64_c(f64* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_float64_c(array, left, right);
-        getPivotIndex_float64_c(array, left, pivotIndex - 1);
-        getPivotIndex_float64_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_f64_c(array, left, right);
+        getPivotIndex_f64_c(array, left, pivotIndex - 1);
+        getPivotIndex_f64_c(array, pivotIndex + 1, right);
     }
     return array;
 }
-f32* _quickSort_float32_c(f32* array, int left, int right) {
+f32* _quickSort_f32_c(f32* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_float32_c(array, left, right);
-        getPivotIndex_float32_c(array, left, pivotIndex - 1);
-        getPivotIndex_float32_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_f32_c(array, left, right);
+        getPivotIndex_f32_c(array, left, pivotIndex - 1);
+        getPivotIndex_f32_c(array, pivotIndex + 1, right);
     }
     return array;
 }
-u32* _quickSort_uint32_c(u32* array, int left, int right) {
+u32* _quickSort_u32_c(u32* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_uint32_c(array, left, right);
-        getPivotIndex_uint32_c(array, left, pivotIndex - 1);
-        getPivotIndex_uint32_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_u32_c(array, left, right);
+        getPivotIndex_u32_c(array, left, pivotIndex - 1);
+        getPivotIndex_u32_c(array, pivotIndex + 1, right);
     }
     return array;
 }
-i32* _quickSort_int32_c(i32* array, int left, int right) {
+i32* _quickSort_i32_c(i32* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_int32_c(array, left, right);
-        getPivotIndex_int32_c(array, left, pivotIndex - 1);
-        getPivotIndex_int32_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_i32_c(array, left, right);
+        getPivotIndex_i32_c(array, left, pivotIndex - 1);
+        getPivotIndex_i32_c(array, pivotIndex + 1, right);
     }
     return array;
 }
-u16* _quickSort_uint16_c(u16* array, int left, int right) {
+u16* _quickSort_u16_c(u16* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_uint16_c(array, left, right);
-        getPivotIndex_uint16_c(array, left, pivotIndex - 1);
-        getPivotIndex_uint16_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_u16_c(array, left, right);
+        getPivotIndex_u16_c(array, left, pivotIndex - 1);
+        getPivotIndex_u16_c(array, pivotIndex + 1, right);
     }
     return array;
 }
-i16* _quickSort_int16_c(i16* array, int left, int right) {
+i16* _quickSort_i16_c(i16* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_int16_c(array, left, right);
-        getPivotIndex_int16_c(array, left, pivotIndex - 1);
-        getPivotIndex_int16_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_i16_c(array, left, right);
+        getPivotIndex_i16_c(array, left, pivotIndex - 1);
+        getPivotIndex_i16_c(array, pivotIndex + 1, right);
     }
     return array;
 }
-u8* _quickSort_uint8_c(u8* array, int left, int right) {
+u8* _quickSort_u8_c(u8* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_uint8_c(array, left, right);
-        getPivotIndex_uint8_c(array, left, pivotIndex - 1);
-        getPivotIndex_uint8_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_u8_c(array, left, right);
+        getPivotIndex_u8_c(array, left, pivotIndex - 1);
+        getPivotIndex_u8_c(array, pivotIndex + 1, right);
     }
     return array;
 }
-i8* _quickSort_int8_c(i8* array, int left, int right) {
+i8* _quickSort_i8_c(i8* array, int left, int right) {
     if (left < right) {
-        int pivotIndex = getPivotIndex_int8_c(array, left, right);
-        getPivotIndex_int8_c(array, left, pivotIndex - 1);
-        getPivotIndex_int8_c(array, pivotIndex + 1, right);
+        int pivotIndex = getPivotIndex_i8_c(array, left, right);
+        getPivotIndex_i8_c(array, left, pivotIndex - 1);
+        getPivotIndex_i8_c(array, pivotIndex + 1, right);
     }
     return array;
 }
 
-u64* quickSort_uint64_c(u64* array, int arrayLength) {
-    return _quickSort_uint64_c(array, 0, arrayLength - 1);
+u64* quickSort_u64_c(struct Array1d_u64* array) {
+    return _quickSort_u64_c(array->items, 0, array->length - 1);
 }
-i64* quickSort_int64_c(i64* array, int arrayLength) {
-    return _quickSort_int64_c(array, 0, arrayLength - 1);
+i64* quickSort_i64_c(struct Array1d_i64* array) {
+    return _quickSort_i64_c(array->items, 0, array->length - 1);
 }
-f64* quickSort_float64_c(f64* array, int arrayLength) {
-    return _quickSort_float64_c(array, 0, arrayLength - 1);
+f64* quickSort_f64_c(struct Array1d_f64* array) {
+    return _quickSort_f64_c(array->items, 0, array->length - 1);
 }
-f32* quickSort_float32_c(f32* array, int arrayLength) {
-    return _quickSort_float32_c(array, 0, arrayLength - 1);
+f32* quickSort_f32_c(struct Array1d_f32* array) {
+    return _quickSort_f32_c(array->items, 0, array->length - 1);
 }
-u32* quickSort_uint32_c(u32* array, int arrayLength) {
-    return _quickSort_uint32_c(array, 0, arrayLength - 1);
+u32* quickSort_u32_c(struct Array1d_u32* array) {
+    return _quickSort_u32_c(array->items, 0, array->length - 1);
 }
-i32* quickSort_int32_c(i32* array, int arrayLength) {
-    return _quickSort_int32_c(array, 0, arrayLength - 1);
+i32* quickSort_i32_c(struct Array1d_i32* array) {
+    return _quickSort_i32_c(array->items, 0, array->length - 1);
 }
-u16* quickSort_uint16_c(u16* array, int arrayLength) {
-    return _quickSort_uint16_c(array, 0, arrayLength - 1);
+u16* quickSort_u16_c(struct Array1d_u16* array) {
+    return _quickSort_u16_c(array->items, 0, array->length - 1);
 }
-i16* quickSort_int16_c(i16* array, int arrayLength) {
-    return _quickSort_int16_c(array, 0, arrayLength - 1);
+i16* quickSort_i16_c(struct Array1d_i16* array) {
+    return _quickSort_i16_c(array->items, 0, array->length - 1);
 }
-u8* quickSort_uint8_c(u8* array, int arrayLength) {
-    return _quickSort_uint8_c(array, 0, arrayLength - 1);
+u8* quickSort_u8_c(struct Array1d_u8* array) {
+    return _quickSort_u8_c(array->items, 0, array->length - 1);
 }
-i8* quickSort_int8_c(i8* array, int arrayLength) {
-    return _quickSort_int8_c(array, 0, arrayLength - 1);
+i8* quickSort_i8_c(struct Array1d_i8* array) {
+    return _quickSort_i8_c(array->items, 0, array->length - 1);
 }

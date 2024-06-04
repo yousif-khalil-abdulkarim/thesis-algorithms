@@ -61,43 +61,43 @@ function mergeSort<T>(arr: StaticArray<T>): StaticArray<T> {
   _mergeSort(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_uint64_asm(arr: StaticArray<u64>): StaticArray<u64> {
+export function mergeSort_u64_asm(arr: StaticArray<u64>): StaticArray<u64> {
   mergeSort(arr);
   return arr;
 }
-export function mergeSort_int64_asm(arr: StaticArray<i64>): StaticArray<i64> {
+export function mergeSort_i64_asm(arr: StaticArray<i64>): StaticArray<i64> {
   mergeSort(arr);
   return arr;
 }
-export function mergeSort_float64_asm(arr: StaticArray<f64>): StaticArray<f64> {
+export function mergeSort_f64_asm(arr: StaticArray<f64>): StaticArray<f64> {
   mergeSort(arr);
   return arr;
 }
-export function mergeSort_float32_asm(arr: StaticArray<f32>): StaticArray<f32> {
+export function mergeSort_f32_asm(arr: StaticArray<f32>): StaticArray<f32> {
   mergeSort(arr);
   return arr;
 }
-export function mergeSort_uint32_asm(arr: StaticArray<u32>): StaticArray<u32> {
+export function mergeSort_u32_asm(arr: StaticArray<u32>): StaticArray<u32> {
   mergeSort(arr);
   return arr;
 }
-export function mergeSort_int32_asm(arr: StaticArray<i32>): StaticArray<i32> {
+export function mergeSort_i32_asm(arr: StaticArray<i32>): StaticArray<i32> {
   mergeSort(arr);
   return arr;
 }
-export function mergeSort_uint16_asm(arr: StaticArray<u16>): StaticArray<u16> {
+export function mergeSort_u16_asm(arr: StaticArray<u16>): StaticArray<u16> {
   mergeSort(arr);
   return arr;
 }
-export function mergeSort_int16_asm(arr: StaticArray<i16>): StaticArray<i16> {
+export function mergeSort_i16_asm(arr: StaticArray<i16>): StaticArray<i16> {
   mergeSort(arr);
   return arr;
 }
-export function mergeSort_uint8_asm(arr: StaticArray<u8>): StaticArray<u8> {
+export function mergeSort_u8_asm(arr: StaticArray<u8>): StaticArray<u8> {
   mergeSort(arr);
   return arr;
 }
-export function mergeSort_int8_asm(arr: StaticArray<i8>): StaticArray<i8> {
+export function mergeSort_i8_asm(arr: StaticArray<i8>): StaticArray<i8> {
   mergeSort(arr);
   return arr;
 }

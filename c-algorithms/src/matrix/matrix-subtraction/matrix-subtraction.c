@@ -1,103 +1,94 @@
 #include <stdlib.h>
-#include "matrix/matrix-subtraction/matrix-subtraction.h";
+#include "matrix/matrix-addition/matrix-addition.h";
 
-u64** matrixSubtraction_uint64_c(u64** matrixA, u64** matrixB, int width, int height) {
-    u64** newMatrix = (u64**)malloc(height * sizeof(u64*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (u64*)malloc(width * sizeof(u64));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_u64* matrixSubtraction_u64_c(struct Matrix_u64* matrixA, struct Matrix_u64* matrixB) {
+    struct Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
-i64** matrixSubtraction_int64_c(i64** matrixA, i64** matrixB, int width, int height) {
-    i64** newMatrix = (i64**)malloc(height * sizeof(i64*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (i64*)malloc(width * sizeof(i64));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_i64* matrixSubtraction_i64_c(struct Matrix_i64* matrixA, struct Matrix_i64* matrixB) {
+    struct Matrix_i64* newMatrix = makeMatrix_i64(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
-f64** matrixSubtraction_float64_c(f64** matrixA, f64** matrixB, int width, int height) {
-    f64** newMatrix = (f64**)malloc(height * sizeof(f64*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (f64*)malloc(width * sizeof(f64));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_f64* matrixSubtraction_f64_c(struct Matrix_f64* matrixA, struct Matrix_f64* matrixB) {
+    struct Matrix_f64* newMatrix = makeMatrix_f64(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
-f32** matrixSubtraction_float32_c(f32** matrixA, f32** matrixB, int width, int height) {
-    f32** newMatrix = (f32**)malloc(height * sizeof(f32*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (f32*)malloc(width * sizeof(f32));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_f32* matrixSubtraction_f32_c(struct Matrix_f32* matrixA, struct Matrix_f32* matrixB) {
+    struct Matrix_f32* newMatrix = makeMatrix_f32(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
-u32** matrixSubtraction_uint32_c(u32** matrixA, u32** matrixB, int width, int height) {
-    u32** newMatrix = (u32**)malloc(height * sizeof(u32*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (u32*)malloc(width * sizeof(u32));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_u32* matrixSubtraction_u32_c(struct Matrix_u32* matrixA, struct Matrix_u32* matrixB) {
+    struct Matrix_u32* newMatrix = makeMatrix_u32(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
-i32** matrixSubtraction_int32_c(i32** matrixA, i32** matrixB, int width, int height) {
-    i32** newMatrix = (i32**)malloc(height * sizeof(i32*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (i32*)malloc(width * sizeof(i32));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_i32* matrixSubtraction_i32_c(struct Matrix_i32* matrixA, struct Matrix_i32* matrixB) {
+    struct Matrix_i32* newMatrix = makeMatrix_i32(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
-u16** matrixSubtraction_uint16_c(u16** matrixA, u16** matrixB, int width, int height) {
-    u16** newMatrix = (u16**)malloc(height * sizeof(u16*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (u16*)malloc(width * sizeof(u16));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_u16* matrixSubtraction_u16_c(struct Matrix_u16* matrixA, struct Matrix_u16* matrixB) {
+    struct Matrix_u16* newMatrix = makeMatrix_u16(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
-i16** matrixSubtraction_int16_c(i16** matrixA, i16** matrixB, int width, int height) {
-    i16** newMatrix = (i16**)malloc(height * sizeof(i16*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (i16*)malloc(width * sizeof(i16));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_i16* matrixSubtraction_i16_c(struct Matrix_i16* matrixA, struct Matrix_i16* matrixB) {
+    struct Matrix_i16* newMatrix = makeMatrix_i16(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
-u8** matrixSubtraction_uint8_c(u8** matrixA, u8** matrixB, int width, int height) {
-    u8** newMatrix = (u8**)malloc(height * sizeof(u8*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (u8*)malloc(width * sizeof(u8));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_u8* matrixSubtraction_u8_c(struct Matrix_u8* matrixA, struct Matrix_u8* matrixB) {
+    struct Matrix_u8* newMatrix = makeMatrix_u8(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
-i8** matrixSubtraction_int8_c(i8** matrixA, i8** matrixB, int width, int height) {
-    i8** newMatrix = (i8**)malloc(height * sizeof(i8*));
-    for (int i = 0; i < height; i++) {
-        newMatrix[i] = (i8*)malloc(width * sizeof(i8));
-        for (int j = 0; j < width; j++) {
-            newMatrix[i][j] = matrixA[i][j] - matrixB[i][j];
+struct Matrix_i8* matrixSubtraction_i8_c(struct Matrix_i8* matrixA, struct Matrix_i8* matrixB) {
+    struct Matrix_i8* newMatrix = makeMatrix_i8(matrixA->height, matrixA->width);
+    for (int i = 0; i < newMatrix->height; i++) {
+        for (int j = 0; j < newMatrix->width; j++) {
+            newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
         }
     }
     return newMatrix;
 }
+

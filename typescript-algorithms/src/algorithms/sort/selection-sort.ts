@@ -1,6 +1,6 @@
 import { swapTwo } from "../shared";
 
-export function selectionSort_uint64_js(array: BigUint64Array): BigUint64Array {
+export function selectionSort_u64_js(array: BigUint64Array): BigUint64Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -15,7 +15,7 @@ export function selectionSort_uint64_js(array: BigUint64Array): BigUint64Array {
   }
   return array;
 }
-export function selectionSort_int64_js(array: BigInt64Array): BigInt64Array {
+export function selectionSort_i64_js(array: BigInt64Array): BigInt64Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -30,7 +30,7 @@ export function selectionSort_int64_js(array: BigInt64Array): BigInt64Array {
   }
   return array;
 }
-export function selectionSort_float64_js(array: Float64Array): Float64Array {
+export function selectionSort_f64_js(array: Float64Array): Float64Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -45,7 +45,7 @@ export function selectionSort_float64_js(array: Float64Array): Float64Array {
   }
   return array;
 }
-export function selectionSort_float32_js(array: Float32Array): Float32Array {
+export function selectionSort_f32_js(array: Float32Array): Float32Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -60,7 +60,7 @@ export function selectionSort_float32_js(array: Float32Array): Float32Array {
   }
   return array;
 }
-export function selectionSort_uint32_js(array: Uint32Array): Uint32Array {
+export function selectionSort_u32_js(array: Uint32Array): Uint32Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -75,7 +75,7 @@ export function selectionSort_uint32_js(array: Uint32Array): Uint32Array {
   }
   return array;
 }
-export function selectionSort_int32_js(array: Int32Array): Int32Array {
+export function selectionSort_i32_js(array: Int32Array): Int32Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -90,7 +90,7 @@ export function selectionSort_int32_js(array: Int32Array): Int32Array {
   }
   return array;
 }
-export function selectionSort_uint16_js(array: Uint16Array): Uint16Array {
+export function selectionSort_u16_js(array: Uint16Array): Uint16Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -105,7 +105,7 @@ export function selectionSort_uint16_js(array: Uint16Array): Uint16Array {
   }
   return array;
 }
-export function selectionSort_int16_js(array: Int16Array): Int16Array {
+export function selectionSort_i16_js(array: Int16Array): Int16Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -120,7 +120,7 @@ export function selectionSort_int16_js(array: Int16Array): Int16Array {
   }
   return array;
 }
-export function selectionSort_uint8_js(array: Uint8Array): Uint8Array {
+export function selectionSort_u8_js(array: Uint8Array): Uint8Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;
@@ -135,7 +135,7 @@ export function selectionSort_uint8_js(array: Uint8Array): Uint8Array {
   }
   return array;
 }
-export function selectionSort_int8_js(array: Int8Array): Int8Array {
+export function selectionSort_i8_js(array: Int8Array): Int8Array {
   let min: number;
   for (let i = 0; i < array.length; i++) {
     min = i;

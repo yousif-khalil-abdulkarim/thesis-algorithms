@@ -1,4 +1,4 @@
-export function min_uint64_asm(array: StaticArray<u64>): u64 {
+export function min_u64_asm(array: StaticArray<u64>): u64 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];
@@ -6,7 +6,7 @@ export function min_uint64_asm(array: StaticArray<u64>): u64 {
   }
   return min;
 }
-export function min_int64_asm(array: StaticArray<i64>): i64 {
+export function min_i64_asm(array: StaticArray<i64>): i64 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];
@@ -14,7 +14,7 @@ export function min_int64_asm(array: StaticArray<i64>): i64 {
   }
   return min;
 }
-export function min_float64_asm(array: StaticArray<f64>): f64 {
+export function min_f64_asm(array: StaticArray<f64>): f64 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];
@@ -22,7 +22,7 @@ export function min_float64_asm(array: StaticArray<f64>): f64 {
   }
   return min;
 }
-export function min_float32_asm(array: StaticArray<f32>): f32 {
+export function min_f32_asm(array: StaticArray<f32>): f32 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];
@@ -30,7 +30,7 @@ export function min_float32_asm(array: StaticArray<f32>): f32 {
   }
   return min;
 }
-export function min_uint32_asm(array: StaticArray<u32>): u32 {
+export function min_u32_asm(array: StaticArray<u32>): u32 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];
@@ -38,7 +38,7 @@ export function min_uint32_asm(array: StaticArray<u32>): u32 {
   }
   return min;
 }
-export function min_int32_asm(array: StaticArray<i32>): i32 {
+export function min_i32_asm(array: StaticArray<i32>): i32 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];
@@ -46,7 +46,7 @@ export function min_int32_asm(array: StaticArray<i32>): i32 {
   }
   return min;
 }
-export function min_uint16_asm(array: StaticArray<u16>): u16 {
+export function min_u16_asm(array: StaticArray<u16>): u16 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];
@@ -54,7 +54,7 @@ export function min_uint16_asm(array: StaticArray<u16>): u16 {
   }
   return min;
 }
-export function min_int16_asm(array: StaticArray<i16>): i16 {
+export function min_i16_asm(array: StaticArray<i16>): i16 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];
@@ -62,7 +62,7 @@ export function min_int16_asm(array: StaticArray<i16>): i16 {
   }
   return min;
 }
-export function min_uint8_asm(array: StaticArray<u8>): u8 {
+export function min_u8_asm(array: StaticArray<u8>): u8 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];
@@ -70,7 +70,7 @@ export function min_uint8_asm(array: StaticArray<u8>): u8 {
   }
   return min;
 }
-export function min_int8_asm(array: StaticArray<i8>): i8 {
+export function min_i8_asm(array: StaticArray<i8>): i8 {
   let min = array[0];
   for (let i = 1; i < array.length; i++) {
     let item = array[i];

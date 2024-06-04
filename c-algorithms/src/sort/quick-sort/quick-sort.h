@@ -1,26 +1,37 @@
 #ifndef QUICK_SORT
 #define QUICK_SORT
-#include "shared.h"
+#include "shared/shared.h"
 
-u64* _quickSort_uint64_c(u64* array, int left, int right);
-i64* _quickSort_int64_c(i64* array, int left, int right);
-f64* _quickSort_float64_c(f64* array, int left, int right);
-f32* _quickSort_float32_c(f32* array, int left, int right);
-u32* _quickSort_uint32_c(u32* array, int left, int right);
-i32* _quickSort_int32_c(i32* array, int left, int right);
-u16* _quickSort_uint16_c(u16* array, int left, int right);
-i16* _quickSort_int16_c(i16* array, int left, int right);
-u8* _quickSort_uint8_c(u8* array, int left, int right);
-i8* _quickSort_int8_c(i8* array, int left, int right);
+int getPivotIndex_u64_c(u64* array, int start, int end);
+int getPivotIndex_i64_c(i64* array, int start, int end);
+int getPivotIndex_f64_c(f64* array, int start, int end);
+int getPivotIndex_f32_c(f32* array, int start, int end);
+int getPivotIndex_u32_c(u32* array, int start, int end);
+int getPivotIndex_i32_c(i32* array, int start, int end);
+int getPivotIndex_u16_c(u16* array, int start, int end);
+int getPivotIndex_i16_c(i16* array, int start, int end);
+int getPivotIndex_u8_c(u8* array, int start, int end);
+int getPivotIndex_i8_c(i8* array, int start, int end);
 
-u64* quickSort_uint64_c(u64* array, int left, int right);
-i64* quickSort_int64_c(i64* array, int left, int right);
-f64* quickSort_float64_c(f64* array, int left, int right);
-f32* quickSort_float32_c(f32* array, int left, int right);
-u32* quickSort_uint32_c(u32* array, int left, int right);
-i32* quickSort_int32_c(i32* array, int left, int right);
-u16* quickSort_uint16_c(u16* array, int left, int right);
-i16* quickSort_int16_c(i16* array, int left, int right);
-u8* quickSort_uint8_c(u8* array, int left, int right);
-i8* quickSort_int8_c(i8* array, int left, int right);
+u64* _quickSort_u64_c(u64* array, int left, int right);
+i64* _quickSort_i64_c(i64* array, int left, int right);
+f64* _quickSort_f64_c(f64* array, int left, int right);
+f32* _quickSort_f32_c(f32* array, int left, int right);
+u32* _quickSort_u32_c(u32* array, int left, int right);
+i32* _quickSort_i32_c(i32* array, int left, int right);
+u16* _quickSort_u16_c(u16* array, int left, int right);
+i16* _quickSort_i16_c(i16* array, int left, int right);
+u8* _quickSort_u8_c(u8* array, int left, int right);
+i8* _quickSort_i8_c(i8* array, int left, int right);
+
+u64* quickSort_u64_c(struct Array1d_u64* array);
+i64* quickSort_i64_c(struct Array1d_i64* array);
+f64* quickSort_f64_c(struct Array1d_f64* array);
+f32* quickSort_f32_c(struct Array1d_f32* array);
+u32* quickSort_u32_c(struct Array1d_u32* array);
+i32* quickSort_i32_c(struct Array1d_i32* array);
+u16* quickSort_u16_c(struct Array1d_u16* array);
+i16* quickSort_i16_c(struct Array1d_i16* array);
+u8* quickSort_u8_c(struct Array1d_u8* array);
+i8* quickSort_i8_c(struct Array1d_i8* array);
 #endif

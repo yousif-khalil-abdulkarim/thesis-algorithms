@@ -1,146 +1,146 @@
 #include <stdlib.h>
 #include "sort/selection-sort/selection-sort.h";
 
-u64* selectionSort_uint64_c(u64* array, int arrayLength) {
+u64* selectionSort_u64_c(struct Array1d_u64* array) {
     int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_uint64_c(array, min, i);
+                sortTwo_u64_c(array->items, min, i);
             }
         }
     } 
     return array;
 }
-i64* selectionSort_int64_c(i64* array, int arrayLength) {
+i64* selectionSort_i64_c(struct Array1d_i64* array) {
    int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_int64_c(array, min, i);
+                sortTwo_i64_c(array->items, min, i);
             }
         }
     }
 }
-f64* selectionSort_float64_c(f64* array, int arrayLength) {
+f64* selectionSort_f64_c(struct Array1d_f64* array) {
     int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_float64_c(array, min, i);
+                sortTwo_f64_c(array->items, min, i);
             }
         }
     }
 }
-f32* selectionSort_float32_c(f32* array, int arrayLength) {
+f32* selectionSort_f32_c(struct Array1d_f32* array) {
     int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_float32_c(array, min, i);
+                sortTwo_f32_c(array->items, min, i);
             }
         }
     }
 }
-u32* selectionSort_uint32_c(u32* array, int arrayLength) {
+u32* selectionSort_u32_c(struct Array1d_u32* array) {
     int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_uint32_c(array, min, i);
+                sortTwo_u32_c(array->items, min, i);
             }
         }
     } 
     return array;
 }
-i32* selectionSort_int32_c(i32* array, int arrayLength) {
+i32* selectionSort_i32_c(struct Array1d_i32* array) {
    int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_int32_c(array, min, i);
+                sortTwo_i32_c(array->items, min, i);
             }
         }
     }
 }
-u16* selectionSort_uint16_c(u16* array, int arrayLength) {
+u16* selectionSort_u16_c(struct Array1d_u16* array) {
     int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_uint16_c(array, min, i);
+                sortTwo_u16_c(array->items, min, i);
             }
         }
     } 
     return array;
 }
-i16* selectionSort_int16_c(i16* array, int arrayLength) {
+i16* selectionSort_i16_c(struct Array1d_i16* array) {
    int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_int16_c(array, min, i);
+                sortTwo_i16_c(array->items, min, i);
             }
         }
     }
 }
-u8* selectionSort_uint8_c(u8* array, int arrayLength) {
+u8* selectionSort_u8_c(struct Array1d_u8* array) {
     int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_uint8_c(array, min, i);
+                sortTwo_u8_c(array->items, min, i);
             }
         }
     } 
     return array;
 }
-i8* selectionSort_int8_c(i8* array, int arrayLength) {
+i8* selectionSort_i8_c(struct Array1d_i8* array) {
    int min;
-    for (int i = 0; i < arrayLength; i++) {
+    for (int i = 0; i < array->length; i++) {
         min = i;
-        for (int j = i + 1; j < arrayLength; j++) {
-            if (array[j] < array[min]) {
+        for (int j = i + 1; j < array->length; j++) {
+            if (array->items[j] < array->items[min]) {
                 min = j;
             }
             if (min != i) {
-                sortTwo_int8_c(array, min, i);
+                sortTwo_i8_c(array->items, min, i);
             }
         }
     }

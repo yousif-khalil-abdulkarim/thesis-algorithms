@@ -1,14 +1,14 @@
 #ifndef AVERAGE
 #define AVERAGE
-#include "shared.h"
-u64 average_uint64_c(u64* array, int arrayLength);
-i64 average_int64_c(i64* array, int arrayLength);
-f64 average_float64_c(f64* array, int arrayLength);
-f32 average_float32_c(f32* array, int arrayLength);
-u32 average_uint32_c(u32* array, int arrayLength);
-i32 average_int32_c(i32* array, int arrayLength);
-u16 average_uint16_c(u16* array, int arrayLength);
-i16 average_int16_c(i16* array, int arrayLength);
-u8 average_uint8_c(u8* array, int arrayLength);
-i8 average_int8_c(i8* array, int arrayLength);
+#include "shared/shared.h"
+u64 average_u64_c(struct Array1d_u64* array);
+i64 average_i64_c(struct Array1d_i64* array);
+f64 average_f64_c(struct Array1d_f64* array);
+f32 average_f32_c(struct Array1d_f32* array);
+u32 average_u32_c(struct Array1d_u32* array);
+i32 average_i32_c(struct Array1d_i32* array);
+u16 average_u16_c(struct Array1d_u16* array);
+i16 average_i16_c(struct Array1d_i16* array);
+u8 average_u8_c(struct Array1d_u8* array);
+i8 average_i8_c(struct Array1d_i8* array);
 #endif

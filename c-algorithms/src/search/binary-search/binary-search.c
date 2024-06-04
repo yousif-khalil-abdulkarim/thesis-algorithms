@@ -1,15 +1,15 @@
 #include "search/binary-search/binary-search.h";
 
-int binarySearch_uint64_c(u64* array, int arrayLength, u64 target) {
+int binarySearch_u64_c(struct Array1d_u64* array, u64 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {
@@ -18,16 +18,16 @@ int binarySearch_uint64_c(u64* array, int arrayLength, u64 target) {
     }
     return -1;
 }
-int binarySearch_int64_c(i64* array, int arrayLength, i64 target) {
+int binarySearch_i64_c(struct Array1d_i64* array, i64 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {
@@ -36,16 +36,16 @@ int binarySearch_int64_c(i64* array, int arrayLength, i64 target) {
     }
     return -1;
 }
-int binarySearch_float64_c(f64* array, int arrayLength, f64 target) {
+int binarySearch_f64_c(struct Array1d_f64* array, f64 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {
@@ -54,16 +54,16 @@ int binarySearch_float64_c(f64* array, int arrayLength, f64 target) {
     }
     return -1;
 }
-int binarySearch_float32_c(f32* array, int arrayLength, f32 target) {
+int binarySearch_f32_c(struct Array1d_f32* array, f32 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {
@@ -72,16 +72,16 @@ int binarySearch_float32_c(f32* array, int arrayLength, f32 target) {
     }
     return -1;
 }
-int binarySearch_uint32_c(u32* array, int arrayLength, u32 target) {
+int binarySearch_u32_c(struct Array1d_u32* array, u32 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {
@@ -90,16 +90,16 @@ int binarySearch_uint32_c(u32* array, int arrayLength, u32 target) {
     }
     return -1;
 }
-int binarySearch_int32_c(i32* array, int arrayLength, i32 target) {
+int binarySearch_i32_c(struct Array1d_i32* array, i32 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {
@@ -108,16 +108,16 @@ int binarySearch_int32_c(i32* array, int arrayLength, i32 target) {
     }
     return -1;
 }
-int binarySearch_uint16_c(u16* array, int arrayLength, u16 target) {
+int binarySearch_u16_c(struct Array1d_u16* array, u16 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {
@@ -126,16 +126,16 @@ int binarySearch_uint16_c(u16* array, int arrayLength, u16 target) {
     }
     return -1;
 }
-int binarySearch_int16_c(i16* array, int arrayLength, i16 target) {
+int binarySearch_i16_c(struct Array1d_i16* array, i16 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {
@@ -144,16 +144,16 @@ int binarySearch_int16_c(i16* array, int arrayLength, i16 target) {
     }
     return -1;
 }
-int binarySearch_uint8_c(u8* array, int arrayLength, u8 target) {
+int binarySearch_u8_c(struct Array1d_u8* array, u8 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {
@@ -162,16 +162,16 @@ int binarySearch_uint8_c(u8* array, int arrayLength, u8 target) {
     }
     return -1;
 }
-int binarySearch_int8_c(i8* array, int arrayLength, i8 target) {
+int binarySearch_i8_c(struct Array1d_i8* array, i8 target) {
     int l = 0;
-    int r = arrayLength - 1;
+    int r = array->length - 1;
     int mid = -1;
     while(r >= 1) {
         mid = l + (r - l) / 2;
-        if (array[mid] == target) {
+        if (array->items[mid] == target) {
             return mid;
         }
-        if (array[mid] > target) {
+        if (array->items[mid] > target) {
             r = mid - 1;
         }
         else {

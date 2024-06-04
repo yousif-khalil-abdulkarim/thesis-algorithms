@@ -1,4 +1,4 @@
-function merge_uint64_js(
+function merge_u64_js(
   arr: BigUint64Array,
   l: number,
   m: number,
@@ -53,7 +53,7 @@ function merge_uint64_js(
     k++;
   }
 }
-function merge_int64_js(
+function merge_i64_js(
   arr: BigInt64Array,
   l: number,
   m: number,
@@ -108,7 +108,7 @@ function merge_int64_js(
     k++;
   }
 }
-function merge_float64_js(
+function merge_f64_js(
   arr: Float64Array,
   l: number,
   m: number,
@@ -163,7 +163,7 @@ function merge_float64_js(
     k++;
   }
 }
-function merge_float32_js(
+function merge_f32_js(
   arr: Float32Array,
   l: number,
   m: number,
@@ -218,7 +218,7 @@ function merge_float32_js(
     k++;
   }
 }
-function merge_uint32_js(
+function merge_u32_js(
   arr: Uint32Array,
   l: number,
   m: number,
@@ -273,7 +273,7 @@ function merge_uint32_js(
     k++;
   }
 }
-function merge_int32_js(
+function merge_i32_js(
   arr: Int32Array,
   l: number,
   m: number,
@@ -328,7 +328,7 @@ function merge_int32_js(
     k++;
   }
 }
-function merge_uint16_js(
+function merge_u16_js(
   arr: Uint16Array,
   l: number,
   m: number,
@@ -383,7 +383,7 @@ function merge_uint16_js(
     k++;
   }
 }
-function merge_int16_js(
+function merge_i16_js(
   arr: Int16Array,
   l: number,
   m: number,
@@ -438,7 +438,7 @@ function merge_int16_js(
     k++;
   }
 }
-function merge_uint8_js(
+function merge_u8_js(
   arr: Uint8Array,
   l: number,
   m: number,
@@ -493,7 +493,7 @@ function merge_uint8_js(
     k++;
   }
 }
-function merge_int8_js(arr: Int8Array, l: number, m: number, r: number): void {
+function merge_i8_js(arr: Int8Array, l: number, m: number, r: number): void {
   const n1 = m - l + 1;
   const n2 = r - m;
 
@@ -544,134 +544,134 @@ function merge_int8_js(arr: Int8Array, l: number, m: number, r: number): void {
   }
 }
 
-function _mergeSort_uint64_js(arr: BigUint64Array, l: number, r: number): void {
+function _mergeSort_u64_js(arr: BigUint64Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_uint64_js(arr, l, m);
-  _mergeSort_uint64_js(arr, m + 1, r);
-  merge_uint64_js(arr, l, m, r);
+  _mergeSort_u64_js(arr, l, m);
+  _mergeSort_u64_js(arr, m + 1, r);
+  merge_u64_js(arr, l, m, r);
 }
-function _mergeSort_int64_js(arr: BigInt64Array, l: number, r: number): void {
+function _mergeSort_i64_js(arr: BigInt64Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_int64_js(arr, l, m);
-  _mergeSort_int64_js(arr, m + 1, r);
-  merge_int64_js(arr, l, m, r);
+  _mergeSort_i64_js(arr, l, m);
+  _mergeSort_i64_js(arr, m + 1, r);
+  merge_i64_js(arr, l, m, r);
 }
-function _mergeSort_float64_js(arr: Float64Array, l: number, r: number): void {
+function _mergeSort_f64_js(arr: Float64Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_float64_js(arr, l, m);
-  _mergeSort_float64_js(arr, m + 1, r);
-  merge_float64_js(arr, l, m, r);
+  _mergeSort_f64_js(arr, l, m);
+  _mergeSort_f64_js(arr, m + 1, r);
+  merge_f64_js(arr, l, m, r);
 }
-function _mergeSort_float32_js(arr: Float32Array, l: number, r: number): void {
+function _mergeSort_f32_js(arr: Float32Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_float32_js(arr, l, m);
-  _mergeSort_float32_js(arr, m + 1, r);
-  merge_float32_js(arr, l, m, r);
+  _mergeSort_f32_js(arr, l, m);
+  _mergeSort_f32_js(arr, m + 1, r);
+  merge_f32_js(arr, l, m, r);
 }
-function _mergeSort_uint32_js(arr: Uint32Array, l: number, r: number): void {
+function _mergeSort_u32_js(arr: Uint32Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_uint32_js(arr, l, m);
-  _mergeSort_uint32_js(arr, m + 1, r);
-  merge_uint32_js(arr, l, m, r);
+  _mergeSort_u32_js(arr, l, m);
+  _mergeSort_u32_js(arr, m + 1, r);
+  merge_u32_js(arr, l, m, r);
 }
-function _mergeSort_int32_js(arr: Int32Array, l: number, r: number): void {
+function _mergeSort_i32_js(arr: Int32Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_int32_js(arr, l, m);
-  _mergeSort_int32_js(arr, m + 1, r);
-  merge_int32_js(arr, l, m, r);
+  _mergeSort_i32_js(arr, l, m);
+  _mergeSort_i32_js(arr, m + 1, r);
+  merge_i32_js(arr, l, m, r);
 }
-function _mergeSort_uint16_js(arr: Uint16Array, l: number, r: number): void {
+function _mergeSort_u16_js(arr: Uint16Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_uint16_js(arr, l, m);
-  _mergeSort_uint16_js(arr, m + 1, r);
-  merge_uint16_js(arr, l, m, r);
+  _mergeSort_u16_js(arr, l, m);
+  _mergeSort_u16_js(arr, m + 1, r);
+  merge_u16_js(arr, l, m, r);
 }
-function _mergeSort_int16_js(arr: Int16Array, l: number, r: number): void {
+function _mergeSort_i16_js(arr: Int16Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_int16_js(arr, l, m);
-  _mergeSort_int16_js(arr, m + 1, r);
-  merge_int16_js(arr, l, m, r);
+  _mergeSort_i16_js(arr, l, m);
+  _mergeSort_i16_js(arr, m + 1, r);
+  merge_i16_js(arr, l, m, r);
 }
-function _mergeSort_uint8_js(arr: Uint8Array, l: number, r: number): void {
+function _mergeSort_u8_js(arr: Uint8Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_uint8_js(arr, l, m);
-  _mergeSort_uint8_js(arr, m + 1, r);
-  merge_uint8_js(arr, l, m, r);
+  _mergeSort_u8_js(arr, l, m);
+  _mergeSort_u8_js(arr, m + 1, r);
+  merge_u8_js(arr, l, m, r);
 }
-function _mergeSort_int8_js(arr: Int8Array, l: number, r: number): void {
+function _mergeSort_i8_js(arr: Int8Array, l: number, r: number): void {
   if (l >= r) {
     return;
   }
   const m = l + Math.floor((r - l) / 2);
-  _mergeSort_int8_js(arr, l, m);
-  _mergeSort_int8_js(arr, m + 1, r);
-  merge_int8_js(arr, l, m, r);
+  _mergeSort_i8_js(arr, l, m);
+  _mergeSort_i8_js(arr, m + 1, r);
+  merge_i8_js(arr, l, m, r);
 }
 
-export function mergeSort_uint64_js(arr: BigUint64Array): BigUint64Array {
-  _mergeSort_uint64_js(arr, 0, arr.length - 1);
+export function mergeSort_u64_js(arr: BigUint64Array): BigUint64Array {
+  _mergeSort_u64_js(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_int64_js(arr: BigInt64Array): BigInt64Array {
-  _mergeSort_int64_js(arr, 0, arr.length - 1);
+export function mergeSort_i64_js(arr: BigInt64Array): BigInt64Array {
+  _mergeSort_i64_js(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_float64_js(arr: Float64Array): Float64Array {
-  _mergeSort_float64_js(arr, 0, arr.length - 1);
+export function mergeSort_f64_js(arr: Float64Array): Float64Array {
+  _mergeSort_f64_js(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_float32_js(arr: Float32Array): Float32Array {
-  _mergeSort_float32_js(arr, 0, arr.length - 1);
+export function mergeSort_f32_js(arr: Float32Array): Float32Array {
+  _mergeSort_f32_js(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_uint32_js(arr: Uint32Array): Uint32Array {
-  _mergeSort_uint32_js(arr, 0, arr.length - 1);
+export function mergeSort_u32_js(arr: Uint32Array): Uint32Array {
+  _mergeSort_u32_js(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_int32_js(arr: Int32Array): Int32Array {
-  _mergeSort_int32_js(arr, 0, arr.length - 1);
+export function mergeSort_i32_js(arr: Int32Array): Int32Array {
+  _mergeSort_i32_js(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_uint16_js(arr: Uint16Array): Uint16Array {
-  _mergeSort_uint16_js(arr, 0, arr.length - 1);
+export function mergeSort_u16_js(arr: Uint16Array): Uint16Array {
+  _mergeSort_u16_js(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_int16_js(arr: Int16Array): Int16Array {
-  _mergeSort_int16_js(arr, 0, arr.length - 1);
+export function mergeSort_i16_js(arr: Int16Array): Int16Array {
+  _mergeSort_i16_js(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_uint8_js(arr: Uint8Array): Uint8Array {
-  _mergeSort_uint8_js(arr, 0, arr.length - 1);
+export function mergeSort_u8_js(arr: Uint8Array): Uint8Array {
+  _mergeSort_u8_js(arr, 0, arr.length - 1);
   return arr;
 }
-export function mergeSort_int8_js(arr: Int8Array): Int8Array {
-  _mergeSort_int8_js(arr, 0, arr.length - 1);
+export function mergeSort_i8_js(arr: Int8Array): Int8Array {
+  _mergeSort_i8_js(arr, 0, arr.length - 1);
   return arr;
 }

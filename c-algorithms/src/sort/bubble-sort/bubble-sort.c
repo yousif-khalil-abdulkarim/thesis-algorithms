@@ -1,81 +1,81 @@
 #include "sort/bubble-sort/bubble-sort.h";
 
-u64* bubbleSort_uint64_c(u64* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_uint64_c(array, j + 1, j);
+u64* bubbleSort_u64_c(struct Array1d_u64* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_u64_c(array->items, j + 1, j);
         }
     }
     return array;
 }
-i64* bubbleSort_int64_c(i64* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_int64_c(array, j + 1, j);
+i64* bubbleSort_i64_c(struct Array1d_i64* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_i64_c(array->items, j + 1, j);
         }
     }
     return array;
 }
-f64* bubbleSort_float64_c(f64* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_float64_c(array, j + 1, j);
+f64* bubbleSort_f64_c(struct Array1d_f64* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_f64_c(array->items, j + 1, j);
         }
     }
     return array;
 }
-f32* bubbleSort_float32_c(f32* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_float32_c(array, j + 1, j);
+f32* bubbleSort_f32_c(struct Array1d_f32* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_f32_c(array->items, j + 1, j);
         }
     }
     return array;
 }
-u32* bubbleSort_uint32_c(u32* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_uint32_c(array, j + 1, j);
+u32* bubbleSort_u32_c(struct Array1d_u32* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_u32_c(array->items, j + 1, j);
         }
     }
     return array;
 }
-i32* bubbleSort_int32_c(i32* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_int32_c(array, j + 1, j);
+i32* bubbleSort_i32_c(struct Array1d_i32* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_i32_c(array->items, j + 1, j);
         }
     }
     return array;
 }
-u16* bubbleSort_uint16_c(u16* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_uint16_c(array, j + 1, j);
+u16* bubbleSort_u16_c(struct Array1d_u16* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_u16_c(array->items, j + 1, j);
         }
     }
     return array;
 }
-i16* bubbleSort_int16_c(i16* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_int16_c(array, j + 1, j);
+i16* bubbleSort_i16_c(struct Array1d_i16* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_i16_c(array->items, j + 1, j);
         }
     }
     return array;
 }
-u8* bubbleSort_uint8_c(u8* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_uint8_c(array, j + 1, j);
+u8* bubbleSort_u8_c(struct Array1d_u8* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_u8_c(array->items, j + 1, j);
         }
     }
     return array;
 }
-i8* bubbleSort_int8_c(i8* array, int arrayLength) {
-    for (int i = 0; i < arrayLength; i++) {
-        for (int j = 0; j < arrayLength - i - 1; j++) {
-            sortTwo_int8_c(array, j + 1, j);
+i8* bubbleSort_i8_c(struct Array1d_i8* array) {
+    for (int i = 0; i < array->length; i++) {
+        for (int j = 0; j < array->length - i - 1; j++) {
+            sortTwo_i8_c(array->items, j + 1, j);
         }
     }
     return array;

@@ -1,13 +1,24 @@
 {
-    "files.associations": {
-        "sum.h": "c",
-        "data-types.h": "c",
-        "max.h": "c",
-        "meta-binary-search.h": "c",
-        "cmath": "c",
-        "interpolation-search.h": "c",
-        "bubble-sort.h": "c",
-        "shared.h": "c",
-        "stdlib.h": "c"
-    }
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "stdbool.h": "c",
+    "shared.h": "c",
+    "average.h": "c",
+    "max.h": "c",
+    "stdlib.h": "c",
+    "xlocale": "c",
+    "xstring": "c",
+    "matrix-addition.h": "c",
+    "vector": "c",
+    "xutility": "c",
+    "xiosbase": "c",
+    "math.h": "c",
+    "corecrt_math_defines.h": "c",
+    "cstdlib": "c",
+    "cmath": "c",
+    "stdio.h": "c"
+  }
 }

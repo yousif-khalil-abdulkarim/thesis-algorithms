@@ -29,33 +29,33 @@ function _quickSort<T>(
   return array;
 }
 
-export function quickSort_uint64_asm(array: StaticArray<u64>): StaticArray<u64> {
+export function quickSort_u64_asm(array: StaticArray<u64>): StaticArray<u64> {
   return _quickSort(array, 0, array.length - 1);
 }
-export function quickSort_int64_asm(array: StaticArray<i64>): StaticArray<i64> {
+export function quickSort_i64_asm(array: StaticArray<i64>): StaticArray<i64> {
   return _quickSort(array, 0, array.length - 1);
 }
-export function quickSort_float64_asm(array: StaticArray<f64>): StaticArray<f64> {
+export function quickSort_f64_asm(array: StaticArray<f64>): StaticArray<f64> {
   return _quickSort(array, 0, array.length - 1);
 }
-export function quickSort_float32_asm(array: StaticArray<f32>): StaticArray<f32> {
+export function quickSort_f32_asm(array: StaticArray<f32>): StaticArray<f32> {
   return _quickSort(array, 0, array.length - 1);
 }
-export function quickSort_uint32_asm(array: StaticArray<u32>): StaticArray<u32> {
+export function quickSort_u32_asm(array: StaticArray<u32>): StaticArray<u32> {
   return _quickSort(array, 0, array.length - 1);
 }
-export function quickSort_int32_asm(array: StaticArray<i32>): StaticArray<i32> {
+export function quickSort_i32_asm(array: StaticArray<i32>): StaticArray<i32> {
   return _quickSort(array, 0, array.length - 1);
 }
-export function quickSort_uint16_asm(array: StaticArray<i16>): StaticArray<i16> {
+export function quickSort_u16_asm(array: StaticArray<i16>): StaticArray<i16> {
   return _quickSort(array, 0, array.length - 1);
 }
-export function quickSort_int16_asm(array: StaticArray<u16>): StaticArray<u16> {
+export function quickSort_i16_asm(array: StaticArray<u16>): StaticArray<u16> {
   return _quickSort(array, 0, array.length - 1);
 }
-export function quickSort_uint8_asm(array: StaticArray<u8>): StaticArray<u8> {
+export function quickSort_u8_asm(array: StaticArray<u8>): StaticArray<u8> {
   return _quickSort(array, 0, array.length - 1);
 }
-export function quickSort_int8_asm(array: StaticArray<i8>): StaticArray<i8> {
+export function quickSort_i8_asm(array: StaticArray<i8>): StaticArray<i8> {
   return _quickSort(array, 0, array.length - 1);
 }

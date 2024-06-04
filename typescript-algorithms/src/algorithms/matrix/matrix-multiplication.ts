@@ -1,4 +1,4 @@
-export function matrixMultiplication_uint64_js(
+export function matrixMultiplication_u64_js(
   matrixA: BigUint64Array[],
   matrixB: BigUint64Array[]
 ): BigUint64Array[] {
@@ -25,7 +25,7 @@ export function matrixMultiplication_uint64_js(
 
   return c;
 }
-export function matrixMultiplication_int64_js(
+export function matrixMultiplication_i64_js(
   matrixA: BigInt64Array[],
   matrixB: BigInt64Array[]
 ): BigInt64Array[] {
@@ -52,7 +52,7 @@ export function matrixMultiplication_int64_js(
 
   return c;
 }
-export function matrixMultiplication_float64_js(
+export function matrixMultiplication_f64_js(
   matrixA: Float64Array[],
   matrixB: Float64Array[]
 ): Float64Array[] {
@@ -79,7 +79,7 @@ export function matrixMultiplication_float64_js(
 
   return c;
 }
-export function matrixMultiplication_float32_js(
+export function matrixMultiplication_f32_js(
   matrixA: Float32Array[],
   matrixB: Float32Array[]
 ): Float32Array[] {
@@ -106,7 +106,7 @@ export function matrixMultiplication_float32_js(
 
   return c;
 }
-export function matrixMultiplication_uint32_js(
+export function matrixMultiplication_u32_js(
   matrixA: Uint32Array[],
   matrixB: Uint32Array[]
 ): Uint32Array[] {
@@ -133,7 +133,7 @@ export function matrixMultiplication_uint32_js(
 
   return c;
 }
-export function matrixMultiplication_int32_js(
+export function matrixMultiplication_i32_js(
   matrixA: Int32Array[],
   matrixB: Int32Array[]
 ): Int32Array[] {
@@ -160,7 +160,7 @@ export function matrixMultiplication_int32_js(
 
   return c;
 }
-export function matrixMultiplication_uint16_js(
+export function matrixMultiplication_u16_js(
   matrixA: Uint16Array[],
   matrixB: Uint16Array[]
 ): Uint16Array[] {
@@ -187,7 +187,7 @@ export function matrixMultiplication_uint16_js(
 
   return c;
 }
-export function matrixMultiplication_int16_js(
+export function matrixMultiplication_i16_js(
   matrixA: Int16Array[],
   matrixB: Int16Array[]
 ): Int16Array[] {
@@ -214,7 +214,7 @@ export function matrixMultiplication_int16_js(
 
   return c;
 }
-export function matrixMultiplication_uint8_js(
+export function matrixMultiplication_u8_js(
   matrixA: Uint8Array[],
   matrixB: Uint8Array[]
 ): Uint8Array[] {
@@ -241,7 +241,7 @@ export function matrixMultiplication_uint8_js(
 
   return c;
 }
-export function matrixMultiplication_int8_js(
+export function matrixMultiplication_i8_js(
   matrixA: Int8Array[],
   matrixB: Int8Array[]
 ): Int8Array[] {

@@ -1,82 +1,82 @@
 #include "basic/average/average.h";
 
-u64 average_uint64_c(u64* array, int arrayLength) {
-    u64 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        u64 item = array[i];
+u64 average_u64_c(struct Array1d_u64* array) {
+    u64 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        u64 item = array->items[i];
         sum += item;
     }
-    return sum / (u64)arrayLength;
+    return sum;
 }
-i64 average_int64_c(i64* array, int arrayLength) {
-    i64 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        i64 item = array[i];
+i64 average_i64_c(struct Array1d_i64* array) {
+    i64 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        i64 item = array->items[i];
         sum += item;
     }
-    return sum / (i64)arrayLength;
+    return sum;
 }
-f64 average_float64_c(f64* array, int arrayLength) {
-    f64 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        f64 item = array[i];
+f64 average_f64_c(struct Array1d_f64* array) {
+    f64 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        f64 item = array->items[i];
         sum += item;
     }
-    return sum / (f64)arrayLength;
+    return sum;
 }
-f32 average_float32_c(f32* array, int arrayLength) {
-    f32 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        f32 item = array[i];
+f32 average_f32_c(struct Array1d_f32* array) {
+    f32 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        f32 item = array->items[i];
         sum += item;
     }
-    return sum / (f32)arrayLength;
+    return sum;
 }
-u32 average_uint32_c(u32* array, int arrayLength) {
-    u32 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        u32 item = array[i];
+u32 average_u32_c(struct Array1d_u32* array) {
+    u32 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        u32 item = array->items[i];
         sum += item;
     }
-    return sum / (u32)arrayLength;
+    return sum;
 }
-i32 average_int32_c(i32* array, int arrayLength) {
-    i32 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        i32 item = array[i];
+i32 average_i32_c(struct Array1d_i32* array) {
+    i32 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        i32 item = array->items[i];
         sum += item;
     }
-    return sum / (i32)arrayLength;
+    return sum;
 }
-u16 average_uint16_c(u16* array, int arrayLength) {
-    u16 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        u16 item = array[i];
+u16 average_u16_c(struct Array1d_u16* array) {
+    u16 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        u16 item = array->items[i];
         sum += item;
     }
-    return sum / (u16)arrayLength;
+    return sum;
 }
-i16 average_int16_c(i16* array, int arrayLength) {
-    i16 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        i16 item = array[i];
+i16 average_i16_c(struct Array1d_i16* array) {
+    i16 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        i16 item = array->items[i];
         sum += item;
     }
-    return sum / (i16)arrayLength;
+    return sum;
 }
-u8 average_uint8_c(u8* array, int arrayLength) {
-    u8 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        u8 item = array[i];
+u8 average_u8_c(struct Array1d_u8* array) {
+    u8 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        u8 item = array->items[i];
         sum += item;
     }
-    return sum / (u8)arrayLength;
+    return sum;
 }
-i8 average_int8_c(i8* array, int arrayLength) {
-    i8 sum = array[0];
-    for (int i = 1; i < arrayLength; i++) {
-        i8 item = array[i];
+i8 average_i8_c(struct Array1d_i8* array) {
+    i8 sum = array->items[0];
+    for (int i = 1; i < array->length; i++) {
+        i8 item = array->items[i];
         sum += item;
     }
-    return sum / (i8)arrayLength;
+    return sum;
 }
