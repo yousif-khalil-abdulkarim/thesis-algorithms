@@ -1,4 +1,5 @@
-#include <math.h> 
+#include <math.h>
+#include "shared/shared.h"
 #include "search/meta-binary-search/meta-binary-search.h";
 
 int metaBinarySearch_u64_c(struct Array1d_u64* array, u64 target) {

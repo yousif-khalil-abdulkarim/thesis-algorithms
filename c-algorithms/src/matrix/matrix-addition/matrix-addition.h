@@ -1,6 +1,7 @@
 #ifndef MATRIX_ADDITION
 #define MATRIX_ADDITION
 #include "shared/shared.h"
+
 struct Matrix_u64* matrixAddition_u64_c(struct Matrix_u64* matrixA, struct Matrix_u64* matrixB);
 struct Matrix_i64* matrixAddition_i64_c(struct Matrix_i64* matrixA, struct Matrix_u64* matrixB);
 struct Matrix_f64* matrixAddition_f64_c(struct Matrix_f64* matrixA, struct Matrix_u64* matrixB);

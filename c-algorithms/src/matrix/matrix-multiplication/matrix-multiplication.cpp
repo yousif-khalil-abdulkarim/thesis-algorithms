@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "shared/shared.h"
 #include "matrix/matrix-multiplication/matrix-multiplication.h";
 
 struct Matrix_u64* matrixMultiplication_u64_c(struct Matrix_u64* matrixA, struct Matrix_u64* matrixB) {

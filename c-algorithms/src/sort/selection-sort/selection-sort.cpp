@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "sort/selection-sort/selection-sort.h";
 
-u64* selectionSort_u64_c(struct Array1d_u64* array) {
+struct Array1d_u64* selectionSort_u64_c(struct Array1d_u64* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -16,7 +16,7 @@ u64* selectionSort_u64_c(struct Array1d_u64* array) {
     } 
     return array;
 }
-i64* selectionSort_i64_c(struct Array1d_i64* array) {
+struct Array1d_i64* selectionSort_i64_c(struct Array1d_i64* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -29,8 +29,9 @@ i64* selectionSort_i64_c(struct Array1d_i64* array) {
             }
         }
     }
+    return array;
 }
-f64* selectionSort_f64_c(struct Array1d_f64* array) {
+struct Array1d_f64* selectionSort_f64_c(struct Array1d_f64* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -43,8 +44,9 @@ f64* selectionSort_f64_c(struct Array1d_f64* array) {
             }
         }
     }
+    return array;
 }
-f32* selectionSort_f32_c(struct Array1d_f32* array) {
+struct Array1d_f32* selectionSort_f32_c(struct Array1d_f32* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -57,8 +59,9 @@ f32* selectionSort_f32_c(struct Array1d_f32* array) {
             }
         }
     }
+    return array;
 }
-u32* selectionSort_u32_c(struct Array1d_u32* array) {
+struct Array1d_u32* selectionSort_u32_c(struct Array1d_u32* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -73,7 +76,7 @@ u32* selectionSort_u32_c(struct Array1d_u32* array) {
     } 
     return array;
 }
-i32* selectionSort_i32_c(struct Array1d_i32* array) {
+struct Array1d_i32* selectionSort_i32_c(struct Array1d_i32* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -86,8 +89,9 @@ i32* selectionSort_i32_c(struct Array1d_i32* array) {
             }
         }
     }
+    return array;
 }
-u16* selectionSort_u16_c(struct Array1d_u16* array) {
+struct Array1d_u16* selectionSort_u16_c(struct Array1d_u16* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -102,7 +106,7 @@ u16* selectionSort_u16_c(struct Array1d_u16* array) {
     } 
     return array;
 }
-i16* selectionSort_i16_c(struct Array1d_i16* array) {
+struct Array1d_i16* selectionSort_i16_c(struct Array1d_i16* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -115,8 +119,9 @@ i16* selectionSort_i16_c(struct Array1d_i16* array) {
             }
         }
     }
+    return array;
 }
-u8* selectionSort_u8_c(struct Array1d_u8* array) {
+struct Array1d_u8* selectionSort_u8_c(struct Array1d_u8* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -131,7 +136,7 @@ u8* selectionSort_u8_c(struct Array1d_u8* array) {
     } 
     return array;
 }
-i8* selectionSort_i8_c(struct Array1d_i8* array) {
+struct Array1d_i8* selectionSort_i8_c(struct Array1d_i8* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -144,4 +149,5 @@ i8* selectionSort_i8_c(struct Array1d_i8* array) {
             }
         }
     }
+    return array;
 }

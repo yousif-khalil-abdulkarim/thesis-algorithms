@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "matrix/matrix-addition/matrix-addition.h";
+#include "shared/shared.h"
 
 struct Matrix_u64* matrixSubtraction_u64_c(struct Matrix_u64* matrixA, struct Matrix_u64* matrixB) {
     struct Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
@@ -91,4 +92,3 @@ struct Matrix_i8* matrixSubtraction_i8_c(struct Matrix_i8* matrixA, struct Matri
     }
     return newMatrix;
 }
-

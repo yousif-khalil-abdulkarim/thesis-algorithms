@@ -1,4 +1,6 @@
+#include <math.h>
 #include "search/interpolation-search/interpolation-search.h";
+#include "shared/shared.h"
 
 int _interpolationSearch_u64_c(u64* array, int startOffset, int endOffset, u64 target) {
     int pos = -1;
@@ -9,10 +11,8 @@ int _interpolationSearch_u64_c(u64* array, int startOffset, int endOffset, u64 t
     ) {
         pos =
             startOffset +
-            floor(
                 ((endOffset - startOffset) / (array[endOffset] - array[startOffset])) *
-                (target - array[startOffset])
-            );
+                (target - array[startOffset]);
 
         if (array[pos] == target) {
             return pos;
@@ -41,10 +41,8 @@ int _interpolationSearch_i64_c(i64* array, int startOffset, int endOffset, i64 t
     ) {
         pos =
             startOffset +
-            floor(
                 ((endOffset - startOffset) / (array[endOffset] - array[startOffset])) *
-                (target - array[startOffset])
-            );
+                (target - array[startOffset]);
 
         if (array[pos] == target) {
             return pos;
@@ -137,10 +135,8 @@ int _interpolationSearch_u32_c(u32* array, int startOffset, int endOffset, u32 t
     ) {
         pos =
             startOffset +
-            floor(
                 ((endOffset - startOffset) / (array[endOffset] - array[startOffset])) *
-                (target - array[startOffset])
-            );
+                (target - array[startOffset]);
 
         if (array[pos] == target) {
             return pos;
@@ -169,10 +165,8 @@ int _interpolationSearch_i32_c(i32* array, int startOffset, int endOffset, i32 t
     ) {
         pos =
             startOffset +
-            floor(
                 ((endOffset - startOffset) / (array[endOffset] - array[startOffset])) *
-                (target - array[startOffset])
-            );
+                (target - array[startOffset]);
 
         if (array[pos] == target) {
             return pos;
@@ -201,10 +195,8 @@ int _interpolationSearch_u16_c(u16* array, int startOffset, int endOffset, u16 t
     ) {
         pos =
             startOffset +
-            floor(
                 ((endOffset - startOffset) / (array[endOffset] - array[startOffset])) *
-                (target - array[startOffset])
-            );
+                (target - array[startOffset]);
 
         if (array[pos] == target) {
             return pos;
@@ -233,10 +225,8 @@ int _interpolationSearch_i16_c(i16* array, int startOffset, int endOffset, i16 t
     ) {
         pos =
             startOffset +
-            floor(
                 ((endOffset - startOffset) / (array[endOffset] - array[startOffset])) *
-                (target - array[startOffset])
-            );
+                (target - array[startOffset]);
 
         if (array[pos] == target) {
             return pos;
@@ -265,10 +255,8 @@ int _interpolationSearch_u8_c(u8* array, int startOffset, int endOffset, u8 targ
     ) {
         pos =
             startOffset +
-            floor(
                 ((endOffset - startOffset) / (array[endOffset] - array[startOffset])) *
-                (target - array[startOffset])
-            );
+                (target - array[startOffset]);
 
         if (array[pos] == target) {
             return pos;
@@ -297,10 +285,8 @@ int _interpolationSearch_i8_c(i8* array, int startOffset, int endOffset, i8 targ
     ) {
         pos =
             startOffset +
-            floor(
                 ((endOffset - startOffset) / (array[endOffset] - array[startOffset])) *
-                (target - array[startOffset])
-            );
+                (target - array[startOffset]);
 
         if (array[pos] == target) {
             return pos;

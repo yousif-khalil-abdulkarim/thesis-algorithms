@@ -80,7 +80,7 @@ i16 min_i16_c(struct Array1d_i16* array) {
     }
     return min;
 }
-u8 min_u8_cArray1d_(struct Array1d_u8* array) {
+u8 min_u8_c(struct Array1d_u8* array) {
     u8  min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u8  item = array->items[i];
@@ -90,7 +90,7 @@ u8 min_u8_cArray1d_(struct Array1d_u8* array) {
     }
     return min;
 }
-i8 min_i8_cArray1d_(struct Array1d_i8* array) {
+i8 min_i8_c(struct Array1d_i8* array) {
     i8  min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         i8  item = array->items[i];

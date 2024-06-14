@@ -9,6 +9,6 @@ u32 max_u32_c(struct Array1d_u32* array);
 i32 max_i32_c(struct Array1d_i32* array);
 u16 max_u16_c(struct Array1d_u16* array);
 i16 max_i16_c(struct Array1d_i16* array);
-u8 max_u8_cArray1d_(struct Array1d_u8* array);
-i8 max_i8_cArray1d_(struct Array1d_i8* array);
+u8 max_u8_c(struct Array1d_u8* array);
+i8 max_i8_c(struct Array1d_i8* array);
 #endif

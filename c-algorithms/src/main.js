@@ -2047,6 +2047,10 @@ var asm = createWasm();
 
 var ___wasm_call_ctors = createExportWrapper("__wasm_call_ctors");
 
+var _malloc = createExportWrapper("malloc");
+
+var _free = createExportWrapper("free");
+
 var _main = Module["_main"] = createExportWrapper("main");
 
 var ___getTypeName = createExportWrapper("__getTypeName");
@@ -2056,10 +2060,6 @@ var __embind_initialize_bindings = Module["__embind_initialize_bindings"] = crea
 var ___errno_location = createExportWrapper("__errno_location");
 
 var _fflush = Module["_fflush"] = createExportWrapper("fflush");
-
-var _malloc = createExportWrapper("malloc");
-
-var _free = createExportWrapper("free");
 
 var _emscripten_stack_init = function() {
  return (_emscripten_stack_init = Module["asm"]["emscripten_stack_init"]).apply(null, arguments);

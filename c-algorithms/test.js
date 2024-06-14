@@ -1,5 +1,9 @@
 const Module = require("./src/main");
 
 Module.onRuntimeInitialized = function() {
-    Module.hello_world();
+    const nbrs = new Float32Array([1, 2, 3, 4, 5]);
+    Module.average_f32_c({
+        items: nbrs,
+        length: nbrs.length
+    });
 }

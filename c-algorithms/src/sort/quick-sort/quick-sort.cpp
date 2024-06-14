@@ -203,33 +203,43 @@ i8* _quickSort_i8_c(i8* array, int left, int right) {
     return array;
 }
 
-u64* quickSort_u64_c(struct Array1d_u64* array) {
-    return _quickSort_u64_c(array->items, 0, array->length - 1);
+struct Array1d_u64* quickSort_u64_c(struct Array1d_u64* array) {
+    _quickSort_u64_c(array->items, 0, array->length - 1);
+    return array;
 }
-i64* quickSort_i64_c(struct Array1d_i64* array) {
-    return _quickSort_i64_c(array->items, 0, array->length - 1);
+struct Array1d_i64* quickSort_i64_c(struct Array1d_i64* array) {
+    _quickSort_i64_c(array->items, 0, array->length - 1);
+    return array;
 }
-f64* quickSort_f64_c(struct Array1d_f64* array) {
-    return _quickSort_f64_c(array->items, 0, array->length - 1);
+struct Array1d_f64* quickSort_f64_c(struct Array1d_f64* array) {
+    _quickSort_f64_c(array->items, 0, array->length - 1);
+    return array;
 }
-f32* quickSort_f32_c(struct Array1d_f32* array) {
-    return _quickSort_f32_c(array->items, 0, array->length - 1);
+struct Array1d_f32* quickSort_f32_c(struct Array1d_f32* array) {
+    _quickSort_f32_c(array->items, 0, array->length - 1);
+    return array;
 }
-u32* quickSort_u32_c(struct Array1d_u32* array) {
-    return _quickSort_u32_c(array->items, 0, array->length - 1);
+struct Array1d_u32* quickSort_u32_c(struct Array1d_u32* array) {
+    _quickSort_u32_c(array->items, 0, array->length - 1);
+    return array;
 }
-i32* quickSort_i32_c(struct Array1d_i32* array) {
-    return _quickSort_i32_c(array->items, 0, array->length - 1);
+struct Array1d_i32* quickSort_i32_c(struct Array1d_i32* array) {
+    _quickSort_i32_c(array->items, 0, array->length - 1);
+    return array;
 }
-u16* quickSort_u16_c(struct Array1d_u16* array) {
-    return _quickSort_u16_c(array->items, 0, array->length - 1);
+struct Array1d_u16* quickSort_u16_c(struct Array1d_u16* array) {
+    _quickSort_u16_c(array->items, 0, array->length - 1);
+    return array;
 }
-i16* quickSort_i16_c(struct Array1d_i16* array) {
-    return _quickSort_i16_c(array->items, 0, array->length - 1);
+struct Array1d_i16* quickSort_i16_c(struct Array1d_i16* array) {
+    _quickSort_i16_c(array->items, 0, array->length - 1);
+    return array;
 }
-u8* quickSort_u8_c(struct Array1d_u8* array) {
-    return _quickSort_u8_c(array->items, 0, array->length - 1);
+struct Array1d_u8* quickSort_u8_c(struct Array1d_u8* array) {
+    _quickSort_u8_c(array->items, 0, array->length - 1);
+    return array;
 }
-i8* quickSort_i8_c(struct Array1d_i8* array) {
-    return _quickSort_i8_c(array->items, 0, array->length - 1);
+struct Array1d_i8* quickSort_i8_c(struct Array1d_i8* array) {
+    _quickSort_i8_c(array->items, 0, array->length - 1);
+    return array;
 }

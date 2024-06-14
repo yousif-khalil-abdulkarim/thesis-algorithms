@@ -1,4 +1,5 @@
 #include "search/binary-search/binary-search.h";
+#include "shared/shared.h"
 
 int binarySearch_u64_c(struct Array1d_u64* array, u64 target) {
     int l = 0;
