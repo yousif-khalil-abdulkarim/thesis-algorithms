@@ -19,344 +19,344 @@ typedef short int i16;
 typedef unsigned char u8;
 typedef char i8;
 
-struct Array1d_u64 {
+typedef struct Array1d_u64 {
     u64* items;
     int length;
-};
-struct Array1d_i64 {
+} Array1d_u64;
+typedef struct Array1d_i64 {
     i64* items;
     int length;
-};
-struct Array1d_f64 {
+} Array1d_i64;
+typedef struct Array1d_f64 {
     f64* items;
     int length;
-};
-struct Array1d_f32 {
+} Array1d_f64;
+typedef struct Array1d_f32 {
     f32* items;
     int length;
-};
-struct Array1d_u32 {
+} Array1d_f32;
+typedef struct Array1d_u32 {
     u32* items;
     int length;
-};
-struct Array1d_i32 {
+} Array1d_u32;
+typedef struct Array1d_i32 {
     i32* items;
     int length;
-};
-struct Array1d_u16 {
+} Array1d_i32;
+typedef struct Array1d_u16 {
     u16* items;
     int length;
-};
-struct Array1d_i16 {
+} Array1d_u16;
+typedef struct Array1d_i16 {
     i16* items;
     int length;
-};
-struct Array1d_u8 {
+} Array1d_i16;
+typedef struct Array1d_u8 {
     u8* items;
     int length;
-};
-struct Array1d_i8 {
+} Array1d_u8;
+typedef struct Array1d_i8 {
     i8* items;
     int length;
-};
+} Array1d_i8;
 
-struct Array1d_u64* makeArray1d_u64(int length) {
+Array1d_u64* makeArray1d_u64(int length) {
     u64* items = (u64*)malloc(length * sizeof(u64));
-    struct Array1d_u64* array = (struct Array1d_u64*)malloc(sizeof(struct Array1d_u64));
+    Array1d_u64* array = (Array1d_u64*)malloc(sizeof(Array1d_u64));
     array->items = items;
     array->length = length;
     return array;
 }
-struct Array1d_i64* makeArray1d_i64(int length) {
+Array1d_i64* makeArray1d_i64(int length) {
     i64* items = (i64*)malloc(length * sizeof(i64));
-    struct Array1d_i64* array = (struct Array1d_i64*)malloc(sizeof(struct Array1d_i64));
+    Array1d_i64* array = (Array1d_i64*)malloc(sizeof(Array1d_i64));
     array->items = items;
     array->length = length;
     return array;
 }
-struct Array1d_f64* makeArray1d_f64(int length) {
+Array1d_f64* makeArray1d_f64(int length) {
     f64* items = (f64*)malloc(length * sizeof(f64));
-    struct Array1d_f64* array = (struct Array1d_f64*)malloc(sizeof(struct Array1d_f64));
+    Array1d_f64* array = (Array1d_f64*)malloc(sizeof(Array1d_f64));
     array->items = items;
     array->length = length;
     return array;
 }
-struct Array1d_f32* makeArray1d_f32(int length) {
+Array1d_f32* makeArray1d_f32(int length) {
     f32* items = (f32*)malloc(length * sizeof(f32));
-    struct Array1d_f32* array = (struct Array1d_f32*)malloc(sizeof(struct Array1d_f32));
+    Array1d_f32* array = (Array1d_f32*)malloc(sizeof(Array1d_f32));
     array->items = items;
     array->length = length;
     return array;
 }
-struct Array1d_u32* makeArray1d_u32(int length) {
+Array1d_u32* makeArray1d_u32(int length) {
     u32* items = (u32*)malloc(length * sizeof(u32));
-    struct Array1d_u32* array = (struct Array1d_u32*)malloc(sizeof(struct Array1d_u32));
+    Array1d_u32* array = (Array1d_u32*)malloc(sizeof(Array1d_u32));
     array->items = items;
     array->length = length;
     return array;
 }
-struct Array1d_i32* makeArray1d_i32(int length) {
+Array1d_i32* makeArray1d_i32(int length) {
     i32* items = (i32*)malloc(length * sizeof(i32));
-    struct Array1d_i32* array = (struct Array1d_i32*)malloc(sizeof(struct Array1d_i32));
+    Array1d_i32* array = (Array1d_i32*)malloc(sizeof(Array1d_i32));
     array->items = items;
     array->length = length;
     return array;
 }
-struct Array1d_u16* makeArray1d_u16(int length) {
+Array1d_u16* makeArray1d_u16(int length) {
     u16* items = (u16*)malloc(length * sizeof(u16));
-    struct Array1d_u16* array = (struct Array1d_u16*)malloc(sizeof(struct Array1d_u16));
+    Array1d_u16* array = (Array1d_u16*)malloc(sizeof(Array1d_u16));
     array->items = items;
     array->length = length;
     return array;
 }
-struct Array1d_i16* makeArray1d_i16(int length) {
+Array1d_i16* makeArray1d_i16(int length) {
     i16* items = (i16*)malloc(length * sizeof(i16));
-    struct Array1d_i16* array = (struct Array1d_i16*)malloc(sizeof(struct Array1d_i16));
+    Array1d_i16* array = (Array1d_i16*)malloc(sizeof(Array1d_i16));
     array->items = items;
     array->length = length;
     return array;
 }
-struct Array1d_u8* makeArray1d_u8(int length) {
+Array1d_u8* makeArray1d_u8(int length) {
     u8* items = (u8*)malloc(length * sizeof(u8));
-    struct Array1d_u8* array = (struct Array1d_u8*)malloc(sizeof(struct Array1d_u8));
+    Array1d_u8* array = (Array1d_u8*)malloc(sizeof(Array1d_u8));
     array->items = items;
     array->length = length;
     return array;
 }
-struct Array1d_i8* makeArray1d_i8(int length) {
+Array1d_i8* makeArray1d_i8(int length) {
     i8* items = (i8*)malloc(length * sizeof(i8));
-    struct Array1d_i8* array = (struct Array1d_i8*)malloc(sizeof(struct Array1d_i8));
+    Array1d_i8* array = (Array1d_i8*)malloc(sizeof(Array1d_i8));
     array->items = items;
     array->length = length;
     return array;
 }
 
-void deleteArray1d_u64(struct Array1d_u64* array) {
+void deleteArray1d_u64(Array1d_u64* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_i64(struct Array1d_i64* array) {
+void deleteArray1d_i64(Array1d_i64* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_f64(struct Array1d_f64* array) {
+void deleteArray1d_f64(Array1d_f64* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_f32(struct Array1d_f32* array) {
+void deleteArray1d_f32(Array1d_f32* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_u32(struct Array1d_u32* array) {
+void deleteArray1d_u32(Array1d_u32* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_i32(struct Array1d_i32* array) {
+void deleteArray1d_i32(Array1d_i32* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_u16(struct Array1d_u16* array) {
+void deleteArray1d_u16(Array1d_u16* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_i16(struct Array1d_i16* array) {
+void deleteArray1d_i16(Array1d_i16* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_u8(struct Array1d_u8* array) {
+void deleteArray1d_u8(Array1d_u8* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_i8(struct Array1d_i8* array) {
+void deleteArray1d_i8(Array1d_i8* array) {
     free(array->items);
     free(array);
 }
 
-struct Matrix_u64 {
+typedef struct Matrix_u64 {
     u64** data;
     int width;
     int height;
-};
-struct Matrix_i64 {
+} Matrix_u64;
+typedef struct Matrix_i64 {
     i64** data;
     int width;
     int height;
-};
-struct Matrix_f64 {
+} Matrix_i64;
+typedef struct Matrix_f64 {
     f64** data;
     int width;
     int height;
-};
-struct Matrix_f32 {
+} Matrix_f64;
+typedef struct Matrix_f32 {
     f32** data;
     int width;
     int height;
-};
-struct Matrix_u32 {
+} Matrix_f32;
+typedef struct Matrix_u32 {
     u32** data;
     int width;
     int height;
-};
-struct Matrix_i32 {
+} Matrix_u32;
+typedef struct Matrix_i32 {
     i32** data;
     int width;
     int height;
-};
-struct Matrix_u16 {
+} Matrix_i32;
+typedef struct Matrix_u16 {
     u16** data;
     int width;
     int height;
-};
-struct Matrix_i16 {
+} Matrix_u16;
+typedef struct Matrix_i16 {
     i16** data;
     int width;
     int height;
-};
-struct Matrix_u8 {
+} Matrix_i16;
+typedef struct Matrix_u8 {
     u8** data;
     int width;
     int height;
-};
-struct Matrix_i8 {
+} Matrix_u8;
+typedef struct Matrix_i8 {
     i8** data;
     int width;
     int height;
-};
+} Matrix_i8;
 
-struct Matrix_u64* makeMatrix_u64(int height, int width) {
+Matrix_u64* makeMatrix_u64(int height, int width) {
     u64** data = (u64**)malloc(height * sizeof(u64*));
     for (int i = 0; i < height; i++) {
         u64* row = (u64*)malloc(width * sizeof(u64));
         data[i] = row;
     }
 
-    struct Matrix_u64* matrix = (struct Matrix_u64*)malloc(sizeof(struct Matrix_u64));
+    Matrix_u64* matrix = (Matrix_u64*)malloc(sizeof(Matrix_u64));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
 
     return matrix;
 }
-struct Matrix_i64* makeMatrix_i64(int height, int width) {
+Matrix_i64* makeMatrix_i64(int height, int width) {
     i64** data = (i64**)malloc(height * sizeof(i64*));
     for (int i = 0; i < height; i++) {
         i64* row = (i64*)malloc(width * sizeof(i64));
         data[i] = row;
     }
 
-    struct Matrix_i64* matrix = (struct Matrix_i64*)malloc(sizeof(struct Matrix_i64));
+    Matrix_i64* matrix = (Matrix_i64*)malloc(sizeof(Matrix_i64));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
     
     return matrix;
 }
-struct Matrix_f64* makeMatrix_f64(int height, int width) {
+Matrix_f64* makeMatrix_f64(int height, int width) {
     f64** data = (f64**)malloc(height * sizeof(f64*));
     for (int i = 0; i < height; i++) {
         f64* row = (f64*)malloc(width * sizeof(f64));
         data[i] = row;
     }
 
-    struct Matrix_f64* matrix = (struct Matrix_f64*)malloc(sizeof(struct Matrix_f64));
+    Matrix_f64* matrix = (Matrix_f64*)malloc(sizeof(Matrix_f64));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
     
     return matrix;
 }
-struct Matrix_f32* makeMatrix_f32(int height, int width) {
+Matrix_f32* makeMatrix_f32(int height, int width) {
     f32** data = (f32**)malloc(height * sizeof(f32*));
     for (int i = 0; i < height; i++) {
         f32* row = (f32*)malloc(width * sizeof(f32));
         data[i] = row;
     }
 
-    struct Matrix_f32* matrix = (struct Matrix_f32*)malloc(sizeof(struct Matrix_f32));
+    Matrix_f32* matrix = (Matrix_f32*)malloc(sizeof(Matrix_f32));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
     
     return matrix;
 }
-struct Matrix_u32* makeMatrix_u32(int height, int width) {
+Matrix_u32* makeMatrix_u32(int height, int width) {
     u32** data = (u32**)malloc(height * sizeof(u32*));
     for (int i = 0; i < height; i++) {
         u32* row = (u32*)malloc(width * sizeof(u32));
         data[i] = row;
     }
 
-    struct Matrix_u32* matrix = (struct Matrix_u32*)malloc(sizeof(struct Matrix_u32));
+    Matrix_u32* matrix = (Matrix_u32*)malloc(sizeof(Matrix_u32));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
     
     return matrix;
 }
-struct Matrix_i32* makeMatrix_i32(int height, int width) {
+Matrix_i32* makeMatrix_i32(int height, int width) {
     i32** data = (i32**)malloc(height * sizeof(i32*));
     for (int i = 0; i < height; i++) {
         i32* row = (i32*)malloc(width * sizeof(i32));
         data[i] = row;
     }
 
-    struct Matrix_i32* matrix = (struct Matrix_i32*)malloc(sizeof(struct Matrix_i32));
+    Matrix_i32* matrix = (Matrix_i32*)malloc(sizeof(Matrix_i32));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
     
     return matrix;
 }
-struct Matrix_u16* makeMatrix_u16(int height, int width) {
+Matrix_u16* makeMatrix_u16(int height, int width) {
     u16** data = (u16**)malloc(height * sizeof(u16*));
     for (int i = 0; i < height; i++) {
         u16* row = (u16*)malloc(width * sizeof(u16));
         data[i] = row;
     }
 
-    struct Matrix_u16* matrix = (struct Matrix_u16*)malloc(sizeof(struct Matrix_u16));
+    Matrix_u16* matrix = (Matrix_u16*)malloc(sizeof(Matrix_u16));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
     
     return matrix;
 }
-struct Matrix_i16* makeMatrix_i16(int height, int width) {
+Matrix_i16* makeMatrix_i16(int height, int width) {
     i16** data = (i16**)malloc(height * sizeof(i16*));
     for (int i = 0; i < height; i++) {
         i16* row = (i16*)malloc(width * sizeof(i16));
         data[i] = row;
     }
 
-    struct Matrix_i16* matrix = (struct Matrix_i16*)malloc(sizeof(struct Matrix_i16));
+    Matrix_i16* matrix = (Matrix_i16*)malloc(sizeof(Matrix_i16));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
     
     return matrix;
 }
-struct Matrix_u8* makeMatrix_u8(int height, int width) {
+Matrix_u8* makeMatrix_u8(int height, int width) {
     u8** data = (u8**)malloc(height * sizeof(u8*));
     for (int i = 0; i < height; i++) {
         u8* row = (u8*)malloc(width * sizeof(u8));
         data[i] = row;
     }
 
-    struct Matrix_u8* matrix = (struct Matrix_u8*)malloc(sizeof(struct Matrix_u8));
+    Matrix_u8* matrix = (Matrix_u8*)malloc(sizeof(Matrix_u8));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
     
     return matrix;
 }
-struct Matrix_i8* makeMatrix_i8(int height, int width) {
+Matrix_i8* makeMatrix_i8(int height, int width) {
     i8** data = (i8**)malloc(height * sizeof(i8*));
     for (int i = 0; i < height; i++) {
         i8* row = (i8*)malloc(width * sizeof(i8));
         data[i] = row;
     }
 
-    struct Matrix_i8* matrix = (struct Matrix_i8*)malloc(sizeof(struct Matrix_i8));
+    Matrix_i8* matrix = (Matrix_i8*)malloc(sizeof(Matrix_i8));
     matrix->width = width;
     matrix->height = height;
     matrix->data = data;
@@ -364,70 +364,70 @@ struct Matrix_i8* makeMatrix_i8(int height, int width) {
     return matrix;
 }
 
-void deleteMatrix_u64(struct Matrix_u64* matrix) {
+void deleteMatrix_u64(Matrix_u64* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_i64(struct Matrix_i64* matrix) {
+void deleteMatrix_i64(Matrix_i64* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_f64(struct Matrix_f64* matrix) {
+void deleteMatrix_f64(Matrix_f64* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_f32(struct Matrix_f32* matrix) {
+void deleteMatrix_f32(Matrix_f32* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_u32(struct Matrix_u32* matrix) {
+void deleteMatrix_u32(Matrix_u32* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_i32(struct Matrix_i32* matrix) {
+void deleteMatrix_i32(Matrix_i32* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_u16(struct Matrix_u16* matrix) {
+void deleteMatrix_u16(Matrix_u16* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_i16(struct Matrix_i16* matrix) {
+void deleteMatrix_i16(Matrix_i16* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_u8(struct Matrix_u8* matrix) {
+void deleteMatrix_u8(Matrix_u8* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_i8(struct Matrix_i8* matrix) {
+void deleteMatrix_i8(Matrix_i8* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
@@ -537,7 +537,7 @@ void sortTwo_i8_c(i8* array, int a, int b) {
     }
 }
 
-u64 average_u64_c(struct Array1d_u64* array) {
+u64 average_u64_c(Array1d_u64* array) {
     u64 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         u64 item = array->items[i];
@@ -545,7 +545,7 @@ u64 average_u64_c(struct Array1d_u64* array) {
     }
     return sum;
 }
-i64 average_i64_c(struct Array1d_i64* array) {
+i64 average_i64_c(Array1d_i64* array) {
     i64 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         i64 item = array->items[i];
@@ -553,7 +553,7 @@ i64 average_i64_c(struct Array1d_i64* array) {
     }
     return sum;
 }
-f64 average_f64_c(struct Array1d_f64* array) {
+f64 average_f64_c(Array1d_f64* array) {
     f64 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         f64 item = array->items[i];
@@ -561,7 +561,7 @@ f64 average_f64_c(struct Array1d_f64* array) {
     }
     return sum;
 }
-f32 average_f32_c(struct Array1d_f32* array) {
+f32 average_f32_c(Array1d_f32* array) {
     f32 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         f32 item = array->items[i];
@@ -569,7 +569,7 @@ f32 average_f32_c(struct Array1d_f32* array) {
     }
     return sum;
 }
-u32 average_u32_c(struct Array1d_u32* array) {
+u32 average_u32_c(Array1d_u32* array) {
     u32 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         u32 item = array->items[i];
@@ -577,7 +577,7 @@ u32 average_u32_c(struct Array1d_u32* array) {
     }
     return sum;
 }
-i32 average_i32_c(struct Array1d_i32* array) {
+i32 average_i32_c(Array1d_i32* array) {
     i32 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         i32 item = array->items[i];
@@ -585,7 +585,7 @@ i32 average_i32_c(struct Array1d_i32* array) {
     }
     return sum;
 }
-u16 average_u16_c(struct Array1d_u16* array) {
+u16 average_u16_c(Array1d_u16* array) {
     u16 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         u16 item = array->items[i];
@@ -593,7 +593,7 @@ u16 average_u16_c(struct Array1d_u16* array) {
     }
     return sum;
 }
-i16 average_i16_c(struct Array1d_i16* array) {
+i16 average_i16_c(Array1d_i16* array) {
     i16 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         i16 item = array->items[i];
@@ -601,7 +601,7 @@ i16 average_i16_c(struct Array1d_i16* array) {
     }
     return sum;
 }
-u8 average_u8_c(struct Array1d_u8* array) {
+u8 average_u8_c(Array1d_u8* array) {
     u8 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         u8 item = array->items[i];
@@ -609,7 +609,7 @@ u8 average_u8_c(struct Array1d_u8* array) {
     }
     return sum;
 }
-i8 average_i8_c(struct Array1d_i8* array) {
+i8 average_i8_c(Array1d_i8* array) {
     i8 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
         i8 item = array->items[i];
@@ -618,7 +618,7 @@ i8 average_i8_c(struct Array1d_i8* array) {
     return sum;
 }
 
-u64 max_u64_c(struct Array1d_u64* array) {
+u64 max_u64_c(Array1d_u64* array) {
     u64 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -628,7 +628,7 @@ u64 max_u64_c(struct Array1d_u64* array) {
     }
     return max;
 }
-i64 max_i64_c(struct Array1d_i64* array) {
+i64 max_i64_c(Array1d_i64* array) {
     i64 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         i64 item = array->items[i];
@@ -638,7 +638,7 @@ i64 max_i64_c(struct Array1d_i64* array) {
     }
     return max;
 }
-f64 max_f64_c(struct Array1d_f64* array) {
+f64 max_f64_c(Array1d_f64* array) {
     f64 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         f64 item = array->items[i];
@@ -648,7 +648,7 @@ f64 max_f64_c(struct Array1d_f64* array) {
     }
     return max;
 }
-f32 max_f32_c(struct Array1d_f32* array) {
+f32 max_f32_c(Array1d_f32* array) {
     f32 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         f32 item = array->items[i];
@@ -658,7 +658,7 @@ f32 max_f32_c(struct Array1d_f32* array) {
     }
     return max;
 }
-u32 max_u32_c(struct Array1d_u32* array) {
+u32 max_u32_c(Array1d_u32* array) {
     u32 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u32 item = array->items[i];
@@ -668,7 +668,7 @@ u32 max_u32_c(struct Array1d_u32* array) {
     }
     return max;
 }
-i32 max_i32_c(struct Array1d_i32* array) {
+i32 max_i32_c(Array1d_i32* array) {
     i32 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         i32 item = array->items[i];
@@ -678,7 +678,7 @@ i32 max_i32_c(struct Array1d_i32* array) {
     }
     return max;
 }
-u16 max_u16_c(struct Array1d_u16* array) {
+u16 max_u16_c(Array1d_u16* array) {
     u16 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u16 item = array->items[i];
@@ -688,7 +688,7 @@ u16 max_u16_c(struct Array1d_u16* array) {
     }
     return max;
 }
-i16 max_i16_c(struct Array1d_i16* array) {
+i16 max_i16_c(Array1d_i16* array) {
     i16 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         i16 item = array->items[i];
@@ -698,7 +698,7 @@ i16 max_i16_c(struct Array1d_i16* array) {
     }
     return max;
 }
-u8 max_u8_c(struct Array1d_u8* array) {
+u8 max_u8_c(Array1d_u8* array) {
     u8  max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u8  item = array->items[i];
@@ -708,7 +708,7 @@ u8 max_u8_c(struct Array1d_u8* array) {
     }
     return max;
 }
-i8 max_i8_c(struct Array1d_i8* array) {
+i8 max_i8_c(Array1d_i8* array) {
     i8  max = array->items[0];
     for (int i = 0; i < array->length; i++) {
         i8  item = array->items[i];
@@ -719,7 +719,7 @@ i8 max_i8_c(struct Array1d_i8* array) {
     return max;
 }
 
-u64 min_u64_c(struct Array1d_u64* array) {
+u64 min_u64_c(Array1d_u64* array) {
     u64 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -729,7 +729,7 @@ u64 min_u64_c(struct Array1d_u64* array) {
     }
     return min;
 }
-i64 min_i64_c(struct Array1d_i64* array) {
+i64 min_i64_c(Array1d_i64* array) {
     i64 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         i64 item = array->items[i];
@@ -739,7 +739,7 @@ i64 min_i64_c(struct Array1d_i64* array) {
     }
     return min;
 }
-f64 min_f64_c(struct Array1d_f64* array) {
+f64 min_f64_c(Array1d_f64* array) {
     f64 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         f64 item = array->items[i];
@@ -749,7 +749,7 @@ f64 min_f64_c(struct Array1d_f64* array) {
     }
     return min;
 }
-f32 min_f32_c(struct Array1d_f32* array) {
+f32 min_f32_c(Array1d_f32* array) {
     f32 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         f32 item = array->items[i];
@@ -759,7 +759,7 @@ f32 min_f32_c(struct Array1d_f32* array) {
     }
     return min;
 }
-u32 min_u32_c(struct Array1d_u32* array) {
+u32 min_u32_c(Array1d_u32* array) {
     u32 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u32 item = array->items[i];
@@ -769,7 +769,7 @@ u32 min_u32_c(struct Array1d_u32* array) {
     }
     return min;
 }
-i32 min_i32_c(struct Array1d_i32* array) {
+i32 min_i32_c(Array1d_i32* array) {
     i32 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         i32 item = array->items[i];
@@ -779,7 +779,7 @@ i32 min_i32_c(struct Array1d_i32* array) {
     }
     return min;
 }
-u16 min_u16_c(struct Array1d_u16* array) {
+u16 min_u16_c(Array1d_u16* array) {
     u16 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u16 item = array->items[i];
@@ -789,7 +789,7 @@ u16 min_u16_c(struct Array1d_u16* array) {
     }
     return min;
 }
-i16 min_i16_c(struct Array1d_i16* array) {
+i16 min_i16_c(Array1d_i16* array) {
     i16 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         i16 item = array->items[i];
@@ -799,7 +799,7 @@ i16 min_i16_c(struct Array1d_i16* array) {
     }
     return min;
 }
-u8 min_u8_c(struct Array1d_u8* array) {
+u8 min_u8_c(Array1d_u8* array) {
     u8  min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u8  item = array->items[i];
@@ -809,7 +809,7 @@ u8 min_u8_c(struct Array1d_u8* array) {
     }
     return min;
 }
-i8 min_i8_c(struct Array1d_i8* array) {
+i8 min_i8_c(Array1d_i8* array) {
     i8  min = array->items[0];
     for (int i = 0; i < array->length; i++) {
         i8  item = array->items[i];
@@ -820,7 +820,7 @@ i8 min_i8_c(struct Array1d_i8* array) {
     return min;
 }
 
-u64 sum_u64_c(struct Array1d_u64* array) {
+u64 sum_u64_c(Array1d_u64* array) {
     u64 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -828,7 +828,7 @@ u64 sum_u64_c(struct Array1d_u64* array) {
     }
     return sum;
 }
-i64 sum_i64_c(struct Array1d_i64* array) {
+i64 sum_i64_c(Array1d_i64* array) {
     i64 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -836,7 +836,7 @@ i64 sum_i64_c(struct Array1d_i64* array) {
     }
     return sum;
 }
-f64 sum_f64_c(struct Array1d_f64* array) {
+f64 sum_f64_c(Array1d_f64* array) {
     f64 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -844,7 +844,7 @@ f64 sum_f64_c(struct Array1d_f64* array) {
     }
     return sum;
 }
-f32 sum_f32_c(struct Array1d_f32* array) {
+f32 sum_f32_c(Array1d_f32* array) {
     f32 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -852,7 +852,7 @@ f32 sum_f32_c(struct Array1d_f32* array) {
     }
     return sum;
 }
-u32 sum_u32_c(struct Array1d_u32* array) {
+u32 sum_u32_c(Array1d_u32* array) {
     u32 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -860,7 +860,7 @@ u32 sum_u32_c(struct Array1d_u32* array) {
     }
     return sum;
 }
-i32 sum_i32_c(struct Array1d_i32* array) {
+i32 sum_i32_c(Array1d_i32* array) {
     i32 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -868,7 +868,7 @@ i32 sum_i32_c(struct Array1d_i32* array) {
     }
     return sum;
 }
-u16 sum_u16_c(struct Array1d_u16* array) {
+u16 sum_u16_c(Array1d_u16* array) {
     u16 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -876,7 +876,7 @@ u16 sum_u16_c(struct Array1d_u16* array) {
     }
     return sum;
 }
-i16 sum_i16_c(struct Array1d_i16* array) {
+i16 sum_i16_c(Array1d_i16* array) {
     i16 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -884,7 +884,7 @@ i16 sum_i16_c(struct Array1d_i16* array) {
     }
     return sum;
 }
-u8 sum_u8_c(struct Array1d_u8* array) {
+u8 sum_u8_c(Array1d_u8* array) {
     u8  sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -892,7 +892,7 @@ u8 sum_u8_c(struct Array1d_u8* array) {
     }
     return sum;
 }
-i8 sum_i8_c(struct Array1d_i8* array) {
+i8 sum_i8_c(Array1d_i8* array) {
     i8  sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
         u64 item = array->items[i];
@@ -901,8 +901,8 @@ i8 sum_i8_c(struct Array1d_i8* array) {
     return sum;
 }
 
-struct Matrix_u64* matrixAddition_u64_c(struct Matrix_u64* matrixA, struct Matrix_u64* matrixB) {
-    struct Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
+Matrix_u64* matrixAddition_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
+    Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -910,8 +910,8 @@ struct Matrix_u64* matrixAddition_u64_c(struct Matrix_u64* matrixA, struct Matri
     }
     return newMatrix;
 }
-struct Matrix_i64* matrixAddition_i64_c(struct Matrix_i64* matrixA, struct Matrix_i64* matrixB) {
-    struct Matrix_i64* newMatrix = makeMatrix_i64(matrixA->height, matrixA->width);
+Matrix_i64* matrixAddition_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
+    Matrix_i64* newMatrix = makeMatrix_i64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -919,8 +919,8 @@ struct Matrix_i64* matrixAddition_i64_c(struct Matrix_i64* matrixA, struct Matri
     }
     return newMatrix;
 }
-struct Matrix_f64* matrixAddition_f64_c(struct Matrix_f64* matrixA, struct Matrix_f64* matrixB) {
-    struct Matrix_f64* newMatrix = makeMatrix_f64(matrixA->height, matrixA->width);
+Matrix_f64* matrixAddition_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
+    Matrix_f64* newMatrix = makeMatrix_f64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -928,8 +928,8 @@ struct Matrix_f64* matrixAddition_f64_c(struct Matrix_f64* matrixA, struct Matri
     }
     return newMatrix;
 }
-struct Matrix_f32* matrixAddition_f32_c(struct Matrix_f32* matrixA, struct Matrix_f32* matrixB) {
-    struct Matrix_f32* newMatrix = makeMatrix_f32(matrixA->height, matrixA->width);
+Matrix_f32* matrixAddition_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
+    Matrix_f32* newMatrix = makeMatrix_f32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -937,8 +937,8 @@ struct Matrix_f32* matrixAddition_f32_c(struct Matrix_f32* matrixA, struct Matri
     }
     return newMatrix;
 }
-struct Matrix_u32* matrixAddition_u32_c(struct Matrix_u32* matrixA, struct Matrix_u32* matrixB) {
-    struct Matrix_u32* newMatrix = makeMatrix_u32(matrixA->height, matrixA->width);
+Matrix_u32* matrixAddition_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
+    Matrix_u32* newMatrix = makeMatrix_u32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -946,8 +946,8 @@ struct Matrix_u32* matrixAddition_u32_c(struct Matrix_u32* matrixA, struct Matri
     }
     return newMatrix;
 }
-struct Matrix_i32* matrixAddition_i32_c(struct Matrix_i32* matrixA, struct Matrix_i32* matrixB) {
-    struct Matrix_i32* newMatrix = makeMatrix_i32(matrixA->height, matrixA->width);
+Matrix_i32* matrixAddition_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
+    Matrix_i32* newMatrix = makeMatrix_i32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -955,8 +955,8 @@ struct Matrix_i32* matrixAddition_i32_c(struct Matrix_i32* matrixA, struct Matri
     }
     return newMatrix;
 }
-struct Matrix_u16* matrixAddition_u16_c(struct Matrix_u16* matrixA, struct Matrix_u16* matrixB) {
-    struct Matrix_u16* newMatrix = makeMatrix_u16(matrixA->height, matrixA->width);
+Matrix_u16* matrixAddition_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
+    Matrix_u16* newMatrix = makeMatrix_u16(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -964,8 +964,8 @@ struct Matrix_u16* matrixAddition_u16_c(struct Matrix_u16* matrixA, struct Matri
     }
     return newMatrix;
 }
-struct Matrix_i16* matrixAddition_i16_c(struct Matrix_i16* matrixA, struct Matrix_i16* matrixB) {
-    struct Matrix_i16* newMatrix = makeMatrix_i16(matrixA->height, matrixA->width);
+Matrix_i16* matrixAddition_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
+    Matrix_i16* newMatrix = makeMatrix_i16(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -973,8 +973,8 @@ struct Matrix_i16* matrixAddition_i16_c(struct Matrix_i16* matrixA, struct Matri
     }
     return newMatrix;
 }
-struct Matrix_u8* matrixAddition_u8_c(struct Matrix_u8* matrixA, struct Matrix_u8* matrixB) {
-    struct Matrix_u8* newMatrix = makeMatrix_u8(matrixA->height, matrixA->width);
+Matrix_u8* matrixAddition_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
+    Matrix_u8* newMatrix = makeMatrix_u8(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -982,8 +982,8 @@ struct Matrix_u8* matrixAddition_u8_c(struct Matrix_u8* matrixA, struct Matrix_u
     }
     return newMatrix;
 }
-struct Matrix_i8* matrixAddition_i8_c(struct Matrix_i8* matrixA, struct Matrix_i8* matrixB) {
-    struct Matrix_i8* newMatrix = makeMatrix_i8(matrixA->height, matrixA->width);
+Matrix_i8* matrixAddition_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
+    Matrix_i8* newMatrix = makeMatrix_i8(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -992,11 +992,11 @@ struct Matrix_i8* matrixAddition_i8_c(struct Matrix_i8* matrixA, struct Matrix_i
     return newMatrix;
 }
 
-struct Matrix_u64* matrixMultiplication_u64_c(struct Matrix_u64* matrixA, struct Matrix_u64* matrixB) {
+Matrix_u64* matrixMultiplication_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_u64* c = makeMatrix_u64(n, p);
+    Matrix_u64* c = makeMatrix_u64(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1012,11 +1012,11 @@ struct Matrix_u64* matrixMultiplication_u64_c(struct Matrix_u64* matrixA, struct
     
     return c;
 }
-struct Matrix_i64* matrixMultiplication_i64_c(struct Matrix_i64* matrixA, struct Matrix_i64* matrixB) {
+Matrix_i64* matrixMultiplication_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_i64* c = makeMatrix_i64(n, p);
+    Matrix_i64* c = makeMatrix_i64(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1032,11 +1032,11 @@ struct Matrix_i64* matrixMultiplication_i64_c(struct Matrix_i64* matrixA, struct
     
     return c;
 }
-struct Matrix_f64* matrixMultiplication_f64_c(struct Matrix_f64* matrixA, struct Matrix_f64* matrixB) {
+Matrix_f64* matrixMultiplication_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_f64* c = makeMatrix_f64(n, p);
+    Matrix_f64* c = makeMatrix_f64(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1052,11 +1052,11 @@ struct Matrix_f64* matrixMultiplication_f64_c(struct Matrix_f64* matrixA, struct
     
     return c;
 }
-struct Matrix_f32* matrixMultiplication_f32_c(struct Matrix_f32* matrixA, struct Matrix_f32* matrixB) {
+Matrix_f32* matrixMultiplication_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_f32* c = makeMatrix_f32(n, p);
+    Matrix_f32* c = makeMatrix_f32(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1072,11 +1072,11 @@ struct Matrix_f32* matrixMultiplication_f32_c(struct Matrix_f32* matrixA, struct
     
     return c;
 }
-struct Matrix_u32* matrixMultiplication_u32_c(struct Matrix_u32* matrixA, struct Matrix_u32* matrixB) {
+Matrix_u32* matrixMultiplication_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_u32* c = makeMatrix_u32(n, p);
+    Matrix_u32* c = makeMatrix_u32(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1092,11 +1092,11 @@ struct Matrix_u32* matrixMultiplication_u32_c(struct Matrix_u32* matrixA, struct
     
     return c;
 }
-struct Matrix_i32* matrixMultiplication_i32_c(struct Matrix_i32* matrixA, struct Matrix_i32* matrixB) {
+Matrix_i32* matrixMultiplication_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_i32* c = makeMatrix_i32(n, p);
+    Matrix_i32* c = makeMatrix_i32(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1112,11 +1112,11 @@ struct Matrix_i32* matrixMultiplication_i32_c(struct Matrix_i32* matrixA, struct
     
     return c;
 }
-struct Matrix_u16* matrixMultiplication_u16_c(struct Matrix_u16* matrixA, struct Matrix_u16* matrixB) {
+Matrix_u16* matrixMultiplication_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_u16* c = makeMatrix_u16(n, p);
+    Matrix_u16* c = makeMatrix_u16(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1132,11 +1132,11 @@ struct Matrix_u16* matrixMultiplication_u16_c(struct Matrix_u16* matrixA, struct
     
     return c;
 }
-struct Matrix_i16* matrixMultiplication_i16_c(struct Matrix_i16* matrixA, struct Matrix_i16* matrixB) {
+Matrix_i16* matrixMultiplication_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_i16* c = makeMatrix_i16(n, p);
+    Matrix_i16* c = makeMatrix_i16(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1152,11 +1152,11 @@ struct Matrix_i16* matrixMultiplication_i16_c(struct Matrix_i16* matrixA, struct
     
     return c;
 }
-struct Matrix_u8* matrixMultiplication_u8_c(struct Matrix_u8* matrixA, struct Matrix_u8* matrixB) {
+Matrix_u8* matrixMultiplication_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_u8* c = makeMatrix_u8(n, p);
+    Matrix_u8* c = makeMatrix_u8(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1172,11 +1172,11 @@ struct Matrix_u8* matrixMultiplication_u8_c(struct Matrix_u8* matrixA, struct Ma
     
     return c;
 }
-struct Matrix_i8* matrixMultiplication_i8_c(struct Matrix_i8* matrixA, struct Matrix_i8* matrixB) {
+Matrix_i8* matrixMultiplication_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_i8* c = makeMatrix_i8(n, p);
+    Matrix_i8* c = makeMatrix_i8(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1193,8 +1193,8 @@ struct Matrix_i8* matrixMultiplication_i8_c(struct Matrix_i8* matrixA, struct Ma
     return c;
 }
 
-struct Matrix_u64* matrixSubtraction_u64_c(struct Matrix_u64* matrixA, struct Matrix_u64* matrixB) {
-    struct Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
+Matrix_u64* matrixSubtraction_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
+    Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1202,8 +1202,8 @@ struct Matrix_u64* matrixSubtraction_u64_c(struct Matrix_u64* matrixA, struct Ma
     }
     return newMatrix;
 }
-struct Matrix_i64* matrixSubtraction_i64_c(struct Matrix_i64* matrixA, struct Matrix_i64* matrixB) {
-    struct Matrix_i64* newMatrix = makeMatrix_i64(matrixA->height, matrixA->width);
+Matrix_i64* matrixSubtraction_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
+    Matrix_i64* newMatrix = makeMatrix_i64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1211,8 +1211,8 @@ struct Matrix_i64* matrixSubtraction_i64_c(struct Matrix_i64* matrixA, struct Ma
     }
     return newMatrix;
 }
-struct Matrix_f64* matrixSubtraction_f64_c(struct Matrix_f64* matrixA, struct Matrix_f64* matrixB) {
-    struct Matrix_f64* newMatrix = makeMatrix_f64(matrixA->height, matrixA->width);
+Matrix_f64* matrixSubtraction_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
+    Matrix_f64* newMatrix = makeMatrix_f64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1220,8 +1220,8 @@ struct Matrix_f64* matrixSubtraction_f64_c(struct Matrix_f64* matrixA, struct Ma
     }
     return newMatrix;
 }
-struct Matrix_f32* matrixSubtraction_f32_c(struct Matrix_f32* matrixA, struct Matrix_f32* matrixB) {
-    struct Matrix_f32* newMatrix = makeMatrix_f32(matrixA->height, matrixA->width);
+Matrix_f32* matrixSubtraction_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
+    Matrix_f32* newMatrix = makeMatrix_f32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1229,8 +1229,8 @@ struct Matrix_f32* matrixSubtraction_f32_c(struct Matrix_f32* matrixA, struct Ma
     }
     return newMatrix;
 }
-struct Matrix_u32* matrixSubtraction_u32_c(struct Matrix_u32* matrixA, struct Matrix_u32* matrixB) {
-    struct Matrix_u32* newMatrix = makeMatrix_u32(matrixA->height, matrixA->width);
+Matrix_u32* matrixSubtraction_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
+    Matrix_u32* newMatrix = makeMatrix_u32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1238,8 +1238,8 @@ struct Matrix_u32* matrixSubtraction_u32_c(struct Matrix_u32* matrixA, struct Ma
     }
     return newMatrix;
 }
-struct Matrix_i32* matrixSubtraction_i32_c(struct Matrix_i32* matrixA, struct Matrix_i32* matrixB) {
-    struct Matrix_i32* newMatrix = makeMatrix_i32(matrixA->height, matrixA->width);
+Matrix_i32* matrixSubtraction_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
+    Matrix_i32* newMatrix = makeMatrix_i32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1247,8 +1247,8 @@ struct Matrix_i32* matrixSubtraction_i32_c(struct Matrix_i32* matrixA, struct Ma
     }
     return newMatrix;
 }
-struct Matrix_u16* matrixSubtraction_u16_c(struct Matrix_u16* matrixA, struct Matrix_u16* matrixB) {
-    struct Matrix_u16* newMatrix = makeMatrix_u16(matrixA->height, matrixA->width);
+Matrix_u16* matrixSubtraction_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
+    Matrix_u16* newMatrix = makeMatrix_u16(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1256,8 +1256,8 @@ struct Matrix_u16* matrixSubtraction_u16_c(struct Matrix_u16* matrixA, struct Ma
     }
     return newMatrix;
 }
-struct Matrix_i16* matrixSubtraction_i16_c(struct Matrix_i16* matrixA, struct Matrix_i16* matrixB) {
-    struct Matrix_i16* newMatrix = makeMatrix_i16(matrixA->height, matrixA->width);
+Matrix_i16* matrixSubtraction_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
+    Matrix_i16* newMatrix = makeMatrix_i16(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1265,8 +1265,8 @@ struct Matrix_i16* matrixSubtraction_i16_c(struct Matrix_i16* matrixA, struct Ma
     }
     return newMatrix;
 }
-struct Matrix_u8* matrixSubtraction_u8_c(struct Matrix_u8* matrixA, struct Matrix_u8* matrixB) {
-    struct Matrix_u8* newMatrix = makeMatrix_u8(matrixA->height, matrixA->width);
+Matrix_u8* matrixSubtraction_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
+    Matrix_u8* newMatrix = makeMatrix_u8(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1274,8 +1274,8 @@ struct Matrix_u8* matrixSubtraction_u8_c(struct Matrix_u8* matrixA, struct Matri
     }
     return newMatrix;
 }
-struct Matrix_i8* matrixSubtraction_i8_c(struct Matrix_i8* matrixA, struct Matrix_i8* matrixB) {
-    struct Matrix_i8* newMatrix = makeMatrix_i8(matrixA->height, matrixA->width);
+Matrix_i8* matrixSubtraction_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
+    Matrix_i8* newMatrix = makeMatrix_i8(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1284,7 +1284,7 @@ struct Matrix_i8* matrixSubtraction_i8_c(struct Matrix_i8* matrixA, struct Matri
     return newMatrix;
 }
 
-int binarySearch_u64_c(struct Array1d_u64* array, u64 target) {
+int binarySearch_u64_c(Array1d_u64* array, u64 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1302,7 +1302,7 @@ int binarySearch_u64_c(struct Array1d_u64* array, u64 target) {
     }
     return -1;
 }
-int binarySearch_i64_c(struct Array1d_i64* array, i64 target) {
+int binarySearch_i64_c(Array1d_i64* array, i64 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1320,7 +1320,7 @@ int binarySearch_i64_c(struct Array1d_i64* array, i64 target) {
     }
     return -1;
 }
-int binarySearch_f64_c(struct Array1d_f64* array, f64 target) {
+int binarySearch_f64_c(Array1d_f64* array, f64 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1338,7 +1338,7 @@ int binarySearch_f64_c(struct Array1d_f64* array, f64 target) {
     }
     return -1;
 }
-int binarySearch_f32_c(struct Array1d_f32* array, f32 target) {
+int binarySearch_f32_c(Array1d_f32* array, f32 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1356,7 +1356,7 @@ int binarySearch_f32_c(struct Array1d_f32* array, f32 target) {
     }
     return -1;
 }
-int binarySearch_u32_c(struct Array1d_u32* array, u32 target) {
+int binarySearch_u32_c(Array1d_u32* array, u32 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1374,7 +1374,7 @@ int binarySearch_u32_c(struct Array1d_u32* array, u32 target) {
     }
     return -1;
 }
-int binarySearch_i32_c(struct Array1d_i32* array, i32 target) {
+int binarySearch_i32_c(Array1d_i32* array, i32 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1392,7 +1392,7 @@ int binarySearch_i32_c(struct Array1d_i32* array, i32 target) {
     }
     return -1;
 }
-int binarySearch_u16_c(struct Array1d_u16* array, u16 target) {
+int binarySearch_u16_c(Array1d_u16* array, u16 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1410,7 +1410,7 @@ int binarySearch_u16_c(struct Array1d_u16* array, u16 target) {
     }
     return -1;
 }
-int binarySearch_i16_c(struct Array1d_i16* array, i16 target) {
+int binarySearch_i16_c(Array1d_i16* array, i16 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1428,7 +1428,7 @@ int binarySearch_i16_c(struct Array1d_i16* array, i16 target) {
     }
     return -1;
 }
-int binarySearch_u8_c(struct Array1d_u8* array, u8 target) {
+int binarySearch_u8_c(Array1d_u8* array, u8 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1446,7 +1446,7 @@ int binarySearch_u8_c(struct Array1d_u8* array, u8 target) {
     }
     return -1;
 }
-int binarySearch_i8_c(struct Array1d_i8* array, i8 target) {
+int binarySearch_i8_c(Array1d_i8* array, i8 target) {
     int l = 0;
     int r = array->length - 1;
     int mid = -1;
@@ -1492,7 +1492,7 @@ int _interpolationSearch_u64_c(u64* array, int startOffset, int endOffset, u64 t
 
     return -1;
 }
-int interpolationSearch_u64_c(struct Array1d_u64* array, u64 target) {
+int interpolationSearch_u64_c(Array1d_u64* array, u64 target) {
     return _interpolationSearch_u64_c(array->items, 0, array->length - 1, target);
 }
 int _interpolationSearch_i64_c(i64* array, int startOffset, int endOffset, i64 target) {
@@ -1522,7 +1522,7 @@ int _interpolationSearch_i64_c(i64* array, int startOffset, int endOffset, i64 t
 
     return -1;
 }
-int interpolationSearch_i64_c(struct Array1d_i64* array, i64 target) {
+int interpolationSearch_i64_c(Array1d_i64* array, i64 target) {
     return _interpolationSearch_i64_c(array->items, 0, array->length - 1, target);
 }
 int _interpolationSearch_f64_c(f64* array, int startOffset, int endOffset, f64 target) {
@@ -1554,7 +1554,7 @@ int _interpolationSearch_f64_c(f64* array, int startOffset, int endOffset, f64 t
 
     return -1;
 }
-int interpolationSearch_f64_c(struct Array1d_f64* array, f64 target) {
+int interpolationSearch_f64_c(Array1d_f64* array, f64 target) {
     return _interpolationSearch_f64_c(array->items, 0, array->length - 1, target);
 }
 int _interpolationSearch_f32_c(f32* array, int startOffset, int endOffset, f32 target) {
@@ -1586,7 +1586,7 @@ int _interpolationSearch_f32_c(f32* array, int startOffset, int endOffset, f32 t
 
     return -1;
 }
-int interpolationSearch_f32_c(struct Array1d_f32* array, f32 target) {
+int interpolationSearch_f32_c(Array1d_f32* array, f32 target) {
     return _interpolationSearch_f32_c(array->items, 0, array->length - 1, target);
 }
 int _interpolationSearch_u32_c(u32* array, int startOffset, int endOffset, u32 target) {
@@ -1616,7 +1616,7 @@ int _interpolationSearch_u32_c(u32* array, int startOffset, int endOffset, u32 t
 
     return -1;
 }
-int interpolationSearch_u32_c(struct Array1d_u32* array, u32 target) {
+int interpolationSearch_u32_c(Array1d_u32* array, u32 target) {
     return _interpolationSearch_u32_c(array->items, 0, array->length - 1, target);
 }
 int _interpolationSearch_i32_c(i32* array, int startOffset, int endOffset, i32 target) {
@@ -1646,7 +1646,7 @@ int _interpolationSearch_i32_c(i32* array, int startOffset, int endOffset, i32 t
 
     return -1;
 }
-int interpolationSearch_i32_c(struct Array1d_i32* array, i32 target) {
+int interpolationSearch_i32_c(Array1d_i32* array, i32 target) {
     return _interpolationSearch_i32_c(array->items, 0, array->length - 1, target);
 }
 int _interpolationSearch_u16_c(u16* array, int startOffset, int endOffset, u16 target) {
@@ -1676,7 +1676,7 @@ int _interpolationSearch_u16_c(u16* array, int startOffset, int endOffset, u16 t
 
     return -1;
 }
-int interpolationSearch_u16_c(struct Array1d_u16* array, u16 target) {
+int interpolationSearch_u16_c(Array1d_u16* array, u16 target) {
     return _interpolationSearch_u16_c(array->items, 0, array->length - 1, target);
 }
 int _interpolationSearch_i16_c(i16* array, int startOffset, int endOffset, i16 target) {
@@ -1706,7 +1706,7 @@ int _interpolationSearch_i16_c(i16* array, int startOffset, int endOffset, i16 t
 
     return -1;
 }
-int interpolationSearch_i16_c(struct Array1d_i16* array, i16 target) {
+int interpolationSearch_i16_c(Array1d_i16* array, i16 target) {
     return _interpolationSearch_i16_c(array->items, 0, array->length - 1, target);
 }
 int _interpolationSearch_u8_c(u8* array, int startOffset, int endOffset, u8 target) {
@@ -1736,7 +1736,7 @@ int _interpolationSearch_u8_c(u8* array, int startOffset, int endOffset, u8 targ
 
     return -1;
 }
-int interpolationSearch_u8_c(struct Array1d_u8* array, u8 target) {
+int interpolationSearch_u8_c(Array1d_u8* array, u8 target) {
     return _interpolationSearch_u8_c(array->items, 0, array->length - 1, target);
 }
 int _interpolationSearch_i8_c(i8* array, int startOffset, int endOffset, i8 target) {
@@ -1766,11 +1766,11 @@ int _interpolationSearch_i8_c(i8* array, int startOffset, int endOffset, i8 targ
 
     return -1;
 }
-int interpolationSearch_i8_c(struct Array1d_i8* array, i8 target) {
+int interpolationSearch_i8_c(Array1d_i8* array, i8 target) {
     return _interpolationSearch_i8_c(array->items, 0, array->length - 1, target);
 }
 
-int metaBinarySearch_u64_c(struct Array1d_u64* array, u64 target) {
+int metaBinarySearch_u64_c(Array1d_u64* array, u64 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1778,7 +1778,7 @@ int metaBinarySearch_u64_c(struct Array1d_u64* array, u64 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1789,7 +1789,7 @@ int metaBinarySearch_u64_c(struct Array1d_u64* array, u64 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_i64_c(struct Array1d_i64* array, i64 target) {
+int metaBinarySearch_i64_c(Array1d_i64* array, i64 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1797,7 +1797,7 @@ int metaBinarySearch_i64_c(struct Array1d_i64* array, i64 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1808,7 +1808,7 @@ int metaBinarySearch_i64_c(struct Array1d_i64* array, i64 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_f64_c(struct Array1d_f64* array, f64 target) {
+int metaBinarySearch_f64_c(Array1d_f64* array, f64 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1816,7 +1816,7 @@ int metaBinarySearch_f64_c(struct Array1d_f64* array, f64 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1827,7 +1827,7 @@ int metaBinarySearch_f64_c(struct Array1d_f64* array, f64 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_f32_c(struct Array1d_f32* array, f32 target) {
+int metaBinarySearch_f32_c(Array1d_f32* array, f32 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1835,7 +1835,7 @@ int metaBinarySearch_f32_c(struct Array1d_f32* array, f32 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1846,7 +1846,7 @@ int metaBinarySearch_f32_c(struct Array1d_f32* array, f32 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_u32_c(struct Array1d_u32* array, u32 target) {
+int metaBinarySearch_u32_c(Array1d_u32* array, u32 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1854,7 +1854,7 @@ int metaBinarySearch_u32_c(struct Array1d_u32* array, u32 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1865,7 +1865,7 @@ int metaBinarySearch_u32_c(struct Array1d_u32* array, u32 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_i32_c(struct Array1d_i32* array, i32 target) {
+int metaBinarySearch_i32_c(Array1d_i32* array, i32 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1873,7 +1873,7 @@ int metaBinarySearch_i32_c(struct Array1d_i32* array, i32 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1884,7 +1884,7 @@ int metaBinarySearch_i32_c(struct Array1d_i32* array, i32 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_u16_c(struct Array1d_u16* array, u16 target) {
+int metaBinarySearch_u16_c(Array1d_u16* array, u16 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1892,7 +1892,7 @@ int metaBinarySearch_u16_c(struct Array1d_u16* array, u16 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1903,7 +1903,7 @@ int metaBinarySearch_u16_c(struct Array1d_u16* array, u16 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_i16_c(struct Array1d_i16* array, i16 target) {
+int metaBinarySearch_i16_c(Array1d_i16* array, i16 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1911,7 +1911,7 @@ int metaBinarySearch_i16_c(struct Array1d_i16* array, i16 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1922,7 +1922,7 @@ int metaBinarySearch_i16_c(struct Array1d_i16* array, i16 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_u8_c(struct Array1d_u8* array, u8 target) {
+int metaBinarySearch_u8_c(Array1d_u8* array, u8 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1930,7 +1930,7 @@ int metaBinarySearch_u8_c(struct Array1d_u8* array, u8 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1941,7 +1941,7 @@ int metaBinarySearch_u8_c(struct Array1d_u8* array, u8 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_i8_c(struct Array1d_i8* array, i8 target) {
+int metaBinarySearch_i8_c(Array1d_i8* array, i8 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -1949,7 +1949,7 @@ int metaBinarySearch_i8_c(struct Array1d_i8* array, i8 target) {
         if (array->items[pos] == target)
             return pos;
  
-        // Incrementally construct the
+        // Incrementally conthe
         // index of the target value
         int new_pos = pos | (1 << i);
  
@@ -1961,7 +1961,7 @@ int metaBinarySearch_i8_c(struct Array1d_i8* array, i8 target) {
     return ((array->items[pos] == target) ? pos : -1);
 }
 
-struct Array1d_u64* bubbleSort_u64_c(struct Array1d_u64* array) {
+Array1d_u64* bubbleSort_u64_c(Array1d_u64* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_u64_c(array->items, j + 1, j);
@@ -1969,7 +1969,7 @@ struct Array1d_u64* bubbleSort_u64_c(struct Array1d_u64* array) {
     }
     return array;
 }
-struct Array1d_i64* bubbleSort_i64_c(struct Array1d_i64* array) {
+Array1d_i64* bubbleSort_i64_c(Array1d_i64* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_i64_c(array->items, j + 1, j);
@@ -1977,7 +1977,7 @@ struct Array1d_i64* bubbleSort_i64_c(struct Array1d_i64* array) {
     }
     return array;
 }
-struct Array1d_f64* bubbleSort_f64_c(struct Array1d_f64* array) {
+Array1d_f64* bubbleSort_f64_c(Array1d_f64* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_f64_c(array->items, j + 1, j);
@@ -1985,7 +1985,7 @@ struct Array1d_f64* bubbleSort_f64_c(struct Array1d_f64* array) {
     }
     return array;
 }
-struct Array1d_f32* bubbleSort_f32_c(struct Array1d_f32* array) {
+Array1d_f32* bubbleSort_f32_c(Array1d_f32* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_f32_c(array->items, j + 1, j);
@@ -1993,7 +1993,7 @@ struct Array1d_f32* bubbleSort_f32_c(struct Array1d_f32* array) {
     }
     return array;
 }
-struct Array1d_u32* bubbleSort_u32_c(struct Array1d_u32* array) {
+Array1d_u32* bubbleSort_u32_c(Array1d_u32* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_u32_c(array->items, j + 1, j);
@@ -2001,7 +2001,7 @@ struct Array1d_u32* bubbleSort_u32_c(struct Array1d_u32* array) {
     }
     return array;
 }
-struct Array1d_i32* bubbleSort_i32_c(struct Array1d_i32* array) {
+Array1d_i32* bubbleSort_i32_c(Array1d_i32* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_i32_c(array->items, j + 1, j);
@@ -2009,7 +2009,7 @@ struct Array1d_i32* bubbleSort_i32_c(struct Array1d_i32* array) {
     }
     return array;
 }
-struct Array1d_u16* bubbleSort_u16_c(struct Array1d_u16* array) {
+Array1d_u16* bubbleSort_u16_c(Array1d_u16* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_u16_c(array->items, j + 1, j);
@@ -2017,7 +2017,7 @@ struct Array1d_u16* bubbleSort_u16_c(struct Array1d_u16* array) {
     }
     return array;
 }
-struct Array1d_i16* bubbleSort_i16_c(struct Array1d_i16* array) {
+Array1d_i16* bubbleSort_i16_c(Array1d_i16* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_i16_c(array->items, j + 1, j);
@@ -2025,7 +2025,7 @@ struct Array1d_i16* bubbleSort_i16_c(struct Array1d_i16* array) {
     }
     return array;
 }
-struct Array1d_u8* bubbleSort_u8_c(struct Array1d_u8* array) {
+Array1d_u8* bubbleSort_u8_c(Array1d_u8* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_u8_c(array->items, j + 1, j);
@@ -2033,7 +2033,7 @@ struct Array1d_u8* bubbleSort_u8_c(struct Array1d_u8* array) {
     }
     return array;
 }
-struct Array1d_i8* bubbleSort_i8_c(struct Array1d_i8* array) {
+Array1d_i8* bubbleSort_i8_c(Array1d_i8* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
             sortTwo_i8_c(array->items, j + 1, j);
@@ -2091,7 +2091,7 @@ void _mergeSort_u64_c(u64* arr, int l, int r) {
   _mergeSort_u64_c(arr, m + 1, r);
   merge_u64_c(arr, l, m, r);
 }
-struct Array1d_u64* mergeSort_u64_c(struct Array1d_u64* arr) {
+Array1d_u64* mergeSort_u64_c(Array1d_u64* arr) {
   _mergeSort_u64_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2145,7 +2145,7 @@ void _mergeSort_i64_c(i64* arr, int l, int r) {
   _mergeSort_i64_c(arr, m + 1, r);
   merge_i64_c(arr, l, m, r);
 }
-struct Array1d_i64* mergeSort_i64_c(struct Array1d_i64* arr) {
+Array1d_i64* mergeSort_i64_c(Array1d_i64* arr) {
   _mergeSort_i64_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2199,7 +2199,7 @@ void _mergeSort_f64_c(f64* arr, int l, int r) {
   _mergeSort_f64_c(arr, m + 1, r);
   merge_f64_c(arr, l, m, r);
 }
-struct Array1d_f64* mergeSort_f64_c(struct Array1d_f64* arr) {
+Array1d_f64* mergeSort_f64_c(Array1d_f64* arr) {
   _mergeSort_f64_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2253,7 +2253,7 @@ void _mergeSort_f32_c(f32* arr, int l, int r) {
   _mergeSort_f32_c(arr, m + 1, r);
   merge_f32_c(arr, l, m, r);
 }
-struct Array1d_f32* mergeSort_f32_c(struct Array1d_f32* arr) {
+Array1d_f32* mergeSort_f32_c(Array1d_f32* arr) {
   _mergeSort_f32_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2307,7 +2307,7 @@ void _mergeSort_u32_c(u32* arr, int l, int r) {
   _mergeSort_u32_c(arr, m + 1, r);
   merge_u32_c(arr, l, m, r);
 }
-struct Array1d_u32* mergeSort_u32_c(struct Array1d_u32* arr) {
+Array1d_u32* mergeSort_u32_c(Array1d_u32* arr) {
   _mergeSort_u32_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2361,7 +2361,7 @@ void _mergeSort_i32_c(i32* arr, int l, int r) {
   _mergeSort_i32_c(arr, m + 1, r);
   merge_i32_c(arr, l, m, r);
 }
-struct Array1d_i32* mergeSort_i32_c(struct Array1d_i32* arr) {
+Array1d_i32* mergeSort_i32_c(Array1d_i32* arr) {
   _mergeSort_i32_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2415,7 +2415,7 @@ void _mergeSort_u16_c(u16* arr, int l, int r) {
   _mergeSort_u16_c(arr, m + 1, r);
   merge_u16_c(arr, l, m, r);
 }
-struct Array1d_u16* mergeSort_u16_c(struct Array1d_u16* arr) {
+Array1d_u16* mergeSort_u16_c(Array1d_u16* arr) {
   _mergeSort_u16_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2469,7 +2469,7 @@ void _mergeSort_i16_c(i16* arr, int l, int r) {
   _mergeSort_i16_c(arr, m + 1, r);
   merge_i16_c(arr, l, m, r);
 }
-struct Array1d_i16* mergeSort_i16_c(struct Array1d_i16* arr) {
+Array1d_i16* mergeSort_i16_c(Array1d_i16* arr) {
   _mergeSort_i16_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2523,7 +2523,7 @@ void _mergeSort_u8_c(u8* arr, int l, int r) {
   _mergeSort_u8_c(arr, m + 1, r);
   merge_u8_c(arr, l, m, r);
 }
-struct Array1d_u8* mergeSort_u8_c(struct Array1d_u8* arr) {
+Array1d_u8* mergeSort_u8_c(Array1d_u8* arr) {
   _mergeSort_u8_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2577,7 +2577,7 @@ void _mergeSort_i8_c(i8* arr, int l, int r) {
   _mergeSort_i8_c(arr, m + 1, r);
   merge_i8_c(arr, l, m, r);
 }
-struct Array1d_i8* mergeSort_i8_c(struct Array1d_i8* arr) {
+Array1d_i8* mergeSort_i8_c(Array1d_i8* arr) {
   _mergeSort_i8_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -2784,48 +2784,48 @@ i8* _quickSort_i8_c(i8* array, int left, int right) {
     return array;
 }
 
-struct Array1d_u64* quickSort_u64_c(struct Array1d_u64* array) {
+Array1d_u64* quickSort_u64_c(Array1d_u64* array) {
     _quickSort_u64_c(array->items, 0, array->length - 1);
     return array;
 }
-struct Array1d_i64* quickSort_i64_c(struct Array1d_i64* array) {
+Array1d_i64* quickSort_i64_c(Array1d_i64* array) {
     _quickSort_i64_c(array->items, 0, array->length - 1);
     return array;
 }
-struct Array1d_f64* quickSort_f64_c(struct Array1d_f64* array) {
+Array1d_f64* quickSort_f64_c(Array1d_f64* array) {
     _quickSort_f64_c(array->items, 0, array->length - 1);
     return array;
 }
-struct Array1d_f32* quickSort_f32_c(struct Array1d_f32* array) {
+Array1d_f32* quickSort_f32_c(Array1d_f32* array) {
     _quickSort_f32_c(array->items, 0, array->length - 1);
     return array;
 }
-struct Array1d_u32* quickSort_u32_c(struct Array1d_u32* array) {
+Array1d_u32* quickSort_u32_c(Array1d_u32* array) {
     _quickSort_u32_c(array->items, 0, array->length - 1);
     return array;
 }
-struct Array1d_i32* quickSort_i32_c(struct Array1d_i32* array) {
+Array1d_i32* quickSort_i32_c(Array1d_i32* array) {
     _quickSort_i32_c(array->items, 0, array->length - 1);
     return array;
 }
-struct Array1d_u16* quickSort_u16_c(struct Array1d_u16* array) {
+Array1d_u16* quickSort_u16_c(Array1d_u16* array) {
     _quickSort_u16_c(array->items, 0, array->length - 1);
     return array;
 }
-struct Array1d_i16* quickSort_i16_c(struct Array1d_i16* array) {
+Array1d_i16* quickSort_i16_c(Array1d_i16* array) {
     _quickSort_i16_c(array->items, 0, array->length - 1);
     return array;
 }
-struct Array1d_u8* quickSort_u8_c(struct Array1d_u8* array) {
+Array1d_u8* quickSort_u8_c(Array1d_u8* array) {
     _quickSort_u8_c(array->items, 0, array->length - 1);
     return array;
 }
-struct Array1d_i8* quickSort_i8_c(struct Array1d_i8* array) {
+Array1d_i8* quickSort_i8_c(Array1d_i8* array) {
     _quickSort_i8_c(array->items, 0, array->length - 1);
     return array;
 }
 
-struct Array1d_u64* selectionSort_u64_c(struct Array1d_u64* array) {
+Array1d_u64* selectionSort_u64_c(Array1d_u64* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -2840,7 +2840,7 @@ struct Array1d_u64* selectionSort_u64_c(struct Array1d_u64* array) {
     } 
     return array;
 }
-struct Array1d_i64* selectionSort_i64_c(struct Array1d_i64* array) {
+Array1d_i64* selectionSort_i64_c(Array1d_i64* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -2855,7 +2855,7 @@ struct Array1d_i64* selectionSort_i64_c(struct Array1d_i64* array) {
     }
     return array;
 }
-struct Array1d_f64* selectionSort_f64_c(struct Array1d_f64* array) {
+Array1d_f64* selectionSort_f64_c(Array1d_f64* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -2870,7 +2870,7 @@ struct Array1d_f64* selectionSort_f64_c(struct Array1d_f64* array) {
     }
     return array;
 }
-struct Array1d_f32* selectionSort_f32_c(struct Array1d_f32* array) {
+Array1d_f32* selectionSort_f32_c(Array1d_f32* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -2885,7 +2885,7 @@ struct Array1d_f32* selectionSort_f32_c(struct Array1d_f32* array) {
     }
     return array;
 }
-struct Array1d_u32* selectionSort_u32_c(struct Array1d_u32* array) {
+Array1d_u32* selectionSort_u32_c(Array1d_u32* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -2900,7 +2900,7 @@ struct Array1d_u32* selectionSort_u32_c(struct Array1d_u32* array) {
     } 
     return array;
 }
-struct Array1d_i32* selectionSort_i32_c(struct Array1d_i32* array) {
+Array1d_i32* selectionSort_i32_c(Array1d_i32* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -2915,7 +2915,7 @@ struct Array1d_i32* selectionSort_i32_c(struct Array1d_i32* array) {
     }
     return array;
 }
-struct Array1d_u16* selectionSort_u16_c(struct Array1d_u16* array) {
+Array1d_u16* selectionSort_u16_c(Array1d_u16* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -2930,7 +2930,7 @@ struct Array1d_u16* selectionSort_u16_c(struct Array1d_u16* array) {
     } 
     return array;
 }
-struct Array1d_i16* selectionSort_i16_c(struct Array1d_i16* array) {
+Array1d_i16* selectionSort_i16_c(Array1d_i16* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -2945,7 +2945,7 @@ struct Array1d_i16* selectionSort_i16_c(struct Array1d_i16* array) {
     }
     return array;
 }
-struct Array1d_u8* selectionSort_u8_c(struct Array1d_u8* array) {
+Array1d_u8* selectionSort_u8_c(Array1d_u8* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
         min = i;
@@ -2960,7 +2960,7 @@ struct Array1d_u8* selectionSort_u8_c(struct Array1d_u8* array) {
     } 
     return array;
 }
-struct Array1d_i8* selectionSort_i8_c(struct Array1d_i8* array) {
+Array1d_i8* selectionSort_i8_c(Array1d_i8* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
         min = i;

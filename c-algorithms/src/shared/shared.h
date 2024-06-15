@@ -14,141 +14,141 @@ typedef short int i16;
 typedef unsigned char u8;
 typedef char i8;
 
-struct Array1d_u64 {
+typedef struct Array1d_u64 {
     u64* items;
     int length;
-};
-struct Array1d_i64 {
+} Array1d_u64;
+typedef struct Array1d_i64 {
     i64* items;
     int length;
-};
-struct Array1d_f64 {
+} Array1d_i64;
+typedef struct Array1d_f64 {
     f64* items;
     int length;
-};
-struct Array1d_f32 {
+} Array1d_f64;
+typedef struct Array1d_f32 {
     f32* items;
     int length;
-};
-struct Array1d_u32 {
+} Array1d_f32;
+typedef struct Array1d_u32 {
     u32* items;
     int length;
-};
-struct Array1d_i32 {
+} Array1d_u32;
+typedef struct Array1d_i32 {
     i32* items;
     int length;
-};
-struct Array1d_u16 {
+} Array1d_i32;
+typedef struct Array1d_u16 {
     u16* items;
     int length;
-};
-struct Array1d_i16 {
+} Array1d_u16;
+typedef struct Array1d_i16 {
     i16* items;
     int length;
-};
-struct Array1d_u8 {
+} Array1d_i16;
+typedef struct Array1d_u8 {
     u8* items;
     int length;
-};
-struct Array1d_i8 {
+} Array1d_u8;
+typedef struct Array1d_i8 {
     i8* items;
     int length;
-};
+} Array1d_i8;
 
-struct Array1d_u64* makeArray1d_u64(int length);
-struct Array1d_i64* makeArray1d_i64(int length);
-struct Array1d_f64* makeArray1d_f64(int length);
-struct Array1d_f32* makeArray1d_f32(int length);
-struct Array1d_u32* makeArray1d_u32(int length);
-struct Array1d_i32* makeArray1d_i32(int length);
-struct Array1d_u16* makeArray1d_u16(int length);
-struct Array1d_i16* makeArray1d_i16(int length);
-struct Array1d_u8* makeArray1d_u8(int length);
-struct Array1d_i8* makeArray1d_i8(int length);
+Array1d_u64* makeArray1d_u64(int length);
+Array1d_i64* makeArray1d_i64(int length);
+Array1d_f64* makeArray1d_f64(int length);
+Array1d_f32* makeArray1d_f32(int length);
+Array1d_u32* makeArray1d_u32(int length);
+Array1d_i32* makeArray1d_i32(int length);
+Array1d_u16* makeArray1d_u16(int length);
+Array1d_i16* makeArray1d_i16(int length);
+Array1d_u8* makeArray1d_u8(int length);
+Array1d_i8* makeArray1d_i8(int length);
 
-void deleteArray1d_u64(struct Array1d_u64* array);
-void deleteArray1d_i64(struct Array1d_i64* array);
-void deleteArray1d_f64(struct Array1d_f64* array);
-void deleteArray1d_f32(struct Array1d_f32* array);
-void deleteArray1d_u32(struct Array1d_u32* array);
-void deleteArray1d_i32(struct Array1d_i32* array);
-void deleteArray1d_u16(struct Array1d_u16* array);
-void deleteArray1d_i16(struct Array1d_i16* array);
-void deleteArray1d_u8(struct Array1d_u8* array);
-void deleteArray1d_i8(struct Array1d_i8* array);
+void deleteArray1d_u64(Array1d_u64* array);
+void deleteArray1d_i64(Array1d_i64* array);
+void deleteArray1d_f64(Array1d_f64* array);
+void deleteArray1d_f32(Array1d_f32* array);
+void deleteArray1d_u32(Array1d_u32* array);
+void deleteArray1d_i32(Array1d_i32* array);
+void deleteArray1d_u16(Array1d_u16* array);
+void deleteArray1d_i16(Array1d_i16* array);
+void deleteArray1d_u8(Array1d_u8* array);
+void deleteArray1d_i8(Array1d_i8* array);
 
-struct Matrix_u64 {
+typedef struct Matrix_u64 {
     u64** data;
     int width;
     int height;
-};
-struct Matrix_i64 {
+} Matrix_u64;
+typedef struct Matrix_i64 {
     i64** data;
     int width;
     int height;
-};
-struct Matrix_f64 {
+} Matrix_i64;
+typedef struct Matrix_f64 {
     f64** data;
     int width;
     int height;
-};
-struct Matrix_f32 {
+} Matrix_f64;
+typedef struct Matrix_f32 {
     f32** data;
     int width;
     int height;
-};
-struct Matrix_u32 {
+} Matrix_f32;
+typedef struct Matrix_u32 {
     u32** data;
     int width;
     int height;
-};
-struct Matrix_i32 {
+} Matrix_u32;
+typedef struct Matrix_i32 {
     i32** data;
     int width;
     int height;
-};
-struct Matrix_u16 {
+} Matrix_i32;
+typedef struct Matrix_u16 {
     u16** data;
     int width;
     int height;
-};
-struct Matrix_i16 {
+} Matrix_u16;
+typedef struct Matrix_i16 {
     i16** data;
     int width;
     int height;
-};
-struct Matrix_u8 {
+} Matrix_i16;
+typedef struct Matrix_u8 {
     u8** data;
     int width;
     int height;
-};
-struct Matrix_i8 {
+} Matrix_u8;
+typedef struct Matrix_i8 {
     i8** data;
     int width;
     int height;
-};
+} Matrix_i8;
 
-struct Matrix_u64* makeMatrix_u64(int width, int height);
-struct Matrix_i64* makeMatrix_i64(int width, int height);
-struct Matrix_f64* makeMatrix_f64(int width, int height);
-struct Matrix_f32* makeMatrix_f32(int width, int height);
-struct Matrix_u32* makeMatrix_u32(int width, int height);
-struct Matrix_i32* makeMatrix_i32(int width, int height);
-struct Matrix_u16* makeMatrix_u16(int width, int height);
-struct Matrix_i16* makeMatrix_i16(int width, int height);
-struct Matrix_u8* makeMatrix_u8(int width, int height);
-struct Matrix_i8* makeMatrix_i8(int width, int height);
+Matrix_u64* makeMatrix_u64(int width, int height);
+Matrix_i64* makeMatrix_i64(int width, int height);
+Matrix_f64* makeMatrix_f64(int width, int height);
+Matrix_f32* makeMatrix_f32(int width, int height);
+Matrix_u32* makeMatrix_u32(int width, int height);
+Matrix_i32* makeMatrix_i32(int width, int height);
+Matrix_u16* makeMatrix_u16(int width, int height);
+Matrix_i16* makeMatrix_i16(int width, int height);
+Matrix_u8* makeMatrix_u8(int width, int height);
+Matrix_i8* makeMatrix_i8(int width, int height);
 
-void deleteMatrix_u64(struct Matrix_u64* matrix);
-void deleteMatrix_i64(struct Matrix_i64* matrix);
-void deleteMatrix_f64(struct Matrix_f64* matrix);
-void deleteMatrix_f32(struct Matrix_f32* matrix);
-void deleteMatrix_u32(struct Matrix_u32* matrix);
-void deleteMatrix_i32(struct Matrix_i32* matrix);
-void deleteMatrix_u16(struct Matrix_u16* matrix);
-void deleteMatrix_i16(struct Matrix_i16* matrix);
-void deleteMatrix_u8(struct Matrix_u8* matrix);
-void deleteMatrix_i8(struct Matrix_i8* matrix);
+void deleteMatrix_u64(Matrix_u64* matrix);
+void deleteMatrix_i64(Matrix_i64* matrix);
+void deleteMatrix_f64(Matrix_f64* matrix);
+void deleteMatrix_f32(Matrix_f32* matrix);
+void deleteMatrix_u32(Matrix_u32* matrix);
+void deleteMatrix_i32(Matrix_i32* matrix);
+void deleteMatrix_u16(Matrix_u16* matrix);
+void deleteMatrix_i16(Matrix_i16* matrix);
+void deleteMatrix_u8(Matrix_u8* matrix);
+void deleteMatrix_i8(Matrix_i8* matrix);
 
 void swapTwo_u64_c(u64* array, int a, int b);
 void swapTwo_i64_c(i64* array, int a, int b);

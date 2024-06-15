@@ -2,7 +2,7 @@
 #include "shared/shared.h"
 #include "search/meta-binary-search/meta-binary-search.h";
 
-int metaBinarySearch_u64_c(struct Array1d_u64* array, u64 target) {
+int metaBinarySearch_u64_c(Array1d_u64* array, u64 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -21,7 +21,7 @@ int metaBinarySearch_u64_c(struct Array1d_u64* array, u64 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_i64_c(struct Array1d_i64* array, i64 target) {
+int metaBinarySearch_i64_c(Array1d_i64* array, i64 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -40,7 +40,7 @@ int metaBinarySearch_i64_c(struct Array1d_i64* array, i64 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_f64_c(struct Array1d_f64* array, f64 target) {
+int metaBinarySearch_f64_c(Array1d_f64* array, f64 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -59,7 +59,7 @@ int metaBinarySearch_f64_c(struct Array1d_f64* array, f64 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_f32_c(struct Array1d_f32* array, f32 target) {
+int metaBinarySearch_f32_c(Array1d_f32* array, f32 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -78,7 +78,7 @@ int metaBinarySearch_f32_c(struct Array1d_f32* array, f32 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_u32_c(struct Array1d_u32* array, u32 target) {
+int metaBinarySearch_u32_c(Array1d_u32* array, u32 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -97,7 +97,7 @@ int metaBinarySearch_u32_c(struct Array1d_u32* array, u32 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_i32_c(struct Array1d_i32* array, i32 target) {
+int metaBinarySearch_i32_c(Array1d_i32* array, i32 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -116,7 +116,7 @@ int metaBinarySearch_i32_c(struct Array1d_i32* array, i32 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_u16_c(struct Array1d_u16* array, u16 target) {
+int metaBinarySearch_u16_c(Array1d_u16* array, u16 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -135,7 +135,7 @@ int metaBinarySearch_u16_c(struct Array1d_u16* array, u16 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_i16_c(struct Array1d_i16* array, i16 target) {
+int metaBinarySearch_i16_c(Array1d_i16* array, i16 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -154,7 +154,7 @@ int metaBinarySearch_i16_c(struct Array1d_i16* array, i16 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_u8_c(struct Array1d_u8* array, u8 target) {
+int metaBinarySearch_u8_c(Array1d_u8* array, u8 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;
@@ -173,7 +173,7 @@ int metaBinarySearch_u8_c(struct Array1d_u8* array, u8 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
-int metaBinarySearch_i8_c(struct Array1d_i8* array, i8 target) {
+int metaBinarySearch_i8_c(Array1d_i8* array, i8 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
     int pos = 0;

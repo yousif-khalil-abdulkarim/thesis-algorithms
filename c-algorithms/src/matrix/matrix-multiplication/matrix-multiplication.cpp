@@ -2,11 +2,11 @@
 #include "shared/shared.h"
 #include "matrix/matrix-multiplication/matrix-multiplication.h";
 
-struct Matrix_u64* matrixMultiplication_u64_c(struct Matrix_u64* matrixA, struct Matrix_u64* matrixB) {
+Matrix_u64* matrixMultiplication_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_u64* c = makeMatrix_u64(n, p);
+    Matrix_u64* c = makeMatrix_u64(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -22,11 +22,11 @@ struct Matrix_u64* matrixMultiplication_u64_c(struct Matrix_u64* matrixA, struct
     
     return c;
 }
-struct Matrix_i64* matrixMultiplication_i64_c(struct Matrix_i64* matrixA, struct Matrix_i64* matrixB) {
+Matrix_i64* matrixMultiplication_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_i64* c = makeMatrix_i64(n, p);
+    Matrix_i64* c = makeMatrix_i64(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -42,11 +42,11 @@ struct Matrix_i64* matrixMultiplication_i64_c(struct Matrix_i64* matrixA, struct
     
     return c;
 }
-struct Matrix_f64* matrixMultiplication_f64_c(struct Matrix_f64* matrixA, struct Matrix_f64* matrixB) {
+Matrix_f64* matrixMultiplication_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_f64* c = makeMatrix_f64(n, p);
+    Matrix_f64* c = makeMatrix_f64(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -62,11 +62,11 @@ struct Matrix_f64* matrixMultiplication_f64_c(struct Matrix_f64* matrixA, struct
     
     return c;
 }
-struct Matrix_f32* matrixMultiplication_f32_c(struct Matrix_f32* matrixA, struct Matrix_f32* matrixB) {
+Matrix_f32* matrixMultiplication_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_f32* c = makeMatrix_f32(n, p);
+    Matrix_f32* c = makeMatrix_f32(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -82,11 +82,11 @@ struct Matrix_f32* matrixMultiplication_f32_c(struct Matrix_f32* matrixA, struct
     
     return c;
 }
-struct Matrix_u32* matrixMultiplication_u32_c(struct Matrix_u32* matrixA, struct Matrix_u32* matrixB) {
+Matrix_u32* matrixMultiplication_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_u32* c = makeMatrix_u32(n, p);
+    Matrix_u32* c = makeMatrix_u32(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -102,11 +102,11 @@ struct Matrix_u32* matrixMultiplication_u32_c(struct Matrix_u32* matrixA, struct
     
     return c;
 }
-struct Matrix_i32* matrixMultiplication_i32_c(struct Matrix_i32* matrixA, struct Matrix_i32* matrixB) {
+Matrix_i32* matrixMultiplication_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_i32* c = makeMatrix_i32(n, p);
+    Matrix_i32* c = makeMatrix_i32(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -122,11 +122,11 @@ struct Matrix_i32* matrixMultiplication_i32_c(struct Matrix_i32* matrixA, struct
     
     return c;
 }
-struct Matrix_u16* matrixMultiplication_u16_c(struct Matrix_u16* matrixA, struct Matrix_u16* matrixB) {
+Matrix_u16* matrixMultiplication_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_u16* c = makeMatrix_u16(n, p);
+    Matrix_u16* c = makeMatrix_u16(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -142,11 +142,11 @@ struct Matrix_u16* matrixMultiplication_u16_c(struct Matrix_u16* matrixA, struct
     
     return c;
 }
-struct Matrix_i16* matrixMultiplication_i16_c(struct Matrix_i16* matrixA, struct Matrix_i16* matrixB) {
+Matrix_i16* matrixMultiplication_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_i16* c = makeMatrix_i16(n, p);
+    Matrix_i16* c = makeMatrix_i16(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -162,11 +162,11 @@ struct Matrix_i16* matrixMultiplication_i16_c(struct Matrix_i16* matrixA, struct
     
     return c;
 }
-struct Matrix_u8* matrixMultiplication_u8_c(struct Matrix_u8* matrixA, struct Matrix_u8* matrixB) {
+Matrix_u8* matrixMultiplication_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_u8* c = makeMatrix_u8(n, p);
+    Matrix_u8* c = makeMatrix_u8(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -182,11 +182,11 @@ struct Matrix_u8* matrixMultiplication_u8_c(struct Matrix_u8* matrixA, struct Ma
     
     return c;
 }
-struct Matrix_i8* matrixMultiplication_i8_c(struct Matrix_i8* matrixA, struct Matrix_i8* matrixB) {
+Matrix_i8* matrixMultiplication_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    struct Matrix_i8* c = makeMatrix_i8(n, p);
+    Matrix_i8* c = makeMatrix_i8(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {

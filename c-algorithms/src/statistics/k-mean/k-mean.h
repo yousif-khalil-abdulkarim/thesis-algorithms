@@ -6,32 +6,32 @@
 #include<time.h>
 #include<stdlib.h>
 
-boolean array1d_includes_i32(struct Array1d_i32* array, i32 target);
+boolean array1d_includes_i32( Array1d_i32* array, i32 target);
 
-struct Array2d_i64 {
-    struct Array1d_i64* items;
+typedef struct Array2d_i64 {
+    Array1d_i64* items;
     int length;
-};
-struct Array2d_i64* makeArray2d_i64(int length);
-void deleteArray2d_i64(struct Array2d_i64* array2d);
+} Array2d_i64;
+Array2d_i64* makeArray2d_i64(int length);
+void deleteArray2d_i64( Array2d_i64* array2d);
 
-struct Array3d_i64 {
-    struct Array2d_i64* items;
+typedef struct Array3d_i64 {
+    Array2d_i64* items;
     int length;
-};
-struct Array3d_i64* makeArray3d_i64(int length);
-void deleteArray3d_i64(struct Array3d_i64* array3d);
+} Array3d_i64;
+Array3d_i64* makeArray3d_i64(int length);
+void deleteArray3d_i64( Array3d_i64* array3d);
 
 // Start !!!!
-i64 calcDistance_i64_c(struct Array1d_i64* point0, struct Array1d_i64* point1);
+i64 calcDistance_i64_c( Array1d_i64* point0,  Array1d_i64* point1);
 
-struct Array1d_i64* calcCentroid_i64_c(struct Array2d_i64* cluster, int dimensionInPoint);
+Array1d_i64* calcCentroid_i64_c( Array2d_i64* cluster, int dimensionInPoint);
 
-int calcArgMin_i64_c(struct Array1d_i64* distances);
+int calcArgMin_i64_c( Array1d_i64* distances);
 
-boolean checkIfConverged_i64_c(struct Array2d_i64* oldCentroids, struct Array2d_i64* newCentroids, double tolerance);
+boolean checkIfConverged_i64_c( Array2d_i64* oldCentroids,  Array2d_i64* newCentroids, double tolerance);
 
-struct Array2d_i64* initCentroid_i64_c(int numberOfCluster, struct Array2d_i64* points);
+Array2d_i64* initCentroid_i64_c(int numberOfCluster,  Array2d_i64* points);
 
-struct Array3d_i64* kMean_i64_c(int numberOfCluster, struct Array2d_i64* points, int maxLoops, double tolerance);
+Array3d_i64* kMean_i64_c(int numberOfCluster,  Array2d_i64* points, int maxLoops, double tolerance);
 #endif

@@ -4,7 +4,7 @@
 #include<time.h>
 #include<stdlib.h>
 
-boolean array1d_includes_i32(struct Array1d_i32* array, i32 target) {
+boolean array1d_includes_i32( Array1d_i32* array, i32 target) {
     for (int i = 0; i < array->length; i++) {
         if (array->items[i] == target) {
             return 1;
@@ -13,28 +13,28 @@ boolean array1d_includes_i32(struct Array1d_i32* array, i32 target) {
     return 0;
 }
 
-struct Array2d_i64* makeArray2d_i64(int length) {
-    struct Array1d_i64* items = (struct Array1d_i64*)malloc(length * sizeof(struct Array1d_i64));
-    struct Array2d_i64* array2d = (struct Array2d_i64*)malloc(sizeof(struct Array2d_i64));
+Array2d_i64* makeArray2d_i64(int length) {
+    Array1d_i64* items = ( Array1d_i64*)malloc(length * sizeof( Array1d_i64));
+    Array2d_i64* array2d = ( Array2d_i64*)malloc(sizeof( Array2d_i64));
     array2d->length = length;
     array2d->items = items;
     return array2d; 
 }
-void deleteArray2d_i64(struct Array2d_i64* array2d) {
+void deleteArray2d_i64( Array2d_i64* array2d) {
     for (int i = 0; i < array2d->length; i++) {
         deleteArray1d_i64(array2d->items += i);
     }
     free(array2d);
 }
 
-struct Array3d_i64* makeArray3d_i64(int length) {
-    struct Array2d_i64* items = (struct Array2d_i64*)malloc(length * sizeof(struct Array2d_i64));
-    struct Array3d_i64* array3d = (struct Array3d_i64*)malloc(sizeof(struct Array3d_i64));
+Array3d_i64* makeArray3d_i64(int length) {
+    Array2d_i64* items = ( Array2d_i64*)malloc(length * sizeof( Array2d_i64));
+    Array3d_i64* array3d = ( Array3d_i64*)malloc(sizeof( Array3d_i64));
     array3d->length = length;
     array3d->items = items;
     return array3d; 
 }
-void deleteArray3d_i64(struct Array3d_i64* array3d) {
+void deleteArray3d_i64( Array3d_i64* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_i64(array3d->items += i);
     }
@@ -42,7 +42,7 @@ void deleteArray3d_i64(struct Array3d_i64* array3d) {
 }
 
 // Start !!!!
-i64 calcDistance_i64_c(struct Array1d_i64* point0, struct Array1d_i64* point1) {
+i64 calcDistance_i64_c( Array1d_i64* point0,  Array1d_i64* point1) {
     i64 sum = 0;
     for (int dimIndex= 0; dimIndex < point0->length; dimIndex++) {
         sum +=
@@ -52,8 +52,8 @@ i64 calcDistance_i64_c(struct Array1d_i64* point0, struct Array1d_i64* point1) {
     return sum;
 }
 
-struct Array1d_i64* calcCentroid_i64_c(struct Array2d_i64* cluster, int dimensionInPoint) {
-    struct Array1d_i64* meanPerDimension = makeArray1d_i64(dimensionInPoint);
+Array1d_i64* calcCentroid_i64_c( Array2d_i64* cluster, int dimensionInPoint) {
+    Array1d_i64* meanPerDimension = makeArray1d_i64(dimensionInPoint);
     for (int dimensionIndex = 0; dimensionIndex < dimensionInPoint; dimensionIndex++) {
         i64 sum = 0;
         for (int pointIndex = 0; pointIndex < cluster->length; pointIndex++) {
@@ -65,7 +65,7 @@ struct Array1d_i64* calcCentroid_i64_c(struct Array2d_i64* cluster, int dimensio
     return meanPerDimension;
 }
 
-int calcArgMin_i64_c(struct Array1d_i64* distances) {
+int calcArgMin_i64_c( Array1d_i64* distances) {
     int indexOfSmallestValue = 0;
     i64 smallestValue = distances->items[0];
     for (int i = 0; i < distances->length; i++) {
@@ -78,10 +78,10 @@ int calcArgMin_i64_c(struct Array1d_i64* distances) {
     return indexOfSmallestValue;
 }
 
-boolean checkIfConverged_i64_c(struct Array2d_i64* oldCentroids, struct Array2d_i64* newCentroids, double tolerance) {
+boolean checkIfConverged_i64_c( Array2d_i64* oldCentroids,  Array2d_i64* newCentroids, double tolerance) {
     for (int i = 0; i < oldCentroids->length; i++) {
-        struct Array1d_i64 oldCentroid = oldCentroids->items[i];
-        struct Array1d_i64 newCentroid = newCentroids->items[i];
+        Array1d_i64 oldCentroid = oldCentroids->items[i];
+        Array1d_i64 newCentroid = newCentroids->items[i];
         for (int dimIndex = 0; dimIndex < oldCentroid.length; dimIndex++) {
             if (tolerance < (double)abs(oldCentroid.items[dimIndex] - newCentroid.items[dimIndex])) {
                 return 0;
@@ -91,8 +91,8 @@ boolean checkIfConverged_i64_c(struct Array2d_i64* oldCentroids, struct Array2d_
     return 1;
 }
 
-struct Array2d_i64* initCentroid_i64_c(int numberOfCluster, struct Array2d_i64* points) {
-    struct Array1d_i32* randomIndices = makeArray1d_i32(numberOfCluster);
+Array2d_i64* initCentroid_i64_c(int numberOfCluster,  Array2d_i64* points) {
+    Array1d_i32* randomIndices = makeArray1d_i32(numberOfCluster);
 
     int i = 0;
     while(i < numberOfCluster) {
@@ -105,33 +105,33 @@ struct Array2d_i64* initCentroid_i64_c(int numberOfCluster, struct Array2d_i64* 
         }
     }
 
-    struct Array2d_i64* centroids = makeArray2d_i64(randomIndices->length);
+    Array2d_i64* centroids = makeArray2d_i64(randomIndices->length);
     for (int i = 0; i < randomIndices->length; i++) {
         int index = randomIndices->items[i];
-        struct Array1d_i64 value = points->items[index];
+        Array1d_i64 value = points->items[index];
         centroids->items[i] = value;
     }
     deleteArray1d_i32(randomIndices);
     return centroids;
 }
 
-struct Array3d_i64* kMean_i64_c(int numberOfCluster, struct Array2d_i64* points, int maxLoops, double tolerance) {
-    struct Array2d_i64* centroids = initCentroid_i64_c(numberOfCluster, points);
+Array3d_i64* kMean_i64_c(int numberOfCluster,  Array2d_i64* points, int maxLoops, double tolerance) {
+    Array2d_i64* centroids = initCentroid_i64_c(numberOfCluster, points);
     
     boolean converged = 0;
     int count = 0;
     int dimensionInPoint = points->items[0].length;
-    struct Array3d_i64* clusters = makeArray3d_i64(numberOfCluster);
+    Array3d_i64* clusters = makeArray3d_i64(numberOfCluster);
 
     while(!converged && count < maxLoops) {
         count++;
 
-        struct Array1d_i32* clusterAssignments = makeArray1d_i32(points->length);
+        Array1d_i32* clusterAssignments = makeArray1d_i32(points->length);
         for (int i = 0; i < points->length; i++) {
-            struct Array1d_i64 point = points->items[i];
-            struct Array1d_i64* distancesToEachCentroid = makeArray1d_i64(centroids->length);
+            Array1d_i64 point = points->items[i];
+            Array1d_i64* distancesToEachCentroid = makeArray1d_i64(centroids->length);
             for (int i = 0; i < distancesToEachCentroid->length; i++) {
-                struct Array1d_i64 centroid = centroids->items[i];
+                Array1d_i64 centroid = centroids->items[i];
                 i64 distance = calcDistance_i64_c(&centroid, &point);
                 distancesToEachCentroid->items[i] = distance;
             }
@@ -140,7 +140,7 @@ struct Array3d_i64* kMean_i64_c(int numberOfCluster, struct Array2d_i64* points,
            deleteArray1d_i64(distancesToEachCentroid);
         }
 
-        struct Array1d_i32* totalPointsPerCluster = makeArray1d_i32(numberOfCluster);
+        Array1d_i32* totalPointsPerCluster = makeArray1d_i32(numberOfCluster);
         // totalPointsPerCluster.fill(0)
         for (int i = 0; i < totalPointsPerCluster->length; i++) {
             totalPointsPerCluster->items[i] = 0;
@@ -153,19 +153,19 @@ struct Array3d_i64* kMean_i64_c(int numberOfCluster, struct Array2d_i64* points,
     
         //replace clusters
         for (int i = 0; i < numberOfCluster; i++) {
-            struct Array2d_i64* array2d = makeArray2d_i64(totalPointsPerCluster->items[i]);
+            Array2d_i64* array2d = makeArray2d_i64(totalPointsPerCluster->items[i]);
             clusters->items[i] = *array2d;
         }
         deleteArray1d_i32(totalPointsPerCluster);
         
-        struct Array1d_i32* clustersPushIndex = makeArray1d_i32(numberOfCluster);
+        Array1d_i32* clustersPushIndex = makeArray1d_i32(numberOfCluster);
         // clustersPushIndex.fill(0)
         for (int i = 0; i < clustersPushIndex->length; i++) {
             clustersPushIndex->items[i] = 0;
         }
 
         for (int i = 0; i < points->length; i++) {
-            struct Array1d_i64 point = points->items[i];
+            Array1d_i64 point = points->items[i];
             int clusterAssignment = clusterAssignments->items[i];
             int pushIndex = clustersPushIndex->items[clusterAssignment];
             clusters->items[clusterAssignment].items[pushIndex] = point;
@@ -174,9 +174,9 @@ struct Array3d_i64* kMean_i64_c(int numberOfCluster, struct Array2d_i64* points,
         deleteArray1d_i32(clusterAssignments);
         deleteArray1d_i32(clustersPushIndex);
         
-        struct Array2d_i64* newCentroids = makeArray2d_i64(numberOfCluster);
+        Array2d_i64* newCentroids = makeArray2d_i64(numberOfCluster);
         for (int i = 0; i < newCentroids->length; i++) {
-            struct Array1d_i64* item = calcCentroid_i64_c(&clusters->items[i], dimensionInPoint);
+            Array1d_i64* item = calcCentroid_i64_c(&clusters->items[i], dimensionInPoint);
             
             // copy
             for(int i=0; i < item->length;i++){

@@ -51,7 +51,7 @@ void _mergeSort_u64_c(u64* arr, int l, int r) {
   _mergeSort_u64_c(arr, m + 1, r);
   merge_u64_c(arr, l, m, r);
 }
-struct Array1d_u64* mergeSort_u64_c(struct Array1d_u64* arr) {
+Array1d_u64* mergeSort_u64_c(Array1d_u64* arr) {
   _mergeSort_u64_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -105,7 +105,7 @@ void _mergeSort_i64_c(i64* arr, int l, int r) {
   _mergeSort_i64_c(arr, m + 1, r);
   merge_i64_c(arr, l, m, r);
 }
-struct Array1d_i64* mergeSort_i64_c(struct Array1d_i64* arr) {
+Array1d_i64* mergeSort_i64_c(Array1d_i64* arr) {
   _mergeSort_i64_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -159,7 +159,7 @@ void _mergeSort_f64_c(f64* arr, int l, int r) {
   _mergeSort_f64_c(arr, m + 1, r);
   merge_f64_c(arr, l, m, r);
 }
-struct Array1d_f64* mergeSort_f64_c(struct Array1d_f64* arr) {
+Array1d_f64* mergeSort_f64_c(Array1d_f64* arr) {
   _mergeSort_f64_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -213,7 +213,7 @@ void _mergeSort_f32_c(f32* arr, int l, int r) {
   _mergeSort_f32_c(arr, m + 1, r);
   merge_f32_c(arr, l, m, r);
 }
-struct Array1d_f32* mergeSort_f32_c(struct Array1d_f32* arr) {
+Array1d_f32* mergeSort_f32_c(Array1d_f32* arr) {
   _mergeSort_f32_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -267,7 +267,7 @@ void _mergeSort_u32_c(u32* arr, int l, int r) {
   _mergeSort_u32_c(arr, m + 1, r);
   merge_u32_c(arr, l, m, r);
 }
-struct Array1d_u32* mergeSort_u32_c(struct Array1d_u32* arr) {
+Array1d_u32* mergeSort_u32_c(Array1d_u32* arr) {
   _mergeSort_u32_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -321,7 +321,7 @@ void _mergeSort_i32_c(i32* arr, int l, int r) {
   _mergeSort_i32_c(arr, m + 1, r);
   merge_i32_c(arr, l, m, r);
 }
-struct Array1d_i32* mergeSort_i32_c(struct Array1d_i32* arr) {
+Array1d_i32* mergeSort_i32_c(Array1d_i32* arr) {
   _mergeSort_i32_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -375,7 +375,7 @@ void _mergeSort_u16_c(u16* arr, int l, int r) {
   _mergeSort_u16_c(arr, m + 1, r);
   merge_u16_c(arr, l, m, r);
 }
-struct Array1d_u16* mergeSort_u16_c(struct Array1d_u16* arr) {
+Array1d_u16* mergeSort_u16_c(Array1d_u16* arr) {
   _mergeSort_u16_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -429,7 +429,7 @@ void _mergeSort_i16_c(i16* arr, int l, int r) {
   _mergeSort_i16_c(arr, m + 1, r);
   merge_i16_c(arr, l, m, r);
 }
-struct Array1d_i16* mergeSort_i16_c(struct Array1d_i16* arr) {
+Array1d_i16* mergeSort_i16_c(Array1d_i16* arr) {
   _mergeSort_i16_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -483,7 +483,7 @@ void _mergeSort_u8_c(u8* arr, int l, int r) {
   _mergeSort_u8_c(arr, m + 1, r);
   merge_u8_c(arr, l, m, r);
 }
-struct Array1d_u8* mergeSort_u8_c(struct Array1d_u8* arr) {
+Array1d_u8* mergeSort_u8_c(Array1d_u8* arr) {
   _mergeSort_u8_c(arr->items, 0, arr->length - 1);
   return arr;
 }
@@ -537,7 +537,7 @@ void _mergeSort_i8_c(i8* arr, int l, int r) {
   _mergeSort_i8_c(arr, m + 1, r);
   merge_i8_c(arr, l, m, r);
 }
-struct Array1d_i8* mergeSort_i8_c(struct Array1d_i8* arr) {
+Array1d_i8* mergeSort_i8_c(Array1d_i8* arr) {
   _mergeSort_i8_c(arr->items, 0, arr->length - 1);
   return arr;
 }
