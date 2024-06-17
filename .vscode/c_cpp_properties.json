@@ -3,7 +3,8 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "C:/Users/DOSO/AppData/Local/emsdk/upstream/emscripten/system/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -15,7 +16,7 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-msvc-x64"
-        },
+        }
     ],
     "version": 4
 }

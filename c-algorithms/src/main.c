@@ -1,10 +1,10 @@
 #include "stdio.h"
 #include <stdlib.h>
-#include <emscripten/bind.h>
-using namespace emscripten;
+#include <math.h>
+#include <emscripten.h>
 
 int main() {
-    printf("moudle init wasm");
+    printf("moudle init wasm\n");
 }
 
 typedef char boolean;
@@ -537,6 +537,7 @@ void sortTwo_i8_c(i8* array, int a, int b) {
     }
 }
 
+EMSCRIPTEN_KEEPALIVE
 u64 average_u64_c(Array1d_u64* array) {
     u64 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -545,6 +546,7 @@ u64 average_u64_c(Array1d_u64* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 i64 average_i64_c(Array1d_i64* array) {
     i64 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -553,6 +555,7 @@ i64 average_i64_c(Array1d_i64* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 f64 average_f64_c(Array1d_f64* array) {
     f64 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -561,6 +564,7 @@ f64 average_f64_c(Array1d_f64* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 f32 average_f32_c(Array1d_f32* array) {
     f32 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -569,6 +573,7 @@ f32 average_f32_c(Array1d_f32* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 u32 average_u32_c(Array1d_u32* array) {
     u32 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -577,6 +582,7 @@ u32 average_u32_c(Array1d_u32* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 i32 average_i32_c(Array1d_i32* array) {
     i32 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -585,6 +591,7 @@ i32 average_i32_c(Array1d_i32* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 u16 average_u16_c(Array1d_u16* array) {
     u16 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -593,6 +600,7 @@ u16 average_u16_c(Array1d_u16* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 i16 average_i16_c(Array1d_i16* array) {
     i16 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -601,6 +609,7 @@ i16 average_i16_c(Array1d_i16* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 u8 average_u8_c(Array1d_u8* array) {
     u8 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -609,6 +618,7 @@ u8 average_u8_c(Array1d_u8* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 i8 average_i8_c(Array1d_i8* array) {
     i8 sum = array->items[0];
     for (int i = 1; i < array->length; i++) {
@@ -618,6 +628,7 @@ i8 average_i8_c(Array1d_i8* array) {
     return sum;
 }
 
+EMSCRIPTEN_KEEPALIVE
 u64 max_u64_c(Array1d_u64* array) {
     u64 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -628,6 +639,7 @@ u64 max_u64_c(Array1d_u64* array) {
     }
     return max;
 }
+EMSCRIPTEN_KEEPALIVE
 i64 max_i64_c(Array1d_i64* array) {
     i64 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -638,6 +650,7 @@ i64 max_i64_c(Array1d_i64* array) {
     }
     return max;
 }
+EMSCRIPTEN_KEEPALIVE
 f64 max_f64_c(Array1d_f64* array) {
     f64 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -648,6 +661,7 @@ f64 max_f64_c(Array1d_f64* array) {
     }
     return max;
 }
+EMSCRIPTEN_KEEPALIVE
 f32 max_f32_c(Array1d_f32* array) {
     f32 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -658,6 +672,7 @@ f32 max_f32_c(Array1d_f32* array) {
     }
     return max;
 }
+EMSCRIPTEN_KEEPALIVE
 u32 max_u32_c(Array1d_u32* array) {
     u32 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -668,6 +683,7 @@ u32 max_u32_c(Array1d_u32* array) {
     }
     return max;
 }
+EMSCRIPTEN_KEEPALIVE
 i32 max_i32_c(Array1d_i32* array) {
     i32 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -678,6 +694,7 @@ i32 max_i32_c(Array1d_i32* array) {
     }
     return max;
 }
+EMSCRIPTEN_KEEPALIVE
 u16 max_u16_c(Array1d_u16* array) {
     u16 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -688,6 +705,7 @@ u16 max_u16_c(Array1d_u16* array) {
     }
     return max;
 }
+EMSCRIPTEN_KEEPALIVE
 i16 max_i16_c(Array1d_i16* array) {
     i16 max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -698,6 +716,7 @@ i16 max_i16_c(Array1d_i16* array) {
     }
     return max;
 }
+EMSCRIPTEN_KEEPALIVE
 u8 max_u8_c(Array1d_u8* array) {
     u8  max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -708,6 +727,7 @@ u8 max_u8_c(Array1d_u8* array) {
     }
     return max;
 }
+EMSCRIPTEN_KEEPALIVE
 i8 max_i8_c(Array1d_i8* array) {
     i8  max = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -719,6 +739,7 @@ i8 max_i8_c(Array1d_i8* array) {
     return max;
 }
 
+EMSCRIPTEN_KEEPALIVE
 u64 min_u64_c(Array1d_u64* array) {
     u64 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -729,6 +750,7 @@ u64 min_u64_c(Array1d_u64* array) {
     }
     return min;
 }
+EMSCRIPTEN_KEEPALIVE
 i64 min_i64_c(Array1d_i64* array) {
     i64 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -739,6 +761,7 @@ i64 min_i64_c(Array1d_i64* array) {
     }
     return min;
 }
+EMSCRIPTEN_KEEPALIVE
 f64 min_f64_c(Array1d_f64* array) {
     f64 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -749,6 +772,7 @@ f64 min_f64_c(Array1d_f64* array) {
     }
     return min;
 }
+EMSCRIPTEN_KEEPALIVE
 f32 min_f32_c(Array1d_f32* array) {
     f32 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -759,6 +783,7 @@ f32 min_f32_c(Array1d_f32* array) {
     }
     return min;
 }
+EMSCRIPTEN_KEEPALIVE
 u32 min_u32_c(Array1d_u32* array) {
     u32 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -769,6 +794,7 @@ u32 min_u32_c(Array1d_u32* array) {
     }
     return min;
 }
+EMSCRIPTEN_KEEPALIVE
 i32 min_i32_c(Array1d_i32* array) {
     i32 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -779,6 +805,7 @@ i32 min_i32_c(Array1d_i32* array) {
     }
     return min;
 }
+EMSCRIPTEN_KEEPALIVE
 u16 min_u16_c(Array1d_u16* array) {
     u16 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -789,6 +816,7 @@ u16 min_u16_c(Array1d_u16* array) {
     }
     return min;
 }
+EMSCRIPTEN_KEEPALIVE
 i16 min_i16_c(Array1d_i16* array) {
     i16 min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -799,6 +827,7 @@ i16 min_i16_c(Array1d_i16* array) {
     }
     return min;
 }
+EMSCRIPTEN_KEEPALIVE
 u8 min_u8_c(Array1d_u8* array) {
     u8  min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -809,6 +838,7 @@ u8 min_u8_c(Array1d_u8* array) {
     }
     return min;
 }
+EMSCRIPTEN_KEEPALIVE
 i8 min_i8_c(Array1d_i8* array) {
     i8  min = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -820,6 +850,7 @@ i8 min_i8_c(Array1d_i8* array) {
     return min;
 }
 
+EMSCRIPTEN_KEEPALIVE
 u64 sum_u64_c(Array1d_u64* array) {
     u64 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -828,6 +859,7 @@ u64 sum_u64_c(Array1d_u64* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 i64 sum_i64_c(Array1d_i64* array) {
     i64 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -836,6 +868,7 @@ i64 sum_i64_c(Array1d_i64* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 f64 sum_f64_c(Array1d_f64* array) {
     f64 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -844,6 +877,7 @@ f64 sum_f64_c(Array1d_f64* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 f32 sum_f32_c(Array1d_f32* array) {
     f32 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -852,6 +886,7 @@ f32 sum_f32_c(Array1d_f32* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 u32 sum_u32_c(Array1d_u32* array) {
     u32 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -860,6 +895,7 @@ u32 sum_u32_c(Array1d_u32* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 i32 sum_i32_c(Array1d_i32* array) {
     i32 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -868,6 +904,7 @@ i32 sum_i32_c(Array1d_i32* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 u16 sum_u16_c(Array1d_u16* array) {
     u16 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -876,6 +913,7 @@ u16 sum_u16_c(Array1d_u16* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 i16 sum_i16_c(Array1d_i16* array) {
     i16 sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -884,6 +922,7 @@ i16 sum_i16_c(Array1d_i16* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 u8 sum_u8_c(Array1d_u8* array) {
     u8  sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -892,6 +931,7 @@ u8 sum_u8_c(Array1d_u8* array) {
     }
     return sum;
 }
+EMSCRIPTEN_KEEPALIVE
 i8 sum_i8_c(Array1d_i8* array) {
     i8  sum = array->items[0];
     for (int i = 0; i < array->length; i++) {
@@ -901,6 +941,7 @@ i8 sum_i8_c(Array1d_i8* array) {
     return sum;
 }
 
+EMSCRIPTEN_KEEPALIVE
 Matrix_u64* matrixAddition_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
     Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -910,6 +951,7 @@ Matrix_u64* matrixAddition_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i64* matrixAddition_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
     Matrix_i64* newMatrix = makeMatrix_i64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -919,6 +961,7 @@ Matrix_i64* matrixAddition_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_f64* matrixAddition_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
     Matrix_f64* newMatrix = makeMatrix_f64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -928,6 +971,7 @@ Matrix_f64* matrixAddition_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_f32* matrixAddition_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
     Matrix_f32* newMatrix = makeMatrix_f32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -937,6 +981,7 @@ Matrix_f32* matrixAddition_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u32* matrixAddition_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
     Matrix_u32* newMatrix = makeMatrix_u32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -946,6 +991,7 @@ Matrix_u32* matrixAddition_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i32* matrixAddition_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
     Matrix_i32* newMatrix = makeMatrix_i32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -955,6 +1001,7 @@ Matrix_i32* matrixAddition_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u16* matrixAddition_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
     Matrix_u16* newMatrix = makeMatrix_u16(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -964,6 +1011,7 @@ Matrix_u16* matrixAddition_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i16* matrixAddition_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
     Matrix_i16* newMatrix = makeMatrix_i16(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -973,6 +1021,7 @@ Matrix_i16* matrixAddition_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u8* matrixAddition_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
     Matrix_u8* newMatrix = makeMatrix_u8(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -982,6 +1031,7 @@ Matrix_u8* matrixAddition_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i8* matrixAddition_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
     Matrix_i8* newMatrix = makeMatrix_i8(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -992,6 +1042,7 @@ Matrix_i8* matrixAddition_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
     return newMatrix;
 }
 
+EMSCRIPTEN_KEEPALIVE
 Matrix_u64* matrixMultiplication_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1012,6 +1063,7 @@ Matrix_u64* matrixMultiplication_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB)
     
     return c;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i64* matrixMultiplication_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1032,6 +1084,7 @@ Matrix_i64* matrixMultiplication_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB)
     
     return c;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_f64* matrixMultiplication_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1052,6 +1105,7 @@ Matrix_f64* matrixMultiplication_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB)
     
     return c;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_f32* matrixMultiplication_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1072,6 +1126,7 @@ Matrix_f32* matrixMultiplication_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB)
     
     return c;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u32* matrixMultiplication_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1092,6 +1147,7 @@ Matrix_u32* matrixMultiplication_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB)
     
     return c;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i32* matrixMultiplication_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1112,6 +1168,7 @@ Matrix_i32* matrixMultiplication_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB)
     
     return c;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u16* matrixMultiplication_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1132,6 +1189,7 @@ Matrix_u16* matrixMultiplication_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB)
     
     return c;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i16* matrixMultiplication_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1152,6 +1210,7 @@ Matrix_i16* matrixMultiplication_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB)
     
     return c;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u8* matrixMultiplication_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1172,6 +1231,7 @@ Matrix_u8* matrixMultiplication_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
     
     return c;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i8* matrixMultiplication_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
@@ -1193,6 +1253,7 @@ Matrix_i8* matrixMultiplication_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
     return c;
 }
 
+EMSCRIPTEN_KEEPALIVE
 Matrix_u64* matrixSubtraction_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
     Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1202,6 +1263,7 @@ Matrix_u64* matrixSubtraction_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i64* matrixSubtraction_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
     Matrix_i64* newMatrix = makeMatrix_i64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1211,6 +1273,7 @@ Matrix_i64* matrixSubtraction_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_f64* matrixSubtraction_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
     Matrix_f64* newMatrix = makeMatrix_f64(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1220,6 +1283,7 @@ Matrix_f64* matrixSubtraction_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_f32* matrixSubtraction_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
     Matrix_f32* newMatrix = makeMatrix_f32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1229,6 +1293,7 @@ Matrix_f32* matrixSubtraction_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u32* matrixSubtraction_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
     Matrix_u32* newMatrix = makeMatrix_u32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1238,6 +1303,7 @@ Matrix_u32* matrixSubtraction_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i32* matrixSubtraction_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
     Matrix_i32* newMatrix = makeMatrix_i32(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1247,6 +1313,7 @@ Matrix_i32* matrixSubtraction_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u16* matrixSubtraction_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
     Matrix_u16* newMatrix = makeMatrix_u16(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1256,6 +1323,7 @@ Matrix_u16* matrixSubtraction_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i16* matrixSubtraction_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
     Matrix_i16* newMatrix = makeMatrix_i16(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1265,6 +1333,7 @@ Matrix_i16* matrixSubtraction_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u8* matrixSubtraction_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
     Matrix_u8* newMatrix = makeMatrix_u8(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1274,6 +1343,7 @@ Matrix_u8* matrixSubtraction_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
     }
     return newMatrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i8* matrixSubtraction_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
     Matrix_i8* newMatrix = makeMatrix_i8(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
@@ -1284,6 +1354,7 @@ Matrix_i8* matrixSubtraction_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
     return newMatrix;
 }
 
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_u64_c(Array1d_u64* array, u64 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1302,6 +1373,7 @@ int binarySearch_u64_c(Array1d_u64* array, u64 target) {
     }
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_i64_c(Array1d_i64* array, i64 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1320,6 +1392,7 @@ int binarySearch_i64_c(Array1d_i64* array, i64 target) {
     }
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_f64_c(Array1d_f64* array, f64 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1338,6 +1411,7 @@ int binarySearch_f64_c(Array1d_f64* array, f64 target) {
     }
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_f32_c(Array1d_f32* array, f32 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1356,6 +1430,7 @@ int binarySearch_f32_c(Array1d_f32* array, f32 target) {
     }
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_u32_c(Array1d_u32* array, u32 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1374,6 +1449,7 @@ int binarySearch_u32_c(Array1d_u32* array, u32 target) {
     }
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_i32_c(Array1d_i32* array, i32 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1392,6 +1468,7 @@ int binarySearch_i32_c(Array1d_i32* array, i32 target) {
     }
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_u16_c(Array1d_u16* array, u16 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1410,6 +1487,7 @@ int binarySearch_u16_c(Array1d_u16* array, u16 target) {
     }
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_i16_c(Array1d_i16* array, i16 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1428,6 +1506,7 @@ int binarySearch_i16_c(Array1d_i16* array, i16 target) {
     }
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_u8_c(Array1d_u8* array, u8 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1446,6 +1525,7 @@ int binarySearch_u8_c(Array1d_u8* array, u8 target) {
     }
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int binarySearch_i8_c(Array1d_i8* array, i8 target) {
     int l = 0;
     int r = array->length - 1;
@@ -1492,6 +1572,7 @@ int _interpolationSearch_u64_c(u64* array, int startOffset, int endOffset, u64 t
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_u64_c(Array1d_u64* array, u64 target) {
     return _interpolationSearch_u64_c(array->items, 0, array->length - 1, target);
 }
@@ -1522,6 +1603,7 @@ int _interpolationSearch_i64_c(i64* array, int startOffset, int endOffset, i64 t
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_i64_c(Array1d_i64* array, i64 target) {
     return _interpolationSearch_i64_c(array->items, 0, array->length - 1, target);
 }
@@ -1554,6 +1636,7 @@ int _interpolationSearch_f64_c(f64* array, int startOffset, int endOffset, f64 t
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_f64_c(Array1d_f64* array, f64 target) {
     return _interpolationSearch_f64_c(array->items, 0, array->length - 1, target);
 }
@@ -1586,6 +1669,7 @@ int _interpolationSearch_f32_c(f32* array, int startOffset, int endOffset, f32 t
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_f32_c(Array1d_f32* array, f32 target) {
     return _interpolationSearch_f32_c(array->items, 0, array->length - 1, target);
 }
@@ -1616,6 +1700,7 @@ int _interpolationSearch_u32_c(u32* array, int startOffset, int endOffset, u32 t
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_u32_c(Array1d_u32* array, u32 target) {
     return _interpolationSearch_u32_c(array->items, 0, array->length - 1, target);
 }
@@ -1646,6 +1731,7 @@ int _interpolationSearch_i32_c(i32* array, int startOffset, int endOffset, i32 t
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_i32_c(Array1d_i32* array, i32 target) {
     return _interpolationSearch_i32_c(array->items, 0, array->length - 1, target);
 }
@@ -1676,6 +1762,7 @@ int _interpolationSearch_u16_c(u16* array, int startOffset, int endOffset, u16 t
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_u16_c(Array1d_u16* array, u16 target) {
     return _interpolationSearch_u16_c(array->items, 0, array->length - 1, target);
 }
@@ -1706,6 +1793,7 @@ int _interpolationSearch_i16_c(i16* array, int startOffset, int endOffset, i16 t
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_i16_c(Array1d_i16* array, i16 target) {
     return _interpolationSearch_i16_c(array->items, 0, array->length - 1, target);
 }
@@ -1736,6 +1824,7 @@ int _interpolationSearch_u8_c(u8* array, int startOffset, int endOffset, u8 targ
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_u8_c(Array1d_u8* array, u8 target) {
     return _interpolationSearch_u8_c(array->items, 0, array->length - 1, target);
 }
@@ -1766,10 +1855,12 @@ int _interpolationSearch_i8_c(i8* array, int startOffset, int endOffset, i8 targ
 
     return -1;
 }
+EMSCRIPTEN_KEEPALIVE
 int interpolationSearch_i8_c(Array1d_i8* array, i8 target) {
     return _interpolationSearch_i8_c(array->items, 0, array->length - 1, target);
 }
 
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_u64_c(Array1d_u64* array, u64 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1789,6 +1880,7 @@ int metaBinarySearch_u64_c(Array1d_u64* array, u64 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_i64_c(Array1d_i64* array, i64 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1808,6 +1900,7 @@ int metaBinarySearch_i64_c(Array1d_i64* array, i64 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_f64_c(Array1d_f64* array, f64 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1827,6 +1920,7 @@ int metaBinarySearch_f64_c(Array1d_f64* array, f64 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_f32_c(Array1d_f32* array, f32 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1846,6 +1940,7 @@ int metaBinarySearch_f32_c(Array1d_f32* array, f32 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_u32_c(Array1d_u32* array, u32 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1865,6 +1960,7 @@ int metaBinarySearch_u32_c(Array1d_u32* array, u32 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_i32_c(Array1d_i32* array, i32 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1884,6 +1980,7 @@ int metaBinarySearch_i32_c(Array1d_i32* array, i32 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_u16_c(Array1d_u16* array, u16 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1903,6 +2000,7 @@ int metaBinarySearch_u16_c(Array1d_u16* array, u16 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_i16_c(Array1d_i16* array, i16 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1922,6 +2020,7 @@ int metaBinarySearch_i16_c(Array1d_i16* array, i16 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_u8_c(Array1d_u8* array, u8 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1941,6 +2040,7 @@ int metaBinarySearch_u8_c(Array1d_u8* array, u8 target) {
     }
     return ((array->items[pos] == target) ? pos : -1);
 }
+EMSCRIPTEN_KEEPALIVE
 int metaBinarySearch_i8_c(Array1d_i8* array, i8 target) {
     int n = array->length;
     int lg = log2(n-1)+1;
@@ -1961,6 +2061,7 @@ int metaBinarySearch_i8_c(Array1d_i8* array, i8 target) {
     return ((array->items[pos] == target) ? pos : -1);
 }
 
+EMSCRIPTEN_KEEPALIVE
 Array1d_u64* bubbleSort_u64_c(Array1d_u64* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -1969,6 +2070,7 @@ Array1d_u64* bubbleSort_u64_c(Array1d_u64* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i64* bubbleSort_i64_c(Array1d_i64* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -1977,6 +2079,7 @@ Array1d_i64* bubbleSort_i64_c(Array1d_i64* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_f64* bubbleSort_f64_c(Array1d_f64* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -1985,6 +2088,7 @@ Array1d_f64* bubbleSort_f64_c(Array1d_f64* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_f32* bubbleSort_f32_c(Array1d_f32* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -1993,6 +2097,7 @@ Array1d_f32* bubbleSort_f32_c(Array1d_f32* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u32* bubbleSort_u32_c(Array1d_u32* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -2001,6 +2106,7 @@ Array1d_u32* bubbleSort_u32_c(Array1d_u32* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i32* bubbleSort_i32_c(Array1d_i32* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -2009,6 +2115,7 @@ Array1d_i32* bubbleSort_i32_c(Array1d_i32* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u16* bubbleSort_u16_c(Array1d_u16* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -2017,6 +2124,7 @@ Array1d_u16* bubbleSort_u16_c(Array1d_u16* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i16* bubbleSort_i16_c(Array1d_i16* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -2025,6 +2133,7 @@ Array1d_i16* bubbleSort_i16_c(Array1d_i16* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u8* bubbleSort_u8_c(Array1d_u8* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -2033,6 +2142,7 @@ Array1d_u8* bubbleSort_u8_c(Array1d_u8* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i8* bubbleSort_i8_c(Array1d_i8* array) {
     for (int i = 0; i < array->length; i++) {
         for (int j = 0; j < array->length - i - 1; j++) {
@@ -2091,6 +2201,7 @@ void _mergeSort_u64_c(u64* arr, int l, int r) {
   _mergeSort_u64_c(arr, m + 1, r);
   merge_u64_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u64* mergeSort_u64_c(Array1d_u64* arr) {
   _mergeSort_u64_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2145,6 +2256,7 @@ void _mergeSort_i64_c(i64* arr, int l, int r) {
   _mergeSort_i64_c(arr, m + 1, r);
   merge_i64_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i64* mergeSort_i64_c(Array1d_i64* arr) {
   _mergeSort_i64_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2199,6 +2311,7 @@ void _mergeSort_f64_c(f64* arr, int l, int r) {
   _mergeSort_f64_c(arr, m + 1, r);
   merge_f64_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_f64* mergeSort_f64_c(Array1d_f64* arr) {
   _mergeSort_f64_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2253,6 +2366,7 @@ void _mergeSort_f32_c(f32* arr, int l, int r) {
   _mergeSort_f32_c(arr, m + 1, r);
   merge_f32_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_f32* mergeSort_f32_c(Array1d_f32* arr) {
   _mergeSort_f32_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2307,6 +2421,7 @@ void _mergeSort_u32_c(u32* arr, int l, int r) {
   _mergeSort_u32_c(arr, m + 1, r);
   merge_u32_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u32* mergeSort_u32_c(Array1d_u32* arr) {
   _mergeSort_u32_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2361,6 +2476,7 @@ void _mergeSort_i32_c(i32* arr, int l, int r) {
   _mergeSort_i32_c(arr, m + 1, r);
   merge_i32_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i32* mergeSort_i32_c(Array1d_i32* arr) {
   _mergeSort_i32_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2415,6 +2531,7 @@ void _mergeSort_u16_c(u16* arr, int l, int r) {
   _mergeSort_u16_c(arr, m + 1, r);
   merge_u16_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u16* mergeSort_u16_c(Array1d_u16* arr) {
   _mergeSort_u16_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2469,6 +2586,7 @@ void _mergeSort_i16_c(i16* arr, int l, int r) {
   _mergeSort_i16_c(arr, m + 1, r);
   merge_i16_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i16* mergeSort_i16_c(Array1d_i16* arr) {
   _mergeSort_i16_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2523,6 +2641,7 @@ void _mergeSort_u8_c(u8* arr, int l, int r) {
   _mergeSort_u8_c(arr, m + 1, r);
   merge_u8_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u8* mergeSort_u8_c(Array1d_u8* arr) {
   _mergeSort_u8_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2577,6 +2696,7 @@ void _mergeSort_i8_c(i8* arr, int l, int r) {
   _mergeSort_i8_c(arr, m + 1, r);
   merge_i8_c(arr, l, m, r);
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i8* mergeSort_i8_c(Array1d_i8* arr) {
   _mergeSort_i8_c(arr->items, 0, arr->length - 1);
   return arr;
@@ -2784,47 +2904,58 @@ i8* _quickSort_i8_c(i8* array, int left, int right) {
     return array;
 }
 
+EMSCRIPTEN_KEEPALIVE
 Array1d_u64* quickSort_u64_c(Array1d_u64* array) {
     _quickSort_u64_c(array->items, 0, array->length - 1);
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i64* quickSort_i64_c(Array1d_i64* array) {
     _quickSort_i64_c(array->items, 0, array->length - 1);
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_f64* quickSort_f64_c(Array1d_f64* array) {
     _quickSort_f64_c(array->items, 0, array->length - 1);
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_f32* quickSort_f32_c(Array1d_f32* array) {
     _quickSort_f32_c(array->items, 0, array->length - 1);
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u32* quickSort_u32_c(Array1d_u32* array) {
     _quickSort_u32_c(array->items, 0, array->length - 1);
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i32* quickSort_i32_c(Array1d_i32* array) {
     _quickSort_i32_c(array->items, 0, array->length - 1);
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u16* quickSort_u16_c(Array1d_u16* array) {
     _quickSort_u16_c(array->items, 0, array->length - 1);
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i16* quickSort_i16_c(Array1d_i16* array) {
     _quickSort_i16_c(array->items, 0, array->length - 1);
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u8* quickSort_u8_c(Array1d_u8* array) {
     _quickSort_u8_c(array->items, 0, array->length - 1);
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i8* quickSort_i8_c(Array1d_i8* array) {
     _quickSort_i8_c(array->items, 0, array->length - 1);
     return array;
 }
 
+EMSCRIPTEN_KEEPALIVE
 Array1d_u64* selectionSort_u64_c(Array1d_u64* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
@@ -2840,6 +2971,7 @@ Array1d_u64* selectionSort_u64_c(Array1d_u64* array) {
     } 
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i64* selectionSort_i64_c(Array1d_i64* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
@@ -2855,6 +2987,7 @@ Array1d_i64* selectionSort_i64_c(Array1d_i64* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_f64* selectionSort_f64_c(Array1d_f64* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
@@ -2870,6 +3003,7 @@ Array1d_f64* selectionSort_f64_c(Array1d_f64* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_f32* selectionSort_f32_c(Array1d_f32* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
@@ -2885,6 +3019,7 @@ Array1d_f32* selectionSort_f32_c(Array1d_f32* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u32* selectionSort_u32_c(Array1d_u32* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
@@ -2900,6 +3035,7 @@ Array1d_u32* selectionSort_u32_c(Array1d_u32* array) {
     } 
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i32* selectionSort_i32_c(Array1d_i32* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
@@ -2915,6 +3051,7 @@ Array1d_i32* selectionSort_i32_c(Array1d_i32* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u16* selectionSort_u16_c(Array1d_u16* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
@@ -2930,6 +3067,7 @@ Array1d_u16* selectionSort_u16_c(Array1d_u16* array) {
     } 
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i16* selectionSort_i16_c(Array1d_i16* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
@@ -2945,6 +3083,7 @@ Array1d_i16* selectionSort_i16_c(Array1d_i16* array) {
     }
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_u8* selectionSort_u8_c(Array1d_u8* array) {
     int min;
     for (int i = 0; i < array->length; i++) {
@@ -2960,6 +3099,7 @@ Array1d_u8* selectionSort_u8_c(Array1d_u8* array) {
     } 
     return array;
 }
+EMSCRIPTEN_KEEPALIVE
 Array1d_i8* selectionSort_i8_c(Array1d_i8* array) {
    int min;
     for (int i = 0; i < array->length; i++) {
@@ -2974,160 +3114,4 @@ Array1d_i8* selectionSort_i8_c(Array1d_i8* array) {
         }
     }
     return array;
-}
-
-EMSCRIPTEN_BINDINGS(module) {
-    function("average_u64_c", &average_u64_c, allow_raw_pointers());
-    function("average_i64_c", &average_i64_c, allow_raw_pointers());
-    function("average_f64_c", &average_f64_c, allow_raw_pointers());
-    function("average_f32_c", &average_f32_c, allow_raw_pointers());
-    function("average_u32_c", &average_u32_c, allow_raw_pointers());
-    function("average_i32_c", &average_i32_c, allow_raw_pointers());
-    function("average_u16_c", &average_u16_c, allow_raw_pointers());
-    function("average_i16_c", &average_i16_c, allow_raw_pointers());
-    function("average_u8_c", &average_u8_c, allow_raw_pointers());
-    function("average_i8_c", &average_i8_c, allow_raw_pointers());
-
-    function("max_u64_c", &max_u64_c, allow_raw_pointers());
-    function("max_i64_c", &max_i64_c, allow_raw_pointers());
-    function("max_f64_c", &max_f64_c, allow_raw_pointers());
-    function("max_f32_c", &max_f32_c, allow_raw_pointers());
-    function("max_u32_c", &max_u32_c, allow_raw_pointers());
-    function("max_i32_c", &max_i32_c, allow_raw_pointers());
-    function("max_u16_c", &max_u16_c, allow_raw_pointers());
-    function("max_i16_c", &max_i16_c, allow_raw_pointers());
-    function("max_u8_c", &max_u8_c, allow_raw_pointers());
-    function("max_i8_c", &max_i8_c, allow_raw_pointers());
-
-    function("min_u64_c", &min_u64_c, allow_raw_pointers());
-    function("min_i64_c", &min_i64_c, allow_raw_pointers());
-    function("min_f64_c", &min_f64_c, allow_raw_pointers());
-    function("min_f32_c", &min_f32_c, allow_raw_pointers());
-    function("min_u32_c", &min_u32_c, allow_raw_pointers());
-    function("min_i32_c", &min_i32_c, allow_raw_pointers());
-    function("min_u16_c", &min_u16_c, allow_raw_pointers());
-    function("min_i16_c", &min_i16_c, allow_raw_pointers());
-    function("min_u8_c", &min_u8_c, allow_raw_pointers());
-    function("min_i8_c", &min_i8_c, allow_raw_pointers());
-
-    function("sum_u64_c", &sum_u64_c, allow_raw_pointers());
-    function("sum_i64_c", &sum_i64_c, allow_raw_pointers());
-    function("sum_f64_c", &sum_f64_c, allow_raw_pointers());
-    function("sum_f32_c", &sum_f32_c, allow_raw_pointers());
-    function("sum_u32_c", &sum_u32_c, allow_raw_pointers());
-    function("sum_i32_c", &sum_i32_c, allow_raw_pointers());
-    function("sum_u16_c", &sum_u16_c, allow_raw_pointers());
-    function("sum_i16_c", &sum_i16_c, allow_raw_pointers());
-    function("sum_u8_c", &sum_u8_c, allow_raw_pointers());
-    function("sum_i8_c", &sum_i8_c, allow_raw_pointers());
-    
-    function("matrixAddition_u64_c", &matrixAddition_u64_c, allow_raw_pointers());
-    function("matrixAddition_i64_c", &matrixAddition_i64_c, allow_raw_pointers());
-    function("matrixAddition_f64_c", &matrixAddition_f64_c, allow_raw_pointers());
-    function("matrixAddition_f32_c", &matrixAddition_f32_c, allow_raw_pointers());
-    function("matrixAddition_u32_c", &matrixAddition_u32_c, allow_raw_pointers());
-    function("matrixAddition_i32_c", &matrixAddition_i32_c, allow_raw_pointers());
-    function("matrixAddition_u16_c", &matrixAddition_u16_c, allow_raw_pointers());
-    function("matrixAddition_i16_c", &matrixAddition_i16_c, allow_raw_pointers());
-    function("matrixAddition_u8_c", &matrixAddition_u8_c, allow_raw_pointers());
-    function("matrixAddition_i8_c", &matrixAddition_i8_c, allow_raw_pointers());
-
-    function("matrixMultiplication_u64_c", &matrixMultiplication_u64_c, allow_raw_pointers());
-    function("matrixMultiplication_i64_c", &matrixMultiplication_i64_c, allow_raw_pointers());
-    function("matrixMultiplication_f64_c", &matrixMultiplication_f64_c, allow_raw_pointers());
-    function("matrixMultiplication_f32_c", &matrixMultiplication_f32_c, allow_raw_pointers());
-    function("matrixMultiplication_u32_c", &matrixMultiplication_u32_c, allow_raw_pointers());
-    function("matrixMultiplication_i32_c", &matrixMultiplication_i32_c, allow_raw_pointers());
-    function("matrixMultiplication_u16_c", &matrixMultiplication_u16_c, allow_raw_pointers());
-    function("matrixMultiplication_i16_c", &matrixMultiplication_i16_c, allow_raw_pointers());
-    function("matrixMultiplication_u8_c", &matrixMultiplication_u8_c, allow_raw_pointers());
-    function("matrixMultiplication_i8_c", &matrixMultiplication_i8_c, allow_raw_pointers());
-
-    function("matrixSubtraction_u64_c", &matrixSubtraction_u64_c, allow_raw_pointers());
-    function("matrixSubtraction_i64_c", &matrixSubtraction_i64_c, allow_raw_pointers());
-    function("matrixSubtraction_f64_c", &matrixSubtraction_f64_c, allow_raw_pointers());
-    function("matrixSubtraction_f32_c", &matrixSubtraction_f32_c, allow_raw_pointers());
-    function("matrixSubtraction_u32_c", &matrixSubtraction_u32_c, allow_raw_pointers());
-    function("matrixSubtraction_i32_c", &matrixSubtraction_i32_c, allow_raw_pointers());
-    function("matrixSubtraction_u16_c", &matrixSubtraction_u16_c, allow_raw_pointers());
-    function("matrixSubtraction_i16_c", &matrixSubtraction_i16_c, allow_raw_pointers());
-    function("matrixSubtraction_u8_c", &matrixSubtraction_u8_c, allow_raw_pointers());
-    function("matrixSubtraction_i8_c", &matrixSubtraction_i8_c, allow_raw_pointers());
-        
-    function("binarySearch_u64_c", &binarySearch_u64_c, allow_raw_pointers());
-    function("binarySearch_i64_c", &binarySearch_i64_c, allow_raw_pointers());
-    function("binarySearch_f64_c", &binarySearch_f64_c, allow_raw_pointers());
-    function("binarySearch_f32_c", &binarySearch_f32_c, allow_raw_pointers());
-    function("binarySearch_u32_c", &binarySearch_u32_c, allow_raw_pointers());
-    function("binarySearch_i32_c", &binarySearch_i32_c, allow_raw_pointers());
-    function("binarySearch_u16_c", &binarySearch_u16_c, allow_raw_pointers());
-    function("binarySearch_i16_c", &binarySearch_i16_c, allow_raw_pointers());
-    function("binarySearch_u8_c", &binarySearch_u8_c, allow_raw_pointers());
-    function("binarySearch_i8_c", &binarySearch_i8_c, allow_raw_pointers());
-        
-    function("interpolationSearch_u64_c", &interpolationSearch_u64_c, allow_raw_pointers());
-    function("interpolationSearch_i64_c", &interpolationSearch_i64_c, allow_raw_pointers());
-    function("interpolationSearch_f64_c", &interpolationSearch_f64_c, allow_raw_pointers());
-    function("interpolationSearch_f32_c", &interpolationSearch_f32_c, allow_raw_pointers());
-    function("interpolationSearch_u32_c", &interpolationSearch_u32_c, allow_raw_pointers());
-    function("interpolationSearch_i32_c", &interpolationSearch_i32_c, allow_raw_pointers());
-    function("interpolationSearch_u16_c", &interpolationSearch_u16_c, allow_raw_pointers());
-    function("interpolationSearch_i16_c", &interpolationSearch_i16_c, allow_raw_pointers());
-    function("interpolationSearch_u8_c", &interpolationSearch_u8_c, allow_raw_pointers());
-    function("interpolationSearch_i8_c", &interpolationSearch_i8_c, allow_raw_pointers());
-    
-    function("metaBinarySearch_u64_c", &metaBinarySearch_u64_c, allow_raw_pointers());
-    function("metaBinarySearch_i64_c", &metaBinarySearch_i64_c, allow_raw_pointers());
-    function("metaBinarySearch_f64_c", &metaBinarySearch_f64_c, allow_raw_pointers());
-    function("metaBinarySearch_f32_c", &metaBinarySearch_f32_c, allow_raw_pointers());
-    function("metaBinarySearch_u32_c", &metaBinarySearch_u32_c, allow_raw_pointers());
-    function("metaBinarySearch_i32_c", &metaBinarySearch_i32_c, allow_raw_pointers());
-    function("metaBinarySearch_u16_c", &metaBinarySearch_u16_c, allow_raw_pointers());
-    function("metaBinarySearch_i16_c", &metaBinarySearch_i16_c, allow_raw_pointers());
-    function("metaBinarySearch_u8_c", &metaBinarySearch_u8_c, allow_raw_pointers());
-    function("metaBinarySearch_i8_c", &metaBinarySearch_i8_c, allow_raw_pointers());
-    
-    function("bubbleSort_u64_c", &bubbleSort_u64_c, allow_raw_pointers());
-    function("bubbleSort_i64_c", &bubbleSort_i64_c, allow_raw_pointers());
-    function("bubbleSort_f64_c", &bubbleSort_f64_c, allow_raw_pointers());
-    function("bubbleSort_f32_c", &bubbleSort_f32_c, allow_raw_pointers());
-    function("bubbleSort_u32_c", &bubbleSort_u32_c, allow_raw_pointers());
-    function("bubbleSort_i32_c", &bubbleSort_i32_c, allow_raw_pointers());
-    function("bubbleSort_u16_c", &bubbleSort_u16_c, allow_raw_pointers());
-    function("bubbleSort_i16_c", &bubbleSort_i16_c, allow_raw_pointers());
-    function("bubbleSort_u8_c", &bubbleSort_u8_c, allow_raw_pointers());
-    function("bubbleSort_i8_c", &bubbleSort_i8_c, allow_raw_pointers());
-    
-    function("mergeSort_u64_c", &mergeSort_u64_c, allow_raw_pointers());
-    function("mergeSort_i64_c", &mergeSort_i64_c, allow_raw_pointers());
-    function("mergeSort_f64_c", &mergeSort_f64_c, allow_raw_pointers());
-    function("mergeSort_f32_c", &mergeSort_f32_c, allow_raw_pointers());
-    function("mergeSort_u32_c", &mergeSort_u32_c, allow_raw_pointers());
-    function("mergeSort_i32_c", &mergeSort_i32_c, allow_raw_pointers());
-    function("mergeSort_u16_c", &mergeSort_u16_c, allow_raw_pointers());
-    function("mergeSort_i16_c", &mergeSort_i16_c, allow_raw_pointers());
-    function("mergeSort_u8_c", &mergeSort_u8_c, allow_raw_pointers());
-    function("mergeSort_i8_c", &mergeSort_i8_c, allow_raw_pointers());
-    
-    function("quickSort_u64_c", &quickSort_u64_c, allow_raw_pointers());
-    function("quickSort_i64_c", &quickSort_i64_c, allow_raw_pointers());
-    function("quickSort_f64_c", &quickSort_f64_c, allow_raw_pointers());
-    function("quickSort_f32_c", &quickSort_f32_c, allow_raw_pointers());
-    function("quickSort_u32_c", &quickSort_u32_c, allow_raw_pointers());
-    function("quickSort_i32_c", &quickSort_i32_c, allow_raw_pointers());
-    function("quickSort_u16_c", &quickSort_u16_c, allow_raw_pointers());
-    function("quickSort_i16_c", &quickSort_i16_c, allow_raw_pointers());
-    function("quickSort_u8_c", &quickSort_u8_c, allow_raw_pointers());
-    function("quickSort_i8_c", &quickSort_i8_c, allow_raw_pointers());
-    
-    function("selectionSort_u64_c", &selectionSort_u64_c, allow_raw_pointers());
-    function("selectionSort_i64_c", &selectionSort_i64_c, allow_raw_pointers());
-    function("selectionSort_f64_c", &selectionSort_f64_c, allow_raw_pointers());
-    function("selectionSort_f32_c", &selectionSort_f32_c, allow_raw_pointers());
-    function("selectionSort_u32_c", &selectionSort_u32_c, allow_raw_pointers());
-    function("selectionSort_i32_c", &selectionSort_i32_c, allow_raw_pointers());
-    function("selectionSort_u16_c", &selectionSort_u16_c, allow_raw_pointers());
-    function("selectionSort_i16_c", &selectionSort_i16_c, allow_raw_pointers());
-    function("selectionSort_u8_c", &selectionSort_u8_c, allow_raw_pointers());
-    function("selectionSort_i8_c", &selectionSort_i8_c, allow_raw_pointers());
 }

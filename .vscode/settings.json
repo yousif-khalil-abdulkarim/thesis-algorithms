@@ -4,9 +4,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "files.associations": {
-    "*.embeddedhtml": "html",
-    "functional": "cpp",
-    "random": "cpp",
-    "cmath": "cpp"
+    "*.c": "c",
+    "matrix-addition.h": "c",
+    "average.h": "c",
+    "binary-search.h": "c",
+    "shared.h": "c",
+    "interpolation-search.h": "c"
   },
+  "C_Cpp.errorSquiggles": "enabled"
 }

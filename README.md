@@ -110,4 +110,4 @@ Array size 5120000, 79KiB
 
 Settings:
 Emscripten compiler settings
-emcc main.cpp -s ALLOW_MEMORY_GROWTH=1 -s MEMORY_GROWTH_LINEAR_STEP=$step -s INITIAL_MEMORY=$size -s MAXIMUM_MEMORY=4294967296 -lembind -std=c++11 -o main.js 
+emcc main.c -s ALLOW_MEMORY_GROWTH=1 -s MEMORY_GROWTH_LINEAR_STEP=$step -s INITIAL_MEMORY=$size -s MAXIMUM_MEMORY=4294967296 -s EXPORTED_RUNTIME_METHODS=cwrap -s EXPORTED_FUNCTIONS='[_main, _malloc, _free]' -o main.js 
