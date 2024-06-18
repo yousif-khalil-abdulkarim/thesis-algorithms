@@ -5,6 +5,7 @@
   "workspaces": [
     "typescript-algorithms",
     "assemblyscript-algorithms",
-    "c-algorithms"
+    "c-algorithms",
+    "tests"
   ]
 }

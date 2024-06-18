@@ -9,7 +9,9 @@
     "average.h": "c",
     "binary-search.h": "c",
     "shared.h": "c",
-    "interpolation-search.h": "c"
+    "interpolation-search.h": "c",
+    "stdlib.h": "c",
+    "valarray": "c"
   },
   "C_Cpp.errorSquiggles": "enabled"
 }

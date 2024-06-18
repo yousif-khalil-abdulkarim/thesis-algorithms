@@ -60,70 +60,80 @@ typedef struct Array1d_i8 {
     int length;
 } Array1d_i8;
 
-Array1d_u64* makeArray1d_u64(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_u64* makeArray1d_u64_c(int length) {
     u64* items = (u64*)malloc(length * sizeof(u64));
     Array1d_u64* array = (Array1d_u64*)malloc(sizeof(Array1d_u64));
     array->items = items;
     array->length = length;
     return array;
 }
-Array1d_i64* makeArray1d_i64(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_i64* makeArray1d_i64_c(int length) {
     i64* items = (i64*)malloc(length * sizeof(i64));
     Array1d_i64* array = (Array1d_i64*)malloc(sizeof(Array1d_i64));
     array->items = items;
     array->length = length;
     return array;
 }
-Array1d_f64* makeArray1d_f64(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_f64* makeArray1d_f64_c(int length) {
     f64* items = (f64*)malloc(length * sizeof(f64));
     Array1d_f64* array = (Array1d_f64*)malloc(sizeof(Array1d_f64));
     array->items = items;
     array->length = length;
     return array;
 }
-Array1d_f32* makeArray1d_f32(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_f32* makeArray1d_f32_c(int length) {
     f32* items = (f32*)malloc(length * sizeof(f32));
     Array1d_f32* array = (Array1d_f32*)malloc(sizeof(Array1d_f32));
     array->items = items;
     array->length = length;
     return array;
 }
-Array1d_u32* makeArray1d_u32(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_u32* makeArray1d_u32_c(int length) {
     u32* items = (u32*)malloc(length * sizeof(u32));
     Array1d_u32* array = (Array1d_u32*)malloc(sizeof(Array1d_u32));
     array->items = items;
     array->length = length;
     return array;
 }
-Array1d_i32* makeArray1d_i32(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_i32* makeArray1d_i32_c(int length) {
     i32* items = (i32*)malloc(length * sizeof(i32));
     Array1d_i32* array = (Array1d_i32*)malloc(sizeof(Array1d_i32));
     array->items = items;
     array->length = length;
     return array;
 }
-Array1d_u16* makeArray1d_u16(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_u16* makeArray1d_u16_c(int length) {
     u16* items = (u16*)malloc(length * sizeof(u16));
     Array1d_u16* array = (Array1d_u16*)malloc(sizeof(Array1d_u16));
     array->items = items;
     array->length = length;
     return array;
 }
-Array1d_i16* makeArray1d_i16(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_i16* makeArray1d_i16_c(int length) {
     i16* items = (i16*)malloc(length * sizeof(i16));
     Array1d_i16* array = (Array1d_i16*)malloc(sizeof(Array1d_i16));
     array->items = items;
     array->length = length;
     return array;
 }
-Array1d_u8* makeArray1d_u8(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_u8* makeArray1d_u8_c(int length) {
     u8* items = (u8*)malloc(length * sizeof(u8));
     Array1d_u8* array = (Array1d_u8*)malloc(sizeof(Array1d_u8));
     array->items = items;
     array->length = length;
     return array;
 }
-Array1d_i8* makeArray1d_i8(int length) {
+EMSCRIPTEN_KEEPALIVE
+Array1d_i8* makeArray1d_i8_c(int length) {
     i8* items = (i8*)malloc(length * sizeof(i8));
     Array1d_i8* array = (Array1d_i8*)malloc(sizeof(Array1d_i8));
     array->items = items;
@@ -131,43 +141,94 @@ Array1d_i8* makeArray1d_i8(int length) {
     return array;
 }
 
-void deleteArray1d_u64(Array1d_u64* array) {
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_u64_c(Array1d_u64* array, int index, u64 value) {
+    array->items[index] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_i64_c(Array1d_i64* array, int index, i64 value) {
+    array->items[index] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_f64_c(Array1d_f64* array, int index, f64 value) {
+    array->items[index] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_f32_c(Array1d_f32* array, int index, f32 value) {
+    array->items[index] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_u32_c(Array1d_u32* array, int index, u32 value) {
+    array->items[index] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_i32_c(Array1d_i32* array, int index, i32 value) {
+    array->items[index] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_u16_c(Array1d_u16* array, int index, u16 value) {
+    array->items[index] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_i16_c(Array1d_i16* array, int index, i16 value) {
+    array->items[index] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_u8_c(Array1d_u8* array, int index, u8 value) {
+    array->items[index] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setArray1d_i8_c(Array1d_i8* array, int index, i8 value) {
+    array->items[index] = value;
+}
+
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_u64_c(Array1d_u64* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_i64(Array1d_i64* array) {
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_i64_c(Array1d_i64* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_f64(Array1d_f64* array) {
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_f64_c(Array1d_f64* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_f32(Array1d_f32* array) {
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_f32_c(Array1d_f32* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_u32(Array1d_u32* array) {
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_u32_c(Array1d_u32* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_i32(Array1d_i32* array) {
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_i32_c(Array1d_i32* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_u16(Array1d_u16* array) {
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_u16_c(Array1d_u16* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_i16(Array1d_i16* array) {
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_i16_c(Array1d_i16* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_u8(Array1d_u8* array) {
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_u8_c(Array1d_u8* array) {
     free(array->items);
     free(array);
 }
-void deleteArray1d_i8(Array1d_i8* array) {
+EMSCRIPTEN_KEEPALIVE
+void deleteArray1d_i8_c(Array1d_i8* array) {
     free(array->items);
     free(array);
 }
@@ -223,7 +284,7 @@ typedef struct Matrix_i8 {
     int height;
 } Matrix_i8;
 
-Matrix_u64* makeMatrix_u64(int height, int width) {
+Matrix_u64* makeMatrix_u64_c(int height, int width) {
     u64** data = (u64**)malloc(height * sizeof(u64*));
     for (int i = 0; i < height; i++) {
         u64* row = (u64*)malloc(width * sizeof(u64));
@@ -237,7 +298,7 @@ Matrix_u64* makeMatrix_u64(int height, int width) {
 
     return matrix;
 }
-Matrix_i64* makeMatrix_i64(int height, int width) {
+Matrix_i64* makeMatrix_i64_c(int height, int width) {
     i64** data = (i64**)malloc(height * sizeof(i64*));
     for (int i = 0; i < height; i++) {
         i64* row = (i64*)malloc(width * sizeof(i64));
@@ -251,7 +312,7 @@ Matrix_i64* makeMatrix_i64(int height, int width) {
     
     return matrix;
 }
-Matrix_f64* makeMatrix_f64(int height, int width) {
+Matrix_f64* makeMatrix_f64_c(int height, int width) {
     f64** data = (f64**)malloc(height * sizeof(f64*));
     for (int i = 0; i < height; i++) {
         f64* row = (f64*)malloc(width * sizeof(f64));
@@ -265,7 +326,7 @@ Matrix_f64* makeMatrix_f64(int height, int width) {
     
     return matrix;
 }
-Matrix_f32* makeMatrix_f32(int height, int width) {
+Matrix_f32* makeMatrix_f32_c(int height, int width) {
     f32** data = (f32**)malloc(height * sizeof(f32*));
     for (int i = 0; i < height; i++) {
         f32* row = (f32*)malloc(width * sizeof(f32));
@@ -279,7 +340,7 @@ Matrix_f32* makeMatrix_f32(int height, int width) {
     
     return matrix;
 }
-Matrix_u32* makeMatrix_u32(int height, int width) {
+Matrix_u32* makeMatrix_u32_c(int height, int width) {
     u32** data = (u32**)malloc(height * sizeof(u32*));
     for (int i = 0; i < height; i++) {
         u32* row = (u32*)malloc(width * sizeof(u32));
@@ -293,7 +354,7 @@ Matrix_u32* makeMatrix_u32(int height, int width) {
     
     return matrix;
 }
-Matrix_i32* makeMatrix_i32(int height, int width) {
+Matrix_i32* makeMatrix_i32_c(int height, int width) {
     i32** data = (i32**)malloc(height * sizeof(i32*));
     for (int i = 0; i < height; i++) {
         i32* row = (i32*)malloc(width * sizeof(i32));
@@ -307,7 +368,7 @@ Matrix_i32* makeMatrix_i32(int height, int width) {
     
     return matrix;
 }
-Matrix_u16* makeMatrix_u16(int height, int width) {
+Matrix_u16* makeMatrix_u16_c(int height, int width) {
     u16** data = (u16**)malloc(height * sizeof(u16*));
     for (int i = 0; i < height; i++) {
         u16* row = (u16*)malloc(width * sizeof(u16));
@@ -321,7 +382,7 @@ Matrix_u16* makeMatrix_u16(int height, int width) {
     
     return matrix;
 }
-Matrix_i16* makeMatrix_i16(int height, int width) {
+Matrix_i16* makeMatrix_i16_c(int height, int width) {
     i16** data = (i16**)malloc(height * sizeof(i16*));
     for (int i = 0; i < height; i++) {
         i16* row = (i16*)malloc(width * sizeof(i16));
@@ -335,7 +396,7 @@ Matrix_i16* makeMatrix_i16(int height, int width) {
     
     return matrix;
 }
-Matrix_u8* makeMatrix_u8(int height, int width) {
+Matrix_u8* makeMatrix_u8_c(int height, int width) {
     u8** data = (u8**)malloc(height * sizeof(u8*));
     for (int i = 0; i < height; i++) {
         u8* row = (u8*)malloc(width * sizeof(u8));
@@ -349,7 +410,7 @@ Matrix_u8* makeMatrix_u8(int height, int width) {
     
     return matrix;
 }
-Matrix_i8* makeMatrix_i8(int height, int width) {
+Matrix_i8* makeMatrix_i8_c(int height, int width) {
     i8** data = (i8**)malloc(height * sizeof(i8*));
     for (int i = 0; i < height; i++) {
         i8* row = (i8*)malloc(width * sizeof(i8));
@@ -364,70 +425,70 @@ Matrix_i8* makeMatrix_i8(int height, int width) {
     return matrix;
 }
 
-void deleteMatrix_u64(Matrix_u64* matrix) {
+void deleteMatrix_u64_c(Matrix_u64* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_i64(Matrix_i64* matrix) {
+void deleteMatrix_i64_c(Matrix_i64* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_f64(Matrix_f64* matrix) {
+void deleteMatrix_f64_c(Matrix_f64* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_f32(Matrix_f32* matrix) {
+void deleteMatrix_f32_c(Matrix_f32* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_u32(Matrix_u32* matrix) {
+void deleteMatrix_u32_c(Matrix_u32* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_i32(Matrix_i32* matrix) {
+void deleteMatrix_i32_c(Matrix_i32* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_u16(Matrix_u16* matrix) {
+void deleteMatrix_u16_c(Matrix_u16* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_i16(Matrix_i16* matrix) {
+void deleteMatrix_i16_c(Matrix_i16* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_u8(Matrix_u8* matrix) {
+void deleteMatrix_u8_c(Matrix_u8* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
     free(matrix);
 }
-void deleteMatrix_i8(Matrix_i8* matrix) {
+void deleteMatrix_i8_c(Matrix_i8* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
     }
@@ -544,7 +605,7 @@ u64 average_u64_c(Array1d_u64* array) {
         u64 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (u64)array->length;
 }
 EMSCRIPTEN_KEEPALIVE
 i64 average_i64_c(Array1d_i64* array) {
@@ -553,7 +614,7 @@ i64 average_i64_c(Array1d_i64* array) {
         i64 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (i64)array->length;
 }
 EMSCRIPTEN_KEEPALIVE
 f64 average_f64_c(Array1d_f64* array) {
@@ -562,7 +623,7 @@ f64 average_f64_c(Array1d_f64* array) {
         f64 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (f64)array->length;
 }
 EMSCRIPTEN_KEEPALIVE
 f32 average_f32_c(Array1d_f32* array) {
@@ -571,7 +632,7 @@ f32 average_f32_c(Array1d_f32* array) {
         f32 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (f32)array->length;
 }
 EMSCRIPTEN_KEEPALIVE
 u32 average_u32_c(Array1d_u32* array) {
@@ -580,7 +641,7 @@ u32 average_u32_c(Array1d_u32* array) {
         u32 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (u32)array->length;
 }
 EMSCRIPTEN_KEEPALIVE
 i32 average_i32_c(Array1d_i32* array) {
@@ -589,7 +650,7 @@ i32 average_i32_c(Array1d_i32* array) {
         i32 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (i32)array->length;
 }
 EMSCRIPTEN_KEEPALIVE
 u16 average_u16_c(Array1d_u16* array) {
@@ -598,7 +659,7 @@ u16 average_u16_c(Array1d_u16* array) {
         u16 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (u16)array->length;
 }
 EMSCRIPTEN_KEEPALIVE
 i16 average_i16_c(Array1d_i16* array) {
@@ -607,7 +668,7 @@ i16 average_i16_c(Array1d_i16* array) {
         i16 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (i16)array->length;
 }
 EMSCRIPTEN_KEEPALIVE
 u8 average_u8_c(Array1d_u8* array) {
@@ -616,7 +677,7 @@ u8 average_u8_c(Array1d_u8* array) {
         u8 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (u8)array->length;
 }
 EMSCRIPTEN_KEEPALIVE
 i8 average_i8_c(Array1d_i8* array) {
@@ -625,7 +686,7 @@ i8 average_i8_c(Array1d_i8* array) {
         i8 item = array->items[i];
         sum += item;
     }
-    return sum;
+    return sum / (i8)array->length;
 }
 
 EMSCRIPTEN_KEEPALIVE
@@ -943,7 +1004,7 @@ i8 sum_i8_c(Array1d_i8* array) {
 
 EMSCRIPTEN_KEEPALIVE
 Matrix_u64* matrixAddition_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
-    Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
+    Matrix_u64* newMatrix = makeMatrix_u64_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -953,7 +1014,7 @@ Matrix_u64* matrixAddition_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_i64* matrixAddition_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
-    Matrix_i64* newMatrix = makeMatrix_i64(matrixA->height, matrixA->width);
+    Matrix_i64* newMatrix = makeMatrix_i64_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -963,7 +1024,7 @@ Matrix_i64* matrixAddition_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_f64* matrixAddition_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
-    Matrix_f64* newMatrix = makeMatrix_f64(matrixA->height, matrixA->width);
+    Matrix_f64* newMatrix = makeMatrix_f64_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -973,7 +1034,7 @@ Matrix_f64* matrixAddition_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_f32* matrixAddition_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
-    Matrix_f32* newMatrix = makeMatrix_f32(matrixA->height, matrixA->width);
+    Matrix_f32* newMatrix = makeMatrix_f32_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -983,7 +1044,7 @@ Matrix_f32* matrixAddition_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_u32* matrixAddition_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
-    Matrix_u32* newMatrix = makeMatrix_u32(matrixA->height, matrixA->width);
+    Matrix_u32* newMatrix = makeMatrix_u32_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -993,7 +1054,7 @@ Matrix_u32* matrixAddition_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_i32* matrixAddition_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
-    Matrix_i32* newMatrix = makeMatrix_i32(matrixA->height, matrixA->width);
+    Matrix_i32* newMatrix = makeMatrix_i32_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -1003,7 +1064,7 @@ Matrix_i32* matrixAddition_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_u16* matrixAddition_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
-    Matrix_u16* newMatrix = makeMatrix_u16(matrixA->height, matrixA->width);
+    Matrix_u16* newMatrix = makeMatrix_u16_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -1013,7 +1074,7 @@ Matrix_u16* matrixAddition_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_i16* matrixAddition_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
-    Matrix_i16* newMatrix = makeMatrix_i16(matrixA->height, matrixA->width);
+    Matrix_i16* newMatrix = makeMatrix_i16_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -1023,7 +1084,7 @@ Matrix_i16* matrixAddition_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_u8* matrixAddition_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
-    Matrix_u8* newMatrix = makeMatrix_u8(matrixA->height, matrixA->width);
+    Matrix_u8* newMatrix = makeMatrix_u8_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -1033,7 +1094,7 @@ Matrix_u8* matrixAddition_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_i8* matrixAddition_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
-    Matrix_i8* newMatrix = makeMatrix_i8(matrixA->height, matrixA->width);
+    Matrix_i8* newMatrix = makeMatrix_i8_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] + matrixB->data[i][j];
@@ -1047,7 +1108,7 @@ Matrix_u64* matrixMultiplication_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB)
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_u64* c = makeMatrix_u64(n, p);
+    Matrix_u64* c = makeMatrix_u64_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1068,7 +1129,7 @@ Matrix_i64* matrixMultiplication_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB)
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_i64* c = makeMatrix_i64(n, p);
+    Matrix_i64* c = makeMatrix_i64_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1089,7 +1150,7 @@ Matrix_f64* matrixMultiplication_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB)
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_f64* c = makeMatrix_f64(n, p);
+    Matrix_f64* c = makeMatrix_f64_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1110,7 +1171,7 @@ Matrix_f32* matrixMultiplication_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB)
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_f32* c = makeMatrix_f32(n, p);
+    Matrix_f32* c = makeMatrix_f32_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1131,7 +1192,7 @@ Matrix_u32* matrixMultiplication_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB)
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_u32* c = makeMatrix_u32(n, p);
+    Matrix_u32* c = makeMatrix_u32_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1152,7 +1213,7 @@ Matrix_i32* matrixMultiplication_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB)
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_i32* c = makeMatrix_i32(n, p);
+    Matrix_i32* c = makeMatrix_i32_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1173,7 +1234,7 @@ Matrix_u16* matrixMultiplication_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB)
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_u16* c = makeMatrix_u16(n, p);
+    Matrix_u16* c = makeMatrix_u16_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1194,7 +1255,7 @@ Matrix_i16* matrixMultiplication_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB)
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_i16* c = makeMatrix_i16(n, p);
+    Matrix_i16* c = makeMatrix_i16_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1215,7 +1276,7 @@ Matrix_u8* matrixMultiplication_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_u8* c = makeMatrix_u8(n, p);
+    Matrix_u8* c = makeMatrix_u8_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1236,7 +1297,7 @@ Matrix_i8* matrixMultiplication_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
     int m = matrixA->width;
     int n = matrixA->height;
     int p = matrixB->width;
-    Matrix_i8* c = makeMatrix_i8(n, p);
+    Matrix_i8* c = makeMatrix_i8_c(n, p);
     
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < p; j++) {
@@ -1255,7 +1316,7 @@ Matrix_i8* matrixMultiplication_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
 
 EMSCRIPTEN_KEEPALIVE
 Matrix_u64* matrixSubtraction_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
-    Matrix_u64* newMatrix = makeMatrix_u64(matrixA->height, matrixA->width);
+    Matrix_u64* newMatrix = makeMatrix_u64_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1265,7 +1326,7 @@ Matrix_u64* matrixSubtraction_u64_c(Matrix_u64* matrixA, Matrix_u64* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_i64* matrixSubtraction_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
-    Matrix_i64* newMatrix = makeMatrix_i64(matrixA->height, matrixA->width);
+    Matrix_i64* newMatrix = makeMatrix_i64_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1275,7 +1336,7 @@ Matrix_i64* matrixSubtraction_i64_c(Matrix_i64* matrixA, Matrix_i64* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_f64* matrixSubtraction_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
-    Matrix_f64* newMatrix = makeMatrix_f64(matrixA->height, matrixA->width);
+    Matrix_f64* newMatrix = makeMatrix_f64_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1285,7 +1346,7 @@ Matrix_f64* matrixSubtraction_f64_c(Matrix_f64* matrixA, Matrix_f64* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_f32* matrixSubtraction_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
-    Matrix_f32* newMatrix = makeMatrix_f32(matrixA->height, matrixA->width);
+    Matrix_f32* newMatrix = makeMatrix_f32_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1295,7 +1356,7 @@ Matrix_f32* matrixSubtraction_f32_c(Matrix_f32* matrixA, Matrix_f32* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_u32* matrixSubtraction_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
-    Matrix_u32* newMatrix = makeMatrix_u32(matrixA->height, matrixA->width);
+    Matrix_u32* newMatrix = makeMatrix_u32_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1305,7 +1366,7 @@ Matrix_u32* matrixSubtraction_u32_c(Matrix_u32* matrixA, Matrix_u32* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_i32* matrixSubtraction_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
-    Matrix_i32* newMatrix = makeMatrix_i32(matrixA->height, matrixA->width);
+    Matrix_i32* newMatrix = makeMatrix_i32_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1315,7 +1376,7 @@ Matrix_i32* matrixSubtraction_i32_c(Matrix_i32* matrixA, Matrix_i32* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_u16* matrixSubtraction_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
-    Matrix_u16* newMatrix = makeMatrix_u16(matrixA->height, matrixA->width);
+    Matrix_u16* newMatrix = makeMatrix_u16_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1325,7 +1386,7 @@ Matrix_u16* matrixSubtraction_u16_c(Matrix_u16* matrixA, Matrix_u16* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_i16* matrixSubtraction_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
-    Matrix_i16* newMatrix = makeMatrix_i16(matrixA->height, matrixA->width);
+    Matrix_i16* newMatrix = makeMatrix_i16_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1335,7 +1396,7 @@ Matrix_i16* matrixSubtraction_i16_c(Matrix_i16* matrixA, Matrix_i16* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_u8* matrixSubtraction_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
-    Matrix_u8* newMatrix = makeMatrix_u8(matrixA->height, matrixA->width);
+    Matrix_u8* newMatrix = makeMatrix_u8_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
@@ -1345,7 +1406,7 @@ Matrix_u8* matrixSubtraction_u8_c(Matrix_u8* matrixA, Matrix_u8* matrixB) {
 }
 EMSCRIPTEN_KEEPALIVE
 Matrix_i8* matrixSubtraction_i8_c(Matrix_i8* matrixA, Matrix_i8* matrixB) {
-    Matrix_i8* newMatrix = makeMatrix_i8(matrixA->height, matrixA->width);
+    Matrix_i8* newMatrix = makeMatrix_i8_c(matrixA->height, matrixA->width);
     for (int i = 0; i < newMatrix->height; i++) {
         for (int j = 0; j < newMatrix->width; j++) {
             newMatrix->data[i][j] = matrixA->data[i][j] - matrixB->data[i][j];
