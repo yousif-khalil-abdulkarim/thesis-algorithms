@@ -284,6 +284,7 @@ typedef struct Matrix_i8 {
     int height;
 } Matrix_i8;
 
+EMSCRIPTEN_KEEPALIVE
 Matrix_u64* makeMatrix_u64_c(int height, int width) {
     u64** data = (u64**)malloc(height * sizeof(u64*));
     for (int i = 0; i < height; i++) {
@@ -298,6 +299,7 @@ Matrix_u64* makeMatrix_u64_c(int height, int width) {
 
     return matrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i64* makeMatrix_i64_c(int height, int width) {
     i64** data = (i64**)malloc(height * sizeof(i64*));
     for (int i = 0; i < height; i++) {
@@ -312,6 +314,7 @@ Matrix_i64* makeMatrix_i64_c(int height, int width) {
     
     return matrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_f64* makeMatrix_f64_c(int height, int width) {
     f64** data = (f64**)malloc(height * sizeof(f64*));
     for (int i = 0; i < height; i++) {
@@ -326,6 +329,7 @@ Matrix_f64* makeMatrix_f64_c(int height, int width) {
     
     return matrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_f32* makeMatrix_f32_c(int height, int width) {
     f32** data = (f32**)malloc(height * sizeof(f32*));
     for (int i = 0; i < height; i++) {
@@ -340,6 +344,7 @@ Matrix_f32* makeMatrix_f32_c(int height, int width) {
     
     return matrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u32* makeMatrix_u32_c(int height, int width) {
     u32** data = (u32**)malloc(height * sizeof(u32*));
     for (int i = 0; i < height; i++) {
@@ -354,6 +359,7 @@ Matrix_u32* makeMatrix_u32_c(int height, int width) {
     
     return matrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i32* makeMatrix_i32_c(int height, int width) {
     i32** data = (i32**)malloc(height * sizeof(i32*));
     for (int i = 0; i < height; i++) {
@@ -368,6 +374,7 @@ Matrix_i32* makeMatrix_i32_c(int height, int width) {
     
     return matrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u16* makeMatrix_u16_c(int height, int width) {
     u16** data = (u16**)malloc(height * sizeof(u16*));
     for (int i = 0; i < height; i++) {
@@ -382,6 +389,7 @@ Matrix_u16* makeMatrix_u16_c(int height, int width) {
     
     return matrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i16* makeMatrix_i16_c(int height, int width) {
     i16** data = (i16**)malloc(height * sizeof(i16*));
     for (int i = 0; i < height; i++) {
@@ -396,6 +404,7 @@ Matrix_i16* makeMatrix_i16_c(int height, int width) {
     
     return matrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_u8* makeMatrix_u8_c(int height, int width) {
     u8** data = (u8**)malloc(height * sizeof(u8*));
     for (int i = 0; i < height; i++) {
@@ -410,6 +419,7 @@ Matrix_u8* makeMatrix_u8_c(int height, int width) {
     
     return matrix;
 }
+EMSCRIPTEN_KEEPALIVE
 Matrix_i8* makeMatrix_i8_c(int height, int width) {
     i8** data = (i8**)malloc(height * sizeof(i8*));
     for (int i = 0; i < height; i++) {
@@ -425,6 +435,48 @@ Matrix_i8* makeMatrix_i8_c(int height, int width) {
     return matrix;
 }
 
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_u64_c(Matrix_u64* matrix, int x, int y, u64 value) {
+    matrix->data[y][x] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_i64_c(Matrix_i64* matrix, int x, int y, i64 value) {
+    matrix->data[y][x] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_f64_c(Matrix_f64* matrix, int x, int y, f64 value) {
+    matrix->data[y][x] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_f32_c(Matrix_f32* matrix, int x, int y, f32 value) {
+    matrix->data[y][x] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_u32_c(Matrix_u32* matrix, int x, int y, u32 value) {
+    matrix->data[y][x] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_i32_c(Matrix_i32* matrix, int x, int y, i32 value) {
+    matrix->data[y][x] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_u16_c(Matrix_u16* matrix, int x, int y, u16 value) {
+    matrix->data[y][x] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_i16_c(Matrix_i16* matrix, int x, int y, i16 value) {
+    matrix->data[y][x] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_u8_c(Matrix_u8* matrix, int x, int y, u8 value) {
+    matrix->data[y][x] = value;
+}
+EMSCRIPTEN_KEEPALIVE
+void setMatrix_i8_c(Matrix_i8* matrix, int x, int y, i8 value) {
+    matrix->data[y][x] = value;
+}
+
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_u64_c(Matrix_u64* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
@@ -432,6 +484,7 @@ void deleteMatrix_u64_c(Matrix_u64* matrix) {
     free(matrix->data);
     free(matrix);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_i64_c(Matrix_i64* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
@@ -439,6 +492,7 @@ void deleteMatrix_i64_c(Matrix_i64* matrix) {
     free(matrix->data);
     free(matrix);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_f64_c(Matrix_f64* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
@@ -446,6 +500,7 @@ void deleteMatrix_f64_c(Matrix_f64* matrix) {
     free(matrix->data);
     free(matrix);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_f32_c(Matrix_f32* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
@@ -453,6 +508,7 @@ void deleteMatrix_f32_c(Matrix_f32* matrix) {
     free(matrix->data);
     free(matrix);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_u32_c(Matrix_u32* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
@@ -460,6 +516,7 @@ void deleteMatrix_u32_c(Matrix_u32* matrix) {
     free(matrix->data);
     free(matrix);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_i32_c(Matrix_i32* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
@@ -467,6 +524,7 @@ void deleteMatrix_i32_c(Matrix_i32* matrix) {
     free(matrix->data);
     free(matrix);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_u16_c(Matrix_u16* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
@@ -474,6 +532,7 @@ void deleteMatrix_u16_c(Matrix_u16* matrix) {
     free(matrix->data);
     free(matrix);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_i16_c(Matrix_i16* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
@@ -481,6 +540,7 @@ void deleteMatrix_i16_c(Matrix_i16* matrix) {
     free(matrix->data);
     free(matrix);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_u8_c(Matrix_u8* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
@@ -488,6 +548,7 @@ void deleteMatrix_u8_c(Matrix_u8* matrix) {
     free(matrix->data);
     free(matrix);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_i8_c(Matrix_i8* matrix) {
     for (int h = 0; h < matrix->width; h++) {
         free(matrix->data[h]);
