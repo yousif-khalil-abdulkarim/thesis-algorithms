@@ -1,6 +1,22 @@
-import InitModule from "./release.js";
+// @ts-check
+import InitModule from "./dist/release.js";
 
 const module = await InitModule();
+
+/**
+ * @type {WebAssembly.Memory}
+ */
+const memory = module.asm.d;
+export function getWasmMemory() {
+  return Math.ceil(memory.buffer.byteLength / 65536);
+}
+/**
+ * @param {number} delta
+ * @returns {number}
+ */
+export function growWasmMemory(delta) {
+  return memory.grow(delta);
+}
 export const { _free: free } = module;
 
 export function initArray1d_u64_c(array) {
@@ -74,7 +90,7 @@ export function initArray1d_i8_c(array) {
   return pointer;
 }
 
-export function initMatrix1d_u64_c(matrix) {
+export function initMatrix_u64_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_u64_c(height, width);
@@ -85,7 +101,7 @@ export function initMatrix1d_u64_c(matrix) {
   }
   return pointer;
 }
-export function initMatrix1d_i64_c(matrix) {
+export function initMatrix_i64_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_i64_c(height, width);
@@ -96,7 +112,7 @@ export function initMatrix1d_i64_c(matrix) {
   }
   return pointer;
 }
-export function initMatrix1d_f64_c(matrix) {
+export function initMatrix_f64_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_f64_c(height, width);
@@ -107,7 +123,7 @@ export function initMatrix1d_f64_c(matrix) {
   }
   return pointer;
 }
-export function initMatrix1d_f32_c(matrix) {
+export function initMatrix_f32_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_f32_c(height, width);
@@ -118,7 +134,7 @@ export function initMatrix1d_f32_c(matrix) {
   }
   return pointer;
 }
-export function initMatrix1d_u32_c(matrix) {
+export function initMatrix_u32_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_u32_c(height, width);
@@ -129,7 +145,7 @@ export function initMatrix1d_u32_c(matrix) {
   }
   return pointer;
 }
-export function initMatrix1d_i32_c(matrix) {
+export function initMatrix_i32_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_i32_c(height, width);
@@ -140,7 +156,7 @@ export function initMatrix1d_i32_c(matrix) {
   }
   return pointer;
 }
-export function initMatrix1d_u16_c(matrix) {
+export function initMatrix_u16_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_u16_c(height, width);
@@ -151,7 +167,7 @@ export function initMatrix1d_u16_c(matrix) {
   }
   return pointer;
 }
-export function initMatrix1d_i16_c(matrix) {
+export function initMatrix_i16_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_i16_c(height, width);
@@ -162,7 +178,7 @@ export function initMatrix1d_i16_c(matrix) {
   }
   return pointer;
 }
-export function initMatrix1d_u8_c(matrix) {
+export function initMatrix_u8_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_u8_c(height, width);
@@ -173,7 +189,7 @@ export function initMatrix1d_u8_c(matrix) {
   }
   return pointer;
 }
-export function initMatrix1d_i8_c(matrix) {
+export function initMatrix_i8_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
   const pointer = module._makeMatrix_i8_c(height, width);
@@ -196,6 +212,17 @@ export const {
   _deleteArray1d_u16_c: deleteArray1d_u16_c,
   _deleteArray1d_u32_c: deleteArray1d_u32_c,
   _deleteArray1d_u64_c: deleteArray1d_u64_c,
+
+  _deleteMatrix_f32_c: deleteMatrix_f32_c,
+  _deleteMatrix_f64_c: deleteMatrix_f64_c,
+  _deleteMatrix_i8_c: deleteMatrix_i8_c,
+  _deleteMatrix_i16_c: deleteMatrix_i16_c,
+  _deleteMatrix_i32_c: deleteMatrix_i32_c,
+  _deleteMatrix_i64_c: deleteMatrix_i64_c,
+  _deleteMatrix_u8_c: deleteMatrix_u8_c,
+  _deleteMatrix_u16_c: deleteMatrix_u16_c,
+  _deleteMatrix_u32_c: deleteMatrix_u32_c,
+  _deleteMatrix_u64_c: deleteMatrix_u64_c,
 
   _average_f32_c: average_f32_c,
   _average_f64_c: average_f64_c,

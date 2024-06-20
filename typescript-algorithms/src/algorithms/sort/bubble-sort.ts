@@ -1,4 +1,4 @@
-import { sortTwo } from "../shared";
+import { sortTwo } from "../shared.js";
 
 export function bubbleSort_u64_js(array: BigUint64Array): BigUint64Array {
   for (let i = 0; i < array.length; i++) {

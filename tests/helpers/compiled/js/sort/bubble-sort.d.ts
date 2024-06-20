@@ -1,0 +1,10 @@
+export declare function bubbleSort_u64_js(array: BigUint64Array): BigUint64Array;
+export declare function bubbleSort_i64_js(array: BigInt64Array): BigInt64Array;
+export declare function bubbleSort_f64_js(array: Float64Array): Float64Array;
+export declare function bubbleSort_f32_js(array: Float32Array): Float32Array;
+export declare function bubbleSort_u32_js(array: Uint32Array): Uint32Array;
+export declare function bubbleSort_i32_js(array: Int32Array): Int32Array;
+export declare function bubbleSort_u16_js(array: Uint16Array): Uint16Array;
+export declare function bubbleSort_i16_js(array: Int16Array): Int16Array;
+export declare function bubbleSort_u8_js(array: Uint8Array): Uint8Array;
+export declare function bubbleSort_i8_js(array: Int8Array): Int8Array;

@@ -1,4 +1,4 @@
-import { swapTwo } from "../shared";
+import { swapTwo } from "../shared.js";
 
 function getPivotIndex<
   T extends
