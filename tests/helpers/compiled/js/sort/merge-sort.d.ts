@@ -1,0 +1,10 @@
+export declare function mergeSort_u64_js(arr: BigUint64Array): BigUint64Array;
+export declare function mergeSort_i64_js(arr: BigInt64Array): BigInt64Array;
+export declare function mergeSort_f64_js(arr: Float64Array): Float64Array;
+export declare function mergeSort_f32_js(arr: Float32Array): Float32Array;
+export declare function mergeSort_u32_js(arr: Uint32Array): Uint32Array;
+export declare function mergeSort_i32_js(arr: Int32Array): Int32Array;
+export declare function mergeSort_u16_js(arr: Uint16Array): Uint16Array;
+export declare function mergeSort_i16_js(arr: Int16Array): Int16Array;
+export declare function mergeSort_u8_js(arr: Uint8Array): Uint8Array;
+export declare function mergeSort_i8_js(arr: Int8Array): Int8Array;

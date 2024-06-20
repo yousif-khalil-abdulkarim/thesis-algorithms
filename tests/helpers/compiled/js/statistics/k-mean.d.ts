@@ -1,0 +1,10 @@
+export declare function kMean_i64_js(numberOfCluster: number, points: BigInt64Array[], maxLoops?: number, tolerance?: number): BigInt64Array[][];
+export declare function kMean_u64_js(numberOfCluster: number, points: BigUint64Array[], maxLoops?: number, tolerance?: number): BigUint64Array[][];
+export declare function kMean_f64_js(numberOfCluster: number, points: Float64Array[], maxLoops?: number, tolerance?: number): Float64Array[][];
+export declare function kMean_f32_js(numberOfCluster: number, points: Float32Array[], maxLoops?: number, tolerance?: number): Float32Array[][];
+export declare function kMean_u32_js(numberOfCluster: number, points: Uint32Array[], maxLoops?: number, tolerance?: number): Uint32Array[][];
+export declare function kMean_i32_js(numberOfCluster: number, points: Int32Array[], maxLoops?: number, tolerance?: number): Int32Array[][];
+export declare function kMean_u16_js(numberOfCluster: number, points: Uint16Array[], maxLoops?: number, tolerance?: number): Uint16Array[][];
+export declare function kMean_i16_js(numberOfCluster: number, points: Int16Array[], maxLoops?: number, tolerance?: number): Int16Array[][];
+export declare function kMean_u8_js(numberOfCluster: number, points: Uint8Array[], maxLoops?: number, tolerance?: number): Uint8Array[][];
+export declare function kMean_i8_js(numberOfCluster: number, points: Int8Array[], maxLoops?: number, tolerance?: number): Int8Array[][];

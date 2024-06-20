@@ -1,4 +1,4 @@
-import { swapTwo } from "../shared";
+import { swapTwo } from "../shared.js";
 
 export function selectionSort_u64_js(array: BigUint64Array): BigUint64Array {
   let min: number;

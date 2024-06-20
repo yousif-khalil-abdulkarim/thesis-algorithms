@@ -11,7 +11,7 @@ Wasm min memory = 64KiB
 Array sizes:
 x min value -> 1
 x step -> 0.5 
-x max value -> 9
+x max value -> 8
 
 f(x) = 2^x * 10_000
 x = 1 -> f(x) = 20000
@@ -29,8 +29,6 @@ x = 6.5 -> f(x) = 905096
 x = 7 -> f(x) = 1280000
 x = 7.5 -> f(x) = 1810193
 x = 8 -> f(x) = 2560000
-x = 8.5 -> f(x) = 3620386
-x = 9 -> f(x) = 5120000
 
 64 bit array size in bytes:
 Array size 20000, 3KiB

@@ -1,0 +1,10 @@
+export declare function metaBinarySearch_u64_js(array: BigUint64Array, target: bigint): number;
+export declare function metaBinarySearch_i64_js(array: BigInt64Array, target: bigint): number;
+export declare function metaBinarySearch_f64_js(array: Float64Array, target: number): number;
+export declare function metaBinarySearch_f32_js(array: Float32Array, target: number): number;
+export declare function metaBinarySearch_u32_js(array: Uint32Array, target: number): number;
+export declare function metaBinarySearch_i32_js(array: Int32Array, target: number): number;
+export declare function metaBinarySearch_u16_js(array: Uint16Array, target: number): number;
+export declare function metaBinarySearch_i16_js(array: Int16Array, target: number): number;
+export declare function metaBinarySearch_u8_js(array: Uint8Array, target: number): number;
+export declare function metaBinarySearch_i8_js(array: Int8Array, target: number): number;

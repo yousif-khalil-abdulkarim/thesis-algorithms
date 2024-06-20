@@ -1,1 +1,1 @@
-export * from "./k-mean"
+export * from "./k-mean.js"
