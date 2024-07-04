@@ -478,7 +478,7 @@ void setMatrix_i8_c(Matrix_i8* matrix, int x, int y, i8 value) {
 
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_u64_c(Matrix_u64* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
@@ -486,7 +486,7 @@ void deleteMatrix_u64_c(Matrix_u64* matrix) {
 }
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_i64_c(Matrix_i64* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
@@ -494,7 +494,7 @@ void deleteMatrix_i64_c(Matrix_i64* matrix) {
 }
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_f64_c(Matrix_f64* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
@@ -502,7 +502,7 @@ void deleteMatrix_f64_c(Matrix_f64* matrix) {
 }
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_f32_c(Matrix_f32* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
@@ -510,7 +510,7 @@ void deleteMatrix_f32_c(Matrix_f32* matrix) {
 }
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_u32_c(Matrix_u32* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
@@ -518,7 +518,7 @@ void deleteMatrix_u32_c(Matrix_u32* matrix) {
 }
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_i32_c(Matrix_i32* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
@@ -526,7 +526,7 @@ void deleteMatrix_i32_c(Matrix_i32* matrix) {
 }
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_u16_c(Matrix_u16* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
@@ -534,7 +534,7 @@ void deleteMatrix_u16_c(Matrix_u16* matrix) {
 }
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_i16_c(Matrix_i16* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
@@ -542,7 +542,7 @@ void deleteMatrix_i16_c(Matrix_i16* matrix) {
 }
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_u8_c(Matrix_u8* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);
@@ -550,7 +550,7 @@ void deleteMatrix_u8_c(Matrix_u8* matrix) {
 }
 EMSCRIPTEN_KEEPALIVE
 void deleteMatrix_i8_c(Matrix_i8* matrix) {
-    for (int h = 0; h < matrix->width; h++) {
+    for (int h = 0; h < matrix->height; h++) {
         free(matrix->data[h]);
     }
     free(matrix->data);

@@ -5,7 +5,7 @@ max_memory = 65536 WasmPages = 4194304kib = 4294967296 bytes
 
 Emscripten version = 3.1.40
 C build command:
-emcc src/main.c -O3 -s MODULARIZE -s EXPORT_ES6=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=131072 -s MAXIMUM_MEMORY=4294967296 -s EXPORTED_RUNTIME_METHODS=cwrap -s EXPORTED_FUNCTIONS='[_main, _malloc, _free]' -o .release.js
+emcc src/main.c -O3 -s MODULARIZE -s EXPORT_ES6=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=131072 -s MAXIMUM_MEMORY=4294967296 -s EXPORTED_RUNTIME_METHODS='[cwrap, memory]' -s EXPORTED_FUNCTIONS='[_main, _malloc, _free]' -o .release.js
 
 Assemblyscript version = 0.27.27
 Assemblyscript build command:
@@ -31,3 +31,11 @@ Steps:
 7
 7.5
 8
+8.5
+9
+9.5
+10
+10.5
+11
+11.5
+12

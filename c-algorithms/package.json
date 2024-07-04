@@ -2,6 +2,7 @@
   "name": "c-algorithms",
   "private": true,
   "type": "module",
-  "devDependencies": {},
-  "scripts": {}
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && emcc src/main.c -O3 -s MODULARIZE -s EXPORT_ES6=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=131072 -s MAXIMUM_MEMORY=4294967296 -s EXPORTED_RUNTIME_METHODS=\"[cwrap, wasmMemory]\" -s EXPORTED_FUNCTIONS=\"[_main, _malloc, _free]\" -o ./dist/release.js"
+  }
 }

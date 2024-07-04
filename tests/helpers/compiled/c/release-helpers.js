@@ -1,5 +1,5 @@
 // @ts-check
-import InitModule from "./dist/release.js";
+import InitModule from "./release.js";
 
 const module = await InitModule();
 
@@ -105,6 +105,8 @@ export function initMatrix_i64_c(matrix) {
 export function initMatrix_f64_c(matrix) {
   const height = matrix.length;
   const width = matrix[0].length;
+  console.log("width:", width);
+  console.log("height:", height);
   const pointer = module._makeMatrix_f64_c(height, width);
   for (let y = 0; y < height; y++) {
     for (let x = 0; x < width; x++) {

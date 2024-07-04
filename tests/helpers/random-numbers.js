@@ -14,29 +14,29 @@ function powBigInt(number, power) {
   }
   return result;
 }
-const MAX_VALUES = {
-  U64: powBigInt(2n, BigUint64Array.BYTES_PER_ELEMENT * 8),
-  I64: powBigInt(2n, BigInt64Array.BYTES_PER_ELEMENT * 8 - 1),
-  F64: Number.MAX_VALUE,
-  F32: 3.4028235e38,
-  U32: Math.pow(2, Uint32Array.BYTES_PER_ELEMENT * 8),
-  I32: Math.pow(2, Int32Array.BYTES_PER_ELEMENT * 8 - 1),
-  U16: Math.pow(2, Uint16Array.BYTES_PER_ELEMENT * 8),
-  I16: Math.pow(2, Int16Array.BYTES_PER_ELEMENT * 8 - 1),
-  U8: Math.pow(2, Uint8Array.BYTES_PER_ELEMENT * 8),
-  I8: Math.pow(2, Int8Array.BYTES_PER_ELEMENT * 8 - 1),
+export const MAX_VALUES = {
+  U64: powBigInt(2n, 64),
+  I64: powBigInt(2n, 63),
+  F64: Number.MAX_SAFE_INTEGER,
+  F32: Math.pow(2, 8),
+  U32: Math.pow(2, 32),
+  I32: Math.pow(2, 31),
+  U16: Math.pow(2, 16),
+  I16: Math.pow(2, 15),
+  U8: Math.pow(2, 8),
+  I8: Math.pow(2, 7),
 };
-const MIN_VALUES = {
+export const MIN_VALUES = {
   U64: 0n,
-  I64: -powBigInt(2n, BigInt64Array.BYTES_PER_ELEMENT * 8 - 1),
-  F64: Number.MIN_VALUE,
-  F32: -3.4028235e38,
+  I64: -MAX_VALUES.I64,
+  F64: Number.MIN_SAFE_INTEGER,
+  F32: -MAX_VALUES.F32,
   U32: 0,
-  I32: -Math.pow(2, Int32Array.BYTES_PER_ELEMENT * 8 - 1),
+  I32: -MAX_VALUES.I32,
   U16: 0,
-  I16: -Math.pow(2, Int16Array.BYTES_PER_ELEMENT * 8 - 1),
+  I16: -MAX_VALUES.I16,
   U8: 0,
-  I8: -Math.pow(2, Int8Array.BYTES_PER_ELEMENT * 8 - 1),
+  I8: -MAX_VALUES.I8,
 };
 
 /**
@@ -47,7 +47,11 @@ const MIN_VALUES = {
  */
 function randomNumber(min, max, isInteger) {
   const number = Math.random() * (max - min) + min;
-  return isInteger ? Math.round(number) : number;
+  const randomValue = isInteger ? Math.round(number) : number;
+  if (randomValue === 0) {
+    return 1;
+  }
+  return randomValue;
 }
 /**
  * @param {bigint} min
@@ -55,9 +59,12 @@ function randomNumber(min, max, isInteger) {
  * @returns {bigint}
  */
 function randomNumberBigInt(min, max) {
-  return (
-    (BigInt(Math.round(Math.random() * 100)) * (max - min) + min * 100n) / 100n
-  );
+  const randomValue =
+    (BigInt(Math.round(Math.random() * 100)) * (max - min) + min * 100n) / 100n;
+  if (randomValue === 0n) {
+    return 1n;
+  }
+  return randomValue;
 }
 
 /**
@@ -82,7 +89,7 @@ export function randomNumber_f64() {
  * @returns {number}
  */
 export function randomNumber_f32() {
-  return randomNumber(MIN_VALUES.F32, MAX_VALUES.F32 / 2, false);
+  return randomNumber(MIN_VALUES.F32, MAX_VALUES.F32, false);
 }
 /**
  * @returns {number}

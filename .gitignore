@@ -2,5 +2,3 @@ node_modules
 .env
 dist
 temp-*.html
-c-algorithms/**/.release.js
-c-algorithms/**/.release.wasm

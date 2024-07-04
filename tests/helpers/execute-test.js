@@ -66,10 +66,10 @@ const SEARCH_ALGORITHMS = {
   META_BINARY_SEARCH: "metaBinarySearch",
 };
 const SORT_ALGORITHMS = {
-  BUBBLE_SORT: "bubbleSort",
   MERGE_SORT: "mergeSort",
   QUICK_SORT: "quickSort",
   SELECTION_SORT: "selectionSort",
+  BUBBLE_SORT: "bubbleSort",
 };
 export const ALGORITHMS = {
   BASIC: BASIC_ALGORITHMS,
@@ -87,12 +87,13 @@ export const ALGORITHMS = {
  *  repition: number;
  *  algorithmsPath: string;
  *  algorithmExecutionPath: string;
- *  onCollectMetrics(time: number[]): Promise<void>
- * }} ExecuteArrayTestSettings
+ *  onCollectMetrics(time: number[]): Promise<void>,
+ *  wasmPageSize: number;
+ * }} ExecuteTestSettings
  */
 
 /**
- * @param {ExecuteArrayTestSettings} algorithmSettings
+ * @param {ExecuteTestSettings} algorithmSettings
  * @param {puppeteer.Browser} browser
  * @returns {Promise<void>}
  */
@@ -103,6 +104,7 @@ export async function executeTest(algorithmSettings, browser) {
     language,
     size,
     repition,
+    wasmPageSize,
     algorithmsPath,
     algorithmExecutionPath,
     onCollectMetrics,
@@ -126,6 +128,7 @@ export async function executeTest(algorithmSettings, browser) {
         console.error(chalk.red(error));
       })
       .on("console", (message) => {
+        console.log("browser!:", message.text());
         const time = extractTimeFromConsoleMessage(message);
         if (!time) {
           return;
@@ -163,22 +166,26 @@ export async function executeTest(algorithmSettings, browser) {
       relative(join(currentFilePath, ".."), algorithmsPath).replace(/\\/g, "/")
     ).replace(/\/\//, "/");
 
-    console.log(algorithmPathRelative);
-    console.log(algorithmExecutionPathRelative);
+    console.log("algorithmPath!:", algorithmPathRelative);
+    console.log("algorithmExecutionPath!:", algorithmExecutionPathRelative);
 
     await page.addScriptTag({
       type: "module",
       content: `
       import { executeAlgorithm } from "${algorithmExecutionPathRelative}";
       import * as algorithms from "${algorithmPathRelative}";
-      executeAlgorithm({
-        algorithmName: "${algorithmName}",
-        type: "${type}",
-        language: "${language}",
-        size: ${size},
-        repition: ${repition},
-      }, algorithms);
-      window.document.body.setAttribute("isDone", true);
+      try {
+        executeAlgorithm({
+          algorithmName: "${algorithmName}",
+          type: "${type}",
+          language: "${language}",
+          size: ${size},
+          repition: ${repition},
+          wasmPageSize: ${wasmPageSize}
+        }, algorithms);
+      } finally {
+        window.document.body.setAttribute("isDone", true);
+      }
     `.trim(),
     });
     await page.waitForSelector(`body[isDone="true"]`, {
