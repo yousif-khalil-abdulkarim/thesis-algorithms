@@ -6,7 +6,7 @@ import { executeMultipleTests } from "../helpers/execute-multiple-tests.js";
 
 const CURRENT_FILE_PATH = new URL(import.meta.url).pathname.slice(1);
 
-executeMultipleTests({
+await executeMultipleTests({
   ALGORITHMS_PATH: join(
     CURRENT_FILE_PATH,
     "../../helpers/compiled/algorithms.js"

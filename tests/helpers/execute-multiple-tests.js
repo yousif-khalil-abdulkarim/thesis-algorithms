@@ -52,29 +52,30 @@ export async function executeMultipleTests(config) {
   }
   await mkdir(dataOutput);
 
-  const browser = await puppeteer.launch({
-    timeout: 0,
-    protocolTimeout: 0,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-web-security",
-      "--disable-features=IsolateOrigins,BlockInsecurePrivateNetworkRequests",
-      "--disable-site-isolation-trials",
-    ],
-  });
-  try {
-    for (const type of config.TYPES) {
-      for (const step of config.STEPS) {
-        for (const language of config.LANGUAGES) {
-          for (const wasmPageSize of config.WASM_PAGE_SIZES) {
-            const size = shared.calculateSize(step);
-            /**
-             * @param {string} algorithmName
-             * @param {string} algorithmExecutionPath
-             * @returns {Promise<void>}
-             */
-            async function execute(algorithmName, algorithmExecutionPath) {
+  for (const type of config.TYPES) {
+    for (const step of config.STEPS) {
+      for (const language of config.LANGUAGES) {
+        for (const wasmPageSize of config.WASM_PAGE_SIZES) {
+          const size = shared.calculateSize(step);
+          
+          /**
+           * @param {string} algorithmName
+           * @param {string} algorithmExecutionPath
+           * @returns {Promise<void>}
+           */
+          async function execute(algorithmName, algorithmExecutionPath) {
+            const browser = await puppeteer.launch({
+              timeout: 0,
+              protocolTimeout: 0,
+              args: [
+                "--no-sandbox",
+                "--disable-setuid-sandbox",
+                "--disable-web-security",
+                "--disable-features=IsolateOrigins,BlockInsecurePrivateNetworkRequests",
+                "--disable-site-isolation-trials",
+              ],
+            });
+            try {
               /**
                * @type {AlgorithmResult[]}
                */
@@ -134,40 +135,40 @@ export async function executeMultipleTests(config) {
               );
               console.log("end!:");
               console.log("\n");
+            } finally {
+              await browser.close();
             }
+          }
 
-            for (const algorithmName of config.ARRAY_ALGORITHMS) {
-              try {
-                await execute(
-                  algorithmName,
-                  config.ARRAY_ALGORITHM_EXECUTION_PATH
-                );
-              } finally {
-              }
+          for (const algorithmName of config.ARRAY_ALGORITHMS) {
+            try {
+              await execute(
+                algorithmName,
+                config.ARRAY_ALGORITHM_EXECUTION_PATH
+              );
+            } finally {
             }
-            for (const algorithmName of config.MATRIX_ALGORITHMS) {
-              try {
-                await execute(
-                  algorithmName,
-                  config.MATRIX_ALGORITHM_EXECUTION_PATH
-                );
-              } finally {
-              }
+          }
+          for (const algorithmName of config.MATRIX_ALGORITHMS) {
+            try {
+              await execute(
+                algorithmName,
+                config.MATRIX_ALGORITHM_EXECUTION_PATH
+              );
+            } finally {
             }
-            for (const algorithmName of config.SEARCH_ALGORITHMS) {
-              try {
-                await execute(
-                  algorithmName,
-                  config.SEARCH_ALGORITHM_EXECUTION_PATH
-                );
-              } finally {
-              }
+          }
+          for (const algorithmName of config.SEARCH_ALGORITHMS) {
+            try {
+              await execute(
+                algorithmName,
+                config.SEARCH_ALGORITHM_EXECUTION_PATH
+              );
+            } finally {
             }
           }
         }
       }
     }
-  } finally {
-    await browser.close();
   }
 }
