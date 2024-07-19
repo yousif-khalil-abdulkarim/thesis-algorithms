@@ -1,5 +1,5 @@
 // @ts-check
-import * as shared from "./shared.js";
+import * as shared from "../shared.js";
 
 /**
  * @param {shared.Type} type
@@ -7,18 +7,16 @@ import * as shared from "./shared.js";
  * @param {*} algorithms
  * @param {*} algorithm
  * @param {shared.Array1d<number | bigint>} array
- * @param {string} algorithmName
  * @param {number} wasmPageSize
  * @param {number} repition
  * @returns {void}
  */
-function executeCAlgorithm(
+function executeArrayAlgorithmC(
   type,
   language,
   algorithms,
   algorithm,
   array,
-  algorithmName,
   wasmPageSize,
   repition
 ) {
@@ -31,7 +29,7 @@ function executeCAlgorithm(
   const deleteArray1d = algorithms[language][`deleteArray1d_${type}_c`];
   for (let i = 0; i < repition; i++) {
     const arrayPointer = initArray1d(array);
-    shared.trackMetrics(algorithmName, () => {
+    shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
       algorithm(arrayPointer);
     });
     deleteArray1d(arrayPointer);
@@ -43,17 +41,15 @@ function executeCAlgorithm(
  * @param {*} algorithms
  * @param {*} algorithm
  * @param {shared.Array1d<number | bigint>} array
- * @param {string} algorithmName
  * @param {number} wasmPageSize
  * @param {number} repition
  * @returns {void}
  */
-function executeAsmAlgorithm(
+function executeArrayAlgorithmAsm(
   language,
   algorithm,
   algorithms,
   array,
-  algorithmName,
   wasmPageSize,
   repition
 ) {
@@ -63,7 +59,7 @@ function executeAsmAlgorithm(
   const memory = algorithms[language].memory;
   shared.setWasmMemory(memory, wasmPageSize);
   for (let i = 0; i < repition; i++) {
-    shared.trackMetrics(algorithmName, () => {
+    shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
       algorithm(array);
     });
   }
@@ -72,13 +68,12 @@ function executeAsmAlgorithm(
 /**
  * @param {*} algorithm
  * @param {shared.Array1d<number | bigint>} array
- * @param {string} algorithmName
  * @param {number} repition
  * @returns {void}
  */
-function executeJsAlgorithm(algorithm, array, algorithmName, repition) {
+function executeArrayAlgorithmJs(algorithm, array, repition) {
   for (let i = 0; i < repition; i++) {
-    shared.trackMetrics(algorithmName, () => {
+    shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
       algorithm(array);
     });
   }
@@ -86,7 +81,6 @@ function executeJsAlgorithm(algorithm, array, algorithmName, repition) {
 
 /**
  * @typedef {{
- *  algorithmName: string;
  *  type: shared.Type;
  *  language: shared.Language;
  *  array: shared.Array1d<number | bigint>;
@@ -96,75 +90,44 @@ function executeJsAlgorithm(algorithm, array, algorithmName, repition) {
  */
 
 /**
- * @param {ExecuteArrayAlgorithmSettings} settings
- * @param {*} algorithms
- * @param {*} algorithm
- * @returns {void}
- */
-function executeAlgorithm(settings, algorithms, algorithm) {
-  const { type, language, algorithmName, array, repition, wasmPageSize } =
-    settings;
-  if (language === "c") {
-    executeCAlgorithm(
-      type,
-      language,
-      algorithms,
-      algorithm,
-      array,
-      algorithmName,
-      wasmPageSize,
-      repition
-    );
-  } else if (language === "asm") {
-    executeAsmAlgorithm(
-      language,
-      algorithm,
-      algorithms,
-      array,
-      algorithmName,
-      wasmPageSize,
-      repition
-    );
-  } else if (language === "js") {
-    executeJsAlgorithm(algorithm, array, algorithmName, repition);
-  } else {
-    throw new Error(`Unsupporeted language: ${language}`);
-  }
-}
-
-/**
- * @param {shared.AlgorithmSettings} algorithmSettings
+ * @param {shared.ArrayAlgorithmSettings} algorithmSettings
  * @param {*} algorithms
  * @returns {void}
  */
-function executeArrayAlgorithm(algorithmSettings, algorithms) {
-  const { algorithmName, type, language, size, repition, wasmPageSize } =
-    algorithmSettings;
+export function executeArrayAlgorithm(algorithmSettings, algorithms) {
+  const { algorithmName, type, language, array, repition, wasmPageSize } =
+  algorithmSettings;
+  
   const fullAlgorithmName = `${algorithmName}_${type}_${language}`;
+  console.log(fullAlgorithmName);
+  
   const algorithm = algorithms[language][fullAlgorithmName];
   if (!algorithm) {
     throw new Error(`Unsupported algorithm: ${fullAlgorithmName}`);
   }
-  const isNotArrayAlgorithm =
-    fullAlgorithmName.startsWith("matrix") ||
-    fullAlgorithmName.startsWith("kMean") ||
-    fullAlgorithmName.includes("Search_");
-  if (isNotArrayAlgorithm) {
-    throw new Error(`Algorithm ${fullAlgorithmName} is not array algorithm`);
-  }
-  const array = shared.initTypedArray(type, size);
-  executeAlgorithm(
-    {
+
+  if (language === "c") {
+    executeArrayAlgorithmC(
       type,
       language,
+      algorithms,
+      algorithm,
       array,
-      algorithmName: fullAlgorithmName,
-      repition,
       wasmPageSize,
-    },
-    algorithms,
-    algorithm
-  );
+      repition
+    );
+  } else if (language === "asm") {
+    executeArrayAlgorithmAsm(
+      language,
+      algorithm,
+      algorithms,
+      array,
+      wasmPageSize,
+      repition
+    );
+  } else if (language === "js") {
+    executeArrayAlgorithmJs(algorithm, array, repition);
+  } else {
+    throw new Error(`Unsupporeted language: ${language}`);
+  }
 }
-
-export { executeArrayAlgorithm as executeAlgorithm };

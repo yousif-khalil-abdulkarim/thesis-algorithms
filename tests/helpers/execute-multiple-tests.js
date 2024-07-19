@@ -2,12 +2,16 @@
 // @ts-check
 import * as shared from "./shared.js";
 import { executeTest } from "./execute-test.js";
+import { executeArrayTest } from "./execute-array-test/execute-array-test.js";
+import { executeMatrixTest } from "./execute-matrix-test/execute-matrix-test.js";
+import { executeSearchTest } from "./execute-search-test/execute-search-test.js";
 import * as puppeteer from "puppeteer";
 import { writeFile, mkdir, rm } from "node:fs/promises";
 import { rimraf } from "rimraf";
 import { existsSync } from "node:fs";
 import { getSystemInfo } from "./get-system-info.js";
 import { join } from "node:path";
+import chalk from "chalk";
 
 function getCurrentDateStr() {
   const currentDate = new Date();
@@ -52,29 +56,29 @@ export async function executeMultipleTests(config) {
   }
   await mkdir(dataOutput);
 
+  let browser = await puppeteer.launch({
+    timeout: 0,
+    protocolTimeout: 0,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-web-security",
+      "--disable-features=IsolateOrigins,BlockInsecurePrivateNetworkRequests",
+      "--disable-site-isolation-trials",
+    ],
+  });
   for (const type of config.TYPES) {
     for (const step of config.STEPS) {
       for (const language of config.LANGUAGES) {
         for (const wasmPageSize of config.WASM_PAGE_SIZES) {
-          const size = shared.calculateSize(step);
-          
+          const size = shared.linearSize(step);
+
           /**
            * @param {string} algorithmName
            * @param {string} algorithmExecutionPath
            * @returns {Promise<void>}
            */
           async function execute(algorithmName, algorithmExecutionPath) {
-            const browser = await puppeteer.launch({
-              timeout: 0,
-              protocolTimeout: 0,
-              args: [
-                "--no-sandbox",
-                "--disable-setuid-sandbox",
-                "--disable-web-security",
-                "--disable-features=IsolateOrigins,BlockInsecurePrivateNetworkRequests",
-                "--disable-site-isolation-trials",
-              ],
-            });
             try {
               /**
                * @type {AlgorithmResult[]}
@@ -135,37 +139,26 @@ export async function executeMultipleTests(config) {
               );
               console.log("end!:");
               console.log("\n");
+            } catch (error) {
+              console.trace(chalk.red(error));
             } finally {
-              await browser.close();
             }
           }
 
           for (const algorithmName of config.ARRAY_ALGORITHMS) {
-            try {
-              await execute(
-                algorithmName,
-                config.ARRAY_ALGORITHM_EXECUTION_PATH
-              );
-            } finally {
-            }
+            await execute(algorithmName, config.ARRAY_ALGORITHM_EXECUTION_PATH);
           }
           for (const algorithmName of config.MATRIX_ALGORITHMS) {
-            try {
-              await execute(
-                algorithmName,
-                config.MATRIX_ALGORITHM_EXECUTION_PATH
-              );
-            } finally {
-            }
+            await execute(
+              algorithmName,
+              config.MATRIX_ALGORITHM_EXECUTION_PATH
+            );
           }
           for (const algorithmName of config.SEARCH_ALGORITHMS) {
-            try {
-              await execute(
-                algorithmName,
-                config.SEARCH_ALGORITHM_EXECUTION_PATH
-              );
-            } finally {
-            }
+            await execute(
+              algorithmName,
+              config.SEARCH_ALGORITHM_EXECUTION_PATH
+            );
           }
         }
       }

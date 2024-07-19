@@ -1,5 +1,28 @@
 // @ts-check
-import * as randomNumbers from "./random-numbers.js";
+
+/**
+ * @template T
+ * @template K
+ * @param {Array1d<T>} array
+ * @param {(item: T) => K} function_
+ * @return {Array1d<K>}
+ */
+export function map(array, function_) {
+  /**
+   * @type {K[]}
+   */
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    const item = array[i];
+    newArray.push(function_(item));
+  }
+  return newArray;
+}
+
+export const DATA_IDENTIFIER = {
+  ALGORITHM_TIME: "algorithm-execution-time",
+  INIT_WASM_ATA_TIME: "init-wasm-data-time",
+};
 
 /**
  * @typedef {"u64" | "i64" | "f64" | "f32" | "u32" | "i32" | "u16" | "i16" | "u8" | "i8"} Type
@@ -37,17 +60,6 @@ import * as randomNumbers from "./random-numbers.js";
  */
 
 /**
- * @typedef {{
- *  algorithmName: string;
- *  type: Type;
- *  language: Language;
- *  size: number;
- *  repition: number;
- *  wasmPageSize: number;
- * }} AlgorithmSettings
- */
-
-/**
  * @template T
  * @typedef {{
  *  readonly length: number;
@@ -62,143 +74,45 @@ import * as randomNumbers from "./random-numbers.js";
  */
 
 /**
- * @param {Type} type
- * @param {number} size
- * @returns {Array1d<number | bigint>}
+ * @typedef {{
+ *  algorithmName: string;
+ *  type: Type;
+ *  language: Language;
+ *  repition: number;
+ *  wasmPageSize: number;
+ * }} AlgorithmSettings
  */
-export function typedArrayFactory(type, size) {
-  if (type === "u64") {
-    return new BigUint64Array(size);
-  } else if (type === "i64") {
-    return new BigInt64Array(size);
-  } else if (type === "f64") {
-    return new Float64Array(size);
-  } else if (type === "f32") {
-    return new Float32Array(size);
-  } else if (type === "u32") {
-    return new Uint32Array(size);
-  } else if (type === "i32") {
-    return new Int32Array(size);
-  } else if (type === "u16") {
-    return new Uint16Array(size);
-  } else if (type === "i16") {
-    return new Int16Array(size);
-  } else if (type === "u8") {
-    return new Uint8Array(size);
-  } else if (type === "i8") {
-    return new Int8Array(size);
-  }
-  throw new Error(`Unsupported type: ${type}`);
-}
 
 /**
- * @param {Type} type
- * @param {Array1d<number | bigint>} array
- * @returns {void}
+ * @typedef {AlgorithmSettings & {
+ *  array: Array1d<number|bigint>;
+ * }} ArrayAlgorithmSettings
  */
-function fillTypedArray(type, array) {
-  const random = randomNumbers[`randomNumber_${type}`];
-  for (let i = 0; i < array.length; i++) {
-    array[i] = random();
-  }
-}
 
 /**
- * @param {Type} type
- * @param {number} size
- * @param {boolean} sorted
- * @returns {Array1d<number | bigint>}
+ * @typedef {AlgorithmSettings & {
+ *  matrixA: Matrix<number|bigint>;
+ *  matrixB: Matrix<number|bigint>;
+ * }} MatrixAlgorithmSettings
  */
-export function initTypedArray(type, size, sorted = false) {
-  const array = typedArrayFactory(type, size);
-  fillTypedArray(type, array);
-  if (sorted) {
-    array.sort();
-  }
-  return array;
-}
 
 /**
- * @param {Type} type
- * @param {number} width
- * @param {number} height
- * @returns {Matrix<number | bigint>}
- */
-export function initTypedMatrix(type, width, height) {
-  /**
-   * @type {Matrix<number | bigint>}
-   */
-  const matrix = new Array(height);
-  for (let i = 0; i < matrix.length; i++) {
-    matrix[i] = initTypedArray(type, width);
-  }
-  return matrix;
-}
-
-/**
- * @param {number} size
- * @returns {number}
- */
-function squareAmountOfItems(size) {
-  return Math.floor(Math.sqrt(size));
-}
-
-/**
- * @param {number} size
- * @returns {{
- *  width: number;
- *  height: number;
- * }}
- */
-function rectangleAmountOfItems(size) {
-  const widthA = Math.sqrt(2 * size);
-  const heightA = widthA / 2;
-  return {
-    width: Math.floor(widthA),
-    height: Math.floor(heightA),
-  };
-}
-
-/**
- * @param {Type} type
- * @param {number} amountOfItems
- * @param {boolean} isMultiplication
- * @returns {{
- *  matrixA: Matrix<number | bigint>;
- *  matrixB: Matrix<number | bigint>;
- * }}
- */
-export function initTypedMatrices(type, amountOfItems, isMultiplication) {
-  if (isMultiplication) {
-    const { width, height } = rectangleAmountOfItems(amountOfItems);
-    return {
-      matrixA: initTypedMatrix(type, width, height),
-      matrixB: initTypedMatrix(type, height, width),
-    };
-  }
-  const size = squareAmountOfItems(amountOfItems);
-  return {
-    matrixA: initTypedMatrix(type, size, size),
-    matrixB: initTypedMatrix(type, size, size),
-  };
-}
-
-/**
- * @param {string} name
- * @param {{
+ * @param {string} identifier
+ * @param {() => void} function_
  *  (): void;
  * }} function_
- * @returns {void}
  */
-export function trackMetrics(name, function_) {
-  console.log(name);
-
+export function trackMetrics(identifier, function_) {
   const startTime = performance.now();
-  function_();
+  try {
+    function_();
+  } catch (error) {
+    console.error(error.name, error.message);
+  }
   const endTime = performance.now();
 
   const time = endTime - startTime;
-  console.log("time:", time);
+  console.log(identifier, time);
 }
 
 /**
@@ -206,8 +120,17 @@ export function trackMetrics(name, function_) {
  * @param {number} x
  * @returns {number}
  */
-export function calculateSize(x) {
+export function exponentialSize(x) {
   return Math.floor(Math.pow(2, x) * 10_000);
+}
+
+/**
+ * f(x) = 2x * 10_000
+ * @param {number} x
+ * @returns {number}
+ */
+export function linearSize(x) {
+  return Math.floor(2 * x * 10_000);
 }
 
 /**
@@ -277,7 +200,7 @@ function typeSizeInBytes(type) {
  */
 export function calculateWasmPageSize(step, type) {
   const size = Math.ceil(
-    (calculateSize(step) * typeSizeInBytes(type)) / WASM_PAGE_SIZE_IN_BYTES
+    (exponentialSize(step) * typeSizeInBytes(type)) / WASM_PAGE_SIZE_IN_BYTES
   );
   if (size < 2) {
     return 2;
@@ -297,15 +220,89 @@ export function calculateWasmPageSizeInBytes(step, type) {
 /**
  * @param {number} start
  * @param {number} end
+ * @param {number} jump
  * @returns {number[]}
  */
-export function calculateSteps(start, end = start) {
+export function calculateSteps(start, end = start, jump = 0.5) {
   /**
    * @type {number[]}
    */
   const sizes = [];
-  for (let i = start; i <= end; i += 0.5) {
+  for (let i = start; i <= end; i += jump) {
     sizes.push(i);
   }
   return sizes;
 }
+
+const BASIC_ALGORITHMS = {
+  /**
+   *  O(n)
+   */
+  AVERAGE: "average",
+  /**
+   *  O(n)
+   */
+  MAX: "max",
+  /**
+   *  O(n)
+   */
+  MIN: "min",
+  /**
+   *  O(n)
+   */
+  SUM: "sum",
+};
+const MATRIX_ALGORITHMS = {
+  /**
+   *  O(n^2)
+   */
+  MATRIX_ADDITION: "matrixAddition",
+  /**
+   *  O(n^2)
+   */
+  MATRIX_SUBTRACTION: "matrixSubtraction",
+  /**
+   *  O(n^3)
+   */
+  MATRIX_MULTIPLICATION: "matrixMultiplication",
+};
+const SEARCH_ALGORITHMS = {
+  /**
+   * O(log(n))
+   */
+  BINARY_SEARCH: "binarySearch",
+  /**
+   * O(log(n))
+   */
+  META_BINARY_SEARCH: "metaBinarySearch",
+  /**
+   * Best case: O(log(log(n)))
+   * Worst case: O(n)
+   */
+  INTERPOLATION_SEARCH: "interpolationSearch",
+};
+const SORT_ALGORITHMS = {
+  /**
+   * O(n*log(n))
+   */
+  MERGE_SORT: "mergeSort",
+  /**
+   * Best case: O(n*log(n))
+   * Worst case: O(n^2)
+   */
+  QUICK_SORT: "quickSort",
+  /**
+   * O(n^2)
+   */
+  SELECTION_SORT: "selectionSort",
+  /**
+   * O(n^2)
+   */
+  BUBBLE_SORT: "bubbleSort",
+};
+export const ALGORITHMS = {
+  BASIC: BASIC_ALGORITHMS,
+  MATRIX: MATRIX_ALGORITHMS,
+  SEARCH: SEARCH_ALGORITHMS,
+  SORT: SORT_ALGORITHMS,
+};

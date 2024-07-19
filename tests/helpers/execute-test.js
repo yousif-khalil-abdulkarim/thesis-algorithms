@@ -42,10 +42,10 @@ function extractTimeFromConsoleMessage(message) {
     return null;
   }
   const text = message.text();
-  if (!text.startsWith("time: ")) {
+  if (!text.startsWith(shared.DATA_IDENTIFIER.ALGORITHM_TIME)) {
     return null;
   }
-  const time = Number(text.replace("time: ", "").trim());
+  const time = Number(text.replace(shared.DATA_IDENTIFIER.ALGORITHM_TIME, "").trim());
   return time;
 }
 
@@ -114,7 +114,7 @@ export async function executeTest(algorithmSettings, browser) {
    * @type {number[]}
    */
   const timeData = [];
-  const page = await browser.newPage();
+  let page = await browser.newPage();
   try {
     if (!existsSync(algorithmsPath)) {
       throw new Error(`File path "${algorithmsPath}" does not exist`);
@@ -128,7 +128,7 @@ export async function executeTest(algorithmSettings, browser) {
         console.error(chalk.red(error));
       })
       .on("console", (message) => {
-        console.log("browser!:", message.text());
+        console.log("browser!:", chalk.greenBright(message.text()));
         const time = extractTimeFromConsoleMessage(message);
         if (!time) {
           return;
