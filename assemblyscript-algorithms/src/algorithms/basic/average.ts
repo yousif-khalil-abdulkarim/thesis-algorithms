@@ -52,7 +52,7 @@ export function average_u16_asm(array: StaticArray<u16>): u16 {
     let item = array[i];
     sum += item;
   }
-  return sum / <u16>array.length;
+  return sum / (<u16>array.length + 1);
 }
 export function average_i16_asm(array: StaticArray<i16>): i16 {
   let sum = array[0];
@@ -60,7 +60,7 @@ export function average_i16_asm(array: StaticArray<i16>): i16 {
     let item = array[i];
     sum += item;
   }
-  return sum / <i16>array.length;
+  return sum / (<i16>array.length + 1);
 }
 export function average_u8_asm(array: StaticArray<u8>): u8 {
   let sum = array[0];
@@ -68,7 +68,7 @@ export function average_u8_asm(array: StaticArray<u8>): u8 {
     let item = array[i];
     sum += item;
   }
-  return sum / <u8>array.length;
+  return sum / (<u8>array.length + 1);
 }
 export function average_i8_asm(array: StaticArray<i8>): i8 {
   let sum = array[0];
@@ -76,5 +76,5 @@ export function average_i8_asm(array: StaticArray<i8>): i8 {
     let item = array[i];
     sum += item;
   }
-  return sum / <i8>array.length;
+  return sum / (<i8>array.length + 1);
 }

@@ -1,6 +1,6 @@
 // @ts-check
 import { MAX_VALUES, MIN_VALUES } from "../random-numbers.js";
-import * as shared from "../shared.js";
+import * as shared from "../../../../shared.js";
 
 /**
  * @param {number} nbr

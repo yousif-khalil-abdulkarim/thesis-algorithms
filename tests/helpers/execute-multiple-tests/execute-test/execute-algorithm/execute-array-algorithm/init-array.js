@@ -1,5 +1,5 @@
 // @ts-check
-import * as shared from "../shared.js";
+import * as shared from "../../../../shared.js";
 import * as randomNumbers from "../random-numbers.js";
 
 /**

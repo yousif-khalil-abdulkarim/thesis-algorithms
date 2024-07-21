@@ -1,5 +1,6 @@
 // @ts-check
-import * as shared from "../shared.js";
+import * as shared from "../../../../shared.js";
+import { initSearchArray } from "./init-search-array.js";
 
 /**
  * @param {shared.Type} type
@@ -83,22 +84,12 @@ function executeSearchAlgorithmJs(algorithm, array, repition) {
 }
 
 /**
- * @typedef {{
- *  type: shared.Type;
- *  language: shared.Language;
- *  array: shared.Array1d<number | bigint>;
- *  repition: number;
- *  wasmPageSize: number;
- * }} ExecuteSearchAlgorithmSettings
- */
-
-/**
- * @param {shared.ArrayAlgorithmSettings} algorithmSettings
+ * @param {shared.AlgorithmSettings} algorithmSettings
  * @param {*} algorithms
  * @returns {void}
  */
 export function executeSearchAlgorithm(algorithmSettings, algorithms) {
-  const { algorithmName, type, language, array, repition, wasmPageSize } =
+  const { algorithmName, type, language, size, repition, wasmPageSize } =
     algorithmSettings;
 
   const fullAlgorithmName = `${algorithmName}_${type}_${language}`;
@@ -109,6 +100,7 @@ export function executeSearchAlgorithm(algorithmSettings, algorithms) {
     throw new Error(`Unsupported algorithm: ${fullAlgorithmName}`);
   }
 
+  const array = initSearchArray(type, size);
   if (language === "c") {
     executeSearchAlgorithmC(
       type,

@@ -25275,6 +25275,8 @@
   i32.and
   local.get $0
   call $~lib/staticarray/StaticArray<u16>#get:length
+  i32.const 1
+  i32.add
   i32.const 65535
   i32.and
   i32.div_u
@@ -25349,6 +25351,8 @@
   i32.extend16_s
   local.get $0
   call $~lib/staticarray/StaticArray<u16>#get:length
+  i32.const 1
+  i32.add
   i32.extend16_s
   i32.div_s
   i32.extend16_s
@@ -25424,6 +25428,8 @@
   i32.and
   local.get $0
   call $~lib/staticarray/StaticArray<u8>#get:length
+  i32.const 1
+  i32.add
   i32.const 255
   i32.and
   i32.div_u
@@ -25498,6 +25504,8 @@
   i32.extend8_s
   local.get $0
   call $~lib/staticarray/StaticArray<u8>#get:length
+  i32.const 1
+  i32.add
   i32.extend8_s
   i32.div_s
   i32.extend8_s

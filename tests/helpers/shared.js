@@ -51,15 +51,6 @@ export const DATA_IDENTIFIER = {
  */
 
 /**
- * @typedef {{
- *  cpuModel: string;
- *  cpuArchitecture: string;
- *  operatingSystem: string;
- *  operatingSystemVersion: string;
- * }} SystemInfo
- */
-
-/**
  * @template T
  * @typedef {{
  *  readonly length: number;
@@ -80,20 +71,8 @@ export const DATA_IDENTIFIER = {
  *  language: Language;
  *  repition: number;
  *  wasmPageSize: number;
+ *  size: number;
  * }} AlgorithmSettings
- */
-
-/**
- * @typedef {AlgorithmSettings & {
- *  array: Array1d<number|bigint>;
- * }} ArrayAlgorithmSettings
- */
-
-/**
- * @typedef {AlgorithmSettings & {
- *  matrixA: Matrix<number|bigint>;
- *  matrixB: Matrix<number|bigint>;
- * }} MatrixAlgorithmSettings
  */
 
 /**
@@ -113,24 +92,6 @@ export function trackMetrics(identifier, function_) {
 
   const time = endTime - startTime;
   console.log(identifier, time);
-}
-
-/**
- * f(x) = 2^x * 10_000
- * @param {number} x
- * @returns {number}
- */
-export function exponentialSize(x) {
-  return Math.floor(Math.pow(2, x) * 10_000);
-}
-
-/**
- * f(x) = 2x * 10_000
- * @param {number} x
- * @returns {number}
- */
-export function linearSize(x) {
-  return Math.floor(2 * x * 10_000);
 }
 
 /**
@@ -200,7 +161,7 @@ function typeSizeInBytes(type) {
  */
 export function calculateWasmPageSize(step, type) {
   const size = Math.ceil(
-    (exponentialSize(step) * typeSizeInBytes(type)) / WASM_PAGE_SIZE_IN_BYTES
+    (fastAlgorithmSize(step) * typeSizeInBytes(type)) / WASM_PAGE_SIZE_IN_BYTES
   );
   if (size < 2) {
     return 2;
@@ -234,7 +195,67 @@ export function calculateSteps(start, end = start, jump = 0.5) {
   return sizes;
 }
 
-const BASIC_ALGORITHMS = {
+/**
+ * Algorithm sum, average, min, max, binary search, meta binary search, interpolation search, merge sort time:
+ * 3 for all languages js, asm, c
+ * 8 for all types f64, f32, u32, i32, u16, i16, u8, i8
+ * Step 8: 2560000 * 3 * 8 element time will take 7s
+ * Step 9: 5120000 * 3 * 8  element time will take 2 minutes
+ * Step 11: 20480000 * 3 * 8  element time will take 7 minutes
+ * Step 12: 40960000 * 3 * 8  element time will take 16 minutes
+ */
+
+/**
+ * Algorithm matrix multiplication, matrix addition, matrix subtraction time:
+ * 500 element time will take 0.8s
+ * 1000 element time will take 3.5s
+ * 1050 element time will take 5s
+ * 2000 element time will take 1.6 minutes
+ * 3000 element time will take 6.5 minutes
+ * 3100 element time will take 10 minutes
+ * 3175 element time will take 17 minutes
+ */
+
+/**
+ * Quick sort, selection sort, bubble sort time:
+ * Step 12: 64000 elements time will take 15min
+ */
+
+/**
+ * f(x) = 2^x * 10_000
+ * @param {number} x
+ * @returns {number}
+ */
+export function fastAlgorithmSize(x) {
+  return Math.floor(Math.pow(2, x) * 10_000);
+}
+
+/**
+ * f(x) = 2^(log2(8) / 12 * x) * 10_000
+ * @param {number} x
+ * @returns {number}
+ */
+export function slowAlgorithmSize(x) {
+  return Math.floor(Math.pow(2, (Math.log2(8) / 12) * x) * 10_000);
+}
+
+/**
+ * @param {number} x
+ * @returns {number}
+ */
+export function matrixMultiplicationAlgorithmSize(x) {
+  return Math.floor(Math.pow(2, x / 12) * 600);
+}
+
+/**
+ * @param {number} x
+ * @returns
+ */
+export function matrixAdditionAlgorithmSize(x) {
+  return Math.floor(Math.pow(2, (Math.log2(10) * x) / 12) * 1000);
+}
+
+const BASIC_ALGORIHMS = {
   /**
    *  O(n)
    */
@@ -301,7 +322,7 @@ const SORT_ALGORITHMS = {
   BUBBLE_SORT: "bubbleSort",
 };
 export const ALGORITHMS = {
-  BASIC: BASIC_ALGORITHMS,
+  BASIC: BASIC_ALGORIHMS,
   MATRIX: MATRIX_ALGORITHMS,
   SEARCH: SEARCH_ALGORITHMS,
   SORT: SORT_ALGORITHMS,
