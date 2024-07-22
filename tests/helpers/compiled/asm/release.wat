@@ -7719,28 +7719,27 @@
     local.get $2
     local.get $1
     i32.sub
+    f64.convert_i32_s
     local.get $5
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<f64>#__get
     f64.sub
-    f64.floor
-    i32.trunc_sat_f64_s
-    i32.div_s
-    local.set $4
+    f64.div
+    local.set $5
     global.get $~lib/memory/__stack_pointer
     local.get $0
     i32.store
     local.get $1
-    local.get $4
+    local.get $5
     local.get $3
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<f64>#__get
     f64.sub
+    f64.mul
     f64.floor
     i32.trunc_sat_f64_s
-    i32.mul
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -7859,28 +7858,27 @@
     local.get $2
     local.get $1
     i32.sub
+    f32.convert_i32_s
     local.get $5
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<f32>#__get
     f32.sub
-    f32.floor
-    i32.trunc_sat_f32_s
-    i32.div_s
-    local.set $4
+    f32.div
+    local.set $5
     global.get $~lib/memory/__stack_pointer
     local.get $0
     i32.store
     local.get $1
-    local.get $4
+    local.get $5
     local.get $3
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<f32>#__get
     f32.sub
+    f32.mul
     f32.floor
     i32.trunc_sat_f32_s
-    i32.mul
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer

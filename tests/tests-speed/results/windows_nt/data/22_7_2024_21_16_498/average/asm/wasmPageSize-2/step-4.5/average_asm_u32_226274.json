@@ -1,0 +1,10 @@
+{
+  "algorithm": "average",
+  "type": "u32",
+  "language": "asm",
+  "size": 226274,
+  "wasmPageSize": 2,
+  "time": [
+    2.800000011920929
+  ]
+}

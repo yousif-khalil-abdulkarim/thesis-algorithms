@@ -91,9 +91,13 @@ function _interpolationSearch_f64_asm(
   ) {
     pos =
       startOffset +
-      ((endOffset - startOffset) /
-        <i32>floor(array[endOffset] - array[startOffset])) *
-        <i32>floor(target - array[startOffset]);
+      <i32>(
+        floor(
+          (<f64>(endOffset - startOffset) /
+            (array[endOffset] - array[startOffset])) *
+            (target - array[startOffset])
+        )
+      );
 
     if (array[pos] == target) {
       return pos;
@@ -130,9 +134,13 @@ function _interpolationSearch_f32_asm(
   ) {
     pos =
       startOffset +
-      ((endOffset - startOffset) /
-        <i32>floor(array[endOffset] - array[startOffset])) *
-        <i32>floor(target - array[startOffset]);
+      <i32>(
+        floor(
+          (<f32>(endOffset - startOffset) /
+            (array[endOffset] - array[startOffset])) *
+            (target - array[startOffset])
+        )
+      );
 
     if (array[pos] == target) {
       return pos;

@@ -3,31 +3,46 @@ import * as shared from "../../../../shared.js";
 import * as randomNumbers from "../random-numbers.js";
 
 /**
+ * @template {number | bigint} T
+ * @param {boolean} sorted
+ * @returns {(a: T, b: T) => number}
+ */
+function compare(sorted) {
+  return (a, b) => {
+    if (sorted) {
+      return Number(a - b);
+    }
+    return 0;
+  };
+}
+
+/**
  * @param {shared.Type} type
  * @param {number} size
+ * @param {boolean} sorted
  * @returns {shared.Array1d<number | bigint>}
  */
-function typedArrayFactory(type, size) {
+function typedArrayFactory(type, size, sorted) {
   if (type === "u64") {
-    return new BigUint64Array(size);
+    return new BigUint64Array(size).sort(compare(sorted));
   } else if (type === "i64") {
-    return new BigInt64Array(size);
+    return new BigInt64Array(size).sort(compare(sorted));
   } else if (type === "f64") {
-    return new Float64Array(size);
+    return new Float64Array(size).sort(compare(sorted));
   } else if (type === "f32") {
-    return new Float32Array(size);
+    return new Float32Array(size).sort(compare(sorted));
   } else if (type === "u32") {
-    return new Uint32Array(size);
+    return new Uint32Array(size).sort(compare(sorted));
   } else if (type === "i32") {
-    return new Int32Array(size);
+    return new Int32Array(size).sort(compare(sorted));
   } else if (type === "u16") {
-    return new Uint16Array(size);
+    return new Uint16Array(size).sort(compare(sorted));
   } else if (type === "i16") {
-    return new Int16Array(size);
+    return new Int16Array(size).sort(compare(sorted));
   } else if (type === "u8") {
-    return new Uint8Array(size);
+    return new Uint8Array(size).sort(compare(sorted));
   } else if (type === "i8") {
-    return new Int8Array(size);
+    return new Int8Array(size).sort(compare(sorted));
   }
   throw new Error(`Unsupported type: ${type}`);
 }
@@ -47,10 +62,11 @@ function fillTypedArray(type, array) {
 /**
  * @param {shared.Type} type
  * @param {number} size
+ * @param {boolean} sorted
  * @returns {shared.Array1d<number | bigint>}
  */
-export function initArray(type, size) {
-  const array = typedArrayFactory(type, size);
+export function initArray(type, size, sorted = false) {
+  const array = typedArrayFactory(type, size, sorted);
   fillTypedArray(type, array);
   return array;
 }

@@ -1,0 +1,10 @@
+{
+  "algorithm": "matrixAddition",
+  "type": "u32",
+  "language": "js",
+  "size": 4216,
+  "wasmPageSize": 2,
+  "time": [
+    49.5
+  ]
+}

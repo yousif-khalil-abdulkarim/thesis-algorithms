@@ -9,6 +9,17 @@ import { join } from "node:path";
 import { cpus, arch, type as osType, version } from "node:os";
 
 /**
+ * @returns {string}
+ */
+function getCurrentDate() {
+  const currentDate = new Date();
+  currentDate.getFullYear();
+  return `${currentDate.getDate()}_${
+    currentDate.getMonth() + 1
+  }_${currentDate.getFullYear()}_${currentDate.getHours()}_${currentDate.getSeconds()}_${currentDate.getMilliseconds()}`;
+}
+
+/**
  * @typedef {{
  *  cpuModel: string;
  *  cpuArchitecture: string;
@@ -70,23 +81,15 @@ function sizeFactory(algorithmName, step) {
   }
 }
 
-function getCurrentDate() {
-  const currentDate = new Date();
-  currentDate.getFullYear();
-  return `${currentDate.getDate()}_${
-    currentDate.getMonth() + 1
-  }_${currentDate.getFullYear()}_${currentDate.getHours()}_${currentDate.getSeconds()}_${currentDate.getMilliseconds()}`;
-}
-
 /**
  *
  * @param {string} algorithmsPath
  * @param {string} resultOutputPath
  * @return {Promise<void>}
  */
-async function ensureOutputDirectoryExists(algorithmsPath, resultOutputPath) {
+async function ensureOutputFolderExists(algorithmsPath, resultOutputPath) {
   if (!existsSync(algorithmsPath)) {
-    throw new Error(`Directory path "${algorithmsPath}" does not exist`);
+    throw new Error(`Folder path "${algorithmsPath}" does not exist`);
   }
   if (!existsSync(resultOutputPath)) {
     await mkdir(resultOutputPath, {
@@ -97,7 +100,35 @@ async function ensureOutputDirectoryExists(algorithmsPath, resultOutputPath) {
 
 /**
  * @param {string} resultOutputPath
+ * @returns {Promise<string>}
+ */
+async function ensureDataOutputFolderExists(resultOutputPath) {
+  const dataOutputFolder = join(resultOutputPath, "data", getCurrentDate());
+  console.log(dataOutputFolder);
+  if (!existsSync(dataOutputFolder)) {
+    await mkdir(dataOutputFolder, {
+      recursive: true,
+    });
+  }
+  return dataOutputFolder;
+}
+
+/**
+ * @param {string} dataOutputFolder
+ * @returns {Promise<string>}
+ */
+async function ensureLogFileExists(dataOutputFolder) {
+  const logOutputFilePath = join(dataOutputFolder, "log.txt");
+  if (!existsSync(logOutputFilePath)) {
+    await writeFile(logOutputFilePath, "");
+  }
+  return logOutputFilePath;
+}
+
+/**
+ * @param {string} resultOutputPath
  * @param {string} browserVersion
+ * @returns {Promise<void>}
  */
 async function generateTestInfo(resultOutputPath, browserVersion) {
   const testsInforPath = join(resultOutputPath, "platform-info.json");
@@ -118,9 +149,8 @@ async function generateTestInfo(resultOutputPath, browserVersion) {
 }
 
 /**
- * @param {string} currentDate
+ * @param {string} resultOutputPath
  * @param {{
- *  resultOutputPath: string;
  *  algorithm: string;
  *  language: string;
  *  step: number;
@@ -130,21 +160,11 @@ async function generateTestInfo(resultOutputPath, browserVersion) {
  *  time: number[];
  * }} settings
  */
-async function generateAlgorithmResult(currentDate, settings) {
-  const {
-    resultOutputPath,
-    algorithm,
-    language,
-    step,
-    type,
-    size,
-    wasmPageSize,
-    time,
-  } = settings;
+async function generateAlgorithmResult(resultOutputPath, settings) {
+  const { algorithm, language, step, type, size, wasmPageSize, time } =
+    settings;
   const algorithmResultOutputPath = join(
     resultOutputPath,
-    "data",
-    currentDate,
     algorithm,
     language,
     `wasmPageSize-${wasmPageSize}`,
@@ -278,22 +298,15 @@ export async function executeMultipleTests(settings) {
     args: ["--disable-web-security"],
   });
 
-  await ensureOutputDirectoryExists(
+  await ensureOutputFolderExists(
     settings.algorithmsPath,
     settings.resultOutputPath
   );
-
-  const CURRENT_DATE = getCurrentDate();
-  const dataDir = join(settings.resultOutputPath, "data", CURRENT_DATE);
-  if (!existsSync(dataDir)) {
-    await mkdir(dataDir);
-  }
-  const LOG_OUTPUT_FILE_PATH = join(dataDir, "log.txt");
-  if (!existsSync(LOG_OUTPUT_FILE_PATH)) {
-    await writeFile(LOG_OUTPUT_FILE_PATH, "");
-  }
-  await generateTestInfo(settings.resultOutputPath, await browser.version());
-
+  const dataOutputFolder = await ensureDataOutputFolderExists(
+    settings.resultOutputPath
+  );
+  const lotOutputFilePath = await ensureLogFileExists(dataOutputFolder);
+  settings.repitionInNodeJs
   const start = globalThis.performance.now();
   for (let i = 0; i < settings.repitionInNodeJs; i++) {
     for (const language of settings.languages) {
@@ -310,7 +323,7 @@ export async function executeMultipleTests(settings) {
                 step,
                 wasmPageSize,
               };
-              await logStart(LOG_OUTPUT_FILE_PATH, logData);
+              await logStart(lotOutputFilePath, logData);
               try {
                 console.log("algorithm: ", `${algorithm}_${type}_${language}`);
                 console.log("step:", step);
@@ -326,8 +339,7 @@ export async function executeMultipleTests(settings) {
                     wasmPageSize,
                     repition: settings.repitionInBrowser,
                     async onCollectMetrics(time) {
-                      await generateAlgorithmResult(CURRENT_DATE, {
-                        resultOutputPath: settings.resultOutputPath,
+                      await generateAlgorithmResult(dataOutputFolder, {
                         algorithm,
                         language,
                         type,
@@ -338,17 +350,10 @@ export async function executeMultipleTests(settings) {
                       });
                     },
                     async onError(error) {
-                      await appendFile(
-                        LOG_OUTPUT_FILE_PATH,
-                        [
-                          `${algorithm}_${type}_${language}`,
-                          `size ${size}`,
-                          `step ${step}`,
-                          `wasm page size ${wasmPageSize}`,
-                          `date ${getCurrentDate()}`,
-                          error,
-                        ].join("\n") + "\n\n"
-                      );
+                      await logError(lotOutputFilePath, {
+                        ...logData,
+                        error,
+                      });
                     },
                   },
                   browser
@@ -356,12 +361,12 @@ export async function executeMultipleTests(settings) {
                 console.log("\n");
               } catch (error) {
                 console.error(chalk.red(error));
-                await logError(LOG_OUTPUT_FILE_PATH, {
+                await logError(lotOutputFilePath, {
                   ...logData,
                   error,
                 });
               }
-              await logEnd(LOG_OUTPUT_FILE_PATH, logData);
+              await logEnd(lotOutputFilePath, logData);
             }
           }
         }
@@ -371,7 +376,7 @@ export async function executeMultipleTests(settings) {
   const end = globalThis.performance.now();
   console.log("\n");
   const totalTime = end - start;
-  const totalTimeText = `Total time:, ${totalTime}`;
+  const totalTimeText = `Total time: ${totalTime}`;
   console.log(totalTimeText);
 
   await writeFile(

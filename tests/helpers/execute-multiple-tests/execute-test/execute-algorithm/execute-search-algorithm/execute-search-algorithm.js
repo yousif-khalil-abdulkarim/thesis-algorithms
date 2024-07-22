@@ -1,6 +1,29 @@
 // @ts-check
 import * as shared from "../../../../shared.js";
-import { initSearchArray } from "./init-search-array.js";
+import { initArray } from "../execute-array-algorithm/init-array.js";
+
+/**
+ *
+ * @param {number} min
+ * @param {number} max
+ * @returns {number}
+ */
+function getRandomInt(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+}
+
+/**
+ * @param {shared.Array1d<number | bigint>} array
+ * @returns {number}
+ */
+function getTargetIndex(array) {
+  const step = Math.floor(array.length / 10);
+  const min = step * 4.5;
+  const max = step * 6;
+  return getRandomInt(min, max);
+}
 
 /**
  * @param {shared.Type} type
@@ -21,7 +44,7 @@ function executeSearchAlgorithmC(
   wasmPageSize,
   repition
 ) {
-  const target = array[Math.floor(array.length / 2)];
+  const target = getTargetIndex(array);
   /**
    * @type {WebAssembly.Memory}
    */
@@ -55,7 +78,7 @@ function executeSearchAlgorithmAsm(
   wasmPageSize,
   repition
 ) {
-  const target = array[Math.floor(array.length / 2)];
+  const target = getTargetIndex(array);
   /**
    * @type {WebAssembly.Memory}
    */
@@ -75,7 +98,7 @@ function executeSearchAlgorithmAsm(
  * @returns {void}
  */
 function executeSearchAlgorithmJs(algorithm, array, repition) {
-  const target = array[Math.floor(array.length / 2)];
+  const target = getTargetIndex(array);
   for (let i = 0; i < repition; i++) {
     shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
       algorithm(array, target);
@@ -100,7 +123,7 @@ export function executeSearchAlgorithm(algorithmSettings, algorithms) {
     throw new Error(`Unsupported algorithm: ${fullAlgorithmName}`);
   }
 
-  const array = initSearchArray(type, size);
+  const array = initArray(type, size, true);
   if (language === "c") {
     executeSearchAlgorithmC(
       type,

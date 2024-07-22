@@ -179,12 +179,14 @@ export function calculateWasmPageSizeInBytes(step, type) {
 }
 
 /**
- * @param {number} start
- * @param {number} end
- * @param {number} jump
+ * @param {{
+ *  start: number;
+ *  end?: number;
+ *  jump?: number;
+ * }} settings
  * @returns {number[]}
  */
-export function calculateSteps(start, end = start, jump = 0.5) {
+export function calculateSteps({ start, end = start, jump = 1 }) {
   /**
    * @type {number[]}
    */
