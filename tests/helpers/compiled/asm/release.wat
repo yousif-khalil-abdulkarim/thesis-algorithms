@@ -7443,26 +7443,26 @@
     local.get $2
     local.get $1
     i32.sub
-    i64.extend_i32_s
     local.get $5
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<u64>#__get
     i64.sub
-    i64.div_u
-    local.set $5
+    i32.wrap_i64
+    i32.div_s
+    local.set $4
     global.get $~lib/memory/__stack_pointer
     local.get $0
     i32.store
     local.get $1
-    local.get $5
+    local.get $4
     local.get $3
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<u64>#__get
     i64.sub
-    i64.mul
     i32.wrap_i64
+    i32.mul
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -7581,26 +7581,26 @@
     local.get $2
     local.get $1
     i32.sub
-    i64.extend_i32_s
     local.get $5
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<i64>#__get
     i64.sub
-    i64.div_s
-    local.set $5
+    i32.wrap_i64
+    i32.div_s
+    local.set $4
     global.get $~lib/memory/__stack_pointer
     local.get $0
     i32.store
     local.get $1
-    local.get $5
+    local.get $4
     local.get $3
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<i64>#__get
     i64.sub
-    i64.mul
     i32.wrap_i64
+    i32.mul
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -7719,27 +7719,28 @@
     local.get $2
     local.get $1
     i32.sub
-    f64.convert_i32_s
     local.get $5
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<f64>#__get
     f64.sub
-    f64.div
-    local.set $5
+    f64.floor
+    i32.trunc_sat_f64_s
+    i32.div_s
+    local.set $4
     global.get $~lib/memory/__stack_pointer
     local.get $0
     i32.store
     local.get $1
-    local.get $5
+    local.get $4
     local.get $3
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<f64>#__get
     f64.sub
-    f64.mul
     f64.floor
     i32.trunc_sat_f64_s
+    i32.mul
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -7858,27 +7859,28 @@
     local.get $2
     local.get $1
     i32.sub
-    f32.convert_i32_s
     local.get $5
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<f32>#__get
     f32.sub
-    f32.div
-    local.set $5
+    f32.floor
+    i32.trunc_sat_f32_s
+    i32.div_s
+    local.set $4
     global.get $~lib/memory/__stack_pointer
     local.get $0
     i32.store
     local.get $1
-    local.get $5
+    local.get $4
     local.get $3
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<f32>#__get
     f32.sub
-    f32.mul
     f32.floor
     i32.trunc_sat_f32_s
+    i32.mul
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -8001,7 +8003,7 @@
     local.get $1
     call $~lib/staticarray/StaticArray<u32>#__get
     i32.sub
-    i32.div_u
+    i32.div_s
     local.set $4
     global.get $~lib/memory/__stack_pointer
     local.get $0
@@ -8271,16 +8273,12 @@
     local.get $2
     local.get $1
     i32.sub
-    i32.const 65535
-    i32.and
     local.get $4
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<u16>#__get
     i32.sub
-    i32.const 65535
-    i32.and
-    i32.div_u
+    i32.div_s
     local.set $4
     global.get $~lib/memory/__stack_pointer
     local.get $0
@@ -8288,13 +8286,14 @@
     local.get $1
     local.get $4
     local.get $3
+    i32.const 65535
+    i32.and
+    local.tee $5
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<u16>#__get
     i32.sub
     i32.mul
-    i32.const 65535
-    i32.and
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -8303,10 +8302,7 @@
     local.get $0
     local.get $4
     call $~lib/staticarray/StaticArray<u16>#__get
-    local.get $3
-    i32.const 65535
-    i32.and
-    local.tee $5
+    local.get $5
     i32.eq
     br_if $folding-inner0
     global.get $~lib/memory/__stack_pointer
@@ -8419,13 +8415,11 @@
     local.get $2
     local.get $1
     i32.sub
-    i32.extend16_s
     local.get $4
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<i16>#__get
     i32.sub
-    i32.extend16_s
     i32.div_s
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -8434,12 +8428,12 @@
     local.get $1
     local.get $4
     local.get $3
+    i32.extend16_s
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<i16>#__get
     i32.sub
     i32.mul
-    i32.extend16_s
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -8565,16 +8559,12 @@
     local.get $2
     local.get $1
     i32.sub
-    i32.const 255
-    i32.and
     local.get $4
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<u8>#__get
     i32.sub
-    i32.const 255
-    i32.and
-    i32.div_u
+    i32.div_s
     local.set $4
     global.get $~lib/memory/__stack_pointer
     local.get $0
@@ -8582,13 +8572,14 @@
     local.get $1
     local.get $4
     local.get $3
+    i32.const 255
+    i32.and
+    local.tee $5
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<u8>#__get
     i32.sub
     i32.mul
-    i32.const 255
-    i32.and
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -8597,10 +8588,7 @@
     local.get $0
     local.get $4
     call $~lib/staticarray/StaticArray<u8>#__get
-    local.get $3
-    i32.const 255
-    i32.and
-    local.tee $5
+    local.get $5
     i32.eq
     br_if $folding-inner0
     global.get $~lib/memory/__stack_pointer
@@ -8713,13 +8701,11 @@
     local.get $2
     local.get $1
     i32.sub
-    i32.extend8_s
     local.get $4
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<i8>#__get
     i32.sub
-    i32.extend8_s
     i32.div_s
     local.set $4
     global.get $~lib/memory/__stack_pointer
@@ -8728,12 +8714,12 @@
     local.get $1
     local.get $4
     local.get $3
+    i32.extend8_s
     local.get $0
     local.get $1
     call $~lib/staticarray/StaticArray<i8>#__get
     i32.sub
     i32.mul
-    i32.extend8_s
     i32.add
     local.set $4
     global.get $~lib/memory/__stack_pointer

@@ -1,0 +1,12 @@
+[
+  {
+    "algorithm": "min",
+    "type": "f64",
+    "language": "js",
+    "size": 640000,
+    "wasmPageSize": 2,
+    "time": [
+      1.9000000357627869
+    ]
+  }
+]

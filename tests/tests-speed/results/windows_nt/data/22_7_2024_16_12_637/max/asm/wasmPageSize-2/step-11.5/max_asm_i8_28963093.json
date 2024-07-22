@@ -1,0 +1,10 @@
+{
+  "algorithm": "max",
+  "type": "i8",
+  "language": "asm",
+  "size": 28963093,
+  "wasmPageSize": 2,
+  "time": [
+    218
+  ]
+}

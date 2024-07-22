@@ -37,7 +37,7 @@ await executeMultipleTests({
   ],
   types: ["f64", "f32", "u32", "i32", "u16", "i16", "u8", "i8"],
   languages: ["js", "c", "asm"],
-  steps: shared.calculateSteps(1, 12),
+  steps: shared.calculateSteps(1, 12, 0.5),
   wasmPageSizes: [2],
   repitionInNodeJs: 1,
   repitionInBrowser: 1,

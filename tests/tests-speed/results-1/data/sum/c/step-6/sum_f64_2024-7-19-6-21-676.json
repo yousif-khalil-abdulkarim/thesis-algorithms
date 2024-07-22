@@ -1,0 +1,12 @@
+[
+  {
+    "algorithm": "sum",
+    "type": "f64",
+    "language": "c",
+    "size": 640000,
+    "wasmPageSize": 2,
+    "time": [
+      1.0999999642372131
+    ]
+  }
+]

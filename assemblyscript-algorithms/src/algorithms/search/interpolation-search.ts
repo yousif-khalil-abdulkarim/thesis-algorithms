@@ -13,13 +13,9 @@ function _interpolationSearch_u64_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<u64>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) /
+        <i32>(array[endOffset] - array[startOffset])) *
+        <i32>(target - array[startOffset]);
 
     if (array[pos] == target) {
       return pos;
@@ -30,12 +26,7 @@ function _interpolationSearch_u64_asm(
     }
 
     if (array[pos] > target) {
-      return _interpolationSearch_u64_asm(
-        array,
-        startOffset,
-        pos - 1,
-        target
-      );
+      return _interpolationSearch_u64_asm(array, startOffset, pos - 1, target);
     }
   }
   return -1;
@@ -61,13 +52,9 @@ function _interpolationSearch_i64_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<i64>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) /
+        <i32>(array[endOffset] - array[startOffset])) *
+        <i32>(target - array[startOffset]);
 
     if (array[pos] == target) {
       return pos;
@@ -78,12 +65,7 @@ function _interpolationSearch_i64_asm(
     }
 
     if (array[pos] > target) {
-      return _interpolationSearch_i64_asm(
-        array,
-        startOffset,
-        pos - 1,
-        target
-      );
+      return _interpolationSearch_i64_asm(array, startOffset, pos - 1, target);
     }
   }
   return -1;
@@ -109,34 +91,20 @@ function _interpolationSearch_f64_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<f64>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) /
+        <i32>floor(array[endOffset] - array[startOffset])) *
+        <i32>floor(target - array[startOffset]);
 
     if (array[pos] == target) {
       return pos;
     }
 
     if (array[pos] < target) {
-      return _interpolationSearch_f64_asm(
-        array,
-        pos + 1,
-        endOffset,
-        target
-      );
+      return _interpolationSearch_f64_asm(array, pos + 1, endOffset, target);
     }
 
     if (array[pos] > target) {
-      return _interpolationSearch_f64_asm(
-        array,
-        startOffset,
-        pos - 1,
-        target
-      );
+      return _interpolationSearch_f64_asm(array, startOffset, pos - 1, target);
     }
   }
   return -1;
@@ -162,34 +130,20 @@ function _interpolationSearch_f32_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<f32>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) /
+        <i32>floor(array[endOffset] - array[startOffset])) *
+        <i32>floor(target - array[startOffset]);
 
     if (array[pos] == target) {
       return pos;
     }
 
     if (array[pos] < target) {
-      return _interpolationSearch_f32_asm(
-        array,
-        pos + 1,
-        endOffset,
-        target
-      );
+      return _interpolationSearch_f32_asm(array, pos + 1, endOffset, target);
     }
 
     if (array[pos] > target) {
-      return _interpolationSearch_f32_asm(
-        array,
-        startOffset,
-        pos - 1,
-        target
-      );
+      return _interpolationSearch_f32_asm(array, startOffset, pos - 1, target);
     }
   }
   return -1;
@@ -215,13 +169,9 @@ function _interpolationSearch_u32_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<u32>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) /
+        <i32>(array[endOffset] - array[startOffset])) *
+        <i32>(target - array[startOffset]);
 
     if (array[pos] == target) {
       return pos;
@@ -232,12 +182,7 @@ function _interpolationSearch_u32_asm(
     }
 
     if (array[pos] > target) {
-      return _interpolationSearch_u32_asm(
-        array,
-        startOffset,
-        pos - 1,
-        target
-      );
+      return _interpolationSearch_u32_asm(array, startOffset, pos - 1, target);
     }
   }
   return -1;
@@ -263,13 +208,8 @@ function _interpolationSearch_i32_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<i32>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) / (array[endOffset] - array[startOffset])) *
+        (target - array[startOffset]);
 
     if (array[pos] == target) {
       return pos;
@@ -280,12 +220,7 @@ function _interpolationSearch_i32_asm(
     }
 
     if (array[pos] > target) {
-      return _interpolationSearch_i32_asm(
-        array,
-        startOffset,
-        pos - 1,
-        target
-      );
+      return _interpolationSearch_i32_asm(array, startOffset, pos - 1, target);
     }
   }
   return -1;
@@ -312,13 +247,9 @@ function _interpolationSearch_u16_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<u16>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) /
+        (<i32>array[endOffset] - <i32>array[startOffset])) *
+        (<i32>target - <i32>array[startOffset]);
 
     if (array[pos] == target) {
       return pos;
@@ -329,12 +260,7 @@ function _interpolationSearch_u16_asm(
     }
 
     if (array[pos] > target) {
-      return _interpolationSearch_u16_asm(
-        array,
-        startOffset,
-        pos - 1,
-        target
-      );
+      return _interpolationSearch_u16_asm(array, startOffset, pos - 1, target);
     }
   }
   return -1;
@@ -360,13 +286,9 @@ function _interpolationSearch_i16_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<i16>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) /
+        (<i32>array[endOffset] - <i32>array[startOffset])) *
+        (<i32>target - <i32>array[startOffset]);
 
     if (array[pos] == target) {
       return pos;
@@ -377,12 +299,7 @@ function _interpolationSearch_i16_asm(
     }
 
     if (array[pos] > target) {
-      return _interpolationSearch_i16_asm(
-        array,
-        startOffset,
-        pos - 1,
-        target
-      );
+      return _interpolationSearch_i16_asm(array, startOffset, pos - 1, target);
     }
   }
   return -1;
@@ -408,13 +325,9 @@ function _interpolationSearch_u8_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<u8>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) /
+        (<i32>array[endOffset] - <i32>array[startOffset])) *
+        (<i32>target - <i32>array[startOffset]);
 
     if (array[pos] == target) {
       return pos;
@@ -425,12 +338,7 @@ function _interpolationSearch_u8_asm(
     }
 
     if (array[pos] > target) {
-      return _interpolationSearch_u8_asm(
-        array,
-        startOffset,
-        pos - 1,
-        target
-      );
+      return _interpolationSearch_u8_asm(array, startOffset, pos - 1, target);
     }
   }
   return -1;
@@ -456,13 +364,9 @@ function _interpolationSearch_i8_asm(
   ) {
     pos =
       startOffset +
-      <i32>(
-        floor(
-          (<i8>(endOffset - startOffset) /
-            (array[endOffset] - array[startOffset])) *
-            (target - array[startOffset])
-        )
-      );
+      ((endOffset - startOffset) /
+        (<i32>array[endOffset] - <i32>array[startOffset])) *
+        (<i32>target - <i32>array[startOffset]);
 
     if (array[pos] == target) {
       return pos;

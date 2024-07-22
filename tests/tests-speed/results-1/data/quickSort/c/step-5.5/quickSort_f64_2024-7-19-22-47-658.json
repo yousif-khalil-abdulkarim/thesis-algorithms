@@ -1,0 +1,12 @@
+[
+  {
+    "algorithm": "quickSort",
+    "type": "f64",
+    "language": "c",
+    "size": 452548,
+    "wasmPageSize": 2,
+    "time": [
+      3.100000023841858
+    ]
+  }
+]

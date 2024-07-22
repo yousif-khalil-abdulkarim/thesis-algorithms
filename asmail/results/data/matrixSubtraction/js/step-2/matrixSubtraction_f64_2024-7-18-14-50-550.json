@@ -1,0 +1,12 @@
+[
+  {
+    "algorithm": "matrixSubtraction",
+    "type": "f64",
+    "language": "js",
+    "size": 40000,
+    "wasmPageSize": 2,
+    "time": [
+      0.8999999761581421
+    ]
+  }
+]

@@ -3,10 +3,10 @@ import chalk from "chalk";
 import { executeTest } from "./execute-test/execute-test.js";
 import * as puppeteer from "puppeteer";
 import * as shared from "../shared.js";
-import { existsSync, write } from "node:fs";
+import { existsSync } from "node:fs";
 import { appendFile, mkdir, writeFile, rm } from "node:fs/promises";
 import { join } from "node:path";
-import { cpus, arch, type, version } from "node:os";
+import { cpus, arch, type as osType, version } from "node:os";
 
 /**
  * @typedef {{
@@ -22,7 +22,7 @@ function getSystemInfo() {
   return {
     cpuModel: cpuModel.trim(),
     cpuArchitecture: arch().trim(),
-    operatingSystem: type(),
+    operatingSystem: osType(),
     operatingSystemVersion: version(),
   };
 }
@@ -100,7 +100,7 @@ async function ensureOutputDirectoryExists(algorithmsPath, resultOutputPath) {
  * @param {string} browserVersion
  */
 async function generateTestInfo(resultOutputPath, browserVersion) {
-  const testsInforPath = join(resultOutputPath, "tests-info.json");
+  const testsInforPath = join(resultOutputPath, "platform-info.json");
   if (existsSync(testsInforPath)) {
     await rm(testsInforPath);
   }
@@ -172,7 +172,7 @@ async function generateAlgorithmResult(currentDate, settings) {
 }
 
 /**
- * @param {string} errorLogOutputFilePath
+ * @param {string} outputFilePath
  * @param {{
  *  algorithm: string;
  *  type: string;
@@ -184,20 +184,72 @@ async function generateAlgorithmResult(currentDate, settings) {
  * }} data
  * @returns {Promise<void>}
  */
-async function logError(errorLogOutputFilePath, data) {
-  let { algorithm, language, size, step, wasmPageSize, error } = data;
+async function logError(outputFilePath, data) {
+  let { algorithm, language, size, step, type, wasmPageSize, error } = data;
   if (error instanceof Error) {
     error = `${error.name} ${error.name}`;
   }
   await appendFile(
-    errorLogOutputFilePath,
+    outputFilePath,
     [
-      `${algorithm}_${type}_${language}`,
+      `ERROR: ${algorithm}_${type}_${language}`,
       `size ${size}`,
       `step ${step}`,
       `wasm page size ${wasmPageSize}`,
       `date ${getCurrentDate()}`,
       error,
+    ].join("\n") + "\n\n"
+  );
+}
+
+/**
+ * @param {string} outputFilePath
+ * @param {{
+ *  algorithm: string;
+ *  type: string;
+ *  language: string;
+ *  size: number;
+ *  step: number;
+ *  wasmPageSize: number;
+ * }} data
+ * @returns {Promise<void>}
+ */
+async function logStart(outputFilePath, data) {
+  let { algorithm, language, size, step, type, wasmPageSize } = data;
+  await appendFile(
+    outputFilePath,
+    [
+      `STARTED: ${algorithm}_${type}_${language}`,
+      `size ${size}`,
+      `step ${step}`,
+      `wasm page size ${wasmPageSize}`,
+      `date ${getCurrentDate()}`,
+    ].join("\n") + "\n\n"
+  );
+}
+
+/**
+ * @param {string} outputFilePath
+ * @param {{
+ *  algorithm: string;
+ *  type: string;
+ *  language: string;
+ *  size: number;
+ *  step: number;
+ *  wasmPageSize: number;
+ * }} data
+ * @returns {Promise<void>}
+ */
+async function logEnd(outputFilePath, data) {
+  let { algorithm, language, size, type, step, wasmPageSize } = data;
+  await appendFile(
+    outputFilePath,
+    [
+      `ENDED: ${algorithm}_${type}_${language}`,
+      `size ${size}`,
+      `step ${step}`,
+      `wasm page size ${wasmPageSize}`,
+      `date ${getCurrentDate()}`,
     ].join("\n") + "\n\n"
   );
 }
@@ -231,15 +283,16 @@ export async function executeMultipleTests(settings) {
     settings.resultOutputPath
   );
 
-  const ERROR_LOG_OUTPUT_FILE_PATH = join(
-    settings.resultOutputPath,
-    "error-log.txt"
-  );
-  if (!existsSync(ERROR_LOG_OUTPUT_FILE_PATH)) {
-    await writeFile(ERROR_LOG_OUTPUT_FILE_PATH, "");
+  const CURRENT_DATE = getCurrentDate();
+  const dataDir = join(settings.resultOutputPath, "data", CURRENT_DATE);
+  if (!existsSync(dataDir)) {
+    await mkdir(dataDir);
+  }
+  const LOG_OUTPUT_FILE_PATH = join(dataDir, "log.txt");
+  if (!existsSync(LOG_OUTPUT_FILE_PATH)) {
+    await writeFile(LOG_OUTPUT_FILE_PATH, "");
   }
   await generateTestInfo(settings.resultOutputPath, await browser.version());
-  const currentDate = getCurrentDate();
 
   const start = globalThis.performance.now();
   for (let i = 0; i < settings.repitionInNodeJs; i++) {
@@ -249,6 +302,15 @@ export async function executeMultipleTests(settings) {
           for (const algorithm of settings.algorithms) {
             for (const wasmPageSize of settings.wasmPageSizes) {
               const size = sizeFactory(algorithm, step);
+              const logData = {
+                algorithm,
+                type,
+                language,
+                size,
+                step,
+                wasmPageSize,
+              };
+              await logStart(LOG_OUTPUT_FILE_PATH, logData);
               try {
                 console.log("algorithm: ", `${algorithm}_${type}_${language}`);
                 console.log("step:", step);
@@ -264,7 +326,7 @@ export async function executeMultipleTests(settings) {
                     wasmPageSize,
                     repition: settings.repitionInBrowser,
                     async onCollectMetrics(time) {
-                      await generateAlgorithmResult(currentDate, {
+                      await generateAlgorithmResult(CURRENT_DATE, {
                         resultOutputPath: settings.resultOutputPath,
                         algorithm,
                         language,
@@ -277,7 +339,7 @@ export async function executeMultipleTests(settings) {
                     },
                     async onError(error) {
                       await appendFile(
-                        ERROR_LOG_OUTPUT_FILE_PATH,
+                        LOG_OUTPUT_FILE_PATH,
                         [
                           `${algorithm}_${type}_${language}`,
                           `size ${size}`,
@@ -294,16 +356,12 @@ export async function executeMultipleTests(settings) {
                 console.log("\n");
               } catch (error) {
                 console.error(chalk.red(error));
-                await logError(ERROR_LOG_OUTPUT_FILE_PATH, {
-                  algorithm,
-                  type,
-                  language,
-                  size,
-                  step,
-                  wasmPageSize,
+                await logError(LOG_OUTPUT_FILE_PATH, {
+                  ...logData,
                   error,
                 });
               }
+              await logEnd(LOG_OUTPUT_FILE_PATH, logData);
             }
           }
         }

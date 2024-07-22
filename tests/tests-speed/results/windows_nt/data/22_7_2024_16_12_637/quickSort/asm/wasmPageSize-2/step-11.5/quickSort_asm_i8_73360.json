@@ -1,0 +1,10 @@
+{
+  "algorithm": "quickSort",
+  "type": "i8",
+  "language": "asm",
+  "size": 73360,
+  "wasmPageSize": 2,
+  "time": [
+    4.5
+  ]
+}
