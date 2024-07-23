@@ -1,0 +1,10 @@
+{
+  "algorithm": "binarySearch",
+  "type": "f32",
+  "language": "asm",
+  "size": 7240773,
+  "wasmPageSize": 2,
+  "time": [
+    10.199999988079071
+  ]
+}

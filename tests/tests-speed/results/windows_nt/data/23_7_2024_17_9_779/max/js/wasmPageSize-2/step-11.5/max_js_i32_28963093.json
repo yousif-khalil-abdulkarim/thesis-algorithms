@@ -1,0 +1,10 @@
+{
+  "algorithm": "max",
+  "type": "i32",
+  "language": "js",
+  "size": 28963093,
+  "wasmPageSize": 2,
+  "time": [
+    28.899999976158142
+  ]
+}

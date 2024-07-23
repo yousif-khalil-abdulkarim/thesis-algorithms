@@ -1,0 +1,10 @@
+{
+  "algorithm": "mergeSort",
+  "type": "f32",
+  "language": "asm",
+  "size": 80000,
+  "wasmPageSize": 2,
+  "time": [
+    40.5
+  ]
+}

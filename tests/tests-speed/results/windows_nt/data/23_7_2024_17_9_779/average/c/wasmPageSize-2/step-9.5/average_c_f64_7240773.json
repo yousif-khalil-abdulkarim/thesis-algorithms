@@ -1,0 +1,10 @@
+{
+  "algorithm": "average",
+  "type": "f64",
+  "language": "c",
+  "size": 7240773,
+  "wasmPageSize": 2,
+  "time": [
+    9.300000011920929
+  ]
+}
