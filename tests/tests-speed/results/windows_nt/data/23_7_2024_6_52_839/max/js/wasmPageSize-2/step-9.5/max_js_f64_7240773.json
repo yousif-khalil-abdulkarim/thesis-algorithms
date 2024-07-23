@@ -1,0 +1,10 @@
+{
+  "algorithm": "max",
+  "type": "f64",
+  "language": "js",
+  "size": 7240773,
+  "wasmPageSize": 2,
+  "time": [
+    12.099999994039536
+  ]
+}

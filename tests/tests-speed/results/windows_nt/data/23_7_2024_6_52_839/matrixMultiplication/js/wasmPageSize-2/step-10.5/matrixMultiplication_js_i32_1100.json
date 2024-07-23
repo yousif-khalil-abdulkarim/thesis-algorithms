@@ -1,0 +1,10 @@
+{
+  "algorithm": "matrixMultiplication",
+  "type": "i32",
+  "language": "js",
+  "size": 1100,
+  "wasmPageSize": 2,
+  "time": [
+    6680.299999982119
+  ]
+}

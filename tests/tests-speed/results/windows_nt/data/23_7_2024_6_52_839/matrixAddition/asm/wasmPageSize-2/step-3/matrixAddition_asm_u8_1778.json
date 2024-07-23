@@ -1,0 +1,10 @@
+{
+  "algorithm": "matrixAddition",
+  "type": "u8",
+  "language": "asm",
+  "size": 1778,
+  "wasmPageSize": 2,
+  "time": [
+    105.19999998807907
+  ]
+}

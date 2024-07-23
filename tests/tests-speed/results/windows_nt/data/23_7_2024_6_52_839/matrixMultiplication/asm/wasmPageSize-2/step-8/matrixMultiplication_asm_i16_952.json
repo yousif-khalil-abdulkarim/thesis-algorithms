@@ -1,0 +1,10 @@
+{
+  "algorithm": "matrixMultiplication",
+  "type": "i16",
+  "language": "asm",
+  "size": 952,
+  "wasmPageSize": 2,
+  "time": [
+    12647.199999988079
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "algorithm": "matrixMultiplication",
+  "type": "u16",
+  "language": "c",
+  "size": 1069,
+  "wasmPageSize": 2,
+  "time": [
+    1828.5999999940395
+  ]
+}
