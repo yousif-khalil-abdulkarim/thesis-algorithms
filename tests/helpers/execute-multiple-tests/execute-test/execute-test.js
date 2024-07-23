@@ -147,9 +147,9 @@ export async function executeTest(testSettings, browser) {
     await page.addScriptTag({
       type: "module",
       content: `
-        import { executeAlgorithm } from "${algorithmExecutionPathRelative}";
-        import * as algorithms from "${algorithmPathRelative}";
-        try {
+      try {
+        const { executeAlgorithm } = await import("${algorithmExecutionPathRelative}");
+        const algorithms = await import("${algorithmPathRelative}");
           executeAlgorithm({
             algorithmName: "${algorithmName}",
             type: "${type}",

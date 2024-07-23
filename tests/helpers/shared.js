@@ -1,30 +1,6 @@
 // @ts-check
 
 /**
- * @template T
- * @template K
- * @param {Array1d<T>} array
- * @param {(item: T) => K} function_
- * @return {Array1d<K>}
- */
-export function map(array, function_) {
-  /**
-   * @type {K[]}
-   */
-  const newArray = [];
-  for (let i = 0; i < array.length; i++) {
-    const item = array[i];
-    newArray.push(function_(item));
-  }
-  return newArray;
-}
-
-export const DATA_IDENTIFIER = {
-  ALGORITHM_TIME: "algorithm-execution-time",
-  INIT_WASM_ATA_TIME: "init-wasm-data-time",
-};
-
-/**
  * @typedef {"u64" | "i64" | "f64" | "f32" | "u32" | "i32" | "u16" | "i16" | "u8" | "i8"} Type
  */
 
@@ -76,6 +52,118 @@ export const DATA_IDENTIFIER = {
  */
 
 /**
+ * @template T
+ * @template K
+ * @param {Array1d<T>} array
+ * @param {(item: T) => K} function_
+ * @return {Array1d<K>}
+ */
+export function map(array, function_) {
+  /**
+   * @type {K[]}
+   */
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    const item = array[i];
+    newArray.push(function_(item));
+  }
+  return newArray;
+}
+
+export const DATA_IDENTIFIER = {
+  ALGORITHM_TIME: "algorithm-execution-time",
+  INIT_WASM_ATA_TIME: "init-wasm-data-time",
+};
+
+const BASIC_ALGORIHMS = {
+  /**
+   * Time complexity: O(n)
+   * Space complexity: O(n)
+   */
+  AVERAGE: "average",
+  /**
+   * Time complexity: O(n)
+   * Space complexity: O(n)
+   */
+  MAX: "max",
+  /**
+   * Time complexity: O(n)
+   * Space complexity: O(n)
+   */
+  MIN: "min",
+  /**
+   * Time complexity: O(n)
+   * Space complexity: O(n)
+   */
+  SUM: "sum",
+};
+const MATRIX_ALGORITHMS = {
+  /**
+   * Time complexity: O(n^2)
+   * Space complexity: O(n^2)
+   */
+  MATRIX_ADDITION: "matrixAddition",
+  /**
+   * Time complexity: O(n^2)
+   * Space complexity: O(n^2)
+   */
+  MATRIX_SUBTRACTION: "matrixSubtraction",
+  /**
+   * Time complexity: O(n^3)
+   * Space complexity: O(n^2)
+   */
+  MATRIX_MULTIPLICATION: "matrixMultiplication",
+};
+const SEARCH_ALGORITHMS = {
+  /**
+   * Time complexity: O(log(n))
+   * Space complexity: O(n)
+   */
+  BINARY_SEARCH: "binarySearch",
+  /**
+   * Time complexity: O(log(n))
+   * Space complexity: O(n)
+   */
+  META_BINARY_SEARCH: "metaBinarySearch",
+  /**
+   * Time complexity: Best case: O(log(log(n)))
+   * Time complexity: Worst case: O(n)
+   * Space complexity: O(n)
+   */
+  INTERPOLATION_SEARCH: "interpolationSearch",
+};
+const SORT_ALGORITHMS = {
+  /**
+   * Time complexity: O(n*log(n))
+   * Space complexity: O(n)
+   */
+  MERGE_SORT: "mergeSort",
+  /**
+   * Time complexity: Best case: O(n*log(n))
+   * Time complexity: Worst case: O(n^2)
+   * Space complexity: Best case: O(log(n))
+   * Space complexity: Worst case: O(n)
+   */
+  QUICK_SORT: "quickSort",
+  /**
+   * Time complexity: O(n^2)
+   * Space complexity: O(n)
+   */
+  SELECTION_SORT: "selectionSort",
+  /**
+   * Time complexity: O(n^2)
+   * Space complexity: O(n),
+   */
+  BUBBLE_SORT: "bubbleSort",
+};
+export const ALGORITHMS = {
+  BASIC: BASIC_ALGORIHMS,
+  MATRIX: MATRIX_ALGORITHMS,
+  SEARCH: SEARCH_ALGORITHMS,
+  SORT: SORT_ALGORITHMS,
+};
+
+/**
  * @param {string} identifier
  * @param {() => void} function_
  *  (): void;
@@ -104,6 +192,86 @@ const KIB = 1024;
 const WASM_PAGE_SIZE = 64;
 
 const WASM_PAGE_SIZE_IN_BYTES = WASM_PAGE_SIZE * KIB;
+
+/**
+ * @param {Type} type
+ * @returns {number}
+ */
+function typeBytesAmount(type) {
+  return Number(type.slice(1)) / 8;
+}
+
+/**
+ * f(x) = 2^x * 10_000
+ * @param {number} x
+ * @returns {number}
+ */
+export function fastAlgorithmSize(x) {
+  return Math.floor(Math.pow(2, x) * 10_000);
+}
+/**
+ * @param {Type} type
+ * @param {number} x
+ * @returns {number}
+ */
+export function fastAlgorithmWasmPageSize(type, x) {
+  const totalaAmountOfBytes = typeBytesAmount(type) * fastAlgorithmSize(x);
+  return Math.floor(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
+}
+
+/**
+ * f(x) = 2^(log2(8) / 12 * x) * 10_000
+ * @param {number} x
+ * @returns {number}
+ */
+export function slowAlgorithmSize(x) {
+  return Math.floor(Math.pow(2, (Math.log2(8) / 12) * x) * 10_000);
+}
+/**
+ * @param {Type} type
+ * @param {number} x
+ * @returns {number}
+ */
+export function slowAlgorithmWasmPageSize(type, x) {
+  const totalaAmountOfBytes = typeBytesAmount(type) * slowAlgorithmSize(x);
+  return Math.floor(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
+}
+
+/**
+ * @param {number} x
+ * @returns {number}
+ */
+export function matrixMultiplicationAlgorithmSize(x) {
+  return Math.floor(Math.pow(2, x / 12) * 600);
+}
+/**
+ * @param {Type} type
+ * @param {number} x
+ * @returns {number}
+ */
+export function matrixMultiplicationAlgorithmWasmPageSize(type, x) {
+  const totalaAmountOfBytes =
+    typeBytesAmount(type) * Math.pow(matrixMultiplicationAlgorithmSize(x), 2);
+  return Math.floor(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
+}
+
+/**
+ * @param {number} x
+ * @returns
+ */
+export function matrixAdditionAlgorithmSize(x) {
+  return Math.floor(Math.pow(2, (Math.log2(10) * x) / 12) * 1000);
+}
+/**
+ * @param {Type} type
+ * @param {number} x
+ * @returns {number}
+ */
+export function matrixAdditionAlgorithmWasmPageSize(type, x) {
+  const totalaAmountOfBytes =
+    typeBytesAmount(type) * Math.pow(matrixAdditionAlgorithmSize(x), 2);
+  return Math.floor(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
+}
 
 /**
  * Returns the size of WebAssembly memory in wasm pages
@@ -135,47 +303,18 @@ export function setWasmMemory(memory, wasmPageSize) {
 }
 
 /**
- * @typedef {"64" | "32" | "16" | "8"} TypeSize
- */
-
-/**
- * @param {TypeSize} type
- */
-function typeSizeInBytes(type) {
-  if (type === "64") {
-    return BigUint64Array.BYTES_PER_ELEMENT;
-  } else if (type === "32") {
-    return Uint32Array.BYTES_PER_ELEMENT;
-  } else if (type === "16") {
-    return Uint16Array.BYTES_PER_ELEMENT;
-  } else if (type === "8") {
-    return Uint8Array.BYTES_PER_ELEMENT;
-  }
-  throw new Error(`Unsupported type: ${type}`);
-}
-
-/**
  * @param {number} step
- * @param {TypeSize} type
+ * @param {Type} type
  * @returns {number} Wasm page size
  */
 export function calculateWasmPageSize(step, type) {
   const size = Math.ceil(
-    (fastAlgorithmSize(step) * typeSizeInBytes(type)) / WASM_PAGE_SIZE_IN_BYTES
+    (fastAlgorithmSize(step) * typeBytesAmount(type)) / WASM_PAGE_SIZE_IN_BYTES
   );
   if (size < 2) {
     return 2;
   }
   return size;
-}
-
-/**
- * @param {number} step
- * @param {TypeSize} type
- * @returns {number} Wasm page size
- */
-export function calculateWasmPageSizeInBytes(step, type) {
-  return calculateWasmPageSize(step, type) * WASM_PAGE_SIZE_IN_BYTES;
 }
 
 /**
@@ -196,136 +335,3 @@ export function calculateSteps({ start, end = start, jump = 1 }) {
   }
   return sizes;
 }
-
-/**
- * Algorithm sum, average, min, max, binary search, meta binary search, interpolation search, merge sort time:
- * 3 for all languages js, asm, c
- * 8 for all types f64, f32, u32, i32, u16, i16, u8, i8
- * Step 8: 2560000 * 3 * 8 element time will take 7s
- * Step 9: 5120000 * 3 * 8  element time will take 2 minutes
- * Step 11: 20480000 * 3 * 8  element time will take 7 minutes
- * Step 12: 40960000 * 3 * 8  element time will take 16 minutes
- */
-
-/**
- * Algorithm matrix multiplication, matrix addition, matrix subtraction time:
- * 500 element time will take 0.8s
- * 1000 element time will take 3.5s
- * 1050 element time will take 5s
- * 2000 element time will take 1.6 minutes
- * 3000 element time will take 6.5 minutes
- * 3100 element time will take 10 minutes
- * 3175 element time will take 17 minutes
- */
-
-/**
- * Quick sort, selection sort, bubble sort time:
- * Step 12: 64000 elements time will take 15min
- */
-
-/**
- * f(x) = 2^x * 10_000
- * @param {number} x
- * @returns {number}
- */
-export function fastAlgorithmSize(x) {
-  return Math.floor(Math.pow(2, x) * 10_000);
-}
-
-/**
- * f(x) = 2^(log2(8) / 12 * x) * 10_000
- * @param {number} x
- * @returns {number}
- */
-export function slowAlgorithmSize(x) {
-  return Math.floor(Math.pow(2, (Math.log2(8) / 12) * x) * 10_000);
-}
-
-/**
- * @param {number} x
- * @returns {number}
- */
-export function matrixMultiplicationAlgorithmSize(x) {
-  return Math.floor(Math.pow(2, x / 12) * 600);
-}
-
-/**
- * @param {number} x
- * @returns
- */
-export function matrixAdditionAlgorithmSize(x) {
-  return Math.floor(Math.pow(2, (Math.log2(10) * x) / 12) * 1000);
-}
-
-const BASIC_ALGORIHMS = {
-  /**
-   *  O(n)
-   */
-  AVERAGE: "average",
-  /**
-   *  O(n)
-   */
-  MAX: "max",
-  /**
-   *  O(n)
-   */
-  MIN: "min",
-  /**
-   *  O(n)
-   */
-  SUM: "sum",
-};
-const MATRIX_ALGORITHMS = {
-  /**
-   *  O(n^2)
-   */
-  MATRIX_ADDITION: "matrixAddition",
-  /**
-   *  O(n^2)
-   */
-  MATRIX_SUBTRACTION: "matrixSubtraction",
-  /**
-   *  O(n^3)
-   */
-  MATRIX_MULTIPLICATION: "matrixMultiplication",
-};
-const SEARCH_ALGORITHMS = {
-  /**
-   * O(log(n))
-   */
-  BINARY_SEARCH: "binarySearch",
-  /**
-   * O(log(n))
-   */
-  META_BINARY_SEARCH: "metaBinarySearch",
-  /**
-   * Best case: O(log(log(n)))
-   * Worst case: O(n)
-   */
-  INTERPOLATION_SEARCH: "interpolationSearch",
-};
-const SORT_ALGORITHMS = {
-  /**
-   * O(n*log(n))
-   */
-  MERGE_SORT: "mergeSort",
-  /**
-   * Best case: O(n*log(n))
-   * Worst case: O(n^2)
-   */
-  QUICK_SORT: "quickSort",
-  /**
-   * O(n^2)
-   */
-  SELECTION_SORT: "selectionSort",
-  /**
-   * O(n^2)
-   */
-  BUBBLE_SORT: "bubbleSort",
-};
-export const ALGORITHMS = {
-  BASIC: BASIC_ALGORIHMS,
-  MATRIX: MATRIX_ALGORITHMS,
-  SEARCH: SEARCH_ALGORITHMS,
-  SORT: SORT_ALGORITHMS,
-};

@@ -206,6 +206,7 @@ async function generateAlgorithmResult(resultOutputPath, settings) {
  */
 async function logError(outputFilePath, data) {
   let { algorithm, language, size, step, type, wasmPageSize, error } = data;
+  console.error(chalk.red(error));
   if (error instanceof Error) {
     error = `${error.name} ${error.name}`;
   }
@@ -306,7 +307,7 @@ export async function executeMultipleTests(settings) {
     settings.resultOutputPath
   );
   const lotOutputFilePath = await ensureLogFileExists(dataOutputFolder);
-  settings.repitionInNodeJs
+  settings.repitionInNodeJs;
   const start = globalThis.performance.now();
   for (let i = 0; i < settings.repitionInNodeJs; i++) {
     for (const language of settings.languages) {
@@ -379,10 +380,7 @@ export async function executeMultipleTests(settings) {
   const totalTimeText = `Total time: ${totalTime}`;
   console.log(totalTimeText);
 
-  await writeFile(
-    join(dataOutputFolder, "total-time.txt"),
-    totalTimeText
-  );
+  await writeFile(join(dataOutputFolder, "total-time.txt"), totalTimeText);
 
   await browser.close();
 }
