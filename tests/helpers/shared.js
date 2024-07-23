@@ -204,7 +204,7 @@ function typeBytesAmount(type) {
  * @returns {number}
  */
 export function fastAlgorithmSize(x) {
-  return Math.floor(Math.pow(2, x) * 10_000);
+  return Math.ceil(Math.pow(2, x) * 10_000);
 }
 /**
  * @param {Type} type
@@ -213,7 +213,7 @@ export function fastAlgorithmSize(x) {
  */
 export function fastAlgorithmWasmPageSize(type, x) {
   const totalaAmountOfBytes = typeBytesAmount(type) * fastAlgorithmSize(x);
-  return Math.floor(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
+  return Math.ceil(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
 }
 
 /**
@@ -222,7 +222,7 @@ export function fastAlgorithmWasmPageSize(type, x) {
  * @returns {number}
  */
 export function slowAlgorithmSize(x) {
-  return Math.floor(Math.pow(2, (Math.log2(8) / 12) * x) * 10_000);
+  return Math.ceil(Math.pow(2, (Math.log2(8) / 12) * x) * 10_000);
 }
 /**
  * @param {Type} type
@@ -231,7 +231,7 @@ export function slowAlgorithmSize(x) {
  */
 export function slowAlgorithmWasmPageSize(type, x) {
   const totalaAmountOfBytes = typeBytesAmount(type) * slowAlgorithmSize(x);
-  return Math.floor(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
+  return Math.ceil(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
 }
 
 /**
@@ -239,7 +239,7 @@ export function slowAlgorithmWasmPageSize(type, x) {
  * @returns {number}
  */
 export function matrixMultiplicationAlgorithmSize(x) {
-  return Math.floor(Math.pow(2, x / 12) * 600);
+  return Math.ceil(Math.pow(2, x / 12) * 600);
 }
 /**
  * @param {Type} type
@@ -249,7 +249,7 @@ export function matrixMultiplicationAlgorithmSize(x) {
 export function matrixMultiplicationAlgorithmWasmPageSize(type, x) {
   const totalaAmountOfBytes =
     typeBytesAmount(type) * Math.pow(matrixMultiplicationAlgorithmSize(x), 2);
-  return Math.floor(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
+  return Math.ceil(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
 }
 
 /**
@@ -257,7 +257,7 @@ export function matrixMultiplicationAlgorithmWasmPageSize(type, x) {
  * @returns
  */
 export function matrixAdditionAlgorithmSize(x) {
-  return Math.floor(Math.pow(2, (Math.log2(10) * x) / 12) * 1000);
+  return Math.ceil(Math.pow(2, (Math.log2(10) * x) / 12) * 1000);
 }
 /**
  * @param {Type} type
@@ -267,7 +267,7 @@ export function matrixAdditionAlgorithmSize(x) {
 export function matrixAdditionAlgorithmWasmPageSize(type, x) {
   const totalaAmountOfBytes =
     typeBytesAmount(type) * Math.pow(matrixAdditionAlgorithmSize(x), 2);
-  return Math.floor(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
+  return Math.ceil(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
 }
 
 /**

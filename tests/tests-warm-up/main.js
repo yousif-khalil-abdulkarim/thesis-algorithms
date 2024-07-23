@@ -8,11 +8,6 @@ const CURRENT_FOLDER_PATH = join(
   new URL(import.meta.url).pathname.slice(1),
   ".."
 );
-const RESULT_OUTPUT_PATH = join(
-  CURRENT_FOLDER_PATH,
-  "results",
-  `${type().toLowerCase()}`
-);
 await executeMultipleTests({
   algorithmsPath: join(
     CURRENT_FOLDER_PATH,
@@ -21,7 +16,11 @@ await executeMultipleTests({
     "compiled",
     "algorithms.js"
   ),
-  resultOutputPath: RESULT_OUTPUT_PATH,
+  resultOutputPath: join(
+    CURRENT_FOLDER_PATH,
+    "results",
+    `${type().toLowerCase()}`,
+  ),
   algorithms: [
     shared.ALGORITHMS.BASIC.AVERAGE,
     shared.ALGORITHMS.BASIC.MAX,
@@ -35,14 +34,14 @@ await executeMultipleTests({
     shared.ALGORITHMS.MATRIX.MATRIX_ADDITION,
     shared.ALGORITHMS.MATRIX.MATRIX_MULTIPLICATION,
   ],
-  types: ["f64", "f32", "u32", "i32", "u16", "i16", "u8", "i8"],
-  languages: ["asm", "c", "js"],
+  types: ["f64"],
+  languages: ["c", "asm"],
   steps: shared.calculateSteps({
-    start: 6,
-    end: 6,
+    start: 10,
+    end: 10,
     jump: 1,
   }),
   wasmPageSizes: [2],
-  repitionInNodeJs: 1,
-  repitionInBrowser: 1,
+  repitionInNodeJs: 3,
+  repitionInBrowser: 10,
 });

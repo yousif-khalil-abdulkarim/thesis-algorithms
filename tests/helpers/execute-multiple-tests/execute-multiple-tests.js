@@ -299,7 +299,6 @@ export async function executeMultipleTests(settings) {
     args: ["--disable-web-security"],
   });
 
-  await generateTestInfo(settings.resultOutputPath, await browser.version());
   await ensureOutputFolderExists(
     settings.algorithmsPath,
     settings.resultOutputPath
@@ -307,8 +306,9 @@ export async function executeMultipleTests(settings) {
   const dataOutputFolder = await ensureDataOutputFolderExists(
     settings.resultOutputPath
   );
+  await generateTestInfo(dataOutputFolder, await browser.version());
   const lotOutputFilePath = await ensureLogFileExists(dataOutputFolder);
-  settings.repitionInNodeJs;
+
   const start = globalThis.performance.now();
   for (let i = 0; i < settings.repitionInNodeJs; i++) {
     for (const language of settings.languages) {
