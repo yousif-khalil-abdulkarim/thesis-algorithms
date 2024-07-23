@@ -380,7 +380,7 @@ export async function executeMultipleTests(settings) {
   console.log(totalTimeText);
 
   await writeFile(
-    join(settings.resultOutputPath, "total-time.txt"),
+    join(dataOutputFolder, "total-time.txt"),
     totalTimeText
   );
 

@@ -19,7 +19,6 @@ await executeMultipleTests({
   resultOutputPath: join(
     CURRENT_FOLDER_PATH,
     "results",
-    "test",
     `${type().toLowerCase()}`
   ),
   algorithms: [
