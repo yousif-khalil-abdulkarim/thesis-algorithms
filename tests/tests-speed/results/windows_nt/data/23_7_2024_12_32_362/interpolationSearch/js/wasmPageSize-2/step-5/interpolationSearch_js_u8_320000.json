@@ -1,0 +1,10 @@
+{
+  "algorithm": "interpolationSearch",
+  "type": "u8",
+  "language": "js",
+  "size": 320000,
+  "wasmPageSize": 2,
+  "time": [
+    0.19999998807907104
+  ]
+}

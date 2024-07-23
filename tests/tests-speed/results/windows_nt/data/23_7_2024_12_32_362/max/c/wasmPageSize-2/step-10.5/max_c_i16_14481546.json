@@ -1,0 +1,10 @@
+{
+  "algorithm": "max",
+  "type": "i16",
+  "language": "c",
+  "size": 14481546,
+  "wasmPageSize": 2,
+  "time": [
+    18.30000001192093
+  ]
+}

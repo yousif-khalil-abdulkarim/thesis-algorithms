@@ -1,0 +1,10 @@
+{
+  "algorithm": "selectionSort",
+  "type": "u8",
+  "language": "js",
+  "size": 12968,
+  "wasmPageSize": 2,
+  "time": [
+    82.30000001192093
+  ]
+}
