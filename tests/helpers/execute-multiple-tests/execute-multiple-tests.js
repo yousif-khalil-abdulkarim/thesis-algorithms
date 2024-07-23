@@ -299,6 +299,7 @@ export async function executeMultipleTests(settings) {
     args: ["--disable-web-security"],
   });
 
+  await generateTestInfo(settings.resultOutputPath, await browser.version());
   await ensureOutputFolderExists(
     settings.algorithmsPath,
     settings.resultOutputPath

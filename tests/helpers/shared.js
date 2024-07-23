@@ -126,8 +126,7 @@ const SEARCH_ALGORITHMS = {
    */
   META_BINARY_SEARCH: "metaBinarySearch",
   /**
-   * Time complexity: Best case: O(log(log(n)))
-   * Time complexity: Worst case: O(n)
+   * Time complexity: O(log(log(n)))
    * Space complexity: O(n)
    */
   INTERPOLATION_SEARCH: "interpolationSearch",
@@ -139,10 +138,8 @@ const SORT_ALGORITHMS = {
    */
   MERGE_SORT: "mergeSort",
   /**
-   * Time complexity: Best case: O(n*log(n))
-   * Time complexity: Worst case: O(n^2)
-   * Space complexity: Best case: O(log(n))
-   * Space complexity: Worst case: O(n)
+   * Time complexity: O(n*log(n))
+   * Space complexity: O(n)
    */
   QUICK_SORT: "quickSort",
   /**
