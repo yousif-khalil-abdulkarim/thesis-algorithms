@@ -1,0 +1,10 @@
+{
+  "algorithm": "quickSort",
+  "type": "i16",
+  "language": "js",
+  "size": 23784,
+  "wasmPageSize": 2,
+  "time": [
+    3.399999976158142
+  ]
+}

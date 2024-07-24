@@ -1,0 +1,10 @@
+{
+  "algorithm": "quickSort",
+  "type": "f64",
+  "language": "js",
+  "size": 40000,
+  "wasmPageSize": 2,
+  "time": [
+    5.199999988079071
+  ]
+}

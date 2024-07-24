@@ -1,0 +1,10 @@
+{
+  "algorithm": "max",
+  "type": "i16",
+  "language": "js",
+  "size": 3620386,
+  "wasmPageSize": 2,
+  "time": [
+    4.100000023841858
+  ]
+}

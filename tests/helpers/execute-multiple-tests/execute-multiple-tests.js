@@ -158,11 +158,24 @@ async function generateTestInfo(resultOutputPath, browserVersion) {
  *  size: number;
  *  wasmPageSize: number;
  *  time: number[];
+ *  repition: number;
  * }} settings
  */
 async function generateAlgorithmResult(resultOutputPath, settings) {
-  const { algorithm, language, step, type, size, wasmPageSize, time } =
-    settings;
+  const {
+    algorithm,
+    language,
+    step,
+    type,
+    size,
+    wasmPageSize,
+    time,
+    repition: index,
+  } = settings;
+  console.log("algorithm: ", `${algorithm}_${type}_${language}`);
+  console.log("step:", step);
+  console.log("size:", size);
+  console.log("wasm-page-size:", wasmPageSize);
   const algorithmResultOutputPath = join(
     resultOutputPath,
     algorithm,
@@ -310,7 +323,7 @@ export async function executeMultipleTests(settings) {
   const lotOutputFilePath = await ensureLogFileExists(dataOutputFolder);
 
   const start = globalThis.performance.now();
-  for (let i = 0; i < settings.repitionInNodeJs; i++) {
+  for (let repition = 1; repition <= settings.repitionInNodeJs; repition++) {
     for (const language of settings.languages) {
       for (const type of settings.types) {
         for (const step of settings.steps) {
@@ -327,10 +340,6 @@ export async function executeMultipleTests(settings) {
               };
               await logStart(lotOutputFilePath, logData);
               try {
-                console.log("algorithm: ", `${algorithm}_${type}_${language}`);
-                console.log("step:", step);
-                console.log("size:", size);
-                console.log("wasm-page-size:", wasmPageSize);
                 await executeTest(
                   {
                     algorithmName: algorithm,
@@ -349,6 +358,7 @@ export async function executeMultipleTests(settings) {
                         size,
                         wasmPageSize,
                         time,
+                        repition,
                       });
                     },
                     async onError(error) {

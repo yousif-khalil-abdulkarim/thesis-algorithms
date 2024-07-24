@@ -1,0 +1,10 @@
+{
+  "algorithm": "interpolationSearch",
+  "type": "i8",
+  "language": "c",
+  "size": 905096,
+  "wasmPageSize": 2,
+  "time": [
+    0.10000002384185791
+  ]
+}
