@@ -170,11 +170,12 @@ async function generateAlgorithmResult(resultOutputPath, settings) {
     size,
     wasmPageSize,
     time,
-    repition: index,
+    repition,
   } = settings;
   console.log("algorithm: ", `${algorithm}_${type}_${language}`);
   console.log("step:", step);
   console.log("size:", size);
+  console.log("repition:", repition)
   console.log("wasm-page-size:", wasmPageSize);
   const algorithmResultOutputPath = join(
     resultOutputPath,
@@ -312,18 +313,18 @@ export async function executeMultipleTests(settings) {
     args: ["--disable-web-security"],
   });
 
-  await ensureOutputFolderExists(
-    settings.algorithmsPath,
-    settings.resultOutputPath
-  );
-  const dataOutputFolder = await ensureDataOutputFolderExists(
-    settings.resultOutputPath
-  );
-  await generateTestInfo(dataOutputFolder, await browser.version());
-  const lotOutputFilePath = await ensureLogFileExists(dataOutputFolder);
-
-  const start = globalThis.performance.now();
   for (let repition = 1; repition <= settings.repitionInNodeJs; repition++) {
+    const start = globalThis.performance.now();
+    await ensureOutputFolderExists(
+      settings.algorithmsPath,
+      settings.resultOutputPath
+    );
+    const dataOutputFolder = await ensureDataOutputFolderExists(
+      settings.resultOutputPath
+    );
+    await generateTestInfo(dataOutputFolder, await browser.version());
+    const lotOutputFilePath = await ensureLogFileExists(dataOutputFolder);
+
     for (const language of settings.languages) {
       for (const type of settings.types) {
         for (const step of settings.steps) {
@@ -384,14 +385,14 @@ export async function executeMultipleTests(settings) {
         }
       }
     }
-  }
-  const end = globalThis.performance.now();
-  console.log("\n");
-  const totalTime = end - start;
-  const totalTimeText = `Total time: ${totalTime}`;
-  console.log(totalTimeText);
 
-  await writeFile(join(dataOutputFolder, "total-time.txt"), totalTimeText);
+    const end = globalThis.performance.now();
+    console.log("\n");
+    const totalTime = end - start;
+    const totalTimeText = `Total time: ${totalTime}`;
+    console.log(totalTimeText);
+    await writeFile(join(dataOutputFolder, "total-time.txt"), totalTimeText);
+  }
 
   await browser.close();
 }

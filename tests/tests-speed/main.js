@@ -42,6 +42,6 @@ await executeMultipleTests({
     jump: 0.5,
   }),
   wasmPageSizes: [2],
-  repitionInNodeJs: 1,
+  repitionInNodeJs: 3,
   repitionInBrowser: 1,
 });

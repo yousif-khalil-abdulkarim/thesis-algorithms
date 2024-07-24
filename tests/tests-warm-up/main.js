@@ -19,7 +19,7 @@ await executeMultipleTests({
   resultOutputPath: join(
     CURRENT_FOLDER_PATH,
     "results",
-    `${type().toLowerCase()}`,
+    `${type().toLowerCase()}`
   ),
   algorithms: [
     shared.ALGORITHMS.BASIC.AVERAGE,
@@ -31,7 +31,7 @@ await executeMultipleTests({
     shared.ALGORITHMS.SORT.QUICK_SORT,
     shared.ALGORITHMS.SORT.SELECTION_SORT,
     shared.ALGORITHMS.SORT.BUBBLE_SORT,
-    shared.ALGORITHMS.MATRIX.MATRIX_ADDITION,
+    // shared.ALGORITHMS.MATRIX.MATRIX_ADDITION,
     shared.ALGORITHMS.MATRIX.MATRIX_MULTIPLICATION,
   ],
   types: ["f64"],
@@ -42,6 +42,6 @@ await executeMultipleTests({
     jump: 1,
   }),
   wasmPageSizes: [2],
-  repitionInNodeJs: 3,
+  repitionInNodeJs: 10,
   repitionInBrowser: 10,
 });
