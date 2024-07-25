@@ -2,7 +2,7 @@
 #include<math.h>
 #include<time.h>
 #include<stdlib.h>
-#include<cstdio>
+#include<stdio.h>
 #include "shared/shared.h"
 
 boolean array1d_includes_i32(Array1d_i32* array, i32 target) {
@@ -61,7 +61,7 @@ Array2d_u64* makeArray2d_u64(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
 }
@@ -71,7 +71,7 @@ Array2d_i64* makeArray2d_i64(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
 }
@@ -81,7 +81,7 @@ Array2d_f64* makeArray2d_f64(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
 }
@@ -91,7 +91,7 @@ Array2d_f32* makeArray2d_f32(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
 }
@@ -101,7 +101,7 @@ Array2d_u32* makeArray2d_u32(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
 }
@@ -111,7 +111,7 @@ Array2d_i32* makeArray2d_i32(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
 }
@@ -121,7 +121,7 @@ Array2d_u16* makeArray2d_u16(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
 }
@@ -131,7 +131,7 @@ Array2d_i16* makeArray2d_i16(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
 }
@@ -141,7 +141,7 @@ Array2d_u8* makeArray2d_u8(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
 }
@@ -151,9 +151,131 @@ Array2d_i8* makeArray2d_i8(int length) {
     array2d->length = length;
     array2d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array2d;
+}
+
+Array2d_u64* makePoints_u64(int pointAmount) {
+    Array2d_u64* points = makeArray2d_u64(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_u64(pointSize);
+    }
+    return points;
+}
+Array2d_i64* makePoints_i64(int pointAmount) {
+    Array2d_i64* points = makeArray2d_i64(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_i64(pointSize);
+    }
+    return points;
+}
+Array2d_f64* makePoints_f64(int pointAmount) {
+    Array2d_f64* points = makeArray2d_f64(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_f64(pointSize);
+    }
+    return points;
+}
+Array2d_f32* makePoints_f32(int pointAmount) {
+    Array2d_f32* points = makeArray2d_f32(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_f32(pointSize);
+    }
+    return points;
+}
+Array2d_u32* makePoints_u32(int pointAmount) {
+    Array2d_u32* points = makeArray2d_u32(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_u32(pointSize);
+    }
+    return points;
+}
+Array2d_i32* makePoints_i32(int pointAmount) {
+    Array2d_i32* points = makeArray2d_i32(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_i32(pointSize);
+    }
+    return points;
+}
+Array2d_u16* makePoints_u16(int pointAmount) {
+    Array2d_u16* points = makeArray2d_u16(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_u16(pointSize);
+    }
+    return points;
+}
+Array2d_i16* makePoints_i16(int pointAmount) {
+    Array2d_i16* points = makeArray2d_i16(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_i16(pointSize);
+    }
+    return points;
+}
+Array2d_u8* makePoints_u8(int pointAmount) {
+    Array2d_u8* points = makeArray2d_u8(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_u8(pointSize);
+    }
+    return points;
+}
+Array2d_i8* makePoints_i8(int pointAmount) {
+    Array2d_i8* points = makeArray2d_i8(pointAmount);
+    int pointSize = 2;
+    for (int i = 0; i < points->length; i++) {
+        points->items[i] = makeArray1d_i8(pointSize);
+    }
+    return points;
+}
+
+void setPoint2d_u64(Array2d_u64* points, int pointIndex, u64 point0, u64 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
+}
+void setPoint2d_i64(Array2d_i64* points, int pointIndex, i64 point0, i64 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
+}
+void setPoint2d_f64(Array2d_f64* points, int pointIndex, f64 point0, f64 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
+}
+void setPoint2d_f32(Array2d_f32* points, int pointIndex, f32 point0, f32 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
+}
+void setPoint2d_u32(Array2d_u32* points, int pointIndex, u32 point0, u32 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
+}
+void setPoint2d_i32(Array2d_i32* points, int pointIndex, i32 point0, i32 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
+}
+void setPoint2d_u16(Array2d_u16* points, int pointIndex, u16 point0, u16 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
+}
+void setPoint2d_i16(Array2d_i16* points, int pointIndex, i16 point0, i16 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
+}
+void setPoint2d_u8(Array2d_u8* points, int pointIndex, u8 point0, u8 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
+}
+void setPoint2d_i8(Array2d_i8* points, int pointIndex, i8 point0, i8 point1) {
+    points->items[pointIndex]->items[0] = point0;
+    points->items[pointIndex]->items[1] = point1;
 }
 
 void deleteArray2d_u64(Array2d_u64* array2d) {
@@ -315,7 +437,7 @@ Array3d_u64* makeArray3d_u64(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -325,7 +447,7 @@ Array3d_i64* makeArray3d_i64(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -335,7 +457,7 @@ Array3d_f64* makeArray3d_f64(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -345,7 +467,7 @@ Array3d_f32* makeArray3d_f32(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -355,7 +477,7 @@ Array3d_u32* makeArray3d_u32(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -365,7 +487,7 @@ Array3d_i32* makeArray3d_i32(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -375,7 +497,7 @@ Array3d_u16* makeArray3d_u16(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -385,7 +507,7 @@ Array3d_i16* makeArray3d_i16(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -395,7 +517,7 @@ Array3d_u8* makeArray3d_u8(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -405,7 +527,7 @@ Array3d_i8* makeArray3d_i8(int length) {
     array3d->length = length;
     array3d->items = items;
     for (int i = 0; i < length;i++) {
-        items[i] = nullptr;
+        items[i] = NULL;
     }
     return array3d;
 }
@@ -1998,9 +2120,9 @@ Array3d_u64* kMean_u64_c(int numberOfCluster, Array2d_u64* points, int maxLoops,
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_u64(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_u64 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_u64(clusters->items[i]);
                 }
             }
@@ -2048,9 +2170,9 @@ Array3d_i64* kMean_i64_c(int numberOfCluster, Array2d_i64* points, int maxLoops,
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_i64(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_i64 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_i64(clusters->items[i]);
                 }
             }
@@ -2098,9 +2220,9 @@ Array3d_f64* kMean_f64_c(int numberOfCluster, Array2d_f64* points, int maxLoops,
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_f64(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_f64 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_f64(clusters->items[i]);
                 }
             }
@@ -2148,9 +2270,9 @@ Array3d_f32* kMean_f32_c(int numberOfCluster, Array2d_f32* points, int maxLoops,
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_f32(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_f32 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_f32(clusters->items[i]);
                 }
             }
@@ -2198,9 +2320,9 @@ Array3d_u32* kMean_u32_c(int numberOfCluster, Array2d_u32* points, int maxLoops,
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_u32(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_u32 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_u32(clusters->items[i]);
                 }
             }
@@ -2248,9 +2370,9 @@ Array3d_i32* kMean_i32_c(int numberOfCluster, Array2d_i32* points, int maxLoops,
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_i32(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_i32 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_i32(clusters->items[i]);
                 }
             }
@@ -2298,9 +2420,9 @@ Array3d_u16* kMean_u16_c(int numberOfCluster, Array2d_u16* points, int maxLoops,
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_u16(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_u16 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_u16(clusters->items[i]);
                 }
             }
@@ -2348,9 +2470,9 @@ Array3d_i16* kMean_i16_c(int numberOfCluster, Array2d_i16* points, int maxLoops,
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_i16(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_i16 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_i16(clusters->items[i]);
                 }
             }
@@ -2398,9 +2520,9 @@ Array3d_u8* kMean_u8_c(int numberOfCluster, Array2d_u8* points, int maxLoops, do
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_u8(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_u8 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_u8(clusters->items[i]);
                 }
             }
@@ -2448,9 +2570,9 @@ Array3d_i8* kMean_i8_c(int numberOfCluster, Array2d_i8* points, int maxLoops, do
         Array1d_i32* totalPointsPerCluster = calculateTotalPointPerCluster_i8(points, clusterAssignments, numberOfCluster);
         // delete makeArray3d_i8 clusters and its nested array but keep the data points
 
-        if (clusters != nullptr) {
+        if (clusters != NULL) {
             for (int i = 0; i < clusters->length;i++) {
-                if (clusters->items[i] != nullptr) {
+                if (clusters->items[i] != NULL) {
                     shallowDeleteArray2d_i8(clusters->items[i]);
                 }
             }
