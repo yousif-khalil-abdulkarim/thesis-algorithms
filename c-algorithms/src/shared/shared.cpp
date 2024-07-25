@@ -139,7 +139,7 @@ void deleteArray1d_f64(Array1d_f64* array) {
     free(array);
 }
 EMSCRIPTEN_KEEPALIVE
-void deleteArray1d_f32(Array1d_f32* array) {
+void deleteArray1d_f32_c(Array1d_f32* array) {
     free(array->items);
     free(array);
 }

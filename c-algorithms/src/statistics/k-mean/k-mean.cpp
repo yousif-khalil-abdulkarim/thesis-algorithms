@@ -20,7 +20,7 @@ Array2d_i64* makeArray2d_i64(int length) {
     array2d->items = items;
     return array2d; 
 }
-void deleteArray2d_i64( Array2d_i64* array2d) {
+void deleteArray2d_i64_c( Array2d_i64* array2d) {
     for (int i = 0; i < array2d->length; i++) {
         deleteArray1d_i64(array2d->items += i);
     }
@@ -36,7 +36,7 @@ Array3d_i64* makeArray3d_i64(int length) {
 }
 void deleteArray3d_i64( Array3d_i64* array3d) {
     for (int i = 0; i < array3d->length; i++) {
-        deleteArray2d_i64(array3d->items += i);
+        deleteArray2d_i64_c(array3d->items += i);
     }
     free(array3d);
 }
@@ -191,12 +191,12 @@ Array3d_i64* kMean_i64_c(int numberOfCluster,  Array2d_i64* points, int maxLoops
             centroids->items[i] = newCentroids->items[i];
         }
        
-        deleteArray2d_i64(newCentroids);
+        deleteArray2d_i64_c(newCentroids);
         if (converged) {
             return clusters;
         }
     }
-    deleteArray2d_i64(centroids);
+    deleteArray2d_i64_c(centroids);
 
     return clusters;
 }

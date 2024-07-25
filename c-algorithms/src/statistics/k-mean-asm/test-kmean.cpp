@@ -10,11 +10,11 @@ int main() {
 
 
 	Array2d_i64* points = makeArray2d_i64(5);
-	Array1d_i64* point0 = makeArray1d_i64(2);
-	Array1d_i64* point1 = makeArray1d_i64(2);
-	Array1d_i64* point2 = makeArray1d_i64(2);
-	Array1d_i64* point3 = makeArray1d_i64(2);
-	Array1d_i64* point4 = makeArray1d_i64(2);
+	Array1d_i64* point0 = makeArray1d_i64_c(2);
+	Array1d_i64* point1 = makeArray1d_i64_c(2);
+	Array1d_i64* point2 = makeArray1d_i64_c(2);
+	Array1d_i64* point3 = makeArray1d_i64_c(2);
+	Array1d_i64* point4 = makeArray1d_i64_c(2);
 
 	point0->items[0] = 1;
 	point0->items[1] = 2;

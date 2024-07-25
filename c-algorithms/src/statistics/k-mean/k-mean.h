@@ -13,7 +13,7 @@ typedef struct Array2d_i64 {
     int length;
 } Array2d_i64;
 Array2d_i64* makeArray2d_i64(int length);
-void deleteArray2d_i64( Array2d_i64* array2d);
+void deleteArray2d_i64_c( Array2d_i64* array2d);
 
 typedef struct Array3d_i64 {
     Array2d_i64* items;

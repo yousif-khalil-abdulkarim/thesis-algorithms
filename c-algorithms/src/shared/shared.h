@@ -80,7 +80,7 @@ void setArray1d_i8_c(Array1d_i8* array, int index, i8 value);
 void deleteArray1d_u64(Array1d_u64* array);
 void deleteArray1d_i64(Array1d_i64* array);
 void deleteArray1d_f64(Array1d_f64* array);
-void deleteArray1d_f32(Array1d_f32* array);
+void deleteArray1d_f32_c(Array1d_f32* array);
 void deleteArray1d_u32(Array1d_u32* array);
 void deleteArray1d_i32(Array1d_i32* array);
 void deleteArray1d_u16(Array1d_u16* array);
