@@ -161,15 +161,17 @@ export const ALGORITHMS = {
 };
 
 /**
+ * @template T
  * @param {string} identifier
- * @param {() => void} function_
+ * @param {() => T} function_
  *  (): void;
  * }} function_
+ * @returns {T | null}
  */
 export function trackMetrics(identifier, function_) {
   const startTime = performance.now();
   try {
-    function_();
+    return function_();
   } catch (error) {
     console.error(error.name, error.message);
   }
@@ -177,6 +179,7 @@ export function trackMetrics(identifier, function_) {
 
   const time = endTime - startTime;
   console.log(identifier, time);
+  return null;
 }
 
 /**

@@ -33,9 +33,12 @@ function executeMatrixAlgorithmC(
   const matrixAPointer = initMatrix(matrixA);
   const matrixBPointer = initMatrix(matrixB);
   for (let i = 0; i < repition; i++) {
-    shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
-      algorithm(matrixAPointer, matrixBPointer);
-    });
+    const resultMatrixPointer = shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () =>
+      algorithm(matrixAPointer, matrixBPointer)
+    );
+    if (resultMatrixPointer !== null) {
+      deleteMatrix(resultMatrixPointer);
+    }
   }
   deleteMatrix(matrixAPointer);
   deleteMatrix(matrixBPointer);
@@ -66,9 +69,9 @@ function executeMatrixAlgorithmAsm(
   const memory = algorithms[language].memory;
   shared.setWasmMemory(memory, wasmPageSize);
   for (let i = 0; i < repition; i++) {
-    shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
-      algorithm(matrixA, matrixB);
-    });
+    shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () =>
+      algorithm(matrixA, matrixB)
+    );
   }
 }
 
@@ -93,14 +96,8 @@ function executeMatrixAlgorithmJs(algorithm, matrixA, matrixB, repition) {
  * @returns {void}
  */
 export function executeMatrixAlgorithm(algorithmSettings, algorithms) {
-  const {
-    algorithmName,
-    type,
-    language,
-    size,
-    repition,
-    wasmPageSize,
-  } = algorithmSettings;
+  const { algorithmName, type, language, size, repition, wasmPageSize } =
+    algorithmSettings;
 
   const fullAlgorithmName = `${algorithmName}_${type}_${language}`;
   console.log(fullAlgorithmName);
