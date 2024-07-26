@@ -9,6 +9,72 @@ const module = await InitModule();
 export const memory = module.asm.d;
 export const { _free: free } = module;
 
+export function initPoints_u64_c(pointArray) {
+  const pointer = module._makePoints_u64_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_u64_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+  return pointer;
+}
+export function initPoints_i64_c(pointArray) {
+  const pointer = module._makePoints_i64_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_i64_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+}
+export function initPoints_f64_c(pointArray) {
+  const pointer = module._makePoints_f64_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_f64_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+  return pointer;
+}
+export function initPoints_f32_c(pointArray) {
+  const pointer = module._makePoints_f32_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_f32_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+}
+export function initPoints_u32_c(pointArray) {
+  const pointer = module._makePoints_u32_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_u32_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+  return pointer;
+}
+export function initPoints_i32_c(pointArray) {
+  const pointer = module._makePoints_i32_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_i32_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+}
+export function initPoints_u16_c(pointArray) {
+  const pointer = module._makePoints_u16_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_u16_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+  return pointer;
+}
+export function initPoints_i16_c(pointArray) {
+  const pointer = module._makePoints_i16_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_i16_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+}
+export function initPoints_u8_c(pointArray) {
+  const pointer = module._makePoints_u8_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_u8_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+  return pointer;
+}
+export function initPoints_i8_c(pointArray) {
+  const pointer = module._makePoints_i8_c(pointArray.length);
+  for (let i = 0; i < pointArray.length; i++) {
+    module._setPoint_i8_c(pointer, i, pointArray[i][0], pointArray[i][1]);
+  }
+}
+
 export function initArray1d_u64_c(array) {
   const pointer = module._makeArray1d_u64_c(array.length);
   for (let i = 0; i < array.length; i++) {
@@ -192,6 +258,28 @@ export function initMatrix_i8_c(matrix) {
 }
 
 export const {
+  _deleteArray2d_u64_c: deleteArray2d_u64_c,
+  _deleteArray2d_i64_c: deleteArray2d_i64_c,
+  _deleteArray2d_f64_c: deleteArray2d_f64_c,
+  _deleteArray2d_f32_c: deleteArray2d_f32_c,
+  _deleteArray2d_u32_c: deleteArray2d_u32_c,
+  _deleteArray2d_i32_c: deleteArray2d_i32_c,
+  _deleteArray2d_u16_c: deleteArray2d_u16_c,
+  _deleteArray2d_i16_c: deleteArray2d_i16_c,
+  _deleteArray2d_u8_c: deleteArray2d_u8_c,
+  _deleteArray2d_i8_c: deleteArray2d_i8_c,
+
+  _shallowDeleteArray2d_u64_c: shallowDeleteArray2d_u64_c,
+  _shallowDeleteArray2d_i64_c: shallowDeleteArray2d_i64_c,
+  _shallowDeleteArray2d_f64_c: shallowDeleteArray2d_f64_c,
+  _shallowDeleteArray2d_f32_c: shallowDeleteArray2d_f32_c,
+  _shallowDeleteArray2d_u32_c: shallowDeleteArray2d_u32_c,
+  _shallowDeleteArray2d_i32_c: shallowDeleteArray2d_i32_c,
+  _shallowDeleteArray2d_u16_c: shallowDeleteArray2d_u16_c,
+  _shallowDeleteArray2d_i16_c: shallowDeleteArray2d_i16_c,
+  _shallowDeleteArray2d_u8_c: shallowDeleteArray2d_u8_c,
+  _shallowDeleteArray2d_i8_c: shallowDeleteArray2d_i8_c,
+
   _deleteArray1d_f32_c: deleteArray1d_f32_c,
   _deleteArray1d_f64_c: deleteArray1d_f64_c,
   _deleteArray1d_i8_c: deleteArray1d_i8_c,
@@ -366,4 +454,14 @@ export const {
   _sum_u16_c: sum_u16_c,
   _sum_u32_c: sum_u32_c,
   _sum_u64_c: sum_u64_c,
+  _kMean_u64_c: kMean_u64_c,
+  _kMean_i64_c: kMean_i64_c,
+  _kMean_f64_c: kMean_f64_c,
+  _kMean_f32_c: kMean_f32_c,
+  _kMean_u32_c: kMean_u32_c,
+  _kMean_i32_c: kMean_i32_c,
+  _kMean_u16_c: kMean_u16_c,
+  _kMean_i16_c: kMean_i16_c,
+  _kMean_u8_c: kMean_u8_c,
+  _kMean_i8_c: kMean_i8_c,
 } = module;

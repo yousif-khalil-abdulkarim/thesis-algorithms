@@ -3239,8 +3239,8 @@ Array1d_i8* selectionSort_i8_c(Array1d_i8* array) {
     return array;
 }
 
-boolean array1d_includes_i32_c(Array1d_i32* array, i32 target) {
-    for (int i = 0; i < array->length; i++) {
+boolean array1d_includes_i32_c(Array1d_i32* array, i32 target, int size) {
+    for (int i = 0; i < size; i++) {
         if (array->items[i] == target) {
             return 1;
         }
@@ -3644,42 +3644,52 @@ void deleteArray2d_i8_c(Array2d_i8* array2d) {
     free(array2d);
 }
 
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_u64_c(Array2d_u64* array2d) {
     free(array2d->items);
     free(array2d);
 }
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_i64_c(Array2d_i64* array2d) {
     free(array2d->items);
     free(array2d);
 }
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_f64_c(Array2d_f64* array2d) {
     free(array2d->items);
     free(array2d);
 }
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_f32_c(Array2d_f32* array2d) {
     free(array2d->items);
     free(array2d);
 }
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_u32_c(Array2d_u32* array2d) {
     free(array2d->items);
     free(array2d);
 }
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_i32_c(Array2d_i32* array2d) {
     free(array2d->items);
     free(array2d);
 }
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_u16_c(Array2d_u16* array2d) {
     free(array2d->items);
     free(array2d);
 }
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_i16_c(Array2d_i16* array2d) {
     free(array2d->items);
     free(array2d);
 }
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_u8_c(Array2d_u8* array2d) {
     free(array2d->items);
     free(array2d);
 }
+EMSCRIPTEN_KEEPALIVE
 void shallowDeleteArray2d_i8_c(Array2d_i8* array2d) {
     free(array2d->items);
     free(array2d);
@@ -3786,6 +3796,7 @@ Array3d_i8* makeArray3d_i8_c(int length) {
     return array3d;
 }
 
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_u64_c(Array3d_u64* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_u64_c(array3d->items[i]);
@@ -3793,6 +3804,7 @@ void deleteArray3d_u64_c(Array3d_u64* array3d) {
     free(array3d->items);
     free(array3d);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_i64_c(Array3d_i64* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_i64_c(array3d->items[i]);
@@ -3800,6 +3812,7 @@ void deleteArray3d_i64_c(Array3d_i64* array3d) {
     free(array3d->items);
     free(array3d);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_f64_c(Array3d_f64* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_f64_c(array3d->items[i]);
@@ -3807,6 +3820,7 @@ void deleteArray3d_f64_c(Array3d_f64* array3d) {
     free(array3d->items);
     free(array3d);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_f32_c(Array3d_f32* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_f32_c(array3d->items[i]);
@@ -3814,6 +3828,7 @@ void deleteArray3d_f32_c(Array3d_f32* array3d) {
     free(array3d->items);
     free(array3d);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_u32_c(Array3d_u32* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_u32_c(array3d->items[i]);
@@ -3821,6 +3836,7 @@ void deleteArray3d_u32_c(Array3d_u32* array3d) {
     free(array3d->items);
     free(array3d);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_i32_c(Array3d_i32* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_i32_c(array3d->items[i]);
@@ -3828,6 +3844,7 @@ void deleteArray3d_i32_c(Array3d_i32* array3d) {
     free(array3d->items);
     free(array3d);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_u16_c(Array3d_u16* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_u16_c(array3d->items[i]);
@@ -3835,6 +3852,7 @@ void deleteArray3d_u16_c(Array3d_u16* array3d) {
     free(array3d->items);
     free(array3d);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_i16_c(Array3d_i16* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_i16_c(array3d->items[i]);
@@ -3842,6 +3860,7 @@ void deleteArray3d_i16_c(Array3d_i16* array3d) {
     free(array3d->items);
     free(array3d);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_u8_c(Array3d_u8* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_u8_c(array3d->items[i]);
@@ -3849,6 +3868,7 @@ void deleteArray3d_u8_c(Array3d_u8* array3d) {
     free(array3d->items);
     free(array3d);
 }
+EMSCRIPTEN_KEEPALIVE
 void deleteArray3d_i8_c(Array3d_i8* array3d) {
     for (int i = 0; i < array3d->length; i++) {
         deleteArray2d_i8_c(array3d->items[i]);
@@ -4454,8 +4474,8 @@ Array2d_u64* initCentroid_u64_c(int numberOfCluster, Array2d_u64* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -4476,8 +4496,8 @@ Array2d_i64* initCentroid_i64_c(int numberOfCluster, Array2d_i64* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -4498,8 +4518,8 @@ Array2d_f64* initCentroid_f64_c(int numberOfCluster, Array2d_f64* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -4520,8 +4540,8 @@ Array2d_f32* initCentroid_f32_c(int numberOfCluster, Array2d_f32* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -4542,8 +4562,8 @@ Array2d_u32* initCentroid_u32_c(int numberOfCluster, Array2d_u32* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -4564,8 +4584,8 @@ Array2d_i32* initCentroid_i32_c(int numberOfCluster, Array2d_i32* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -4586,8 +4606,8 @@ Array2d_u16* initCentroid_u16_c(int numberOfCluster, Array2d_u16* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -4608,8 +4628,8 @@ Array2d_i16* initCentroid_i16_c(int numberOfCluster, Array2d_i16* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -4630,8 +4650,8 @@ Array2d_u8* initCentroid_u8_c(int numberOfCluster, Array2d_u8* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -4652,8 +4672,8 @@ Array2d_i8* initCentroid_i8_c(int numberOfCluster, Array2d_i8* points) {
     int i = 0;
     srand((unsigned int)time(NULL));
     while (i < numberOfCluster) {
-        int randomIndex = rand() % numberOfCluster;
-        if (!array1d_includes_i32_c(randomIndices, randomIndex)) {
+        int randomIndex = rand() % points->length;
+        if (!array1d_includes_i32_c(randomIndices, randomIndex, i)) {
             randomIndices->items[i] = randomIndex;
             i++;
         }
@@ -5353,6 +5373,7 @@ Array2d_i8* calculateCentriods_i8_c(Array3d_i8* clusters,int dimensionsInPoint) 
     return newCentroids;
 }
 
+EMSCRIPTEN_KEEPALIVE
 Array3d_u64* kMean_u64_c(int numberOfCluster, Array2d_u64* points, int maxLoops, double tolerance) {
     Array2d_u64* centroids = initCentroid_u64_c(numberOfCluster, points);
 
@@ -5403,6 +5424,7 @@ Array3d_u64* kMean_u64_c(int numberOfCluster, Array2d_u64* points, int maxLoops,
 
     return clusters;
 }
+EMSCRIPTEN_KEEPALIVE
 Array3d_i64* kMean_i64_c(int numberOfCluster, Array2d_i64* points, int maxLoops, double tolerance) {
     Array2d_i64* centroids = initCentroid_i64_c(numberOfCluster, points);
 
@@ -5453,6 +5475,7 @@ Array3d_i64* kMean_i64_c(int numberOfCluster, Array2d_i64* points, int maxLoops,
 
     return clusters;
 }
+EMSCRIPTEN_KEEPALIVE
 Array3d_f64* kMean_f64_c(int numberOfCluster, Array2d_f64* points, int maxLoops, double tolerance) {
     Array2d_f64* centroids = initCentroid_f64_c(numberOfCluster, points);
 
@@ -5460,6 +5483,7 @@ Array3d_f64* kMean_f64_c(int numberOfCluster, Array2d_f64* points, int maxLoops,
     int count = 0;
 
     int dimensionInPoint = points->items[0]->length;
+
     Array3d_f64* clusters = makeArray3d_f64_c(numberOfCluster);
   
  
@@ -5503,6 +5527,7 @@ Array3d_f64* kMean_f64_c(int numberOfCluster, Array2d_f64* points, int maxLoops,
 
     return clusters;
 }
+EMSCRIPTEN_KEEPALIVE
 Array3d_f32* kMean_f32_c(int numberOfCluster, Array2d_f32* points, int maxLoops, double tolerance) {
     Array2d_f32* centroids = initCentroid_f32_c(numberOfCluster, points);
 
@@ -5553,6 +5578,7 @@ Array3d_f32* kMean_f32_c(int numberOfCluster, Array2d_f32* points, int maxLoops,
 
     return clusters;
 }
+EMSCRIPTEN_KEEPALIVE
 Array3d_u32* kMean_u32_c(int numberOfCluster, Array2d_u32* points, int maxLoops, double tolerance) {
     Array2d_u32* centroids = initCentroid_u32_c(numberOfCluster, points);
 
@@ -5603,6 +5629,7 @@ Array3d_u32* kMean_u32_c(int numberOfCluster, Array2d_u32* points, int maxLoops,
 
     return clusters;
 }
+EMSCRIPTEN_KEEPALIVE
 Array3d_i32* kMean_i32_c(int numberOfCluster, Array2d_i32* points, int maxLoops, double tolerance) {
     Array2d_i32* centroids = initCentroid_i32_c(numberOfCluster, points);
 
@@ -5653,6 +5680,7 @@ Array3d_i32* kMean_i32_c(int numberOfCluster, Array2d_i32* points, int maxLoops,
 
     return clusters;
 }
+EMSCRIPTEN_KEEPALIVE
 Array3d_u16* kMean_u16_c(int numberOfCluster, Array2d_u16* points, int maxLoops, double tolerance) {
     Array2d_u16* centroids = initCentroid_u16_c(numberOfCluster, points);
 
@@ -5703,6 +5731,7 @@ Array3d_u16* kMean_u16_c(int numberOfCluster, Array2d_u16* points, int maxLoops,
 
     return clusters;
 }
+EMSCRIPTEN_KEEPALIVE
 Array3d_i16* kMean_i16_c(int numberOfCluster, Array2d_i16* points, int maxLoops, double tolerance) {
     Array2d_i16* centroids = initCentroid_i16_c(numberOfCluster, points);
 
@@ -5753,6 +5782,7 @@ Array3d_i16* kMean_i16_c(int numberOfCluster, Array2d_i16* points, int maxLoops,
 
     return clusters;
 }
+EMSCRIPTEN_KEEPALIVE
 Array3d_u8* kMean_u8_c(int numberOfCluster, Array2d_u8* points, int maxLoops, double tolerance) {
     Array2d_u8* centroids = initCentroid_u8_c(numberOfCluster, points);
 
@@ -5803,6 +5833,7 @@ Array3d_u8* kMean_u8_c(int numberOfCluster, Array2d_u8* points, int maxLoops, do
 
     return clusters;
 }
+EMSCRIPTEN_KEEPALIVE
 Array3d_i8* kMean_i8_c(int numberOfCluster, Array2d_i8* points, int maxLoops, double tolerance) {
     Array2d_i8* centroids = initCentroid_i8_c(numberOfCluster, points);
 
