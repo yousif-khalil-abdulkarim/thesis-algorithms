@@ -1,0 +1,10 @@
+{
+  "algorithm": "binarySearch",
+  "type": "u8",
+  "language": "c",
+  "size": 56569,
+  "wasmPageSize": 2,
+  "time": [
+    0
+  ]
+}

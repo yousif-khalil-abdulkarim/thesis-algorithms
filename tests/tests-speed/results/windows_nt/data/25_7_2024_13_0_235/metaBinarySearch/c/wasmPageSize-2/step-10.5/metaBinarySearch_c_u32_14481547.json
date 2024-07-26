@@ -1,0 +1,10 @@
+{
+  "algorithm": "metaBinarySearch",
+  "type": "u32",
+  "language": "c",
+  "size": 14481547,
+  "wasmPageSize": 2,
+  "time": [
+    0.10000002384185791
+  ]
+}

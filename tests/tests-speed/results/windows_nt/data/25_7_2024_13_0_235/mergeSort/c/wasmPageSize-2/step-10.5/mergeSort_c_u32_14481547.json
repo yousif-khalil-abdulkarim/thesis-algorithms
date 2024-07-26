@@ -1,0 +1,10 @@
+{
+  "algorithm": "mergeSort",
+  "type": "u32",
+  "language": "c",
+  "size": 14481547,
+  "wasmPageSize": 2,
+  "time": [
+    1498.199999988079
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "algorithm": "selectionSort",
+  "type": "f64",
+  "language": "asm",
+  "size": 47569,
+  "wasmPageSize": 2,
+  "time": [
+    12311.200000047684
+  ]
+}
