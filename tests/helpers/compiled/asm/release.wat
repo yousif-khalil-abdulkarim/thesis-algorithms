@@ -15725,6 +15725,12 @@
     global.get $~lib/memory/__stack_pointer
     local.get $0
     i32.store offset=4
+    local.get $0
+    call $~lib/staticarray/StaticArray<f32>#get:length
+    drop
+    global.get $~lib/memory/__stack_pointer
+    local.get $0
+    i32.store offset=4
     local.get $2
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
@@ -16633,6 +16639,13 @@
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
     i64.extend_i32_s
+    local.tee $2
+    i64.eqz
+    if (result i64)
+     i64.const 1
+    else
+     local.get $2
+    end
     i64.div_s
     local.set $2
     global.get $~lib/memory/__stack_pointer
@@ -17481,7 +17494,8 @@
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
-  (local $6 i32)
+  (local $6 f64)
+  (local $7 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 12
   i32.sub
@@ -17504,7 +17518,7 @@
    i32.gt_s
    if
     f64.const 0
-    local.set $2
+    local.set $6
     i32.const 0
     local.set $4
     loop $for-loop|1
@@ -17522,16 +17536,16 @@
       local.get $0
       local.get $4
       call $~lib/staticarray/StaticArray<~lib/staticarray/StaticArray<u64>>#__get
-      local.set $6
+      local.set $7
       global.get $~lib/memory/__stack_pointer
-      local.get $6
+      local.get $7
       i32.store offset=4
-      local.get $2
       local.get $6
+      local.get $7
       local.get $3
       call $~lib/staticarray/StaticArray<f64>#__get
       f64.add
-      local.set $2
+      local.set $6
       local.get $4
       i32.const 1
       i32.add
@@ -17542,18 +17556,24 @@
     global.get $~lib/memory/__stack_pointer
     local.get $0
     i32.store offset=4
-    local.get $2
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
     f64.convert_i32_s
-    f64.div
-    local.set $2
+    local.tee $2
+    f64.const 0
+    f64.eq
+    if
+     f64.const 1
+     local.set $2
+    end
     global.get $~lib/memory/__stack_pointer
     local.get $5
     i32.store offset=4
     local.get $5
     local.get $3
+    local.get $6
     local.get $2
+    f64.div
     call $~lib/staticarray/StaticArray<f64>#__set
     local.get $3
     i32.const 1
@@ -18385,7 +18405,8 @@
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
-  (local $6 i32)
+  (local $6 f32)
+  (local $7 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 12
   i32.sub
@@ -18408,7 +18429,7 @@
    i32.gt_s
    if
     f32.const 0
-    local.set $2
+    local.set $6
     i32.const 0
     local.set $4
     loop $for-loop|1
@@ -18426,16 +18447,16 @@
       local.get $0
       local.get $4
       call $~lib/staticarray/StaticArray<~lib/staticarray/StaticArray<u64>>#__get
-      local.set $6
+      local.set $7
       global.get $~lib/memory/__stack_pointer
-      local.get $6
+      local.get $7
       i32.store offset=4
-      local.get $2
       local.get $6
+      local.get $7
       local.get $3
       call $~lib/staticarray/StaticArray<f32>#__get
       f32.add
-      local.set $2
+      local.set $6
       local.get $4
       i32.const 1
       i32.add
@@ -18446,18 +18467,24 @@
     global.get $~lib/memory/__stack_pointer
     local.get $0
     i32.store offset=4
-    local.get $2
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
     f32.convert_i32_s
-    f32.div
-    local.set $2
+    local.tee $2
+    f32.const 0
+    f32.eq
+    if
+     f32.const 1
+     local.set $2
+    end
     global.get $~lib/memory/__stack_pointer
     local.get $5
     i32.store offset=4
     local.get $5
     local.get $3
+    local.get $6
     local.get $2
+    f32.div
     call $~lib/staticarray/StaticArray<f32>#__set
     local.get $3
     i32.const 1
@@ -19354,6 +19381,12 @@
     local.get $5
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
+    local.tee $2
+    if (result i32)
+     local.get $2
+    else
+     i32.const 1
+    end
     i32.div_u
     local.set $2
     global.get $~lib/memory/__stack_pointer
@@ -20257,6 +20290,12 @@
     local.get $5
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
+    local.tee $2
+    if (result i32)
+     local.get $2
+    else
+     i32.const 1
+    end
     i32.div_s
     local.set $2
     global.get $~lib/memory/__stack_pointer
@@ -21171,6 +21210,14 @@
     i32.and
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
+    local.tee $2
+    i32.const 65535
+    i32.and
+    if (result i32)
+     local.get $2
+    else
+     i32.const 1
+    end
     i32.const 65535
     i32.and
     i32.div_u
@@ -22079,6 +22126,14 @@
     i32.extend16_s
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
+    local.tee $2
+    i32.const 65535
+    i32.and
+    if (result i32)
+     local.get $2
+    else
+     i32.const 1
+    end
     i32.extend16_s
     i32.div_s
     local.set $2
@@ -22996,6 +23051,14 @@
     i32.and
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
+    local.tee $2
+    i32.const 255
+    i32.and
+    if (result i32)
+     local.get $2
+    else
+     i32.const 1
+    end
     i32.const 255
     i32.and
     i32.div_u
@@ -23904,6 +23967,14 @@
     i32.extend8_s
     local.get $0
     call $~lib/staticarray/StaticArray<f32>#get:length
+    local.tee $2
+    i32.const 255
+    i32.and
+    if (result i32)
+     local.get $2
+    else
+     i32.const 1
+    end
     i32.extend8_s
     i32.div_s
     local.set $2

@@ -21,6 +21,7 @@ export function initPoints_i64_c(pointArray) {
   for (let i = 0; i < pointArray.length; i++) {
     module._setPoint_i64_c(pointer, i, pointArray[i][0], pointArray[i][1]);
   }
+  return pointer;
 }
 export function initPoints_f64_c(pointArray) {
   const pointer = module._makePoints_f64_c(pointArray.length);
@@ -34,6 +35,7 @@ export function initPoints_f32_c(pointArray) {
   for (let i = 0; i < pointArray.length; i++) {
     module._setPoint_f32_c(pointer, i, pointArray[i][0], pointArray[i][1]);
   }
+  return pointer;
 }
 export function initPoints_u32_c(pointArray) {
   const pointer = module._makePoints_u32_c(pointArray.length);
@@ -47,6 +49,7 @@ export function initPoints_i32_c(pointArray) {
   for (let i = 0; i < pointArray.length; i++) {
     module._setPoint_i32_c(pointer, i, pointArray[i][0], pointArray[i][1]);
   }
+  return pointer;
 }
 export function initPoints_u16_c(pointArray) {
   const pointer = module._makePoints_u16_c(pointArray.length);
@@ -60,6 +63,7 @@ export function initPoints_i16_c(pointArray) {
   for (let i = 0; i < pointArray.length; i++) {
     module._setPoint_i16_c(pointer, i, pointArray[i][0], pointArray[i][1]);
   }
+  return pointer;
 }
 export function initPoints_u8_c(pointArray) {
   const pointer = module._makePoints_u8_c(pointArray.length);
@@ -73,6 +77,7 @@ export function initPoints_i8_c(pointArray) {
   for (let i = 0; i < pointArray.length; i++) {
     module._setPoint_i8_c(pointer, i, pointArray[i][0], pointArray[i][1]);
   }
+  return pointer;
 }
 
 export function initArray1d_u64_c(array) {

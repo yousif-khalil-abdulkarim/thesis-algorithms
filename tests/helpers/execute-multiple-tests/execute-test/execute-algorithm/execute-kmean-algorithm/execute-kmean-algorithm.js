@@ -35,8 +35,8 @@ function executeKMeanAlgorithmC(
     algorithms[language][`shallowDeleteArray2d_${type}_c`];
   const deleteArray3d = algorithms[language][`deleteArray3d_${type}_c`];
   for (let i = 0; i < repition; i++) {
-    const position = initPoints(type, size);
-    const positionPointer = initPointsC(position);
+    const positions = initPoints(type, size);
+    const positionPointer = initPointsC(positions);
     const clusters = shared.trackMetrics(
       shared.DATA_IDENTIFIER.ALGORITHM_TIME,
       () => algorithm(CLUSTER_AMOUNT, positionPointer, MAX_LOOPS, TOLERANCE)
@@ -90,9 +90,9 @@ function executeKMeanAlgorithmAsm(
 function executeKMeanAlgorithmJs(type, algorithm, size, repition) {
   for (let i = 0; i < repition; i++) {
     const positions = initPoints(type, size);
-    shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
-      algorithm(CLUSTER_AMOUNT, positions, MAX_LOOPS, TOLERANCE);
-    });
+    shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () =>
+      algorithm(CLUSTER_AMOUNT, positions, MAX_LOOPS, TOLERANCE)
+    );
   }
 }
 
