@@ -1,0 +1,10 @@
+{
+  "algorithm": "average",
+  "type": "f32",
+  "language": "js",
+  "size": 2560000,
+  "wasmPageSize": 2,
+  "time": [
+    4.599999964237213
+  ]
+}

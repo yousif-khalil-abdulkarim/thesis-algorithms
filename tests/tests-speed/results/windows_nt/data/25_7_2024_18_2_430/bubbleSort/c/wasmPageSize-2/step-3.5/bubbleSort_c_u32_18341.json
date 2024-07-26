@@ -1,0 +1,10 @@
+{
+  "algorithm": "bubbleSort",
+  "type": "u32",
+  "language": "c",
+  "size": 18341,
+  "wasmPageSize": 2,
+  "time": [
+    545.3999999761581
+  ]
+}

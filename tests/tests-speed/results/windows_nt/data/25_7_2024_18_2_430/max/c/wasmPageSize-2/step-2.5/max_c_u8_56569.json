@@ -1,0 +1,10 @@
+{
+  "algorithm": "max",
+  "type": "u8",
+  "language": "c",
+  "size": 56569,
+  "wasmPageSize": 2,
+  "time": [
+    0.10000002384185791
+  ]
+}

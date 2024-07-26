@@ -1,0 +1,10 @@
+{
+  "algorithm": "interpolationSearch",
+  "type": "f32",
+  "language": "js",
+  "size": 2560000,
+  "wasmPageSize": 2,
+  "time": [
+    0.09999996423721313
+  ]
+}

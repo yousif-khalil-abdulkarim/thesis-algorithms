@@ -1,0 +1,10 @@
+{
+  "algorithm": "matrixMultiplication",
+  "type": "i8",
+  "language": "c",
+  "size": 714,
+  "wasmPageSize": 2,
+  "time": [
+    534.8000000119209
+  ]
+}
