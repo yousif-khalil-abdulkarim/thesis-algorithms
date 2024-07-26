@@ -1,8 +1,36 @@
-export const memory: WebAssembly.Memory;
-
 export function free(pointer: number): void;
 export const memory: WebAssembly.Memory;
-export function malloc(sizeInBytes: number): number;
+
+export function initPoints_u64_c(
+  pointArray: ArrayLike<[bigint, bigint]>
+): number;
+export function initPoints_i64_c(
+  pointArray: ArrayLike<[bigint, bigint]>
+): number;
+export function initPoints_f64_c(
+  pointArray: ArrayLike<[number, number]>
+): number;
+export function initPoints_f32_c(
+  pointArray: ArrayLike<[number, number]>
+): number;
+export function initPoints_u32_c(
+  pointArray: ArrayLike<[number, number]>
+): number;
+export function initPoints_i32_c(
+  pointArray: ArrayLike<[number, number]>
+): number;
+export function initPoints_u16_c(
+  pointArray: ArrayLike<[number, number]>
+): number;
+export function initPoints_i16_c(
+  pointArray: ArrayLike<[number, number]>
+): number;
+export function initPoints_u8_c(
+  pointArray: ArrayLike<[number, number]>
+): number;
+export function initPoints_i8_c(
+  pointArray: ArrayLike<[number, number]>
+): number;
 
 export function initArray1d_u64_c(array: ArrayLike<bigint>): number;
 export function initArray1d_i64_c(array: ArrayLike<bigint>): number;
@@ -26,6 +54,17 @@ export function initMatrix_i16_c(matrix: ArrayLike<ArrayLike<number>>): number;
 export function initMatrix_u8_c(matrix: ArrayLike<ArrayLike<number>>): number;
 export function initMatrix_i8_c(matrix: ArrayLike<ArrayLike<number>>): number;
 
+export function deleteArray3d_f32_c(arrayPointer: number): void;
+export function deleteArray3d_f64_c(arrayPointer: number): void;
+export function deleteArray3d_i8_c(arrayPointer: number): void;
+export function deleteArray3d_i16_c(arrayPointer: number): void;
+export function deleteArray3d_i32_c(arrayPointer: number): void;
+export function deleteArray3d_i64_c(arrayPointer: number): void;
+export function deleteArray3d_u8_c(arrayPointer: number): void;
+export function deleteArray3d_u16_c(arrayPointer: number): void;
+export function deleteArray3d_u32_c(arrayPointer: number): void;
+export function deleteArray3d_u64_c(arrayPointer: number): void;
+
 export function deleteArray1d_f32_c(arrayPointer: number): void;
 export function deleteArray1d_f64_c(arrayPointer: number): void;
 export function deleteArray1d_i8_c(arrayPointer: number): void;
@@ -47,6 +86,28 @@ export function deleteMatrix_u16_c(matrixPointer: number): void;
 export function deleteMatrix_i16_c(matrixPointer: number): void;
 export function deleteMatrix_u8_c(matrixPointer: number): void;
 export function deleteMatrix_i8_c(matrixPointer: number): void;
+
+export function deleteArray2d_u64_c(pointer: number): void;
+export function deleteArray2d_i64_c(pointer: number): void;
+export function deleteArray2d_f64_c(pointer: number): void;
+export function deleteArray2d_f32_c(pointer: number): void;
+export function deleteArray2d_u32_c(pointer: number): void;
+export function deleteArray2d_i32_c(pointer: number): void;
+export function deleteArray2d_u16_c(pointer: number): void;
+export function deleteArray2d_i16_c(pointer: number): void;
+export function deleteArray2d_u8_c(pointer: number): void;
+export function deleteArray2d_i8_c(pointer: number): void;
+
+export function shallowDeleteArray2d_u64_c(pointer: number): void;
+export function shallowDeleteArray2d_i64_c(pointer: number): void;
+export function shallowDeleteArray2d_f64_c(pointer: number): void;
+export function shallowDeleteArray2d_f32_c(pointer: number): void;
+export function shallowDeleteArray2d_u32_c(pointer: number): void;
+export function shallowDeleteArray2d_i32_c(pointer: number): void;
+export function shallowDeleteArray2d_u16_c(pointer: number): void;
+export function shallowDeleteArray2d_i16_c(pointer: number): void;
+export function shallowDeleteArray2d_u8_c(pointer: number): void;
+export function shallowDeleteArray2d_i8_c(pointer: number): void;
 
 export function average_f32_c(arrayPointer: number): number;
 export function average_f64_c(arrayPointer: number): number;
@@ -375,3 +436,66 @@ export function sum_u8_c(arrayPointer: number): number;
 export function sum_u16_c(arrayPointer: number): number;
 export function sum_u32_c(arrayPointer: number): number;
 export function sum_u64_c(arrayPointer: number): number;
+
+// int numberOfCluster, Array2d_u64* points, int maxLoops, double tolerance
+
+export function kMean_u64_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;
+export function kMean_i64_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;
+export function kMean_f64_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;
+export function kMean_f32_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;
+export function kMean_u32_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;
+export function kMean_i32_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;
+export function kMean_u16_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;
+export function kMean_i16_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;
+export function kMean_u8_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;
+export function kMean_i8_c(
+  numberOfCluster: number,
+  points: number,
+  maxLoops: number,
+  tolerance: number
+): number;

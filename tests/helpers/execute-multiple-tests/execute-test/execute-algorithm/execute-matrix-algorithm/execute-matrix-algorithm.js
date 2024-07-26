@@ -7,8 +7,7 @@ import { initMatrices } from "./init-matrices.js";
  * @param {shared.Language} language
  * @param {*} algorithms
  * @param {*} algorithm
- * @param {shared.Matrix<number | bigint>} matrixA
- * @param {shared.Matrix<number | bigint>} matrixB
+ * @param {number} size
  * @param {number} wasmPageSize
  * @param {number} repition
  * @returns {void}
@@ -18,8 +17,7 @@ function executeMatrixAlgorithmC(
   language,
   algorithms,
   algorithm,
-  matrixA,
-  matrixB,
+  size,
   wasmPageSize,
   repition
 ) {
@@ -30,36 +28,38 @@ function executeMatrixAlgorithmC(
   shared.setWasmMemory(memory, wasmPageSize);
   const initMatrix = algorithms[language][`initMatrix_${type}_c`];
   const deleteMatrix = algorithms[language][`deleteMatrix_${type}_c`];
-  const matrixAPointer = initMatrix(matrixA);
-  const matrixBPointer = initMatrix(matrixB);
   for (let i = 0; i < repition; i++) {
-    const resultMatrixPointer = shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () =>
-      algorithm(matrixAPointer, matrixBPointer)
+    const { matrixA, matrixB } = initMatrices(type, size);
+    const matrixAPointer = initMatrix(matrixA);
+    const matrixBPointer = initMatrix(matrixB);
+    const resultMatrixPointer = shared.trackMetrics(
+      shared.DATA_IDENTIFIER.ALGORITHM_TIME,
+      () => algorithm(matrixAPointer, matrixBPointer)
     );
     if (resultMatrixPointer !== null) {
       deleteMatrix(resultMatrixPointer);
     }
+    deleteMatrix(matrixAPointer);
+    deleteMatrix(matrixBPointer);
   }
-  deleteMatrix(matrixAPointer);
-  deleteMatrix(matrixBPointer);
 }
 
 /**
+ * @param {shared.Type} type
  * @param {shared.Language} language
  * @param {*} algorithms
  * @param {*} algorithm
- * @param {shared.Matrix<number | bigint>} matrixA
- * @param {shared.Matrix<number | bigint>} matrixB
+ * @param {number} size
  * @param {number} wasmPageSize
  * @param {number} repition
  * @returns {void}
  */
 function executeMatrixAlgorithmAsm(
+  type,
   language,
   algorithms,
   algorithm,
-  matrixA,
-  matrixB,
+  size,
   wasmPageSize,
   repition
 ) {
@@ -69,6 +69,7 @@ function executeMatrixAlgorithmAsm(
   const memory = algorithms[language].memory;
   shared.setWasmMemory(memory, wasmPageSize);
   for (let i = 0; i < repition; i++) {
+    const { matrixA, matrixB } = initMatrices(type, size);
     shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () =>
       algorithm(matrixA, matrixB)
     );
@@ -76,14 +77,15 @@ function executeMatrixAlgorithmAsm(
 }
 
 /**
+ * @param {shared.Type} type
  * @param {*} algorithm
- * @param {shared.Matrix<number | bigint>} matrixA
- * @param {shared.Matrix<number | bigint>} matrixB
+ * @param {number} size
  * @param {number} repition
  * @returns {void}
  */
-function executeMatrixAlgorithmJs(algorithm, matrixA, matrixB, repition) {
+function executeMatrixAlgorithmJs(type, algorithm, size, repition) {
   for (let i = 0; i < repition; i++) {
+    const { matrixA, matrixB } = initMatrices(type, size);
     shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
       algorithm(matrixA, matrixB);
     });
@@ -106,30 +108,28 @@ export function executeMatrixAlgorithm(algorithmSettings, algorithms) {
   if (!algorithm) {
     throw new Error(`Unsupported algorithm: ${fullAlgorithmName}`);
   }
-  const { matrixA, matrixB } = initMatrices(type, size);
   if (language === "c") {
     executeMatrixAlgorithmC(
       type,
       language,
       algorithms,
       algorithm,
-      matrixA,
-      matrixB,
+      size,
       wasmPageSize,
       repition
     );
   } else if (language === "asm") {
     executeMatrixAlgorithmAsm(
+      type,
       language,
       algorithms,
       algorithm,
-      matrixA,
-      matrixB,
+      size,
       wasmPageSize,
       repition
     );
   } else if (language === "js") {
-    executeMatrixAlgorithmJs(algorithm, matrixA, matrixB, repition);
+    executeMatrixAlgorithmJs(type, algorithm, size, repition);
   } else {
     throw new Error(`Unsupporeted language: ${language}`);
   }

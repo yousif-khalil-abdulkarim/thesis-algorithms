@@ -54,6 +54,17 @@ export function initMatrix_i16_c(matrix: ArrayLike<ArrayLike<number>>): number;
 export function initMatrix_u8_c(matrix: ArrayLike<ArrayLike<number>>): number;
 export function initMatrix_i8_c(matrix: ArrayLike<ArrayLike<number>>): number;
 
+export function deleteArray3d_f32_c(arrayPointer: number): void;
+export function deleteArray3d_f64_c(arrayPointer: number): void;
+export function deleteArray3d_i8_c(arrayPointer: number): void;
+export function deleteArray3d_i16_c(arrayPointer: number): void;
+export function deleteArray3d_i32_c(arrayPointer: number): void;
+export function deleteArray3d_i64_c(arrayPointer: number): void;
+export function deleteArray3d_u8_c(arrayPointer: number): void;
+export function deleteArray3d_u16_c(arrayPointer: number): void;
+export function deleteArray3d_u32_c(arrayPointer: number): void;
+export function deleteArray3d_u64_c(arrayPointer: number): void;
+
 export function deleteArray1d_f32_c(arrayPointer: number): void;
 export function deleteArray1d_f64_c(arrayPointer: number): void;
 export function deleteArray1d_i8_c(arrayPointer: number): void;

@@ -1,6 +1,10 @@
 // @ts-check
 import * as shared from "../../../../shared.js";
-import { initArray } from "./init-array.js";
+import { initPoints } from "./init-points.js";
+
+const CLUSTER_AMOUNT = 8;
+const MAX_LOOPS = 10_000;
+const TOLERANCE = 0.1;
 
 /**
  * @param {shared.Type} type
@@ -12,7 +16,7 @@ import { initArray } from "./init-array.js";
  * @param {number} repition
  * @returns {void}
  */
-function executeArrayAlgorithmC(
+function executeKMeanAlgorithmC(
   type,
   language,
   algorithms,
@@ -26,15 +30,21 @@ function executeArrayAlgorithmC(
    */
   const memory = algorithms[language].memory;
   shared.setWasmMemory(memory, wasmPageSize);
-  const initArray1d = algorithms[language][`initArray1d_${type}_c`];
-  const deleteArray1d = algorithms[language][`deleteArray1d_${type}_c`];
+  const initPointsC = algorithms[language][`initPoints_${type}_c`];
+  const shallowDeleteArray2d =
+    algorithms[language][`shallowDeleteArray2d_${type}_c`];
+  const deleteArray3d = algorithms[language][`deleteArray3d_${type}_c`];
   for (let i = 0; i < repition; i++) {
-    const array = initArray(type, size);
-    const arrayPointer = initArray1d(array);
-    shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
-      algorithm(arrayPointer);
-    });
-    deleteArray1d(arrayPointer);
+    const position = initPoints(type, size);
+    const positionPointer = initPointsC(position);
+    const clusters = shared.trackMetrics(
+      shared.DATA_IDENTIFIER.ALGORITHM_TIME,
+      () => algorithm(CLUSTER_AMOUNT, positionPointer, MAX_LOOPS, TOLERANCE)
+    );
+    if (clusters) {
+      deleteArray3d(clusters);
+    }
+    shallowDeleteArray2d(positionPointer);
   }
 }
 
@@ -48,7 +58,7 @@ function executeArrayAlgorithmC(
  * @param {number} repition
  * @returns {void}
  */
-function executeArrayAlgorithmAsm(
+function executeKMeanAlgorithmAsm(
   type,
   language,
   algorithm,
@@ -63,9 +73,9 @@ function executeArrayAlgorithmAsm(
   const memory = algorithms[language].memory;
   shared.setWasmMemory(memory, wasmPageSize);
   for (let i = 0; i < repition; i++) {
-    const array = initArray(type, size);
+    const positions = initPoints(type, size);
     shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
-      algorithm(array);
+      algorithm(CLUSTER_AMOUNT, positions, MAX_LOOPS, TOLERANCE);
     });
   }
 }
@@ -77,11 +87,11 @@ function executeArrayAlgorithmAsm(
  * @param {number} repition
  * @returns {void}
  */
-function executeArrayAlgorithmJs(type, algorithm, size, repition) {
+function executeKMeanAlgorithmJs(type, algorithm, size, repition) {
   for (let i = 0; i < repition; i++) {
-    const array = initArray(type, size);
+    const positions = initPoints(type, size);
     shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
-      algorithm(array);
+      algorithm(CLUSTER_AMOUNT, positions, MAX_LOOPS, TOLERANCE);
     });
   }
 }
@@ -91,7 +101,7 @@ function executeArrayAlgorithmJs(type, algorithm, size, repition) {
  * @param {*} algorithms
  * @returns {void}
  */
-export function executeArrayAlgorithm(algorithmSettings, algorithms) {
+export function executeKMeanAlgorithm(algorithmSettings, algorithms) {
   const { algorithmName, type, language, size, repition, wasmPageSize } =
     algorithmSettings;
 
@@ -103,7 +113,7 @@ export function executeArrayAlgorithm(algorithmSettings, algorithms) {
     throw new Error(`Unsupported algorithm: ${fullAlgorithmName}`);
   }
   if (language === "c") {
-    executeArrayAlgorithmC(
+    executeKMeanAlgorithmC(
       type,
       language,
       algorithms,
@@ -113,7 +123,7 @@ export function executeArrayAlgorithm(algorithmSettings, algorithms) {
       repition
     );
   } else if (language === "asm") {
-    executeArrayAlgorithmAsm(
+    executeKMeanAlgorithmAsm(
       type,
       language,
       algorithm,
@@ -123,7 +133,7 @@ export function executeArrayAlgorithm(algorithmSettings, algorithms) {
       repition
     );
   } else if (language === "js") {
-    executeArrayAlgorithmJs(type, algorithm, size, repition);
+    executeKMeanAlgorithmJs(type, algorithm, size, repition);
   } else {
     throw new Error(`Unsupporeted language: ${language}`);
   }

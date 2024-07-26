@@ -30,7 +30,7 @@ function getTargetIndex(array) {
  * @param {shared.Language} language
  * @param {*} algorithms
  * @param {*} algorithm
- * @param {shared.Array1d<number | bigint>} array
+ * @param {number} size
  * @param {number} wasmPageSize
  * @param {number} repition
  * @returns {void}
@@ -40,11 +40,10 @@ function executeSearchAlgorithmC(
   language,
   algorithms,
   algorithm,
-  array,
+  size,
   wasmPageSize,
   repition
 ) {
-  const target = getTargetIndex(array);
   /**
    * @type {WebAssembly.Memory}
    */
@@ -52,39 +51,44 @@ function executeSearchAlgorithmC(
   shared.setWasmMemory(memory, wasmPageSize);
   const initArray1d = algorithms[language][`initArray1d_${type}_c`];
   const deleteArray1d = algorithms[language][`deleteArray1d_${type}_c`];
-  const arrayPointer = initArray1d(array);
   for (let i = 0; i < repition; i++) {
+    const array = initArray(type, size);
+    const target = getTargetIndex(array);
+    const arrayPointer = initArray1d(array);
     shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
       algorithm(arrayPointer, target);
     });
+    deleteArray1d(arrayPointer);
   }
-  deleteArray1d(arrayPointer);
 }
 
 /**
+ * @param {shared.Type} type
  * @param {shared.Language} language
  * @param {*} algorithms
  * @param {*} algorithm
- * @param {shared.Array1d<number | bigint>} array
+ * @param {number} size
  * @param {number} wasmPageSize
  * @param {number} repition
  * @returns {void}
  */
 function executeSearchAlgorithmAsm(
+  type,
   language,
   algorithm,
   algorithms,
-  array,
+  size,
   wasmPageSize,
   repition
 ) {
-  const target = getTargetIndex(array);
   /**
    * @type {WebAssembly.Memory}
    */
   const memory = algorithms[language].memory;
   shared.setWasmMemory(memory, wasmPageSize);
   for (let i = 0; i < repition; i++) {
+    const array = initArray(type, size, true);
+    const target = getTargetIndex(array);
     shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
       algorithm(array, target);
     });
@@ -92,16 +96,18 @@ function executeSearchAlgorithmAsm(
 }
 
 /**
+ * @param {shared.Type} type
  * @param {*} algorithm
- * @param {shared.Array1d<number | bigint>} array
+ * @param {number} size
  * @param {number} repition
  * @returns {void}
  */
-function executeSearchAlgorithmJs(algorithm, array, repition) {
-  const target = getTargetIndex(array);
+function executeSearchAlgorithmJs(type, algorithm, size, repition) {
   for (let i = 0; i < repition; i++) {
+    const array = initArray(type, size, true);
+    const target = getTargetIndex(array);
     shared.trackMetrics(shared.DATA_IDENTIFIER.ALGORITHM_TIME, () => {
-      algorithm(array, target);
+      algorithm(size, target);
     });
   }
 }
@@ -122,29 +128,28 @@ export function executeSearchAlgorithm(algorithmSettings, algorithms) {
   if (!algorithm) {
     throw new Error(`Unsupported algorithm: ${fullAlgorithmName}`);
   }
-
-  const array = initArray(type, size, true);
   if (language === "c") {
     executeSearchAlgorithmC(
       type,
       language,
       algorithms,
       algorithm,
-      array,
+      size,
       wasmPageSize,
       repition
     );
   } else if (language === "asm") {
     executeSearchAlgorithmAsm(
+      type,
       language,
       algorithm,
       algorithms,
-      array,
+      size,
       wasmPageSize,
       repition
     );
   } else if (language === "js") {
-    executeSearchAlgorithmJs(algorithm, array, repition);
+    executeSearchAlgorithmJs(type, algorithm, size, repition);
   } else {
     throw new Error(`Unsupporeted language: ${language}`);
   }

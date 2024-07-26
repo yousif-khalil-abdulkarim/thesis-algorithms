@@ -280,6 +280,17 @@ export const {
   _shallowDeleteArray2d_u8_c: shallowDeleteArray2d_u8_c,
   _shallowDeleteArray2d_i8_c: shallowDeleteArray2d_i8_c,
 
+  _deleteArray3d_u64_c: deleteArray3d_u64_c,
+  _deleteArray3d_i64_c: deleteArray3d_i64_c,
+  _deleteArray3d_f64_c: deleteArray3d_f64_c,
+  _deleteArray3d_f32_c: deleteArray3d_f32_c,
+  _deleteArray3d_u32_c: deleteArray3d_u32_c,
+  _deleteArray3d_i32_c: deleteArray3d_i32_c,
+  _deleteArray3d_u16_c: deleteArray3d_u16_c,
+  _deleteArray3d_i16_c: deleteArray3d_i16_c,
+  _deleteArray3d_u8_c: deleteArray3d_u8_c,
+  _deleteArray3d_i8_c: deleteArray3d_i8_c,
+
   _deleteArray1d_f32_c: deleteArray1d_f32_c,
   _deleteArray1d_f64_c: deleteArray1d_f64_c,
   _deleteArray1d_i8_c: deleteArray1d_i8_c,
