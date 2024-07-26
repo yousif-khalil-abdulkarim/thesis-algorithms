@@ -24,6 +24,10 @@ function calcCentroid_u64_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
+    let clusterLength = <u64>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
     let mean = sum / <u64>cluster.length;
     meanPerDimension[dimensionIndex] = mean;
   }
@@ -70,7 +74,9 @@ function initCentroid_u64_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <f64>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <f64>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
@@ -95,7 +101,9 @@ export function kMean_u64_asm(
   let converged: bool = false;
   let count: i32 = 0;
   const dimensionInPoint: i32 = points[0].length;
-  let clusters = new StaticArray<StaticArray<StaticArray<u64>>>(numberOfCluster);
+  let clusters = new StaticArray<StaticArray<StaticArray<u64>>>(
+    numberOfCluster
+  );
 
   while (!converged && count < maxLoops) {
     count++;
@@ -186,7 +194,11 @@ function calcCentroid_i64_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
-    let mean = sum / <i64>cluster.length;
+    let clusterLength = <i64>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
+    let mean = sum / clusterLength;
     meanPerDimension[dimensionIndex] = mean;
   }
 
@@ -232,7 +244,9 @@ function initCentroid_i64_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <f64>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <f64>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
@@ -257,7 +271,9 @@ export function kMean_i64_asm(
   let converged: bool = false;
   let count: i32 = 0;
   const dimensionInPoint: i32 = points[0].length;
-  let clusters = new StaticArray<StaticArray<StaticArray<i64>>>(numberOfCluster);
+  let clusters = new StaticArray<StaticArray<StaticArray<i64>>>(
+    numberOfCluster
+  );
 
   while (!converged && count < maxLoops) {
     count++;
@@ -348,7 +364,11 @@ function calcCentroid_f64_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
-    let mean = sum / <f64>cluster.length;
+    let clusterLength = <f64>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
+    let mean = sum / clusterLength;
     meanPerDimension[dimensionIndex] = mean;
   }
 
@@ -394,7 +414,9 @@ function initCentroid_f64_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <f64>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <f64>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
@@ -419,7 +441,9 @@ export function kMean_f64_asm(
   let converged: bool = false;
   let count: i32 = 0;
   const dimensionInPoint: i32 = points[0].length;
-  let clusters = new StaticArray<StaticArray<StaticArray<f64>>>(numberOfCluster);
+  let clusters = new StaticArray<StaticArray<StaticArray<f64>>>(
+    numberOfCluster
+  );
 
   while (!converged && count < maxLoops) {
     count++;
@@ -510,7 +534,11 @@ function calcCentroid_f32_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
-    let mean = sum / <f32>cluster.length;
+    let clusterLength = <f32>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
+    let mean = sum / clusterLength;
     meanPerDimension[dimensionIndex] = mean;
   }
 
@@ -556,7 +584,9 @@ function initCentroid_f32_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <f64>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <f64>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
@@ -581,7 +611,9 @@ export function kMean_f32_asm(
   let converged: bool = false;
   let count: i32 = 0;
   const dimensionInPoint: i32 = points[0].length;
-  let clusters = new StaticArray<StaticArray<StaticArray<f32>>>(numberOfCluster);
+  let clusters = new StaticArray<StaticArray<StaticArray<f32>>>(
+    numberOfCluster
+  );
 
   while (!converged && count < maxLoops) {
     count++;
@@ -672,7 +704,11 @@ function calcCentroid_u32_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
-    let mean = sum / <u32>cluster.length;
+    let clusterLength = <u32>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
+    let mean = sum / clusterLength;
     meanPerDimension[dimensionIndex] = mean;
   }
 
@@ -718,7 +754,9 @@ function initCentroid_u32_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <u32>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <u32>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
@@ -743,7 +781,9 @@ export function kMean_u32_asm(
   let converged: bool = false;
   let count: i32 = 0;
   const dimensionInPoint: i32 = points[0].length;
-  let clusters = new StaticArray<StaticArray<StaticArray<u32>>>(numberOfCluster);
+  let clusters = new StaticArray<StaticArray<StaticArray<u32>>>(
+    numberOfCluster
+  );
 
   while (!converged && count < maxLoops) {
     count++;
@@ -834,7 +874,11 @@ function calcCentroid_i32_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
-    let mean = sum / <i32>cluster.length;
+    let clusterLength = <i32>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
+    let mean = sum / clusterLength;
     meanPerDimension[dimensionIndex] = mean;
   }
 
@@ -880,7 +924,9 @@ function initCentroid_i32_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <i32>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <i32>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
@@ -905,7 +951,9 @@ export function kMean_i32_asm(
   let converged: bool = false;
   let count: i32 = 0;
   const dimensionInPoint: i32 = points[0].length;
-  let clusters = new StaticArray<StaticArray<StaticArray<i32>>>(numberOfCluster);
+  let clusters = new StaticArray<StaticArray<StaticArray<i32>>>(
+    numberOfCluster
+  );
 
   while (!converged && count < maxLoops) {
     count++;
@@ -996,7 +1044,11 @@ function calcCentroid_u16_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
-    let mean = sum / <u16>cluster.length;
+    let clusterLength = <u16>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
+    let mean = sum / clusterLength;
     meanPerDimension[dimensionIndex] = mean;
   }
 
@@ -1042,7 +1094,9 @@ function initCentroid_u16_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <f64>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <f64>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
@@ -1067,7 +1121,9 @@ export function kMean_u16_asm(
   let converged: bool = false;
   let count: i32 = 0;
   const dimensionInPoint: i32 = points[0].length;
-  let clusters = new StaticArray<StaticArray<StaticArray<u16>>>(numberOfCluster);
+  let clusters = new StaticArray<StaticArray<StaticArray<u16>>>(
+    numberOfCluster
+  );
 
   while (!converged && count < maxLoops) {
     count++;
@@ -1158,7 +1214,11 @@ function calcCentroid_i16_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
-    let mean = sum / <i16>cluster.length;
+    let clusterLength = <i16>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
+    let mean = sum / clusterLength;
     meanPerDimension[dimensionIndex] = mean;
   }
 
@@ -1204,7 +1264,9 @@ function initCentroid_i16_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <f64>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <f64>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
@@ -1229,7 +1291,9 @@ export function kMean_i16_asm(
   let converged: bool = false;
   let count: i32 = 0;
   const dimensionInPoint: i32 = points[0].length;
-  let clusters = new StaticArray<StaticArray<StaticArray<i16>>>(numberOfCluster);
+  let clusters = new StaticArray<StaticArray<StaticArray<i16>>>(
+    numberOfCluster
+  );
 
   while (!converged && count < maxLoops) {
     count++;
@@ -1320,7 +1384,11 @@ function calcCentroid_u8_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
-    let mean = sum / <u8>cluster.length;
+    let clusterLength = <u8>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
+    let mean = sum / clusterLength;
     meanPerDimension[dimensionIndex] = mean;
   }
 
@@ -1366,7 +1434,9 @@ function initCentroid_u8_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <f64>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <f64>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
@@ -1482,7 +1552,11 @@ function calcCentroid_i8_asm(
     for (let pointIndex = 0; pointIndex < cluster.length; pointIndex++) {
       sum += cluster[pointIndex][dimensionIndex];
     }
-    let mean = sum / <i8>cluster.length;
+    let clusterLength = <i8>cluster.length;
+    if (clusterLength == 0) {
+      clusterLength = 1;
+    }
+    let mean = sum / clusterLength;
     meanPerDimension[dimensionIndex] = mean;
   }
 
@@ -1528,7 +1602,9 @@ function initCentroid_i8_asm(
 
   let i: i32 = 0;
   while (i < numberOfCluster) {
-    const randomIndex: i32 = <i32>Math.floor(Math.random() * <f64>points.length);
+    const randomIndex: i32 = <i32>(
+      Math.floor(Math.random() * <f64>points.length)
+    );
     if (!randomIndices.includes(randomIndex)) {
       randomIndices[i] = randomIndex;
       i++;
