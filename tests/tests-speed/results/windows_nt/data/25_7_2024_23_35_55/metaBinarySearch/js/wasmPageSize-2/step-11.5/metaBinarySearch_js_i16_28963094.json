@@ -1,0 +1,10 @@
+{
+  "algorithm": "metaBinarySearch",
+  "type": "i16",
+  "language": "js",
+  "size": 28963094,
+  "wasmPageSize": 2,
+  "time": [
+    0.09999996423721313
+  ]
+}

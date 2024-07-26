@@ -1,0 +1,10 @@
+{
+  "algorithm": "mergeSort",
+  "type": "i8",
+  "language": "js",
+  "size": 1280000,
+  "wasmPageSize": 2,
+  "time": [
+    237.4000000357628
+  ]
+}
