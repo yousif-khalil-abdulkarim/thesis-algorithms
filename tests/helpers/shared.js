@@ -174,11 +174,11 @@ export function trackMetrics(identifier, function_) {
     return function_();
   } catch (error) {
     console.error(error.name, error.message);
+  } finally {
+    const endTime = performance.now();
+    const time = endTime - startTime;
+    console.log(identifier, time);
   }
-  const endTime = performance.now();
-
-  const time = endTime - startTime;
-  console.log(identifier, time);
   return null;
 }
 

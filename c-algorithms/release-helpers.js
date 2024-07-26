@@ -6,7 +6,7 @@ const module = await InitModule();
 /**
  * @type {WebAssembly.Memory}
  */
-export const memory = module.asm.d;
+export const memory = Object.values(module.asm).filter((item) => item instanceof WebAssembly.Memory)[0];
 export const { _free: free } = module;
 
 export function initPoints_u64_c(pointArray) {
