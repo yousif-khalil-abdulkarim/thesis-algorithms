@@ -41,6 +41,13 @@
  */
 
 /**
+ * @typedef {[
+ *  x: number | bigint,
+ *  y: number | bigint,
+ * ]} Point
+ */
+
+/**
  * @typedef {{
  *  algorithmName: string;
  *  type: Type;
@@ -153,11 +160,18 @@ const SORT_ALGORITHMS = {
    */
   BUBBLE_SORT: "bubbleSort",
 };
+export const STATICS_ALGORITHMS = {
+  /**
+   * Time complexity: O(n)
+   */
+  K_MEAN: "kMean",
+};
 export const ALGORITHMS = {
   BASIC: BASIC_ALGORIHMS,
   MATRIX: MATRIX_ALGORITHMS,
   SEARCH: SEARCH_ALGORITHMS,
   SORT: SORT_ALGORITHMS,
+  STATICS: STATICS_ALGORITHMS,
 };
 
 /**

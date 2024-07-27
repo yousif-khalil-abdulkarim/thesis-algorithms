@@ -5,19 +5,13 @@ import { initArray } from "../execute-array-algorithm/init-array.js";
 /**
  * @param {shared.Type} type
  * @param {number} size
- * @returns {shared.Array1d<[
- *  number | bigint,
- *  number | bigint
- * ]>}
+ * @returns {shared.Array1d<shared.Point>}
  */
 export function initPoints(type, size) {
   const arr1 = initArray(type, size);
   const arr2 = initArray(type, size);
   /**
-   * @type {Array<[
-   *    number | bigint,
-   *    number | bigint
-   * ]>}
+   * @type {shared.Array1d<shared.Point>}
    */
   const arr3 = Array(arr1.length);
   for (let i = 0; i < arr1.length; i++) {
