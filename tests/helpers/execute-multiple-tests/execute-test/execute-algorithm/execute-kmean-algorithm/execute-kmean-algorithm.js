@@ -3,8 +3,8 @@ import * as shared from "../../../../shared.js";
 import { initPoints } from "./init-points.js";
 
 const CLUSTER_AMOUNT = 8;
-const MAX_LOOPS = 6;
-const TOLERANCE = 1;
+const MAX_LOOPS = 300;
+const TOLERANCE = -1;
 
 /**
  * @param {shared.Type} type

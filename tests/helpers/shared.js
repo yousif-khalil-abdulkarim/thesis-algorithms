@@ -220,9 +220,89 @@ function typeBytesAmount(type) {
  * @param {number} x
  * @returns {number}
  */
+export function kMeanAlgorithmSize(x) {
+  return Math.ceil(Math.pow(2, x) * 250);
+}
+
+/**
+ * f(x) = 2^x * 10_000
+ * @param {number} x
+ * @returns {number}
+ */
 export function fastAlgorithmSize(x) {
   return Math.ceil(Math.pow(2, x) * 10_000);
 }
+
+/**
+ * f(x) = 2^(log2(8) / 12 * x) * 10_000
+ * @param {number} x
+ * @returns {number}
+ */
+export function slowAlgorithmSize(x) {
+  return Math.ceil(Math.pow(2, (Math.log2(8) / 12) * x) * 10_000);
+}
+
+/**
+ * @param {number} x
+ * @returns {number}
+ */
+export function matrixMultiplicationAlgorithmSize(x) {
+  return Math.ceil(Math.pow(2, x / 12) * 600);
+}
+
+/**
+ * @param {number} x
+ * @returns
+ */
+export function matrixAdditionAlgorithmSize(x) {
+  return Math.ceil(Math.pow(2, (Math.log2(10) * x) / 12) * 1000);
+}
+
+/**
+ * @param {string} algorithmName
+ * @param {number} step
+ * @returns {number}
+ */
+export function sizeFactory(algorithmName, step) {
+  if (
+    [
+      ALGORITHMS.MATRIX.MATRIX_ADDITION,
+      ALGORITHMS.MATRIX.MATRIX_SUBTRACTION,
+    ].includes(algorithmName)
+  ) {
+    return matrixAdditionAlgorithmSize(step);
+  } else if (
+    [ALGORITHMS.MATRIX.MATRIX_MULTIPLICATION].includes(algorithmName)
+  ) {
+    return matrixMultiplicationAlgorithmSize(step);
+  } else if (
+    [
+      ALGORITHMS.BASIC.AVERAGE,
+      ALGORITHMS.BASIC.MAX,
+      ALGORITHMS.BASIC.MIN,
+      ALGORITHMS.BASIC.SUM,
+      ALGORITHMS.SORT.MERGE_SORT,
+      ALGORITHMS.SEARCH.BINARY_SEARCH,
+      ALGORITHMS.SEARCH.META_BINARY_SEARCH,
+      ALGORITHMS.SEARCH.INTERPOLATION_SEARCH,
+    ].includes(algorithmName)
+  ) {
+    return fastAlgorithmSize(step);
+  } else if ([ALGORITHMS.STATICS.K_MEAN]) {
+    return kMeanAlgorithmSize(step);
+  } else if (
+    [
+      ALGORITHMS.SORT.QUICK_SORT,
+      ALGORITHMS.SORT.BUBBLE_SORT,
+      ALGORITHMS.SORT.SELECTION_SORT,
+    ].includes(algorithmName)
+  ) {
+    return slowAlgorithmSize(step);
+  } else {
+    throw new Error(`Algorithm unsupported "${algorithmName}"`);
+  }
+}
+
 /**
  * @param {Type} type
  * @param {number} x
@@ -234,14 +314,6 @@ export function fastAlgorithmWasmPageSize(type, x) {
 }
 
 /**
- * f(x) = 2^(log2(8) / 12 * x) * 10_000
- * @param {number} x
- * @returns {number}
- */
-export function slowAlgorithmSize(x) {
-  return Math.ceil(Math.pow(2, (Math.log2(8) / 12) * x) * 10_000);
-}
-/**
  * @param {Type} type
  * @param {number} x
  * @returns {number}
@@ -251,13 +323,6 @@ export function slowAlgorithmWasmPageSize(type, x) {
   return Math.ceil(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
 }
 
-/**
- * @param {number} x
- * @returns {number}
- */
-export function matrixMultiplicationAlgorithmSize(x) {
-  return Math.ceil(Math.pow(2, x / 12) * 600);
-}
 /**
  * @param {Type} type
  * @param {number} x
@@ -269,13 +334,6 @@ export function matrixMultiplicationAlgorithmWasmPageSize(type, x) {
   return Math.ceil(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
 }
 
-/**
- * @param {number} x
- * @returns
- */
-export function matrixAdditionAlgorithmSize(x) {
-  return Math.ceil(Math.pow(2, (Math.log2(10) * x) / 12) * 1000);
-}
 /**
  * @param {Type} type
  * @param {number} x

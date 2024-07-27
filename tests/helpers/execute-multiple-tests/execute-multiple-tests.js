@@ -38,48 +38,6 @@ function getSystemInfo() {
   };
 }
 
-/**
- * @param {string} algorithmName
- * @param {number} step
- * @returns {number}
- */
-function sizeFactory(algorithmName, step) {
-  if (
-    [
-      shared.ALGORITHMS.MATRIX.MATRIX_ADDITION,
-      shared.ALGORITHMS.MATRIX.MATRIX_SUBTRACTION,
-    ].includes(algorithmName)
-  ) {
-    return shared.matrixAdditionAlgorithmSize(step);
-  } else if (
-    [shared.ALGORITHMS.MATRIX.MATRIX_MULTIPLICATION].includes(algorithmName)
-  ) {
-    return shared.matrixMultiplicationAlgorithmSize(step);
-  } else if (
-    [
-      shared.ALGORITHMS.BASIC.AVERAGE,
-      shared.ALGORITHMS.BASIC.MAX,
-      shared.ALGORITHMS.BASIC.MIN,
-      shared.ALGORITHMS.BASIC.SUM,
-      shared.ALGORITHMS.SORT.MERGE_SORT,
-      shared.ALGORITHMS.SEARCH.BINARY_SEARCH,
-      shared.ALGORITHMS.SEARCH.META_BINARY_SEARCH,
-      shared.ALGORITHMS.SEARCH.INTERPOLATION_SEARCH,
-    ].includes(algorithmName)
-  ) {
-    return shared.fastAlgorithmSize(step);
-  } else if (
-    [
-      shared.ALGORITHMS.SORT.QUICK_SORT,
-      shared.ALGORITHMS.SORT.BUBBLE_SORT,
-      shared.ALGORITHMS.SORT.SELECTION_SORT,
-    ].includes(algorithmName)
-  ) {
-    return shared.slowAlgorithmSize(step);
-  } else {
-    throw new Error(`Algorithm unsupported "${algorithmName}"`);
-  }
-}
 
 /**
  *
@@ -175,7 +133,7 @@ async function generateAlgorithmResult(resultOutputPath, settings) {
   console.log("algorithm: ", `${algorithm}_${type}_${language}`);
   console.log("step:", step);
   console.log("size:", size);
-  console.log("repition:", repition)
+  console.log("repition:", repition);
   console.log("wasm-page-size:", wasmPageSize);
   const algorithmResultOutputPath = join(
     resultOutputPath,
@@ -330,7 +288,7 @@ export async function executeMultipleTests(settings) {
         for (const step of settings.steps) {
           for (const algorithm of settings.algorithms) {
             for (const wasmPageSize of settings.wasmPageSizes) {
-              const size = sizeFactory(algorithm, step);
+              const size = shared.sizeFactory(algorithm, step);
               const logData = {
                 algorithm,
                 type,
