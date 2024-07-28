@@ -1,0 +1,127 @@
+STARTED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 4160
+date 28_7_2024_6_1_986
+
+ENDED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 4160
+date 28_7_2024_6_15_74
+
+STARTED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 6240
+date 28_7_2024_6_15_74
+
+ENDED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 6240
+date 28_7_2024_6_27_795
+
+STARTED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 8319
+date 28_7_2024_6_27_796
+
+ENDED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 8319
+date 28_7_2024_6_40_67
+
+STARTED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 12479
+date 28_7_2024_6_40_68
+
+ENDED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 12479
+date 28_7_2024_6_52_514
+
+STARTED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 16638
+date 28_7_2024_6_52_514
+
+ENDED: matrixAddition_f64_c
+size 8255
+step 11
+wasm page size 16638
+date 28_7_2024_6_5_72
+
+STARTED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 4160
+date 28_7_2024_6_5_72
+
+ENDED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 4160
+date 28_7_2024_6_21_410
+
+STARTED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 6240
+date 28_7_2024_6_21_410
+
+ENDED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 6240
+date 28_7_2024_6_38_252
+
+STARTED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 8319
+date 28_7_2024_6_38_252
+
+ENDED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 8319
+date 28_7_2024_6_54_565
+
+STARTED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 12479
+date 28_7_2024_6_54_566
+
+ENDED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 12479
+date 28_7_2024_6_11_206
+
+STARTED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 16638
+date 28_7_2024_6_11_207
+
+ERROR: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 16638
+date 28_7_2024_6_11_287
+RangeError WebAssembly.Memory.grow(): Unable to grow instance memory
+
+ENDED: matrixAddition_f64_asm
+size 8255
+step 11
+wasm page size 16638
+date 28_7_2024_6_11_312
+

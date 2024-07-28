@@ -1,0 +1,48 @@
+STARTED: kMean_f64_c
+size 2000
+step 3
+wasm page size 2
+date 28_7_2024_3_44_490
+
+ENDED: kMean_f64_c
+size 2000
+step 3
+wasm page size 2
+date 28_7_2024_3_44_680
+
+STARTED: kMean_f64_c
+size 2000
+step 3
+wasm page size 2
+date 28_7_2024_3_44_681
+
+ENDED: kMean_f64_c
+size 2000
+step 3
+wasm page size 2
+date 28_7_2024_3_44_873
+
+STARTED: kMean_f64_asm
+size 2000
+step 3
+wasm page size 2
+date 28_7_2024_3_44_874
+
+ENDED: kMean_f64_asm
+size 2000
+step 3
+wasm page size 2
+date 28_7_2024_3_45_489
+
+STARTED: kMean_f64_asm
+size 2000
+step 3
+wasm page size 2
+date 28_7_2024_3_45_489
+
+ENDED: kMean_f64_asm
+size 2000
+step 3
+wasm page size 2
+date 28_7_2024_3_46_143
+
