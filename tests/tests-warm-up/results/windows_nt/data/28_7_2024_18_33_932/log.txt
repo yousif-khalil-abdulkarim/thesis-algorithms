@@ -1,0 +1,24 @@
+STARTED: kMean_f64_c
+size 256000
+step 10
+wasm page size 2
+date 28_7_2024_18_33_935
+
+ENDED: kMean_f64_c
+size 256000
+step 10
+wasm page size 2
+date 28_7_2024_18_23_579
+
+STARTED: kMean_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 28_7_2024_18_23_580
+
+ENDED: kMean_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 28_7_2024_18_50_827
+
