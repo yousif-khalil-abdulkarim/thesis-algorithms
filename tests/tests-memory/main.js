@@ -51,32 +51,60 @@ function transform(calculateSize, calculateWasmPageSize) {
     };
   };
 }
-const fastAlg = shared
+// const fastAlg = shared
+//   .calculateSteps({
+//     start: 1,
+//     end: 12,
+//     jump: 1,
+//   })
+//   .map(transform(shared.fastAlgorithmSize, shared.fastAlgorithmWasmPageSize));
+// for (const settings of fastAlg) {
+//   await m.executeMultipleTests({
+//     ...BASE_SETTINGS,
+//     resultOutputPath: join(
+//       CURRENT_FOLDER_PATH,
+//       "results",
+//       `${type().toLowerCase()}`,
+//       "basic",
+//       `step-${settings.step}`,
+//     ),
+//     algorithms: [
+//       shared.ALGORITHMS.BASIC.AVERAGE,
+//       shared.ALGORITHMS.BASIC.MAX,
+//       shared.ALGORITHMS.SEARCH.BINARY_SEARCH,
+//       shared.ALGORITHMS.SEARCH.INTERPOLATION_SEARCH,
+//       shared.ALGORITHMS.SEARCH.META_BINARY_SEARCH,
+//       shared.ALGORITHMS.SORT.MERGE_SORT,
+//       shared.ALGORITHMS.STATICS.K_MEAN,
+//     ],
+//     steps: [settings.step],
+//     wasmPageSizes: settings.wasmPageSizes,
+//   });
+// }
+
+const kMeanAlg = shared
   .calculateSteps({
     start: 1,
     end: 12,
     jump: 1,
   })
-  .map(transform(shared.fastAlgorithmSize, shared.fastAlgorithmWasmPageSize));
-for (const settings of fastAlg) {
+  .map(
+    transform(
+      shared.kMeanAlgorithmSize,
+      shared.kMeanAlgorithmWasmPageSize
+    )
+  );
+for (const settings of kMeanAlg) {
   await m.executeMultipleTests({
     ...BASE_SETTINGS,
     resultOutputPath: join(
       CURRENT_FOLDER_PATH,
       "results",
       `${type().toLowerCase()}`,
-      "basic",
+      "kMean",
       `step-${settings.step}`,
     ),
-    algorithms: [
-      shared.ALGORITHMS.BASIC.AVERAGE,
-      shared.ALGORITHMS.BASIC.MAX,
-      shared.ALGORITHMS.SEARCH.BINARY_SEARCH,
-      shared.ALGORITHMS.SEARCH.INTERPOLATION_SEARCH,
-      shared.ALGORITHMS.SEARCH.META_BINARY_SEARCH,
-      shared.ALGORITHMS.SORT.MERGE_SORT,
-      shared.ALGORITHMS.STATICS.K_MEAN,
-    ],
+    algorithms: [shared.ALGORITHMS.STATICS.K_MEAN],
     steps: [settings.step],
     wasmPageSizes: settings.wasmPageSizes,
   });

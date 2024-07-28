@@ -308,6 +308,16 @@ export function sizeFactory(algorithmName, step) {
  * @param {number} x
  * @returns {number}
  */
+export function kMeanAlgorithmWasmPageSize(type, x) {
+  const totalaAmountOfBytes = typeBytesAmount(type) * kMeanAlgorithmSize(x)
+  return Math.ceil(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
+}
+
+/**
+ * @param {Type} type
+ * @param {number} x
+ * @returns {number}
+ */
 export function fastAlgorithmWasmPageSize(type, x) {
   const totalaAmountOfBytes = typeBytesAmount(type) * fastAlgorithmSize(x);
   return Math.ceil(totalaAmountOfBytes / WASM_PAGE_SIZE_IN_BYTES);
