@@ -1,0 +1,10 @@
+{
+  "algorithm": "kMean",
+  "type": "u16",
+  "language": "asm",
+  "size": 45255,
+  "wasmPageSize": 2,
+  "time": [
+    8720.600000023842
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "algorithm": "kMean",
+  "type": "u8",
+  "language": "asm",
+  "size": 708,
+  "wasmPageSize": 2,
+  "time": [
+    144.5
+  ]
+}
