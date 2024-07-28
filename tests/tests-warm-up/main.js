@@ -38,8 +38,8 @@ await executeMultipleTests({
   types: ["f64"],
   languages: ["c", "asm"],
   steps: shared.calculateSteps({
-    start: 11,
-    end: 11,
+    start: 10,
+    end: 10,
     jump: 1,
   }),
   wasmPageSizes: [2],
