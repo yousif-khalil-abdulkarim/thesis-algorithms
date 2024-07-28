@@ -64,7 +64,7 @@ function getDatePathSegment(path) {
  *  algorithm: string,
  *  algorithmData: Array<{
  *    time: number;
- *    size: number;
+ *    wasmPageSize: number;
  *  }>
  * ]>}
  */
@@ -74,7 +74,7 @@ async function* groupData(rawDataIterable) {
    *  string,
    *  Array<{
    *    time: number;
-   *    size: number;
+   *    wasmPageSize: number;
    *  }>
    * >}
    */
@@ -88,10 +88,10 @@ async function* groupData(rawDataIterable) {
     ].join("_");
     const previousRawData = map.get(key);
     map.set(key, [
-      ...previousRawData ?? [],
+      ...(previousRawData ?? []),
       ...rawData.data.time.map((time) => ({
         time,
-        size: rawData.data.size,
+        wasmPageSize: rawData.data.wasmPageSize,
       })),
     ]);
   }
@@ -103,14 +103,14 @@ async function* groupData(rawDataIterable) {
  *  algorithm: string,
  *  algorithmData: Array<{
  *    time: number;
- *    size: number;
+ *    wasmPageSize: number;
  *  }>
  * ]>} groupedDataIterable
  * @returns {AsyncIterable<[
  *  algorithm: string,
  *  algorithmData: {
  *    time: number[];
- *    size: number[];
+ *    wasmPageSize: number[]
  *  }
  * ]>}
  */
@@ -119,8 +119,8 @@ async function* toPandasObject(groupedDataIterable) {
     yield [
       algorithm,
       {
-        size: groupedData.map((data) => data.size),
         time: groupedData.map((data) => data.time),
+        wasmPageSize: groupedData.map(data => data.wasmPageSize)
       },
     ];
   }
