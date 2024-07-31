@@ -2,9 +2,9 @@
 import { processResult } from "./process-result.js";
 
 await processResult({
-  inputPath: ["results/**/*.json"],
+  inputPath: ["results/windows_nt/**/*.json"],
   ingorePath: [
-    "results/**/platform-info.json"
+    "results/windows_nt/**/platform-info.json"
   ],
   outputPath: "processed",
 });

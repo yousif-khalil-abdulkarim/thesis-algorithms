@@ -25,6 +25,7 @@ import { existsSync } from "node:fs";
  * @returns {AsyncIterable<RawData>}
  */
 async function* readData(rootPaths, ingorePaths) {
+  let index = 0;
   for await (const path of globStream(rootPaths, {
     absolute: true,
     ignore: ingorePaths,
@@ -40,22 +41,25 @@ async function* readData(rootPaths, ingorePaths) {
 }
 
 /**
- * @param {string} string
- * @return {boolean}
- */
-function isNumber(string) {
-  return /^(\d|_)+$/.test(string);
-}
-
-/**
  * @param {string} path
  */
-function getDatePathSegment(path) {
-  const dateSegmentPath = path.split(sep).find(isNumber);
-  if (!dateSegmentPath) {
-    throw new Error(`Path "${path}" is missign date segement`);
-  }
-  return dateSegmentPath;
+function getSegments(path) {
+  const segements = path.split("\\");
+  const size = segements.at(-1)?.split(".")[0].split("_").at(-1);
+  const step = segements.at(-2);
+  const wasmPageSize = segements.at(-3);
+  const language = segements.at(-4);
+  const algorithm = segements.at(-5);
+  const date = segements.at(-6);
+  return {
+    date,
+    path,
+    size,
+    step,
+    wasmPageSize,
+    language,
+    algorithm,
+  };
 }
 
 /**
@@ -84,7 +88,8 @@ async function* groupData(rawDataIterable) {
       rawData.data.algorithm,
       rawData.data.type,
       rawData.data.language,
-      getDatePathSegment(rawData.path),
+      getSegments(rawData.path).step,
+      getSegments(rawData.path).date,
     ].join("_");
     const previousRawData = map.get(key);
     map.set(key, [
@@ -116,11 +121,14 @@ async function* groupData(rawDataIterable) {
  */
 async function* toPandasObject(groupedDataIterable) {
   for await (const [algorithm, groupedData] of groupedDataIterable) {
+    const sortedGroupedData = groupedData.sort((a, b) => {
+      return a.wasmPageSize - b.wasmPageSize;
+    });
     yield [
       algorithm,
       {
-        time: groupedData.map((data) => data.time),
-        wasmPageSize: groupedData.map(data => data.wasmPageSize)
+        time: sortedGroupedData.map((data) => data.time),
+        wasmPageSize: sortedGroupedData.map((data) => data.wasmPageSize),
       },
     ];
   }
