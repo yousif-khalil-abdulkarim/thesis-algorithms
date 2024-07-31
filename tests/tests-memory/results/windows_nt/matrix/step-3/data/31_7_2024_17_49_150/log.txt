@@ -1,0 +1,120 @@
+STARTED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 194
+date 31_7_2024_17_49_153
+
+ENDED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 194
+date 31_7_2024_17_49_832
+
+STARTED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 291
+date 31_7_2024_17_49_832
+
+ENDED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 291
+date 31_7_2024_17_50_554
+
+STARTED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 387
+date 31_7_2024_17_50_555
+
+ENDED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 387
+date 31_7_2024_17_51_197
+
+STARTED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 581
+date 31_7_2024_17_51_198
+
+ENDED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 581
+date 31_7_2024_17_51_850
+
+STARTED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 774
+date 31_7_2024_17_51_851
+
+ENDED: matrixAddition_f64_c
+size 1779
+step 3
+wasm page size 774
+date 31_7_2024_17_52_512
+
+STARTED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 194
+date 31_7_2024_17_52_512
+
+ENDED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 194
+date 31_7_2024_17_53_289
+
+STARTED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 291
+date 31_7_2024_17_53_290
+
+ENDED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 291
+date 31_7_2024_17_54_56
+
+STARTED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 387
+date 31_7_2024_17_54_57
+
+ENDED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 387
+date 31_7_2024_17_54_838
+
+STARTED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 581
+date 31_7_2024_17_54_839
+
+ENDED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 581
+date 31_7_2024_17_55_608
+
+STARTED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 774
+date 31_7_2024_17_55_609
+
+ENDED: matrixAddition_f64_asm
+size 1779
+step 3
+wasm page size 774
+date 31_7_2024_17_56_379
+
