@@ -21,10 +21,9 @@ class RawData(TypedDict):
     language: str
     type: str
     time: list[float]
-    size: list[float]
+    wasmPageSize: list[float]
 
 class RelatedDataFrame(TypedDict):
-    js: pandas.DataFrame
     asm: pandas.DataFrame
     c: pandas.DataFrame
 
@@ -41,47 +40,47 @@ def raw_data_to_data_frames(raw_data_arr: list[RawData]) -> list[pandas.DataFram
         data_frame = pandas.DataFrame.from_dict(
             data = dict(item),
             orient="columns",
-        )[["time", "size"]].transpose()
+        )[["time", "wasmPageSize"]].transpose()
         data_frames.append(data_frame)
     return data_frames
 
 def original(array: list[RawData]) -> pandas.DataFrame:
     resultDataFrame = pandas.DataFrame()
-    resultDataFrame["size"] = pandas.DataFrame.from_dict(dict(array[0]))["size"] 
+    resultDataFrame["wasmPageSize"] = pandas.DataFrame.from_dict(dict(array[0]))["wasmPageSize"] 
     resultDataFrame["time"] = pandas.concat(raw_data_to_data_frames(array)).loc["time"]
     return resultDataFrame
 
 def average(array: list[RawData]) -> pandas.DataFrame:
     resultDataFrame = pandas.DataFrame()
-    resultDataFrame["size"] = pandas.DataFrame.from_dict(dict(array[0]))["size"] 
+    resultDataFrame["wasmPageSize"] = pandas.DataFrame.from_dict(dict(array[0]))["wasmPageSize"] 
     resultDataFrame["time"] = pandas.concat(raw_data_to_data_frames(array)).loc["time"].mean(axis=0)
     return resultDataFrame
 
 def min(array: list[RawData]) -> pandas.DataFrame:
     resultDataFrame = pandas.DataFrame()
-    resultDataFrame["size"] = pandas.DataFrame.from_dict(dict(array[0]))["size"] 
+    resultDataFrame["wasmPageSize"] = pandas.DataFrame.from_dict(dict(array[0]))["wasmPageSize"] 
     resultDataFrame["time"] = pandas.concat(raw_data_to_data_frames(array)).loc["time"].min(axis=0)
     return resultDataFrame
 
 def max(array: list[RawData]) -> pandas.DataFrame:
     resultDataFrame = pandas.DataFrame()
-    resultDataFrame["size"] = pandas.DataFrame.from_dict(dict(array[0]))["size"] 
+    resultDataFrame["wasmPageSize"] = pandas.DataFrame.from_dict(dict(array[0]))["wasmPageSize"] 
     resultDataFrame["time"] = pandas.concat(raw_data_to_data_frames(array)).loc["time"].max(axis=0)
     return resultDataFrame
 
 def standard_deviation(array: list[RawData]) -> pandas.DataFrame:
     resultDataFrame = pandas.DataFrame()
-    resultDataFrame["size"] = pandas.DataFrame.from_dict(dict(array[0]))["size"] 
+    resultDataFrame["wasmPageSize"] = pandas.DataFrame.from_dict(dict(array[0]))["wasmPageSize"] 
     resultDataFrame["time"] = pandas.concat(raw_data_to_data_frames(array)).loc["time"].std(axis=0)
     return resultDataFrame
 
 def generate_scatter_graph(file_output_path: str, title: str, data_frame: pandas.DataFrame) -> None:
     fig, axis = plt.subplots()
-    axis.scatter(data_frame["size"], data_frame["time"])
+    axis.scatter(data_frame["wasmPageSize"], data_frame["time"])
     axis.set_xscale("linear")
     axis.set_yscale("linear")
     axis.set_ylabel("time")
-    axis.set_xlabel("size")
+    axis.set_xlabel("wasmPageSize")
     axis.set_title(title)
     fig.tight_layout()
     fig.savefig(fname = file_output_path, format = "png")
@@ -208,18 +207,16 @@ def generate_graph_combo(
     )
 
 def generate_multi_scatter_graph(file_output_path: str, title: str, related_data_frame: RelatedDataFrame) -> None:
-    related_data_frame["js"]["lang"]="js"
     related_data_frame["c"]["lang"]="c"
     related_data_frame["asm"]["lang"]="asm"
 
     df_full = pandas.concat([
-        related_data_frame["js"],
         related_data_frame["c"],
         related_data_frame["asm"],
     ])
 
     plt.subplots(figsize=(8, 6))
-    barplot(data=df_full, x="size", y="time", hue="lang",errorbar="ci")
+    barplot(data=df_full, x="wasmPageSize", y="time", hue="lang",errorbar="ci")
     plt.title(title)
     plt.xticks(rotation=90)
     plt.savefig(fname = file_output_path, format = "png",bbox_inches='tight')
@@ -252,7 +249,6 @@ def generate_combined_for_language(
         os.makedirs(name = output_path_transform, exist_ok = True)
         print("output_path:", output_path_transform)
 
-        js_data_frames = convert(list(filter(matchLanguage("js"), alg_data)))
         asm_data_frames = convert(list(filter(matchLanguage("asm"), alg_data)))
         c_data_frames = convert(list(filter(matchLanguage("c"), alg_data)))
 
@@ -260,7 +256,6 @@ def generate_combined_for_language(
             file_output_path = str(output_path_transform / f"{title}.png"),
             title = title,
             related_data_frame = {
-                "js": js_data_frames,
                 "asm": asm_data_frames,
                 "c": c_data_frames
             }
@@ -278,7 +273,6 @@ def generate_combined_for_all(
         os.makedirs(name = output_path_transform, exist_ok = True)
         print("output_path:", output_path_transform)
 
-        js_data_frames = convert(list(filter(matchLanguage("js"), alg_data)))
         asm_data_frames = convert(list(filter(matchLanguage("asm"), alg_data)))
         c_data_frames = convert(list(filter(matchLanguage("c"), alg_data)))
 
@@ -286,7 +280,6 @@ def generate_combined_for_all(
             file_output_path = str(output_path_transform / f"{title}.png"),
             title = title,
             related_data_frame = {
-                "js": js_data_frames,
                 "asm": asm_data_frames,
                 "c": c_data_frames
             }
@@ -313,7 +306,7 @@ def get_raw_data_list(input_path: pathlib.Path) -> list[RawData]:
         ),
         globPaths
     ))
-    return list(filter(lambda raw_data: len(raw_data["size"]) == 23, matches))
+    return matches
     
 def generate_graphs(
     input_path: str,
@@ -372,7 +365,7 @@ generate_graphs(
     input_path = "processed/**/*.json",
     output_path = "graphs",
     algorithms = ["average"],
-    languages = ["js", "c", "asm"],
-    types = ["f64", "f32", "u32", "i32", "u16", "i16", "u8", "i8"],
+    languages = ["c", "asm"],
+    types = ["f64"],
     handle_data_fns = [average, min, max, standard_deviation],
 )
