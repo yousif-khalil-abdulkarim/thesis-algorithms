@@ -16,5 +16,6 @@
     "stdlib.h": "c",
     "valarray": "c"
   },
-  "C_Cpp.errorSquiggles": "enabled"
+  "C_Cpp.errorSquiggles": "enabled",
+  "python.analysis.typeCheckingMode": "basic"
 }
