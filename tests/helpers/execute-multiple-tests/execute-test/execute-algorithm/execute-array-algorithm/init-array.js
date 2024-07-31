@@ -19,30 +19,29 @@ function compare(sorted) {
 /**
  * @param {shared.Type} type
  * @param {number} size
- * @param {boolean} sorted
  * @returns {shared.Array1d<number | bigint>}
  */
-function typedArrayFactory(type, size, sorted) {
+function typedArrayFactory(type, size) {
   if (type === "u64") {
-    return new BigUint64Array(size).sort(compare(sorted));
+    return new BigUint64Array(size);
   } else if (type === "i64") {
-    return new BigInt64Array(size).sort(compare(sorted));
+    return new BigInt64Array(size);
   } else if (type === "f64") {
-    return new Float64Array(size).sort(compare(sorted));
+    return new Float64Array(size);
   } else if (type === "f32") {
-    return new Float32Array(size).sort(compare(sorted));
+    return new Float32Array(size);
   } else if (type === "u32") {
-    return new Uint32Array(size).sort(compare(sorted));
+    return new Uint32Array(size);
   } else if (type === "i32") {
-    return new Int32Array(size).sort(compare(sorted));
+    return new Int32Array(size);
   } else if (type === "u16") {
-    return new Uint16Array(size).sort(compare(sorted));
+    return new Uint16Array(size);
   } else if (type === "i16") {
-    return new Int16Array(size).sort(compare(sorted));
+    return new Int16Array(size);
   } else if (type === "u8") {
-    return new Uint8Array(size).sort(compare(sorted));
+    return new Uint8Array(size);
   } else if (type === "i8") {
-    return new Int8Array(size).sort(compare(sorted));
+    return new Int8Array(size);
   }
   throw new Error(`Unsupported type: ${type}`);
 }
@@ -67,6 +66,7 @@ function fillTypedArray(type, array) {
  */
 export function initArray(type, size, sorted = false) {
   const array = typedArrayFactory(type, size, sorted);
-  fillTypedArray(type, array);
+  fillTypedArray(type, array)
+  array.sort(compare(sorted));
   return array;
 }
