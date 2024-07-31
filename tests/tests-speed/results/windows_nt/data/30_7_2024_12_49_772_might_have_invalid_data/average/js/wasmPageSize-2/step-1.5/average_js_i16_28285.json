@@ -1,0 +1,10 @@
+{
+  "algorithm": "average",
+  "type": "i16",
+  "language": "js",
+  "size": 28285,
+  "wasmPageSize": 2,
+  "time": [
+    0.3999999761581421
+  ]
+}

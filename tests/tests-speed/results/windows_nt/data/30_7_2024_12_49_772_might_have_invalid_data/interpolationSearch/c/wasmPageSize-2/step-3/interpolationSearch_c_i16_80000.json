@@ -1,0 +1,8 @@
+{
+  "algorithm": "interpolationSearch",
+  "type": "i16",
+  "language": "c",
+  "size": 80000,
+  "wasmPageSize": 2,
+  "time": []
+}
