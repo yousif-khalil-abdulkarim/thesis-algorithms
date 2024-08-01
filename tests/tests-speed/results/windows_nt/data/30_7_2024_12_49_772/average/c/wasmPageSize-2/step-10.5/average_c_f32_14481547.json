@@ -1,8 +1,0 @@
-{
-  "algorithm": "average",
-  "type": "f32",
-  "language": "c",
-  "size": 14481547,
-  "wasmPageSize": 2,
-  "time": []
-}

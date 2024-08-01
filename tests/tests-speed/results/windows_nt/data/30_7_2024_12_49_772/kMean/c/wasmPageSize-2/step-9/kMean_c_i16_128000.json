@@ -1,8 +1,0 @@
-{
-  "algorithm": "kMean",
-  "type": "i16",
-  "language": "c",
-  "size": 128000,
-  "wasmPageSize": 2,
-  "time": []
-}

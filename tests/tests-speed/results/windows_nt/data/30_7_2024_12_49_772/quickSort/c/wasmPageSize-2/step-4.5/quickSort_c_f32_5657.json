@@ -1,8 +1,0 @@
-{
-  "algorithm": "quickSort",
-  "type": "f32",
-  "language": "c",
-  "size": 5657,
-  "wasmPageSize": 2,
-  "time": []
-}

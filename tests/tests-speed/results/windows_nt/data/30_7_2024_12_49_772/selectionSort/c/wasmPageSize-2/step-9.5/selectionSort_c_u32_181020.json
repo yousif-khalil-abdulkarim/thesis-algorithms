@@ -1,8 +1,0 @@
-{
-  "algorithm": "selectionSort",
-  "type": "u32",
-  "language": "c",
-  "size": 181020,
-  "wasmPageSize": 2,
-  "time": []
-}
