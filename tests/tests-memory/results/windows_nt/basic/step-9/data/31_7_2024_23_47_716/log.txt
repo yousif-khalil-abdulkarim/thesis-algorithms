@@ -1,0 +1,734 @@
+STARTED: average_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_47_719
+
+ENDED: average_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_49_7
+
+STARTED: average_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_49_8
+
+ENDED: average_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_50_330
+
+STARTED: average_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_50_331
+
+ENDED: average_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_51_590
+
+STARTED: average_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_51_590
+
+ENDED: average_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_52_838
+
+STARTED: average_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_52_839
+
+ENDED: average_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_54_85
+
+STARTED: max_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_54_86
+
+ENDED: max_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_55_321
+
+STARTED: max_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_55_322
+
+ENDED: max_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_56_626
+
+STARTED: max_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_56_627
+
+ENDED: max_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_57_978
+
+STARTED: max_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_57_978
+
+ENDED: max_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_59_242
+
+STARTED: max_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_59_242
+
+ENDED: max_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_0_540
+
+STARTED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_0_541
+
+ENDED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_1_883
+
+STARTED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_1_884
+
+ENDED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_3_206
+
+STARTED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_3_207
+
+ENDED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_4_458
+
+STARTED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_4_459
+
+ENDED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_5_712
+
+STARTED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_5_713
+
+ENDED: binarySearch_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_6_959
+
+STARTED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_6_959
+
+ENDED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_8_189
+
+STARTED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_8_190
+
+ENDED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_9_457
+
+STARTED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_9_458
+
+ENDED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_10_715
+
+STARTED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_10_715
+
+ENDED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_11_945
+
+STARTED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_11_945
+
+ENDED: interpolationSearch_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_13_180
+
+STARTED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_13_181
+
+ENDED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_14_428
+
+STARTED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_14_429
+
+ENDED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_15_727
+
+STARTED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_15_728
+
+ENDED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_17_16
+
+STARTED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_17_16
+
+ENDED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_18_271
+
+STARTED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_18_272
+
+ENDED: metaBinarySearch_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_19_663
+
+STARTED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_19_663
+
+ENDED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_21_941
+
+STARTED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_21_942
+
+ENDED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_24_212
+
+STARTED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_24_213
+
+ENDED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_26_502
+
+STARTED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_26_502
+
+ERROR: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_27_674
+TypeError Cannot perform %TypedArray%.prototype.copyWithin on a detached ArrayBuffer
+
+ENDED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_27_746
+
+STARTED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_27_746
+
+ERROR: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_28_925
+TypeError Cannot perform %TypedArray%.prototype.copyWithin on a detached ArrayBuffer
+
+ENDED: mergeSort_f64_c
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_29_16
+
+STARTED: average_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_29_16
+
+ENDED: average_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_30_208
+
+STARTED: average_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_30_208
+
+ENDED: average_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_31_386
+
+STARTED: average_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_31_386
+
+ENDED: average_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_32_575
+
+STARTED: average_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_32_575
+
+ENDED: average_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_33_870
+
+STARTED: average_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_33_870
+
+ENDED: average_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_35_194
+
+STARTED: max_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_35_195
+
+ENDED: max_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_36_393
+
+STARTED: max_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_36_393
+
+ENDED: max_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_37_555
+
+STARTED: max_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_37_556
+
+ENDED: max_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_38_723
+
+STARTED: max_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_38_724
+
+ENDED: max_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_40_33
+
+STARTED: max_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_40_34
+
+ENDED: max_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_41_321
+
+STARTED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_41_321
+
+ENDED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_44_310
+
+STARTED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_44_311
+
+ENDED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_47_368
+
+STARTED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_47_369
+
+ENDED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_50_374
+
+STARTED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_50_374
+
+ENDED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_53_331
+
+STARTED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_53_331
+
+ENDED: binarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_56_307
+
+STARTED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_56_307
+
+ENDED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_59_335
+
+STARTED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_59_336
+
+ENDED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_2_467
+
+STARTED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_2_467
+
+ENDED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_5_577
+
+STARTED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_5_578
+
+ENDED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_8_576
+
+STARTED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_8_576
+
+ENDED: interpolationSearch_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_11_618
+
+STARTED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_11_619
+
+ENDED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_14_594
+
+STARTED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_14_594
+
+ENDED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_17_623
+
+STARTED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_17_623
+
+ENDED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_20_569
+
+STARTED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_20_569
+
+ENDED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_23_476
+
+STARTED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_23_477
+
+ENDED: metaBinarySearch_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_26_389
+
+STARTED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_26_390
+
+ENDED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 313
+date 31_7_2024_23_30_268
+
+STARTED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_30_269
+
+ENDED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 469
+date 31_7_2024_23_34_209
+
+STARTED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_34_210
+
+ENDED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 625
+date 31_7_2024_23_38_120
+
+STARTED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_38_121
+
+ENDED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 938
+date 31_7_2024_23_42_43
+
+STARTED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_42_44
+
+ENDED: mergeSort_f64_asm
+size 5120000
+step 9
+wasm page size 1250
+date 31_7_2024_23_45_949
+

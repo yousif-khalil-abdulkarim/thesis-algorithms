@@ -1,0 +1,134 @@
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_1_18_85
+
+ERROR: kMean_f64_c
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_1_18_155
+Error wasmPageSize is 1 but it must be larger than the current size 2
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_1_18_170
+
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_1_18_171
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_1_18_736
+
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_1_18_737
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_1_19_282
+
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 3
+date 1_8_2024_1_19_282
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 3
+date 1_8_2024_1_19_812
+
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 4
+date 1_8_2024_1_19_812
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 4
+date 1_8_2024_1_20_338
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_1_20_339
+
+ERROR: kMean_f64_asm
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_1_20_403
+Error wasmPageSize is 1 but it must be larger than the current size 2
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_1_20_418
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_1_20_419
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_1_23_660
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_1_23_660
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_1_26_944
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 3
+date 1_8_2024_1_26_944
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 3
+date 1_8_2024_1_30_221
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 4
+date 1_8_2024_1_30_222
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 4
+date 1_8_2024_1_33_497
+

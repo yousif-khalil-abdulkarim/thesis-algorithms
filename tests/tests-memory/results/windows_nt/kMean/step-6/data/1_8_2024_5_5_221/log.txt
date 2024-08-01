@@ -1,0 +1,134 @@
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_5_5_223
+
+ERROR: kMean_f64_c
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_5_5_288
+Error wasmPageSize is 1 but it must be larger than the current size 2
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_5_5_304
+
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_5_5_305
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_5_5_844
+
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_5_5_845
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_5_6_429
+
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 3
+date 1_8_2024_5_6_429
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 3
+date 1_8_2024_5_6_983
+
+STARTED: kMean_f64_c
+size 16000
+step 6
+wasm page size 4
+date 1_8_2024_5_6_985
+
+ENDED: kMean_f64_c
+size 16000
+step 6
+wasm page size 4
+date 1_8_2024_5_7_536
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_5_7_536
+
+ERROR: kMean_f64_asm
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_5_7_601
+Error wasmPageSize is 1 but it must be larger than the current size 2
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 1
+date 1_8_2024_5_7_614
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_5_7_614
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_5_10_904
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_5_10_904
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 2
+date 1_8_2024_5_14_209
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 3
+date 1_8_2024_5_14_209
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 3
+date 1_8_2024_5_17_518
+
+STARTED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 4
+date 1_8_2024_5_17_519
+
+ENDED: kMean_f64_asm
+size 16000
+step 6
+wasm page size 4
+date 1_8_2024_5_20_855
+
