@@ -1,0 +1,10 @@
+{
+  "algorithm": "bubbleSort",
+  "type": "f64",
+  "language": "js",
+  "size": 8000,
+  "wasmPageSize": 2,
+  "time": [
+    69.20000004768372
+  ]
+}
