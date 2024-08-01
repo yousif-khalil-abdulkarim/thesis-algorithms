@@ -371,21 +371,7 @@ def generate_graphs(
 generate_graphs(
     input_path = "processed/**/*.json",
     output_path = "graphs",
-    algorithms = [
-        "average",
-        "max",
-        "binarySearch",
-        "interpolationSearch",
-        "metaBinarySearch",
-        "kMean",
-        "mergeSort",
-        "quickSort",
-        "selectionSort",
-        "bubbleSort",
-        "matrixAddition",
-        "matrixMultiplication",
-        "kMean"
-    ],
+    algorithms = ["average"],
     languages = ["js", "c", "asm"],
     types = ["f64", "f32", "u32", "i32", "u16", "i16", "u8", "i8"],
     handle_data_fns = [average, min, max, standard_deviation],

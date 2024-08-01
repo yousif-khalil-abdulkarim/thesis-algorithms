@@ -34,7 +34,6 @@ await executeMultipleTests({
     shared.ALGORITHMS.SORT.BUBBLE_SORT,
     shared.ALGORITHMS.MATRIX.MATRIX_ADDITION,
     shared.ALGORITHMS.MATRIX.MATRIX_MULTIPLICATION,
-    // shared.ALGORITHMS.STATICS.K_MEAN,
   ],
   types: ["f64", "f32", "u32", "i32", "u16", "i16", "u8", "i8"],
   languages: ["js", "c", "asm"],
