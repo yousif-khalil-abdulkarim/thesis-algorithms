@@ -218,7 +218,7 @@ def generate_multi_scatter_graph(file_output_path: str, title: str, related_data
         related_data_frame["asm"],
     ])
 
-    plt.subplots(figsize=(8, 6))
+    plt.subplots()
     barplot(data=df_full, x="size", y="time", hue="lang",errorbar="ci")
     plt.title(title)
     plt.xticks(rotation=90)
