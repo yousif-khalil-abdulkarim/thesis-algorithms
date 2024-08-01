@@ -1,0 +1,10 @@
+{
+  "algorithm": "metaBinarySearch",
+  "type": "f64",
+  "language": "asm",
+  "size": 5120000,
+  "wasmPageSize": 625,
+  "time": [
+    12.5
+  ]
+}
