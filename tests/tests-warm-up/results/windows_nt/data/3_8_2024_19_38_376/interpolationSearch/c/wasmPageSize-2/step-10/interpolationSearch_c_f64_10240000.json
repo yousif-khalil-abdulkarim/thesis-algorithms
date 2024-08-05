@@ -1,0 +1,19 @@
+{
+  "algorithm": "interpolationSearch",
+  "type": "f64",
+  "language": "c",
+  "size": 10240000,
+  "wasmPageSize": 2,
+  "time": [
+    0.20000000298023224,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

@@ -43,6 +43,7 @@ await executeMultipleTests({
     jump: 1,
   }),
   wasmPageSizes: [2],
-  repitionInNodeJs: 3,
+  // Ska ta 6 h
+  repitionInNodeJs: 2,
   repitionInBrowser: 10,
 });

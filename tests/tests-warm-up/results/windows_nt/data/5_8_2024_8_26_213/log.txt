@@ -1,0 +1,288 @@
+STARTED: average_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_26_224
+
+ENDED: average_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_50_467
+
+STARTED: max_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_50_468
+
+ENDED: max_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_15_677
+
+STARTED: binarySearch_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_15_678
+
+ENDED: binarySearch_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_40_729
+
+STARTED: interpolationSearch_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_40_729
+
+ENDED: interpolationSearch_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_7_231
+
+STARTED: metaBinarySearch_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_7_231
+
+ENDED: metaBinarySearch_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_33_899
+
+STARTED: kMean_f64_c
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_8_33_900
+
+ENDED: kMean_f64_c
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_8_20_631
+
+STARTED: mergeSort_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_20_631
+
+ENDED: mergeSort_f64_c
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_8_5_283
+
+STARTED: quickSort_f64_c
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_8_5_284
+
+ENDED: quickSort_f64_c
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_8_5_892
+
+STARTED: selectionSort_f64_c
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_8_5_893
+
+ENDED: selectionSort_f64_c
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_29_434
+
+STARTED: bubbleSort_f64_c
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_29_435
+
+ENDED: bubbleSort_f64_c
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_10_227
+
+STARTED: matrixAddition_f64_c
+size 6813
+step 10
+wasm page size 2
+date 5_8_2024_9_10_228
+
+ENDED: matrixAddition_f64_c
+size 6813
+step 10
+wasm page size 2
+date 5_8_2024_9_27_505
+
+STARTED: matrixMultiplication_f64_c
+size 1070
+step 10
+wasm page size 2
+date 5_8_2024_9_27_505
+
+ENDED: matrixMultiplication_f64_c
+size 1070
+step 10
+wasm page size 2
+date 5_8_2024_9_41_618
+
+STARTED: average_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_41_618
+
+ENDED: average_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_7_313
+
+STARTED: max_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_7_314
+
+ENDED: max_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_31_771
+
+STARTED: binarySearch_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_31_771
+
+ENDED: binarySearch_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_34_869
+
+STARTED: interpolationSearch_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_34_870
+
+ENDED: interpolationSearch_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_37_510
+
+STARTED: metaBinarySearch_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_37_511
+
+ENDED: metaBinarySearch_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_41_474
+
+STARTED: kMean_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_41_474
+
+ENDED: kMean_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_58_878
+
+STARTED: mergeSort_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_58_879
+
+ENDED: mergeSort_f64_asm
+size 10240000
+step 10
+wasm page size 2
+date 5_8_2024_9_22_794
+
+STARTED: quickSort_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_22_794
+
+ENDED: quickSort_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_23_369
+
+STARTED: selectionSort_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_23_370
+
+ENDED: selectionSort_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_5_741
+
+STARTED: bubbleSort_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_9_5_742
+
+ENDED: bubbleSort_f64_asm
+size 256000
+step 10
+wasm page size 2
+date 5_8_2024_11_7_693
+
+STARTED: matrixAddition_f64_asm
+size 6813
+step 10
+wasm page size 2
+date 5_8_2024_11_7_694
+
+ENDED: matrixAddition_f64_asm
+size 6813
+step 10
+wasm page size 2
+date 5_8_2024_11_43_145
+
+STARTED: matrixMultiplication_f64_asm
+size 1070
+step 10
+wasm page size 2
+date 5_8_2024_11_43_146
+
+ENDED: matrixMultiplication_f64_asm
+size 1070
+step 10
+wasm page size 2
+date 5_8_2024_11_2_164
+
