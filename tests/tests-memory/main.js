@@ -89,7 +89,12 @@ const fastAlg = shared
     steps: [settings.step],
     wasmPageSizes: settings.wasmPageSizes,
   }));
-console.log(fastAlg);
+console.log(
+  fastAlg.map((settings) => ({
+    ...settings,
+    ...BASE_SETTINGS,
+  }))
+);
 for (const settings of fastAlg) {
   await m.executeMultipleTests({
     ...BASE_SETTINGS,
@@ -118,12 +123,12 @@ const kMeanAlg = shared
     wasmPageSizes: settings.wasmPageSizes,
   }));
 console.log(kMeanAlg);
-for (const settings of kMeanAlg) {
-  await m.executeMultipleTests({
-    ...BASE_SETTINGS,
-    ...settings
-  });
-}
+// for (const settings of kMeanAlg) {
+//   await m.executeMultipleTests({
+//     ...BASE_SETTINGS,
+//     ...settings
+//   });
+// }
 
 const matrixAlg = shared
   .calculateSteps({
@@ -151,9 +156,9 @@ const matrixAlg = shared
     wasmPageSizes: settings.wasmPageSizes,
   }));
 console.log(matrixAlg);
-for (const settings of matrixAlg) {
-  await m.executeMultipleTests({
-    ...BASE_SETTINGS,
-    ...settings,
-  });
-}
+// for (const settings of matrixAlg) {
+//   await m.executeMultipleTests({
+//     ...BASE_SETTINGS,
+//     ...settings,
+//   });
+// }
