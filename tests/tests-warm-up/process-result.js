@@ -40,89 +40,56 @@ async function* readData(rootPaths, ingorePaths) {
 }
 
 /**
- * @param {string} string
- * @return {boolean}
- */
-function isNumber(string) {
-  return /^(\d|_)+$/.test(string);
-}
-
-/**
  * @param {string} path
  */
-function getDatePathSegment(path) {
-  const dateSegmentPath = path.split(sep).find(isNumber);
-  if (!dateSegmentPath) {
-    throw new Error(`Path "${path}" is missign date segement`);
-  }
-  return dateSegmentPath;
+function getSegments(path) {
+  const segements = path.split("\\");
+  const size = segements.at(-1)?.split(".")[0].split("_").at(-1);
+  const step = segements.at(-2);
+  const wasmPageSize = segements.at(-3);
+  const language = segements.at(-4);
+  const algorithm = segements.at(-5);
+  const date = segements.at(-6);
+  return {
+    date,
+    path,
+    size,
+    step,
+    wasmPageSize,
+    language,
+    algorithm,
+  };
 }
 
 /**
- * @param {AsyncIterable<RawData>} rawDataIterable
- * @returns {AsyncIterable<[
- *  algorithm: string,
- *  algorithmData: Array<{
- *    time: number;
- *    size: number;
- *  }>
- * ]>}
- */
-async function* groupData(rawDataIterable) {
-  /**
-   * @type {Map<
-   *  string,
-   *  Array<{
-   *    time: number;
-   *    size: number;
-   *  }>
-   * >}
-   */
-  const map = new Map();
-  for await (const rawData of rawDataIterable) {
-    const key = [
-      rawData.data.algorithm,
-      rawData.data.type,
-      rawData.data.language,
-      getDatePathSegment(rawData.path),
-    ].join("_");
-    const previousRawData = map.get(key);
-    map.set(key, [
-      ...previousRawData ?? [],
-      ...rawData.data.time.map((time) => ({
-        time,
-        size: rawData.data.size,
-      })),
-    ]);
-  }
-  yield* map;
-}
-
-/**
- * @param {AsyncIterable<[
- *  algorithm: string,
- *  algorithmData: Array<{
- *    time: number;
- *    size: number;
- *  }>
- * ]>} groupedDataIterable
+ * @param {AsyncIterable<RawData>} groupedDataIterable
  * @returns {AsyncIterable<[
  *  algorithm: string,
  *  algorithmData: {
  *    time: number[];
- *    size: number[];
+ *    repition: number[];
  *  }
  * ]>}
  */
 async function* toPandasObject(groupedDataIterable) {
-  for await (const [algorithm, groupedData] of groupedDataIterable) {
-    yield [
-      algorithm,
-      {
-        size: groupedData.map((data) => data.size),
-        time: groupedData.map((data) => data.time),
-      },
-    ];
+  for await (const rawData of groupedDataIterable) {
+    if (rawData.data.time.length === 10) {
+      const key = [
+        rawData.data.algorithm,
+        rawData.data.type,
+        rawData.data.language,
+        getSegments(rawData.path).date,
+      ].join("_");
+      yield [
+        key,
+        {
+          time: rawData.data.time,
+          repition: Array(rawData.data.time.length)
+            .fill("")
+            .map((_, index) => index + 1),
+        },
+      ];
+    }
   }
 }
 
@@ -141,7 +108,7 @@ export async function processResult(settings) {
     });
   }
   for await (const [algorithm, pandasData] of toPandasObject(
-    groupData(readData(inputPath, ingorePath))
+    readData(inputPath, ingorePath)
   )) {
     const fileName = `${algorithm}.json`;
     await writeFile(
