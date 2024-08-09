@@ -9,6 +9,7 @@ from itertools import product
 from tqdm import tqdm
 from seaborn import boxplot, lineplot, scatterplot, stripplot
 from itertools import groupby
+import plotly.express as px
 JS_COLOR = "red"
 
 ASM_COLOR = "blue"
@@ -20,9 +21,8 @@ class RawData(TypedDict):
     algorithm: str
     language: str
     type: str
-    step: str
+    size: list[float]
     time: list[float]
-    wasmPageSize: list[float]
 
 HandleData = Callable[[list[RawData]], pandas.DataFrame]
 
@@ -105,13 +105,12 @@ def get_raw_data(file_path: pathlib.Path) -> RawData:
     data = RawData(json.load(file))
     file.close()
     file_name = str(file_path).split("\\")[-1]
-    algorithName, type, language, step, *rest = file_name.split("_")
+    algorithName, type, language, *rest = file_name.split("_")
     id = "_".join(rest).split(".")[0]
     data["id"] = id
     data["algorithm"] = algorithName
     data["type"] = type
     data["language"] = language
-    data["step"] = step
     return data
 
 def get_raw_data_list(input_path: pathlib.Path) -> list[RawData]:
@@ -122,7 +121,7 @@ def get_raw_data_list(input_path: pathlib.Path) -> list[RawData]:
         ),
         globPaths
     ))
-    return list(filter(lambda rawData: len(rawData["wasmPageSize"]) == 5, matches))
+    return list(filter(lambda rawData: len(rawData["time"]) == 23, matches))
 
 def group_raw_data_by_steps(matches: list[RawData]):
     return { key:list(iter)
@@ -134,6 +133,23 @@ def group_raw_data_by_steps(matches: list[RawData]):
             key=lambda x: f"{x["algorithm"]}_{x["language"]}_{x["type"]}_{x["step"]}"
         )
     }
+
+
+def plotly_scatter(
+    title:str,
+    raw_data:list[RawData]
+):
+    dfs =list(map(lambda df:pandas.DataFrame.from_dict(dict(df)) , raw_data))
+    df  = pandas.concat(dfs)
+    fig = px.scatter(df, x="size", y="time", color="language", symbol="type", title=title,trendline="ols")
+    fig.update_layout(
+    font=dict(
+        size=30,  # Set the font size here
+        )
+    )
+    fig.show()
+    input()
+    exit()
 
 def generate_graphs(
     input_path: str,
@@ -154,40 +170,11 @@ def generate_graphs(
         box_graph,
         line_graph
     ]
-
-    for algorithm, language, type, generate_graph in tqdm(
-        product(
-            algorithms,
-            languages,
-            types,
-            generate_graphs
+    for algorithm, *_ in tqdm(product(algorithms)):
+        theGoodOnes = list(
+            filter(lambda rawData:rawData["language"] == "js" or rawData["language"] == "c", filter(matchAlgorithm(algorithm), matched))
         )
-    ):
-        grouped = group_raw_data_by_steps(
-            list(
-                filter(
-                    matchAlgorithm(algorithm),
-                    filter(
-                        matchLanguage(language),
-                        filter(
-                            matchType(type),
-                            matched
-                        )
-                    )
-                )
-            )
-        )
-
-        for group_name, raw_data in tqdm(grouped.items()):
-            algorithm_output_path = abosulte_output_path / algorithm / language / generate_graph.__name__.lower()
-            os.makedirs(name = algorithm_output_path, exist_ok = True)
-            generate_graph_combo(
-                file_output_path = str(algorithm_output_path / f"./{group_name}.png"),
-                title = group_name,
-                raw_data = raw_data,
-                handle_data = original,
-                generate_graph = generate_graph
-            )
+        plotly_scatter(title=f"{algorithm}_js_c",raw_data=theGoodOnes)
         
 generate_graphs(
     input_path = "processed/**.json",
@@ -199,8 +186,13 @@ generate_graphs(
         "interpolationSearch",
         "metaBinarySearch",
         "kMean",
-        "matrixAddition"
+        "mergeSort",
+        "quickSort",
+        "selectionSort",
+        "bubbleSort",
+        "matrixAddition",
+        "matrixMultiplication",
     ],
-    languages = ["c", "asm"],
-    types=["f64"]
+    languages = ["js", "c", "asm"],
+    types=["f64", "f32", "u32", "i32", "u16", "i16", "u8", "i8"]
 )
