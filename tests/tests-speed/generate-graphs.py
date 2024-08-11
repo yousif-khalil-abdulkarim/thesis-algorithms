@@ -141,15 +141,15 @@ def plotly_scatter(
 ):
     dfs =list(map(lambda df:pandas.DataFrame.from_dict(dict(df)) , raw_data))
     df  = pandas.concat(dfs)
-    fig = px.scatter(df, x="size", y="time", color="language", symbol="type", title=title,trendline="ols")
+    fig = px.scatter(df, x="size", y="time", color="language", symbol="type", title=title,trendline="ols", width=570*2.5, height=511*2)
     fig.update_layout(
+    font_weight=1000,
     font=dict(
         size=30,  # Set the font size here
         )
     )
     fig.show()
     input()
-    exit()
 
 def generate_graphs(
     input_path: str,
