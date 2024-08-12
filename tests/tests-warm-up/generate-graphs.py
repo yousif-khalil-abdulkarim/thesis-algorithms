@@ -104,7 +104,6 @@ def get_raw_data(file_path: pathlib.Path) -> RawData:
     data = RawData(json.load(file))
     file.close()
     file_name = str(file_path).split("\\")[-1]
-    print(file_name)
     algorithName, type, language, *rest = file_name.split("_")
     id = "_".join(rest).split(".")[0]
     data["id"] = id
@@ -150,8 +149,8 @@ def generate_graphs(
     matched = get_raw_data_list(absolute_input_path)
     generate_graphs: list[GenerateGraph] = [
         line_graph,
-        stripplot_graph,
-        box_graph,
+        # stripplot_graph,
+        # box_graph,
     ]
 
     for algorithm, language, type, generate_graph in tqdm(
@@ -165,6 +164,7 @@ def generate_graphs(
         grouped = group_raw_data_by_steps(
             list(
                 filter(
+                    # lambda x: True,
                     matchAlgorithm(algorithm),
                     filter(
                         matchLanguage(language),
@@ -192,18 +192,18 @@ generate_graphs(
     input_path = "processed/**.json",
     output_path = "graphs",
     algorithms = [
-        "average",
-        "max",
-        "binarySearch",
-        "interpolationSearch",
-        "metaBinarySearch",
-        "kMean",
-        "mergeSort",
-        "quickSort"
+        # "average",
+        # "max",
+        # "binarySearch",
+        # "interpolationSearch",
+        # "metaBinarySearch",
+        # "kMean",
+        # "mergeSort",
+        "quickSort",
         "selectionSort",
-        "bubbleSort",
-        "matrixAddition",
-        "matrixMultiplication"
+        # "bubbleSort",
+        # "matrixAddition",
+        # "matrixMultiplication"
     ],
     languages = ["c", "asm"],
     types=["f64"]

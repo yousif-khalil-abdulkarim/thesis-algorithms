@@ -134,7 +134,7 @@ generate_graphs(
         "metaBinarySearch",
         "kMean",
         "mergeSort",
-        "quickSort"
+        "quickSort",
         "selectionSort",
         "bubbleSort",
         "matrixAddition",
